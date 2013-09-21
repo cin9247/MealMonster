@@ -1,0 +1,29 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+
+    / Set the viewport width to device width for mobile
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+
+    title
+      = content_for?(:title) ? yield(:title) : "Untitled"
+
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "vendor/custom.modernizr"
+    = csrf_meta_tags
+
+  body
+
+    nav.top-bar
+      ul.title-area
+        li.name
+          h1
+            = link_to "Meals on Wheels", root_path
+
+    section.main
+      div.row
+        div.large-12.columns
+          == yield
+
+    = javascript_include_tag "application"
