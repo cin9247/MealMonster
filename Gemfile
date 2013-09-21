@@ -35,6 +35,8 @@ end
 gem 'compass-rails'
 gem 'zurb-foundation', '~> 4.0.0'
 
+gem 'slim'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

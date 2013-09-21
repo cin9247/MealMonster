@@ -28,8 +28,13 @@
       </ul>
     </nav>
 
-    <%= yield %>
-
+    <section class="main">
+      <div class="row">
+        <div class="large-12 columns">
+          <%= yield %>
+        </div>
+      </div>
+    </section>
 
     <%= javascript_include_tag "application" %>
   </body>
