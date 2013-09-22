@@ -37,6 +37,11 @@ gem 'zurb-foundation', '~> 4.0.0'
 
 gem 'slim'
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
