@@ -1,0 +1,12 @@
+nav.top-bar
+  ul.title-area
+    li.name
+      h1
+        = link_to "Meals on Wheels", root_path
+
+  section.top-bar-section
+    ul.left
+      li.divider
+      - navigation_items.each do |item|
+        li class=(item.active ? "active" : "inactive")
+          = link_to item.title, item.path
