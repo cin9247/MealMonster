@@ -1,0 +1,1 @@
+KITCHEN = Kitchen.new
