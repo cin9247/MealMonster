@@ -1,4 +1,7 @@
 class Meal
+  extend ActiveModel::Naming
+  include ActiveModel::Conversion
+
   attr_accessor :name, :kitchen
 
   def initialize(attributes = {})
@@ -9,5 +12,9 @@ class Meal
 
   def offer!
     kitchen.add_meal self
+  end
+
+  def persisted?
+    false
   end
 end
