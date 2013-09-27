@@ -31,4 +31,15 @@ describe Kitchen do
     end
   end
 
+  describe "#clean_up!" do
+    before do
+      subject.add_meal double(:meal)
+      subject.clean_up!
+    end
+
+    it "removes all meals" do
+      expect(subject.meals).to be_empty
+    end
+  end
+
 end

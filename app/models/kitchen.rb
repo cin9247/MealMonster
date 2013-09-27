@@ -13,6 +13,10 @@ class Kitchen
     meals << meal
   end
 
+  def clean_up!
+    @meals = []
+  end
+
   def meals
     @meals ||= []
   end
