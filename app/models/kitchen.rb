@@ -1,5 +1,3 @@
-require "ostruct"
-
 class Kitchen
   attr_writer :meal_source
 
