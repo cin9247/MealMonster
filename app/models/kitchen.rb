@@ -1,6 +1,11 @@
 class Kitchen
   attr_writer :meal_source, :menu_source
 
+  def initialize
+    @meals = []
+    @menus = []
+  end
+
   def new_meal(*args)
     meal_source.call self, *args
   end
@@ -10,11 +15,11 @@ class Kitchen
   end
 
   def add_meal(meal)
-    meals << meal
+    @meals << meal
   end
 
   def add_menu(menu)
-    menus << menu
+    @menus << menu
   end
 
   def clean_up!
@@ -23,11 +28,11 @@ class Kitchen
   end
 
   def meals
-    @meals ||= []
+    @meals
   end
 
   def menus
-    @menus ||= []
+    @menus
   end
 
   def menu_for_day(day)
