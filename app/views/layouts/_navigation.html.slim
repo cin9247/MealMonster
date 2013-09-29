@@ -9,4 +9,4 @@ nav.top-bar
       li.divider
       - navigation_items.each do |item|
         li class=(item.active ? "active" : "inactive")
-          = link_to item.title, item.path
+          = link_to item.title, item.url
