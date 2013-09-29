@@ -1,0 +1,9 @@
+= form_for @menu do |f|
+  p
+    = f.label :date
+    = f.text_field :date
+  p
+    = f.label :meal_ids, "Meals"
+    = f.select :meal_ids, KITCHEN.meals.map { |m| [m.name, m.id] }, {}, { multiple: true }
+  p
+    = f.submit

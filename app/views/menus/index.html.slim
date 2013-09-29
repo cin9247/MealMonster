@@ -1,0 +1,10 @@
+ul.menus
+  - @menus.each do |menu|
+    li.menu
+      h2
+        = menu.date
+      ul.meals
+        - menu.meals.each do |meal|
+          li.meal
+            = meal.name
+

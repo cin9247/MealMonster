@@ -41,3 +41,9 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+def create_meal(kitchen, options={})
+  kitchen.new_meal(options).tap do |m|
+    m.offer!
+  end
+end

@@ -4,7 +4,9 @@ class Meal
 
   attr_accessor :name, :kitchen
 
-  def initialize(attributes = {})
+  def initialize(kitchen = nil, attributes = {})
+    self.kitchen = kitchen
+
     attributes.each do |key, value|
       public_send "#{key}=", value
     end
@@ -16,5 +18,9 @@ class Meal
 
   def persisted?
     false
+  end
+
+  def id
+    object_id
   end
 end
