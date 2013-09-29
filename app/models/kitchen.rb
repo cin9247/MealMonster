@@ -36,6 +36,12 @@ class Kitchen
     end
   end
 
+  def find_meal_by_id(id)
+    meals.find do |m|
+      m.id.to_s == id.to_s
+    end
+  end
+
   private
     def meal_source
       @meal_source ||= Meal.public_method(:new)

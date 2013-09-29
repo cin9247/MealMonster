@@ -25,10 +25,9 @@ class Menu
   end
 
   def meal_ids=(ids)
-    ids = ids.reject(&:blank?).map(&:to_i)
-    self.meals = kitchen.meals.select do |m|
-      ids.include? m.id
-    end
+    self.meals = ids.map do |id|
+      kitchen.find_meal_by_id id
+    end.compact
   end
 
   def persisted?

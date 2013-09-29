@@ -101,4 +101,40 @@ describe Kitchen do
     end
   end
 
+  describe "#find_meal_by_id" do
+    let(:meal_1) { double(:meal, id: 3) }
+    let(:meal_2) { double(:meal, id: 5) }
+
+    before do
+      subject.add_meal meal_1
+      subject.add_meal meal_2
+    end
+
+    let(:result) { subject.find_meal_by_id(id) }
+
+    context "given a non existing id" do
+      let(:id) { 4 }
+
+      it "returns nil" do
+        expect(result).to be_nil
+      end
+    end
+
+    context "given an existing id" do
+      let(:id) { 5 }
+
+      it "returns the corresponding meal" do
+        expect(result).to eq meal_2
+      end
+    end
+
+    context "given an existing id as a string" do
+      let(:id) { "3" }
+
+      it "returns the corresponding meal" do
+        expect(result).to eq meal_1
+      end
+    end
+  end
+
 end

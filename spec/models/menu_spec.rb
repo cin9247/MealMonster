@@ -45,16 +45,17 @@ describe Menu do
   end
 
   describe "#meal_ids=" do
-    let(:meal_1) { double(:meal, id: 3) }
-    let(:meal_2) { double(:meal, id: 6) }
+    let(:meal_1) { double(:meal) }
+    let(:meal_2) { double(:meal) }
+    let(:kitchen) { double(:kitchen) }
 
-    let(:meals) { [meal_1, meal_2] }
-    let(:kitchen) { double(:kitchen, meals: meals) }
-
-    it "sets the meals according to the ids and known meals in kitchen" do
+    it "asks the kitchen for the meals" do
+      kitchen.should_receive(:find_meal_by_id).with("6").and_return meal_1
+      kitchen.should_receive(:find_meal_by_id).with("8").and_return meal_2
+      kitchen.should_receive(:find_meal_by_id).with("9").and_return nil
       subject.kitchen = kitchen
-      subject.meal_ids = ["6"]
-      expect(subject.meals).to eq [meal_2]
+      subject.meal_ids = ["6", "8", "9"]
+      expect(subject.meals).to eq [meal_1, meal_2]
     end
   end
 end
