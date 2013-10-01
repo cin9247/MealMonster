@@ -40,6 +40,7 @@ gem 'slim'
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'guard-livereload'
 end
 
 # Use ActiveModel has_secure_password
