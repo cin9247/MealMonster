@@ -10,6 +10,6 @@ class MenusController < ApplicationController
   def create
     menu = KITCHEN.new_menu params[:menu]
     menu.offer!
-    redirect_to meals_path
+    redirect_to menus_path
   end
 end
