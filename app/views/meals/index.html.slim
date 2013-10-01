@@ -1,6 +1,17 @@
-ul.meals
-  - @meals.each do |meal|
-    li.meal
-      = meal.name
+table.meals
+  thead
+    tr
+      th Name
+      th Preisklasse
+      th Aktionen
+
+  tbody
+    - @meals.each do |meal|
+      tr.meal
+        td
+          = meal.name
+        td P2 (4,80€)
+        td
+          = link_to "Editieren", edit_meal_path(meal)
 
 = link_to "Neues Gericht", new_meal_path
