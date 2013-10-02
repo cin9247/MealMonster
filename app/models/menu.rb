@@ -1,3 +1,5 @@
+require 'active_model'
+
 class Menu
   extend ActiveModel::Naming
   include ActiveModel::Conversion
