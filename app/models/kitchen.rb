@@ -55,32 +55,6 @@ class Kitchen
     end
 
     def menu_mapper
-      @menu_mapper ||= generic_mapper_class.new
-    end
-
-    def generic_mapper_class
-      Class.new do
-        def initialize(things = [])
-          @things = things || []
-        end
-
-        def fetch
-          @things
-        end
-
-        def save(thing)
-          @things << thing
-        end
-
-        def clean
-          @things = []
-        end
-
-        def find(id)
-          fetch.find do |m|
-            m.id.to_s == id.to_s
-          end
-        end
-      end
+      @menu_mapper ||= MenuMapper.new
     end
 end
