@@ -4,7 +4,7 @@ class Meal
   extend ActiveModel::Naming
   include ActiveModel::Conversion
 
-  attr_accessor :name, :kitchen
+  attr_accessor :id, :name, :kitchen
 
   def initialize(kitchen = nil, attributes = {})
     self.kitchen = kitchen
@@ -20,9 +20,5 @@ class Meal
 
   def persisted?
     false
-  end
-
-  def id
-    object_id
   end
 end

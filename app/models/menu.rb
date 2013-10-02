@@ -4,7 +4,7 @@ class Menu
   extend ActiveModel::Naming
   include ActiveModel::Conversion
 
-  attr_accessor :meals, :kitchen, :date
+  attr_accessor :id, :meals, :kitchen, :date
 
   def initialize(kitchen=nil, attrs={})
     self.kitchen = kitchen
