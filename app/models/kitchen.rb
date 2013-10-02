@@ -37,9 +37,7 @@ class Kitchen
   end
 
   def find_meal_by_id(id)
-    meals.find do |m|
-      m.id.to_s == id.to_s
-    end
+    meal_mapper.find(id)
   end
 
   private
@@ -75,6 +73,12 @@ class Kitchen
 
         def clean
           @things = []
+        end
+
+        def find(id)
+          fetch.find do |m|
+            m.id.to_s == id.to_s
+          end
         end
       end
     end
