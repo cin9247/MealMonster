@@ -3,20 +3,33 @@ require "ostruct"
 
 describe Kitchen do
 
-  let(:meal_mapper) {
-    double :meal_mapper, fetch: [],
-                         save: nil,
-                         clean: nil,
-                         find: nil
+  let(:generic_mapper) {
+    double :generic_mapper, fetch: [],
+                            save: nil,
+                            clean: nil,
+                            find: nil
   }
+  let(:meal_mapper) { generic_mapper }
+  let(:menu_mapper) { generic_mapper }
 
   before do
     subject.meal_mapper = meal_mapper
+    subject.menu_mapper = menu_mapper
   end
 
-  describe "initialization" do
-    it "doesn't know how to cook any meals" do
-      expect(subject.meals).to eq []
+  describe "#meals" do
+    it "asks the mapper for all meals" do
+      result = double(:result)
+      meal_mapper.should_receive(:fetch).and_return(result)
+      expect(subject.meals).to eq result
+    end
+  end
+
+  describe "#menus" do
+    it "asks the mapper for all menus" do
+      result = double(:result)
+      menu_mapper.should_receive(:fetch).and_return(result)
+      expect(subject.menus).to eq result
     end
   end
 
@@ -61,8 +74,8 @@ describe Kitchen do
     let(:menu) { double(:menu) }
 
     it "adds the menu" do
+      menu_mapper.should_receive(:save).with(menu)
       subject.add_menu menu
-      expect(subject.menus).to eq [menu]
     end
   end
 
@@ -72,9 +85,7 @@ describe Kitchen do
       @m_1 = double(:menu, date: Date.new(2013, 4, 5))
       @m_2 = double(:menu, date: Date.new(2013, 7, 5))
       @m_3 = double(:menu, date: Date.new(2013, 6, 5))
-      subject.add_menu @m_1
-      subject.add_menu @m_2
-      subject.add_menu @m_3
+      menu_mapper.should_receive(:fetch).and_return([@m_1, @m_2, @m_3])
     end
 
     let(:result) { subject.menu_for_day(date) }

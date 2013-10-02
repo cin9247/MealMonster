@@ -1,6 +1,6 @@
 class Kitchen
   attr_writer :meal_source, :menu_source
-  attr_writer :meal_mapper
+  attr_writer :meal_mapper, :menu_mapper
 
   def new_meal(*args)
     meal_source.call self, *args
