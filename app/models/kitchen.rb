@@ -15,24 +15,24 @@ class Kitchen
   end
 
   def add_meal(meal)
-    @meals << meal
+    meal_saver.call meal
   end
 
   def add_menu(menu)
-    @menus << menu
+    menu_saver.call menu
   end
 
   def clean_up!
-    @meals = []
-    @menus = []
+    meal_clearer.call
+    menu_clearer.call
   end
 
   def meals
-    @meals
+    meal_fetcher.call
   end
 
   def menus
-    @menus
+    menu_fetcher.call
   end
 
   def menu_for_day(day)
@@ -54,5 +54,29 @@ class Kitchen
 
     def menu_source
       @menu_source ||= Menu.public_method(:new)
+    end
+
+    def meal_fetcher
+      lambda { @meals }
+    end
+
+    def menu_fetcher
+      lambda { @menus }
+    end
+
+    def meal_saver
+      lambda { |meal| @meals << meal }
+    end
+
+    def menu_saver
+      lambda { |menu| @menus << menu }
+    end
+
+    def meal_clearer
+      lambda { @meals = [] }
+    end
+
+    def menu_clearer
+      lambda { @menus = [] }
     end
 end
