@@ -1,24 +1,32 @@
 class MealMapper
   def save(record)
-    meals << record
+    klass.create(name: record.name)
   end
 
   def fetch
-    meals
+    klass.all.map do |m|
+      klass.new name: m.name
+    end
   end
 
   def clean
-    @meals = []
+    klass.delete_all
   end
 
   def find(id)
-    fetch.find do |m|
-      m.id == id
-    end
+    klass.find id
+  rescue ActiveRecord::RecordNotFound
+    nil
   end
 
   private
     def meals
       @meals ||= []
+    end
+
+    def klass
+      Class.new(ActiveRecord::Base) do
+        self.table_name = "meals"
+      end
     end
 end

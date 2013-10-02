@@ -1,4 +1,4 @@
-require_relative "../../../app/models/mappers/meal_mapper"
+require "spec_helper"
 
 describe MealMapper do
   describe "#fetch" do
@@ -8,17 +8,17 @@ describe MealMapper do
   end
 
   describe "#save" do
-    let(:meal) { double(:meal) }
+    let(:meal) { double(:meal, name: "Reis") }
 
     it "adds the record to the database" do
       subject.save(meal)
-      expect(subject.fetch).to eq [meal]
+      expect(subject.fetch.map(&:name)).to eq ["Reis"]
     end
   end
 
   describe "#clean" do
     before do
-      subject.save double(:meal)
+      subject.save double(:meal, name: "Reis")
     end
 
     it "removes all existing records" do
@@ -28,18 +28,15 @@ describe MealMapper do
   end
 
   describe "#find" do
-    let(:m_1) { double(:meal, id: 2) }
-    let(:m_2) { double(:meal, id: 5) }
-
     before do
-      subject.save m_1
-      subject.save m_2
+      @id_1 = subject.save(double(:meal, name: "Reis")).id
+      @id_2 = subject.save(double(:meal, name: "Spaghetti")).id
     end
 
     let(:result) { subject.find id }
 
     context "given unexisting id" do
-      let(:id) { 9 }
+      let(:id) { 0 }
 
       it "returns nil" do
         expect(result).to be_nil
@@ -47,10 +44,10 @@ describe MealMapper do
     end
 
     context "given existing id" do
-      let(:id) { 5 }
+      let(:id) { @id_2 }
 
       it "returns the existing record" do
-        expect(result).to eq m_2
+        expect(result.name).to eq "Spaghetti"
       end
     end
   end
