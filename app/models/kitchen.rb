@@ -1,11 +1,6 @@
 class Kitchen
   attr_writer :meal_source, :menu_source
 
-  def initialize
-    @meals = []
-    @menus = []
-  end
-
   def new_meal(*args)
     meal_source.call self, *args
   end
@@ -15,24 +10,24 @@ class Kitchen
   end
 
   def add_meal(meal)
-    meal_saver.call meal
+    meal_mapper.save meal
   end
 
   def add_menu(menu)
-    menu_saver.call menu
+    menu_mapper.save menu
   end
 
   def clean_up!
-    meal_clearer.call
-    menu_clearer.call
+    meal_mapper.clean
+    menu_mapper.clean
   end
 
   def meals
-    meal_fetcher.call
+    meal_mapper.fetch
   end
 
   def menus
-    menu_fetcher.call
+    menu_mapper.fetch
   end
 
   def menu_for_day(day)
@@ -56,41 +51,17 @@ class Kitchen
       @menu_source ||= Menu.public_method(:new)
     end
 
-    def meal_fetcher
-      lambda { meal_mapper.fetch }
-    end
-
-    def menu_fetcher
-      lambda { menu_mapper.fetch }
-    end
-
-    def meal_saver
-      lambda { |meal| meal_mapper.save meal }
-    end
-
-    def menu_saver
-      lambda { |menu| menu_mapper.save menu }
-    end
-
-    def meal_clearer
-      lambda { meal_mapper.clean }
-    end
-
-    def menu_clearer
-      lambda { menu_mapper.clean }
-    end
-
     def meal_mapper
-      @meal_mapper ||= generic_mapper_class.new(@meals)
+      @meal_mapper ||= generic_mapper_class.new
     end
 
     def menu_mapper
-      @menu_mapper ||= generic_mapper_class.new(@menus)
+      @menu_mapper ||= generic_mapper_class.new
     end
 
     def generic_mapper_class
       Class.new do
-        def initialize(things)
+        def initialize(things = [])
           @things = things || []
         end
 
