@@ -51,7 +51,7 @@ class Kitchen
     end
 
     def meal_mapper
-      @meal_mapper ||= generic_mapper_class.new
+      @meal_mapper ||= MealMapper.new
     end
 
     def menu_mapper
