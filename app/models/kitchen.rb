@@ -1,5 +1,6 @@
 class Kitchen
   attr_writer :meal_source, :menu_source
+  attr_writer :meal_mapper
 
   def new_meal(*args)
     meal_source.call self, *args
@@ -37,7 +38,7 @@ class Kitchen
   end
 
   def find_meal_by_id(id)
-    meal_mapper.find(id)
+    meal_mapper.find id.to_i
   end
 
   private

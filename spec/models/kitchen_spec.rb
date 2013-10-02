@@ -3,6 +3,17 @@ require "ostruct"
 
 describe Kitchen do
 
+  let(:meal_mapper) {
+    double :meal_mapper, fetch: [],
+                         save: nil,
+                         clean: nil,
+                         find: nil
+  }
+
+  before do
+    subject.meal_mapper = meal_mapper
+  end
+
   describe "initialization" do
     it "doesn't know how to cook any meals" do
       expect(subject.meals).to eq []
@@ -27,8 +38,8 @@ describe Kitchen do
     let(:meal) { double(:meal) }
 
     it "adds the meal" do
+      meal_mapper.should_receive(:save).with(meal)
       subject.add_meal meal
-      expect(subject.meals).to eq [meal]
     end
   end
 
@@ -86,53 +97,30 @@ describe Kitchen do
   end
 
   describe "#clean_up!" do
-    before do
-      subject.add_meal double(:meal)
-      subject.add_menu double(:menu)
+    it "removes all meals" do
+      meal_mapper.should_receive(:clean)
       subject.clean_up!
     end
 
-    it "removes all meals" do
-      expect(subject.meals).to be_empty
-    end
-
     it "removes all menus" do
+      subject.add_menu double(:menu)
+      subject.clean_up!
       expect(subject.menus).to be_empty
     end
   end
 
   describe "#find_meal_by_id" do
-    let(:meal_1) { double(:meal, id: 3) }
-    let(:meal_2) { double(:meal, id: 5) }
-
-    before do
-      subject.add_meal meal_1
-      subject.add_meal meal_2
-    end
-
-    let(:result) { subject.find_meal_by_id(id) }
-
-    context "given a non existing id" do
-      let(:id) { 4 }
-
-      it "returns nil" do
-        expect(result).to be_nil
+    context "given an integer id" do
+      it "asks the meal mapper" do
+        meal_mapper.should_receive(:find).with(4)
+        subject.find_meal_by_id(4)
       end
     end
 
-    context "given an existing id" do
-      let(:id) { 5 }
-
-      it "returns the corresponding meal" do
-        expect(result).to eq meal_2
-      end
-    end
-
-    context "given an existing id as a string" do
-      let(:id) { "3" }
-
-      it "returns the corresponding meal" do
-        expect(result).to eq meal_1
+    context "given a string id" do
+      it "asks the meal mapper" do
+        meal_mapper.should_receive(:find).with(4)
+        subject.find_meal_by_id("4")
       end
     end
   end
