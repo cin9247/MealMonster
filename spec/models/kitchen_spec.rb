@@ -4,7 +4,7 @@ require "ostruct"
 describe Kitchen do
 
   describe "initialization" do
-    it "has doesn't know how to cook any meals" do
+    it "doesn't know how to cook any meals" do
       expect(subject.meals).to eq []
     end
   end
