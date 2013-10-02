@@ -57,26 +57,54 @@ class Kitchen
     end
 
     def meal_fetcher
-      lambda { @meals }
+      lambda { meal_mapper.fetch }
     end
 
     def menu_fetcher
-      lambda { @menus }
+      lambda { menu_mapper.fetch }
     end
 
     def meal_saver
-      lambda { |meal| @meals << meal }
+      lambda { |meal| meal_mapper.save meal }
     end
 
     def menu_saver
-      lambda { |menu| @menus << menu }
+      lambda { |menu| menu_mapper.save menu }
     end
 
     def meal_clearer
-      lambda { @meals = [] }
+      lambda { meal_mapper.clean }
     end
 
     def menu_clearer
-      lambda { @menus = [] }
+      lambda { menu_mapper.clean }
+    end
+
+    def meal_mapper
+      @meal_mapper ||= generic_mapper_class.new(@meals)
+    end
+
+    def menu_mapper
+      @menu_mapper ||= generic_mapper_class.new(@menus)
+    end
+
+    def generic_mapper_class
+      Class.new do
+        def initialize(things)
+          @things = things || []
+        end
+
+        def fetch
+          @things
+        end
+
+        def save(thing)
+          @things << thing
+        end
+
+        def clean
+          @things = []
+        end
+      end
     end
 end
