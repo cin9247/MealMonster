@@ -24,6 +24,12 @@ describe MenuMapper do
       expect(subject.fetch.first.meals.length).to eq 2
       expect(subject.fetch.first.meals.first.name).to eq "Hackbraten"
     end
+
+    it "does not allow saving an object twice" do
+      expect {
+        subject.save menu
+      }.to raise_error
+    end
   end
 
   describe "#clean" do

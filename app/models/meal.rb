@@ -19,6 +19,6 @@ class Meal
   end
 
   def persisted?
-    false
+    !id.nil?
   end
 end

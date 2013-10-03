@@ -33,6 +33,6 @@ class Menu
   end
 
   def persisted?
-    false
+    !id.nil?
   end
 end

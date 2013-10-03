@@ -1,5 +1,7 @@
 class BaseMapper
   def save(record)
+    raise "Can't be saved again. Try #update instead" if record.persisted?
+
     record.id = DB[table_name].insert object_to_hash(record)
   end
 

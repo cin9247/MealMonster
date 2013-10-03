@@ -30,4 +30,18 @@ describe Meal do
       subject.offer!
     end
   end
+
+  describe "#persisted?" do
+    context "when id exists" do
+      it "is persisted" do
+        expect(Meal.new(nil, id: 42)).to be_persisted
+      end
+    end
+
+    context "when id does not exist" do
+      it "is not persisted" do
+        expect(subject).to_not be_persisted
+      end
+    end
+  end
 end
