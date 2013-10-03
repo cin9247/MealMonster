@@ -18,16 +18,16 @@ class BaseMapper
     hash_to_object(result) if result
   end
 
+  def object_to_hash(record)
+    raise "Your mapper needs to implement `object_to_hash`."
+  end
+
+  def hash_to_object(record)
+    raise "Your mapper needs to implement `hash_to_object`."
+  end
+
   private
     def table_name
       raise "Your mapper needs to implement `table_name`"
-    end
-
-    def object_to_hash(record)
-      raise "Your mapper needs to implement `object_to_hash`."
-    end
-
-    def hash_to_object(record)
-      raise "Your mapper needs to implement `hash_to_object`."
     end
 end

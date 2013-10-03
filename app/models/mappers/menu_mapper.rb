@@ -20,7 +20,7 @@ class MenuMapper < BaseMapper
 
     menus.each do |menu|
       menu.meals = DB[:meals_menus].filter(menu_id: menu.id).join(:meals, :id => :meal_id).all.map do |meal|
-        MealMapper.new.send(:hash_to_object, meal)
+        MealMapper.new.hash_to_object meal
       end
     end
   end
@@ -30,26 +30,26 @@ class MenuMapper < BaseMapper
     return unless menu
 
     menu.meals = DB[:meals_menus].filter(menu_id: menu.id).join(:meals, :id => :meal_id).all.map do |meal|
-      MealMapper.new.send(:hash_to_object, meal)
+      MealMapper.new.hash_to_object meal
     end
 
     menu
   end
 
+  def object_to_hash(record)
+    {
+      date: record.date
+    }
+  end
+
+  def hash_to_object(hash)
+    Menu.new(KITCHEN,
+      id: hash[:id],
+      date: hash[:date]
+    )
+  end
+
   private
-    def object_to_hash(record)
-      {
-        date: record.date
-      }
-    end
-
-    def hash_to_object(hash)
-      Menu.new(KITCHEN,
-        id: hash[:id],
-        date: hash[:date]
-      )
-    end
-
     def table_name
       :menus
     end
