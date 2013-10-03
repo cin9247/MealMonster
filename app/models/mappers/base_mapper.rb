@@ -1,6 +1,6 @@
 class BaseMapper
   def save(record)
-    DB[table_name].insert object_to_hash(record)
+    record.id = DB[table_name].insert object_to_hash(record)
   end
 
   def fetch

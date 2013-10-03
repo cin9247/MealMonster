@@ -8,17 +8,24 @@ describe MealMapper do
   end
 
   describe "#save" do
-    let(:meal) { double(:meal, id: nil, name: "Reis") }
+    let(:meal) { Meal.new(nil, name: "Reis") }
+
+    before do
+      subject.save(meal)
+    end
 
     it "adds the record to the database" do
-      subject.save(meal)
       expect(subject.fetch.map(&:name)).to eq ["Reis"]
+    end
+
+    it "sets the id of the record" do
+      expect(meal.id).to_not be_nil
     end
   end
 
   describe "#clean" do
     before do
-      subject.save double(:meal, id: nil, name: "Reis")
+      subject.save Meal.new(nil, name: "Reis")
     end
 
     it "removes all existing records" do
@@ -29,8 +36,8 @@ describe MealMapper do
 
   describe "#find" do
     before do
-      @id_1 = subject.save(double(:meal, id: nil, name: "Reis"))
-      @id_2 = subject.save(double(:meal, id: nil, name: "Spaghetti"))
+      @id_1 = subject.save Meal.new(nil, name: "Reis")
+      @id_2 = subject.save Meal.new(nil, name: "Spaghetti")
     end
 
     let(:result) { subject.find id }
