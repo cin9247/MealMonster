@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe MealMapper do
   describe "#fetch" do
-    it "is returns an empty array after initialization" do
+    it "returns an empty array after initialization" do
       expect(subject.fetch).to eq []
     end
   end
@@ -29,8 +29,8 @@ describe MealMapper do
 
   describe "#find" do
     before do
-      @id_1 = subject.save(double(:meal, id: nil, name: "Reis")).id
-      @id_2 = subject.save(double(:meal, id: nil, name: "Spaghetti")).id
+      @id_1 = subject.save(double(:meal, id: nil, name: "Reis"))
+      @id_2 = subject.save(double(:meal, id: nil, name: "Spaghetti"))
     end
 
     let(:result) { subject.find id }
