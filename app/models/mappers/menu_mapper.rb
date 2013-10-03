@@ -19,19 +19,15 @@ class MenuMapper < BaseMapper
     menus = super
 
     menus.each do |menu|
-      menu.meals = DB[:meals_menus].filter(menu_id: menu.id).join(:meals, :id => :meal_id).all.map do |meal|
-        MealMapper.new.hash_to_object meal
-      end
+      menu.meals = fetch_meals_for(menu)
     end
   end
 
   def find(id)
     menu = super(id)
-    return unless menu
+    return unless menu ## TODO move this check into fetch_meals_for?
 
-    menu.meals = DB[:meals_menus].filter(menu_id: menu.id).join(:meals, :id => :meal_id).all.map do |meal|
-      MealMapper.new.hash_to_object meal
-    end
+    menu.meals = fetch_meals_for(menu)
 
     menu
   end
@@ -52,5 +48,11 @@ class MenuMapper < BaseMapper
   private
     def table_name
       :menus
+    end
+
+    def fetch_meals_for(menu)
+      DB[:meals_menus].filter(menu_id: menu.id).join(:meals, :id => :meal_id).all.map do |meal|
+        MealMapper.new.hash_to_object meal
+      end
     end
 end
