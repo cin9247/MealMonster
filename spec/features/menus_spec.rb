@@ -5,10 +5,6 @@ describe "menus" do
   let!(:spaghetti) { create_meal KITCHEN, name: "Spaghetti" }
   let!(:nusskuchen) { create_meal KITCHEN, name: "Nusskuchen" }
 
-  after do
-    KITCHEN.clean_up!
-  end
-
   describe "viewing the menus" do
     before do
       m_1 = KITCHEN.new_menu meals: [hackbraten, spaghetti], date: Date.new(2013, 5, 6)

@@ -13,10 +13,6 @@ describe "meals" do
       visit meals_path
     end
 
-    after do
-      KITCHEN.clean_up!
-    end
-
     it "shows Hackbraten and Spaghetti" do
       within ".meals" do
         expect(page).to have_content "Spaghetti Bolognese"
