@@ -5,6 +5,13 @@ class BaseMapper
     record.id = DB[table_name].insert object_to_hash(record)
   end
 
+  def update(record)
+    raise "Can't update non-existing record. Try #save instead" unless record.id
+
+    DB[table_name].filter(id: record.id)
+                  .update(object_to_hash(record))
+  end
+
   def fetch
     DB[table_name].all.map do |m|
       hash_to_object(m)

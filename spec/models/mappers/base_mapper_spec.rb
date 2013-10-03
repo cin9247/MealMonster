@@ -63,6 +63,32 @@ describe FooMapper do
     end
   end
 
+  describe "#update" do
+    let(:foo) { Foo.new(nil, "Peter") }
+    let(:foo_old) { Foo.new(nil, "Agate") }
+
+    before do
+      subject.save foo
+      subject.save foo_old
+      foo.name = "Dieter"
+      subject.update foo
+    end
+
+    it "sets the name to Dieter" do
+      expect(subject.find(foo.id).name).to eq "Dieter"
+    end
+
+    it "doesn't change any other record" do
+      expect(subject.find(foo_old.id).name).to eq "Agate"
+    end
+
+    it "raises error when record hasn't been saved yet" do
+      expect {
+        subject.update Foo.new
+      }.to raise_error
+    end
+  end
+
   describe "#clean" do
     before do
       subject.save Foo.new(nil, "Peter")
