@@ -1,12 +1,6 @@
 require "spec_helper"
 
 describe MenuMapper do
-  describe "#fetch" do
-    it "returns an empty array after initialization" do
-      expect(subject.fetch).to eq []
-    end
-  end
-
   describe "#save" do
     let(:meal_1) { Meal.new(nil, name: "Hackbraten") }
     let(:meal_2) { Meal.new(nil, name: "Schweinebraten") }
@@ -16,30 +10,9 @@ describe MenuMapper do
       subject.save menu
     end
 
-    it "adds the record to the database" do
-      expect(subject.fetch.map(&:date)).to eq [Date.new(2013, 10, 3)]
-    end
-
     it "creates the meal objects" do
       expect(subject.fetch.first.meals.length).to eq 2
       expect(subject.fetch.first.meals.first.name).to eq "Hackbraten"
-    end
-
-    it "does not allow saving an object twice" do
-      expect {
-        subject.save menu
-      }.to raise_error
-    end
-  end
-
-  describe "#clean" do
-    before do
-      subject.save Menu.new(nil, date: Date.new(2013, 10, 3))
-    end
-
-    it "removes all existing records" do
-      subject.clean
-      expect(subject.fetch).to eq []
     end
   end
 
