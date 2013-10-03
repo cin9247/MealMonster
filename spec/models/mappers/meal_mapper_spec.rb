@@ -8,7 +8,7 @@ describe MealMapper do
   end
 
   describe "#save" do
-    let(:meal) { double(:meal, name: "Reis") }
+    let(:meal) { double(:meal, id: nil, name: "Reis") }
 
     it "adds the record to the database" do
       subject.save(meal)
@@ -18,7 +18,7 @@ describe MealMapper do
 
   describe "#clean" do
     before do
-      subject.save double(:meal, name: "Reis")
+      subject.save double(:meal, id: nil, name: "Reis")
     end
 
     it "removes all existing records" do
@@ -29,8 +29,8 @@ describe MealMapper do
 
   describe "#find" do
     before do
-      @id_1 = subject.save(double(:meal, name: "Reis")).id
-      @id_2 = subject.save(double(:meal, name: "Spaghetti")).id
+      @id_1 = subject.save(double(:meal, id: nil, name: "Reis")).id
+      @id_2 = subject.save(double(:meal, id: nil, name: "Spaghetti")).id
     end
 
     let(:result) { subject.find id }
