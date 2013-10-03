@@ -1,14 +1,16 @@
 require "spec_helper"
 
 describe "menus" do
-  let!(:hackbraten) { create_meal KITCHEN, name: "Hackbraten" }
-  let!(:spaghetti) { create_meal KITCHEN, name: "Spaghetti" }
-  let!(:nusskuchen) { create_meal KITCHEN, name: "Nusskuchen" }
+  let(:kitchen) { Kitchen.new }
+
+  let!(:hackbraten) { create_meal kitchen, name: "Hackbraten" }
+  let!(:spaghetti) { create_meal kitchen, name: "Spaghetti" }
+  let!(:nusskuchen) { create_meal kitchen, name: "Nusskuchen" }
 
   describe "viewing the menus" do
     before do
-      m_1 = KITCHEN.new_menu meals: [hackbraten, spaghetti], date: Date.new(2013, 5, 6)
-      m_2 = KITCHEN.new_menu meals: [hackbraten, nusskuchen], date: Date.new(2013, 5, 6)
+      m_1 = kitchen.new_menu meals: [hackbraten, spaghetti], date: Date.new(2013, 5, 6)
+      m_2 = kitchen.new_menu meals: [hackbraten, nusskuchen], date: Date.new(2013, 5, 6)
       m_1.offer!
       m_2.offer!
       visit menus_path
@@ -37,10 +39,10 @@ describe "menus" do
     end
 
     let(:date) { Date.new(2013, 10, 3) }
-    let(:menu) { KITCHEN.menus.first }
+    let(:menu) { kitchen.menus.first }
 
     it "creates a menu with the selected meals" do
-      expect(KITCHEN.menus.length).to eq 1
+      expect(kitchen.menus.length).to eq 1
       expect(menu.meals.length).to eq 2
       expect(menu.meals.first.name).to eq "Hackbraten"
       expect(menu.meals.first.name).to eq "Hackbraten"

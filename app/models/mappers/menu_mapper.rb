@@ -39,7 +39,7 @@ class MenuMapper < BaseMapper
   end
 
   def hash_to_object(hash)
-    Menu.new(KITCHEN,
+    Menu.new(nil,
       id: hash[:id],
       date: hash[:date]
     )

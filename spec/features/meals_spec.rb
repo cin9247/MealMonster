@@ -2,9 +2,11 @@ require "spec_helper"
 require "ostruct"
 
 describe "meals" do
+  let(:kitchen) { Kitchen.new }
+
   describe "listing of meals kitchen" do
-    let(:meal_1) { KITCHEN.new_meal name: "Hackbraten mit Pommes Frites" }
-    let(:meal_2) { KITCHEN.new_meal name: "Spaghetti Bolognese" }
+    let(:meal_1) { kitchen.new_meal name: "Hackbraten mit Pommes Frites" }
+    let(:meal_2) { kitchen.new_meal name: "Spaghetti Bolognese" }
 
     before do
       meal_1.offer!
@@ -31,8 +33,8 @@ describe "meals" do
     end
 
     it "creates a new meal for the kitchen" do
-      expect(KITCHEN.meals.length).to eq 1
-      expect(KITCHEN.meals.first.name).to eq "Hackbraten mit Schweineblut"
+      expect(kitchen.meals.length).to eq 1
+      expect(kitchen.meals.first.name).to eq "Hackbraten mit Schweineblut"
     end
   end
 end
