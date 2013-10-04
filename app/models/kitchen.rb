@@ -42,11 +42,9 @@ class Kitchen
   end
 
   def find_meal_by_id(id)
-    meal = meal_mapper.find id.to_i
-    return unless meal
-
-    meal.kitchen = self
-    meal
+    meal_mapper.find(id.to_i).tap do |m|
+      m && m.kitchen = self
+    end
   end
 
   private
