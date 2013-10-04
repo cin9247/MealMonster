@@ -25,7 +25,7 @@ describe "meals" do
 
   describe "creation of new meals" do
     before do
-      visit "/meals/new"
+      visit new_meal_path
 
       fill_in "Name", with: "Hackbraten mit Schweineblut"
 
@@ -35,6 +35,24 @@ describe "meals" do
     it "creates a new meal for the kitchen" do
       expect(kitchen.meals.length).to eq 1
       expect(kitchen.meals.first.name).to eq "Hackbraten mit Schweineblut"
+    end
+  end
+
+  describe "editing of existing meals" do
+    before do
+      meal = kitchen.new_meal name: "Hackbraten"
+      meal.offer!
+
+      visit edit_meal_path(meal)
+
+      fill_in "Name", with: "Spaghetti"
+
+      click_on "Update Meal"
+    end
+
+    it "overwrites the existing meal with the new name" do
+      expect(kitchen.meals.length).to eq 1
+      expect(kitchen.meals.first.name).to eq "Spaghetti"
     end
   end
 end

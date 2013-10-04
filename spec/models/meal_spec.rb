@@ -18,6 +18,15 @@ describe Meal do
     end
   end
 
+  describe "#attributes=" do
+    let(:meal) { Meal.new nil, name: "Spaghetti" }
+
+    it "overwrites existing attributes" do
+      meal.attributes = {name: "Hackbraten"}
+      expect(meal.name).to eq "Hackbraten"
+    end
+  end
+
   describe "#offer!" do
     let(:kitchen) { double(:kitchen) }
 

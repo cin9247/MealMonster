@@ -11,7 +11,11 @@ class Kitchen
   end
 
   def add_meal(meal)
-    meal_mapper.save meal
+    if meal.persisted?
+      meal_mapper.update meal
+    else
+      meal_mapper.save meal
+    end
   end
 
   def add_menu(menu)
@@ -38,7 +42,11 @@ class Kitchen
   end
 
   def find_meal_by_id(id)
-    meal_mapper.find id.to_i
+    meal = meal_mapper.find id.to_i
+    return unless meal
+
+    meal.kitchen = self
+    meal
   end
 
   private

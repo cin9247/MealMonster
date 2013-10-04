@@ -9,6 +9,10 @@ class Meal
   def initialize(kitchen = nil, attributes = {})
     self.kitchen = kitchen
 
+    self.attributes = attributes
+  end
+
+  def attributes=(attributes)
     attributes.each do |key, value|
       public_send "#{key}=", value
     end

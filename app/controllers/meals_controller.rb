@@ -12,4 +12,16 @@ class MealsController < ApplicationController
     meal.offer!
     redirect_to meals_path
   end
+
+  def edit
+    @meal = kitchen.find_meal_by_id params[:id]
+  end
+
+  def update
+    meal = kitchen.find_meal_by_id params[:id]
+    meal.attributes = params[:meal]
+    meal.offer!
+
+    redirect_to meals_path
+  end
 end

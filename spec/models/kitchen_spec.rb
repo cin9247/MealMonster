@@ -48,11 +48,24 @@ describe Kitchen do
   end
 
   describe "#add_meal" do
-    let(:meal) { double(:meal) }
+    let(:meal) { double(:meal, persisted?: persisted) }
 
-    it "adds the meal" do
-      meal_mapper.should_receive(:save).with(meal)
-      subject.add_meal meal
+    context "given new meal" do
+      let(:persisted) { false }
+
+      it "adds the meal" do
+        meal_mapper.should_receive(:save).with(meal)
+        subject.add_meal meal
+      end
+    end
+
+    context "given persisted meal" do
+      let(:persisted) { true }
+
+      it "adds the meal" do
+        meal_mapper.should_receive(:update).with(meal)
+        subject.add_meal meal
+      end
     end
   end
 
@@ -121,18 +134,33 @@ describe Kitchen do
   end
 
   describe "#find_meal_by_id" do
+    let(:meal) { OpenStruct.new }
+
     context "given an integer id" do
-      it "asks the meal mapper" do
-        meal_mapper.should_receive(:find).with(4)
-        subject.find_meal_by_id(4)
+      it "asks the meal mapper for integer id" do
+        meal_mapper.should_receive(:find).with(4).and_return(meal)
+        expect(subject.find_meal_by_id(4)).to eq meal
       end
     end
 
     context "given a string id" do
-      it "asks the meal mapper" do
-        meal_mapper.should_receive(:find).with(4)
-        subject.find_meal_by_id("4")
+      it "asks the meal mapper for integer id" do
+        meal_mapper.should_receive(:find).with(4).and_return(meal)
+        expect(subject.find_meal_by_id("4")).to eq meal
       end
+    end
+
+    context "given a non existing id" do
+      it "returns nil" do
+        meal_mapper.should_receive(:find).and_return nil
+        expect(subject.find_meal_by_id(6)).to be_nil
+      end
+    end
+
+    it "sets the kitchen of the result to self" do
+      meal_mapper.should_receive(:find).and_return(meal)
+      subject.find_meal_by_id(4)
+      expect(meal.kitchen).to eq subject
     end
   end
 
