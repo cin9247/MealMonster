@@ -9,7 +9,11 @@ class Menu
   def initialize(kitchen=nil, attrs={})
     self.kitchen = kitchen
 
-    attrs.each do |key, value|
+    self.attributes = attrs
+  end
+
+  def attributes=(attributes)
+    attributes.each do |key, value|
       public_send("#{key}=", value)
     end
   end
