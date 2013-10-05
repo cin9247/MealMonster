@@ -6,15 +6,13 @@ class Menu
 
   attr_accessor :id, :meals, :kitchen, :date
 
-  def initialize(kitchen=nil, attrs={})
-    self.kitchen = kitchen
-
+  def initialize(attrs={})
     self.attributes = attrs
   end
 
   def attributes=(attributes)
     attributes.each do |key, value|
-      public_send("#{key}=", value)
+      public_send("#{key}=", value) if respond_to? "#{key}="
     end
   end
 
@@ -28,12 +26,6 @@ class Menu
 
   def meal_ids
     meals.map(&:id)
-  end
-
-  def meal_ids=(ids)
-    self.meals = ids.map do |id|
-      kitchen.find_meal_by_id id
-    end.compact
   end
 
   def persisted?

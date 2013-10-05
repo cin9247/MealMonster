@@ -7,19 +7,17 @@ describe Meal do
     end
 
     it "grabs the name from attributes hash" do
-      m = Meal.new nil, name: "Schnitzel"
+      m = Meal.new name: "Schnitzel"
       expect(m.name).to eq "Schnitzel"
     end
 
-    it "saves the kitchen instance" do
-      kitchen = double(:kitchen)
-      m = Meal.new kitchen
-      expect(m.kitchen).to eq kitchen
+    it "ignores attributes it doesn't understand" do
+      expect(Meal.new(foo_bar: "d", name: "Schnitzel").name).to eq "Schnitzel"
     end
   end
 
   describe "#attributes=" do
-    let(:meal) { Meal.new nil, name: "Spaghetti" }
+    let(:meal) { Meal.new name: "Spaghetti" }
 
     it "overwrites existing attributes" do
       meal.attributes = {name: "Hackbraten"}
@@ -43,7 +41,7 @@ describe Meal do
   describe "#persisted?" do
     context "when id exists" do
       it "is persisted" do
-        expect(Meal.new(nil, id: 42)).to be_persisted
+        expect(Meal.new(id: 42)).to be_persisted
       end
     end
 

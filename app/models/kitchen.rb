@@ -2,12 +2,19 @@ class Kitchen
   attr_writer :meal_source, :menu_source
   attr_writer :meal_mapper, :menu_mapper
 
-  def new_meal(*args)
-    meal_source.call self, *args
+  def new_meal(attributes={})
+    meal_source.call(attributes).tap do |m|
+      m.kitchen = self
+    end
   end
 
-  def new_menu(*args)
-    menu_source.call self, *args
+  def new_menu(attributes={})
+    menu_source.call(attributes).tap do |m|
+      m.kitchen = self
+      if attributes[:meal_ids]
+        m.meals = attributes[:meal_ids].map { |id| find_meal_by_id(id) }.compact
+      end
+    end
   end
 
   def add_meal(meal)

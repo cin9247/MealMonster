@@ -35,7 +35,7 @@ describe Kitchen do
 
   describe "#new_meal" do
     before do
-      subject.meal_source = ->(kitchen = nil, options = {}) { OpenStruct.new(options.merge(kitchen: kitchen)) }
+      subject.meal_source = ->(options = {}) { OpenStruct.new(options) }
     end
 
     it "sets the meal's kitchen reference to itself" do
@@ -71,7 +71,7 @@ describe Kitchen do
 
   describe "#new_menu" do
     before do
-      subject.menu_source = ->(kitchen = nil, options = {}) { OpenStruct.new(options.merge kitchen: kitchen) }
+      subject.menu_source = ->(options = {}) { OpenStruct.new(options) }
     end
 
     it "sets the menu's kitchen reference to itself" do

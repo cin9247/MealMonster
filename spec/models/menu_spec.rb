@@ -8,16 +8,15 @@ describe Menu do
   end
 
   describe "initialization" do
-    let(:kitchen) { double(:kitchen) }
     let(:meals) { [double(:meal), double(:meal)] }
-    let(:subject) { Menu.new kitchen, meals: meals }
+    let(:subject) { Menu.new meals: meals }
 
     it "saves meals on initialization" do
       expect(subject.meals).to eq meals
     end
 
-    it "saves the kitchen instance" do
-      expect(subject.kitchen).to eq kitchen
+    it "ignores attributes it doesn't understand" do
+      expect(Menu.new(foo_bar: "re", meals: meals).meals).to eq meals
     end
   end
 
@@ -44,25 +43,10 @@ describe Menu do
     end
   end
 
-  describe "#meal_ids=" do
-    let(:meal_1) { double(:meal) }
-    let(:meal_2) { double(:meal) }
-    let(:kitchen) { double(:kitchen) }
-
-    it "asks the kitchen for the meals" do
-      kitchen.should_receive(:find_meal_by_id).with("6").and_return meal_1
-      kitchen.should_receive(:find_meal_by_id).with("8").and_return meal_2
-      kitchen.should_receive(:find_meal_by_id).with("9").and_return nil
-      subject.kitchen = kitchen
-      subject.meal_ids = ["6", "8", "9"]
-      expect(subject.meals).to eq [meal_1, meal_2]
-    end
-  end
-
   describe "#persisted?" do
     context "when id exists" do
       it "is persisted" do
-        expect(Menu.new(nil, id: 42)).to be_persisted
+        expect(Menu.new(id: 42)).to be_persisted
       end
     end
 

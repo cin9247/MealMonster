@@ -2,9 +2,9 @@ require "spec_helper"
 
 describe MenuMapper do
   describe "#save" do
-    let(:meal_1) { Meal.new(nil, name: "Hackbraten") }
-    let(:meal_2) { Meal.new(nil, name: "Schweinebraten") }
-    let(:menu) { Menu.new(nil, date: Date.new(2013, 10, 3), meals: [meal_1, meal_2]) }
+    let(:meal_1) { Meal.new(name: "Hackbraten") }
+    let(:meal_2) { Meal.new(name: "Schweinebraten") }
+    let(:menu) { Menu.new(date: Date.new(2013, 10, 3), meals: [meal_1, meal_2]) }
 
     before do
       subject.save menu
@@ -17,11 +17,11 @@ describe MenuMapper do
   end
 
   describe "#find" do
-    let(:meal) { Meal.new nil, name: "Hacksteak" }
+    let(:meal) { Meal.new name: "Hacksteak" }
 
     before do
-      @id_1 = subject.save Menu.new(nil, date: Date.new(2013, 2, 3), meals: [meal])
-      @id_2 = subject.save Menu.new(nil, date: Date.new(2013, 4, 6), meals: [meal])
+      @id_1 = subject.save Menu.new(date: Date.new(2013, 2, 3), meals: [meal])
+      @id_2 = subject.save Menu.new(date: Date.new(2013, 4, 6), meals: [meal])
     end
 
     let(:result) { subject.find id }
