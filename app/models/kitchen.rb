@@ -29,11 +29,6 @@ class Kitchen
     menu_mapper.save menu
   end
 
-  def clean_up!
-    meal_mapper.clean
-    menu_mapper.clean
-  end
-
   def meals
     meal_mapper.fetch
   end

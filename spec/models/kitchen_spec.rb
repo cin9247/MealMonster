@@ -120,19 +120,6 @@ describe Kitchen do
     end
   end
 
-  describe "#clean_up!" do
-    it "removes all meals" do
-      meal_mapper.should_receive(:clean)
-      subject.clean_up!
-    end
-
-    it "removes all menus" do
-      subject.add_menu double(:menu)
-      subject.clean_up!
-      expect(subject.menus).to be_empty
-    end
-  end
-
   describe "#find_meal_by_id" do
     let(:meal) { OpenStruct.new }
 
