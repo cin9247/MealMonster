@@ -3,7 +3,7 @@ class MenusController < ApplicationController
     from, to = if params[:date]
       params[:date].split("..").map { |d| Date.parse d }
     else
-      [Date.today, Date.today + 7.days]
+      [Date.today, Date.today + 6.days]
     end
     @days = kitchen.days(from..to)
   end
