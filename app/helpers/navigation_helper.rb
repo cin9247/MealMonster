@@ -5,7 +5,7 @@ module NavigationHelper
     [
       OpenStruct.new(title: "Dashboard", url: root_path, active: controller?("main")),
       OpenStruct.new(title: "Kunden", url: root_path, active: controller?("main")),
-      OpenStruct.new(title: "Menus", url: menus_path, active: controller?("menus")),
+      OpenStruct.new(title: "Angebotene Menus", url: menus_path, active: controller?("menus")),
       OpenStruct.new(title: "Gerichte", url: meals_path, active: controller?("meals")),
       OpenStruct.new(title: "Touren", url: tours_path, active: controller?("tours"))
     ]
