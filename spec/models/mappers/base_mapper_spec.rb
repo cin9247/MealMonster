@@ -9,13 +9,13 @@ class Foo < Struct.new(:name)
 end
 
 class FooMapper < BaseMapper
-  def object_to_hash(record)
+  def hash_from_object(record)
     {
       name: record.name
     }
   end
 
-  def hash_to_object(hash)
+  def object_from_hash(hash)
     Foo.new hash[:name]
   end
 

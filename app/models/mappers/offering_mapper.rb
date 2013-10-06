@@ -14,14 +14,14 @@ class OfferingMapper < BaseMapper
     end
   end
 
-  def object_to_hash(object)
+  def hash_from_object(object)
     {
       date: object.date,
       menu_id: object.menu.id
     }
   end
 
-  def hash_to_object(hash)
+  def object_from_hash(hash)
     menu = MenuMapper.new.find hash[:menu_id]
     Offering.new(date: hash[:date],
                  menu: menu)

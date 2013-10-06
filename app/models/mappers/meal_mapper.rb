@@ -1,11 +1,11 @@
 class MealMapper < BaseMapper
-  def object_to_hash(record)
+  def hash_from_object(record)
     {
       name: record.name
     }
   end
 
-  def hash_to_object(hash)
+  def object_from_hash(hash)
     Meal.new name: hash[:name]
   end
 

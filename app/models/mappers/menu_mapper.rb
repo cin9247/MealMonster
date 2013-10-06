@@ -32,12 +32,12 @@ class MenuMapper < BaseMapper
     menu
   end
 
-  def object_to_hash(record)
+  def hash_from_object(record)
     ## TODO this looks weird, but might be filled with `name` later
     {}
   end
 
-  def hash_to_object(hash)
+  def object_from_hash(hash)
     Menu.new
   end
 
