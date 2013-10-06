@@ -33,6 +33,8 @@ describe Day do
       offering_mapper.should_receive(:save).with(offering)
       subject.offer! offering
     end
+
+    xit "accepts menus as well and wraps them in offerings"
   end
 
   describe "#offerings" do
