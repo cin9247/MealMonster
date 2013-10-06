@@ -14,7 +14,7 @@ class BaseMapper
 
   def fetch
     DB[table_name].all.map do |m|
-      hash_to_object(m)
+      convert_to_object_and_set_id m
     end
   end
 
@@ -24,7 +24,8 @@ class BaseMapper
 
   def find(id)
     result = DB[table_name].filter(id: id).first
-    hash_to_object(result) if result
+
+    convert_to_object_and_set_id(result) if result
   end
 
   def object_to_hash(record)
@@ -38,5 +39,11 @@ class BaseMapper
   private
     def table_name
       raise "Your mapper needs to implement `table_name`"
+    end
+
+    def convert_to_object_and_set_id(hash)
+      hash_to_object(hash).tap do |o|
+        o.id = hash[:id]
+      end
     end
 end

@@ -1,6 +1,8 @@
 require "spec_helper"
 
-class Foo < Struct.new(:id, :name)
+class Foo < Struct.new(:name)
+  attr_accessor :id
+
   def persisted?
     false
   end
@@ -14,7 +16,7 @@ class FooMapper < BaseMapper
   end
 
   def hash_to_object(hash)
-    Foo.new hash[:id], hash[:name]
+    Foo.new hash[:name]
   end
 
   private
@@ -42,7 +44,7 @@ describe FooMapper do
   end
 
   describe "#save" do
-    let(:foo) { Foo.new(nil, "Peter") }
+    let(:foo) { Foo.new("Peter") }
 
     before do
       subject.save(foo)
@@ -64,8 +66,8 @@ describe FooMapper do
   end
 
   describe "#update" do
-    let(:foo) { Foo.new(nil, "Peter") }
-    let(:foo_old) { Foo.new(nil, "Agate") }
+    let(:foo) { Foo.new("Peter") }
+    let(:foo_old) { Foo.new("Agate") }
 
     before do
       subject.save foo
@@ -91,7 +93,7 @@ describe FooMapper do
 
   describe "#clean" do
     before do
-      subject.save Foo.new(nil, "Peter")
+      subject.save Foo.new("Peter")
     end
 
     it "removes all existing records" do
@@ -102,8 +104,8 @@ describe FooMapper do
 
   describe "#find" do
     before do
-      @id_1 = subject.save Foo.new(nil, "Peter")
-      @id_2 = subject.save Foo.new(nil, "Juno")
+      @id_1 = subject.save Foo.new("Peter")
+      @id_2 = subject.save Foo.new("Juno")
     end
 
     let(:result) { subject.find id }
@@ -122,6 +124,24 @@ describe FooMapper do
       it "returns the existing record" do
         expect(result.name).to eq "Juno"
       end
+
+      it "sets the id of the record" do
+        expect(result.id).to_not be_nil
+      end
+    end
+  end
+
+  describe "#fetch" do
+    let(:foo_1) { Foo.new("Peter") }
+    let(:foo_2) { Foo.new("Juno") }
+
+    before do
+      @id_1 = subject.save foo_1
+      @id_2 = subject.save foo_2
+    end
+
+    it "sets the id of each record" do
+      expect(subject.fetch.map(&:id).sort).to eq [@id_1, @id_2].sort
     end
   end
 end
