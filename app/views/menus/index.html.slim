@@ -2,8 +2,8 @@ ol.days
   - @days.each do |day|
     li.day
       h2
-        = day.date.strftime('%d.%m.%Y')
-      ol.menus
+        = l day.date, format: '%A, der %d.%m.%Y'
+      ol.menus class="small-block-grid-#{day.menus.size}"
         - day.menus.each_with_index do |menu, i|
           li.menu
             h3 Menu ##{i + 1}
