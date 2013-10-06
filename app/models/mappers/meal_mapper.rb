@@ -6,10 +6,7 @@ class MealMapper < BaseMapper
   end
 
   def hash_to_object(hash)
-    Meal.new(
-      id: hash[:id],
-      name: hash[:name]
-    )
+    Meal.new name: hash[:name]
   end
 
   private
