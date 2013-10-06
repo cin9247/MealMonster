@@ -1,8 +1,11 @@
-class CreateOfferings < ActiveRecord::Migration
-  def change
-    create_table :offerings do |t|
-      t.date :date, null: false
-      t.integer :menu_id, null: false
+Sequel.migration do
+  change do
+
+    create_table :offerings do
+      primary_key :id
+      Date :date, null: false
+      Fixnum :menu_id, null: false
     end
+
   end
 end

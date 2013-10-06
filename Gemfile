@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 gem 'sequel'
+gem 'sequel-rails'
 
 # Use sqlite3 as the database for Active Record
 gem 'pg'

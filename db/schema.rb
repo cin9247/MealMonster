@@ -1,37 +1,39 @@
-# encoding: UTF-8
-# This file is auto-generated from the current state of the database. Instead
-# of editing this file, please use the migrations feature of Active Record to
-# incrementally modify your database, and then regenerate this schema definition.
-#
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
-#
-# It's strongly recommended that you check this file into your version control system.
+Sequel.migration do
+  change do
+    create_table(:meals) do
+      primary_key :id
+      column :name, "text", :null=>false
+    end
 
-ActiveRecord::Schema.define(version: 20131006170528) do
+    create_table(:meals_menus) do
+      primary_key :id
+      column :menu_id, "integer", :null=>false
+      column :meal_id, "integer", :null=>false
+      column :position, "integer", :null=>false
+    end
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+    create_table(:menus) do
+      primary_key :id
+    end
 
-  create_table "meals", force: true do |t|
-    t.string "name", null: false
+    create_table(:offerings) do
+      primary_key :id
+      column :date, "date", :null=>false
+      column :menu_id, "integer", :null=>false
+    end
+
+    create_table(:schema_migrations) do
+      column :filename, "text", :null=>false
+
+      primary_key [:filename]
+    end
   end
-
-  create_table "meals_menus", force: true do |t|
-    t.integer "menu_id",  null: false
-    t.integer "meal_id",  null: false
-    t.integer "position", null: false
+end
+Sequel.migration do
+  change do
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131002124017_create_meals.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131002134404_create_menu.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131003165711_create_meals_menus.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131006160112_create_offerings.rb')"
   end
-
-  create_table "menus", force: true do |t|
-  end
-
-  create_table "offerings", force: true do |t|
-    t.date    "date",    null: false
-    t.integer "menu_id", null: false
-  end
-
 end
