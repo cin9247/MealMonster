@@ -1,12 +1,15 @@
-ul.menus
-  - @menus.each do |menu|
-    li.menu
+ol.days
+  - @days.each do |day|
+    li.day
       h2
-        = menu.date
-      ul.meals
-        - menu.meals.each do |meal|
-          li.meal
-            = meal.name
+        = day.date.strftime('%d.%m.%Y')
+      ol.menus
+        - day.menus.each_with_index do |menu, i|
+          li.menu
+            h3 Menu ##{i + 1}
+            ol.meals
+              - menu.meals.each do |meal|
+                li = meal.name
 
 = link_to "Neues Menu erstellen", new_menu_path
 

@@ -1,6 +1,11 @@
 class MenusController < ApplicationController
   def index
-    @menus = kitchen.menus
+    from, to = if params[:date]
+      params[:date].split("..").map { |d| Date.parse d }
+    else
+      [Date.today, Date.today + 7.days]
+    end
+    @days = kitchen.days(from..to)
   end
 
   def new

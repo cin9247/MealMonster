@@ -33,13 +33,12 @@ class MenuMapper < BaseMapper
   end
 
   def object_to_hash(record)
-    {
-      date: record.date
-    }
+    ## TODO this looks weird, but might be filled with `name` later
+    {}
   end
 
   def hash_to_object(hash)
-    Menu.new date: hash[:date]
+    Menu.new
   end
 
   private
@@ -49,7 +48,8 @@ class MenuMapper < BaseMapper
 
     def fetch_meals_for(menu)
       DB[:meals_menus].filter(menu_id: menu.id).join(:meals, :id => :meal_id).all.map do |meal|
-        MealMapper.new.hash_to_object meal
+        ## TODO rearrange code to not use dirty `send` hack
+        MealMapper.new.send :convert_to_object_and_set_id, meal
       end
     end
 end

@@ -17,6 +17,45 @@ describe Kitchen do
     subject.menu_mapper = menu_mapper
   end
 
+  describe "#day" do
+    before do
+      subject.day_source = ->(args = {}) { OpenStruct.new(args) }
+    end
+
+    it "returns an object which knows about its date" do
+      expect(subject.day("2013-10-03").date).to eq Date.new(2013, 10, 3)
+    end
+
+    it "accepts date objects as well" do
+      expect(subject.day(Date.new(2013, 10, 3)).date).to eq Date.new(2013, 10, 3)
+    end
+
+    it "returns an object which knows about the kitchen" do
+      expect(subject.day("2013-10-03").kitchen).to eq subject
+    end
+  end
+
+  describe "#days" do
+    before do
+      subject.day_source = ->(args = {}) { OpenStruct.new(args) }
+    end
+
+    it "returns an array of days" do
+      days = subject.days(Date.new(2013, 10, 3)..Date.new(2013, 10, 7))
+      expect(days.length).to eq 5
+      expect(days.map(&:date)).to eq [
+        Date.new(2013, 10, 3),
+        Date.new(2013, 10, 4),
+        Date.new(2013, 10, 5),
+        Date.new(2013, 10, 6),
+        Date.new(2013, 10, 7),
+      ]
+      expect(days.first.kitchen).to eq subject
+    end
+
+    xit "it also accepts strings"
+  end
+
   describe "#meals" do
     it "asks the mapper for all meals" do
       result = double(:result)
