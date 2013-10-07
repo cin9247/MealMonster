@@ -45,6 +45,7 @@ group :development, :test do
   gem 'capybara'
   gem 'guard-livereload'
   gem 'database_cleaner'
+  gem 'quiet_assets'
 end
 
 # Use ActiveModel has_secure_password
