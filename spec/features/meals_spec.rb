@@ -28,6 +28,8 @@ describe "meals" do
       visit new_meal_path
 
       fill_in "Name", with: "Hackbraten mit Schweineblut"
+      fill_in "Broteinheiten", with: 2
+      fill_in "meal_kilojoules", with: 4153
 
       click_on "Gericht erstellen"
     end
@@ -35,6 +37,8 @@ describe "meals" do
     it "creates a new meal for the kitchen" do
       expect(kitchen.meals.length).to eq 1
       expect(kitchen.meals.first.name).to eq "Hackbraten mit Schweineblut"
+      expect(kitchen.meals.first.bread_units).to eq 2
+      expect(kitchen.meals.first.kilojoules).to eq 4153
     end
   end
 

@@ -9,6 +9,8 @@ Sequel.migration do
     create_table(:meals) do
       primary_key :id
       column :name, "text", :null=>false
+      column :bread_units, "double precision"
+      column :kilojoules, "integer"
     end
 
     create_table(:meals_menus) do
@@ -42,5 +44,6 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131003165711_create_meals_menus.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131006160112_create_offerings.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131007140110_create_customers.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131007203048_add_bread_units_and_kilojoules_to_meals.rb')"
   end
 end

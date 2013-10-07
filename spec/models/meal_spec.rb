@@ -16,6 +16,50 @@ describe Meal do
     end
   end
 
+  describe "#kilojoules=" do
+    before do
+      subject.kilojoules = kJ
+    end
+
+    context "given ' '" do
+      let(:kJ) { ' ' }
+
+      it "sets kilojoules to nil" do
+        expect(subject.kilojoules).to be_nil
+      end
+    end
+
+    context "given '32'" do
+      let(:kJ) { '32' }
+
+      it "converts it to an integer" do
+        expect(subject.kilojoules).to eq 32
+      end
+    end
+  end
+
+  describe "#bread_units=" do
+    before do
+      subject.bread_units = bu
+    end
+
+    context "given ' '" do
+      let(:bu) { ' ' }
+
+      it "sets bread_units to nil" do
+        expect(subject.bread_units).to be_nil
+      end
+    end
+
+    context "given '32.2'" do
+      let(:bu) { '32.2' }
+
+      it "converts it to a float" do
+        expect(subject.bread_units).to eq 32.2
+      end
+    end
+  end
+
   describe "#offer!" do
     let(:kitchen) { double(:kitchen) }
 

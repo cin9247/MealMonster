@@ -208,6 +208,10 @@ de:
       customer:
         forename: Vorname
         surname: Nachname
+      meal:
+        name: Name
+        bread_units: Broteinheiten
+        kilojoules: 'Kilojoule (kJ)'
   activerecord:
     errors:
       <<: *errors
