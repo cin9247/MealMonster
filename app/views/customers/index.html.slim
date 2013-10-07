@@ -9,6 +9,6 @@ table.customers.large-12.small-6
     - @customers.each do |customer|
       tr.customer
         td
-          = link_to customer.full_name, customer
+          = customer.full_name
         td
           = link_to "Editieren", edit_customer_path(customer)

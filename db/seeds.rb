@@ -26,3 +26,12 @@ kitchen.days((today + 3.days)..(today + 5.days)).each do |d|
   d.offer! fleisch_menu
   d.offer! spar_menu
 end
+
+
+organization = Organization.new
+
+c_1 = organization.new_customer forename: "Max", surname: "Mustermann"
+c_2 = organization.new_customer forename: "Peter", surname: "Henkel"
+
+c_1.subscribe!
+c_2.subscribe!
