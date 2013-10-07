@@ -8,4 +8,9 @@ class ApplicationController < ActionController::Base
       @kitchen ||= Kitchen.new
     end
     helper_method :kitchen
+
+    def organization
+      @organization ||= Organization.new
+    end
+    helper_method :organization
 end

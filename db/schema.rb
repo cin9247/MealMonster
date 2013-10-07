@@ -1,5 +1,11 @@
 Sequel.migration do
   change do
+    create_table(:customers) do
+      primary_key :id
+      column :forename, "text"
+      column :surname, "text"
+    end
+
     create_table(:meals) do
       primary_key :id
       column :name, "text", :null=>false
@@ -35,5 +41,6 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131002134404_create_menu.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131003165711_create_meals_menus.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131006160112_create_offerings.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131007140110_create_customers.rb')"
   end
 end

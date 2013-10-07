@@ -1,0 +1,14 @@
+h1 Kunden
+table.customers.large-12.small-6
+  thead
+    tr
+      th Name
+      th Aktionen
+
+  tbody
+    - @customers.each do |customer|
+      tr.customer
+        td
+          = link_to customer.full_name, customer
+        td
+          = link_to "Editieren", edit_customer_path(customer)
