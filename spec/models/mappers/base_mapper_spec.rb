@@ -23,6 +23,11 @@ class FooMapper < BaseMapper
     def table_name
       :foos
     end
+
+    def schema_class
+      Class.new(Sequel::Model(table_name)) do
+      end
+    end
 end
 
 describe FooMapper do
