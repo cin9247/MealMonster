@@ -9,7 +9,7 @@ class OfferingMapper < BaseMapper
   end
 
   def fetch_by_date(date)
-    schema_class.where(date: date).all.map do |o|
+    schema_class.eager(:menu => :meals).where(date: date).all.map do |o|
       convert_to_object_and_set_id o
     end
   end
@@ -22,7 +22,11 @@ class OfferingMapper < BaseMapper
   end
 
   def object_from_hash(hash)
-    menu = MenuMapper.new.find hash[:menu_id]
+    meals = hash.menu.meals.map do |m|
+      MealMapper.new.send(:convert_to_object_and_set_id, m)
+    end
+    menu = MenuMapper.new.send(:convert_to_object_and_set_id, hash.menu)
+    menu.meals = meals
     Offering.new(date: hash[:date],
                  menu: menu)
   end
