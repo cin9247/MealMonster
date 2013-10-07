@@ -10,7 +10,7 @@ class MealMapper < BaseMapper
   end
 
   private
-    def table_name
-      :meals
+    def schema_class
+      Schema::Meal
     end
 end

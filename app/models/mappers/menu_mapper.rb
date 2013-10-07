@@ -16,18 +16,23 @@ class MenuMapper < BaseMapper
   end
 
   def fetch
-    menus = super
+    menus_from_schema = Schema::Menu.all
 
-    menus.each do |menu|
-      menu.meals = fetch_meals_for(menu)
+    menus_from_schema.map do |m|
+      convert_to_object_and_set_id(m).tap do |menu|
+        menu.meals = fetch_meals_for(m)
+      end
     end
   end
 
   def find(id)
-    menu = super(id)
-    return unless menu ## TODO move this check into fetch_meals_for?
+    menu_from_schema = schema_class[id]
 
-    menu.meals = fetch_meals_for(menu)
+    return unless menu_from_schema
+
+    menu = convert_to_object_and_set_id(menu_from_schema)
+
+    menu.meals = fetch_meals_for(menu_from_schema)
 
     menu
   end
@@ -42,14 +47,13 @@ class MenuMapper < BaseMapper
   end
 
   private
-    def table_name
-      :menus
+    def schema_class
+      Schema::Menu
     end
 
-    def fetch_meals_for(menu)
-      DB[:meals_menus].filter(menu_id: menu.id).join(:meals, :id => :meal_id).all.map do |meal|
-        ## TODO rearrange code to not use dirty `send` hack
-        MealMapper.new.send :convert_to_object_and_set_id, meal
+    def fetch_meals_for(menu_from_schema)
+      menu_from_schema.meals.map do |m|
+        MealMapper.new.send :convert_to_object_and_set_id, m
       end
     end
 end

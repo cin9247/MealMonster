@@ -27,7 +27,8 @@ class OfferingMapper < BaseMapper
                  menu: menu)
   end
 
-  def table_name
-    :offerings
-  end
+  private
+    def schema_class
+      Schema::Offering
+    end
 end

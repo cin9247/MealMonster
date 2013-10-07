@@ -44,6 +44,10 @@ describe MenuMapper do
       it "sets id of meal instance" do
         expect(result.meals.first.id).to_not be_nil
       end
+
+      it "sets id of menu" do
+        expect(result.id).to_not be_nil
+      end
     end
   end
 end
