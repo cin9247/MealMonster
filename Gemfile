@@ -46,6 +46,7 @@ group :development, :test do
   gem 'guard-livereload'
   gem 'database_cleaner'
   gem 'quiet_assets'
+  gem 'simplecov', require: false
 end
 
 # Use ActiveModel has_secure_password
