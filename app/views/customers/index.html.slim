@@ -11,4 +11,6 @@ table.customers.large-12.small-6
         td
           = customer.full_name
         td
+          = link_to "Details", customer_path(customer)
+        td
           = link_to "Editieren", edit_customer_path(customer)
