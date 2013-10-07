@@ -9,8 +9,8 @@ class OfferingMapper < BaseMapper
   end
 
   def fetch_by_date(date)
-    fetch.select do |o|
-      o.date == date
+    schema_class.where(date: date).all.map do |o|
+      convert_to_object_and_set_id o
     end
   end
 

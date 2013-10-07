@@ -48,5 +48,11 @@ describe OfferingMapper do
       expect(result.length).to eq 2
       expect(result.map(&:id).sort).to eq [offering_1.id, offering_2.id].sort
     end
+
+    it "sets the menu" do
+      result = subject.fetch_by_date Date.new(2013, 5, 6)
+
+      expect(result.first.menu.id).to eq menu.id
+    end
   end
 end
