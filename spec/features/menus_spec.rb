@@ -4,7 +4,7 @@ describe "menus" do
   let(:kitchen) { Kitchen.new }
 
   let!(:hackbraten) { create_meal kitchen, name: "Hackbraten" }
-  let!(:spaghetti) { create_meal kitchen, name: "Spaghetti" }
+  let!(:spaghetti)  { create_meal kitchen, name: "Spaghetti" }
   let!(:nusskuchen) { create_meal kitchen, name: "Nusskuchen" }
 
   describe "viewing the menus" do
