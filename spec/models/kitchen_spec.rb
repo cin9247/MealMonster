@@ -6,7 +6,6 @@ describe Kitchen do
   let(:generic_mapper) {
     double :generic_mapper, fetch: [],
                             save: nil,
-                            clean: nil,
                             find: nil
   }
   let(:meal_mapper) { generic_mapper }

@@ -18,10 +18,6 @@ class BaseMapper
     end
   end
 
-  def clean
-    schema_class.dataset.delete
-  end
-
   def find(id)
     result = schema_class[id]
 

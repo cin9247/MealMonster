@@ -96,17 +96,6 @@ describe FooMapper do
     end
   end
 
-  describe "#clean" do
-    before do
-      subject.save Foo.new("Peter")
-    end
-
-    it "removes all existing records" do
-      subject.clean
-      expect(subject.fetch).to eq []
-    end
-  end
-
   describe "#find" do
     before do
       @id_1 = subject.save Foo.new("Peter")
