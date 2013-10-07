@@ -203,6 +203,11 @@ de:
       menu: Menu
       meal: Gericht
       offering: Angebot
+      customer: Kunde
+    attributes:
+      customer:
+        forename: Vorname
+        surname: Nachname
   activerecord:
     errors:
       <<: *errors

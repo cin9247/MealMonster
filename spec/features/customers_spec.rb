@@ -23,4 +23,21 @@ describe "customers" do
       end
     end
   end
+
+  describe "creating customers" do
+    before do
+      visit new_customer_path
+
+      fill_in "Vorname", with: "Max"
+      fill_in "Nachname", with: "Mustermann"
+
+      click_on "Kunde erstellen"
+    end
+
+    it "creates the customer successfully" do
+      customers = organization.customers
+      expect(customers.length).to eq 1
+      expect(customers.first.full_name).to eq "Max Mustermann"
+    end
+  end
 end

@@ -1,4 +1,8 @@
 class Customer
+  extend ActiveModel::Naming
+  extend ActiveModel::Translation
+  include ActiveModel::Conversion
+
   attr_accessor :id, :organization, :forename, :surname
 
   def initialize(attributes={})
@@ -13,5 +17,9 @@ class Customer
 
   def full_name
     "#{forename} #{surname}"
+  end
+
+  def persisted?
+    !id.nil?
   end
 end
