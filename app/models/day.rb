@@ -15,8 +15,8 @@ class Day
     end
   end
 
-  def offer!(offering)
-    offering_mapper.save offering
+  def offer!(menu)
+    offering_mapper.save new_offering(menu: menu)
   end
 
   def offerings

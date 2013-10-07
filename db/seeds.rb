@@ -17,17 +17,12 @@ spar_menu     = kitchen.new_menu meals: [rote_beete, obst_salat]
 today = Date.today
 
 kitchen.days(today..(today + 2.days)).each do |d|
-  o_1 = d.new_offering menu: fleisch_menu
-  o_2 = d.new_offering menu: vegi_menu
-  o_3 = d.new_offering menu: spar_menu
-  d.offer! o_1
-  d.offer! o_2
-  d.offer! o_3
+  d.offer! fleisch_menu
+  d.offer! vegi_menu
+  d.offer! spar_menu
 end
 
 kitchen.days((today + 3.days)..(today + 5.days)).each do |d|
-  o_1 = d.new_offering menu: fleisch_menu
-  o_2 = d.new_offering menu: spar_menu
-  d.offer! o_1
-  d.offer! o_2
+  d.offer! fleisch_menu
+  d.offer! spar_menu
 end
