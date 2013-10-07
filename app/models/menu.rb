@@ -2,6 +2,7 @@ require 'active_model'
 
 class Menu
   extend ActiveModel::Naming
+  extend ActiveModel::Translation
   include ActiveModel::Conversion
 
   attr_accessor :id, :meals, :kitchen, :date

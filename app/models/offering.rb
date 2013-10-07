@@ -1,4 +1,8 @@
 class Offering
+  extend ActiveModel::Naming
+  extend ActiveModel::Translation
+  include ActiveModel::Conversion
+
   attr_accessor :id, :menu, :date, :day
 
   def initialize(attributes={})

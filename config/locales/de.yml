@@ -198,6 +198,11 @@ de:
   activemodel:
     errors:
       <<: *errors
+  activemodel:
+    models:
+      menu: Menu
+      meal: Gericht
+      offering: Angebot
   activerecord:
     errors:
       <<: *errors

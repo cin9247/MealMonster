@@ -29,7 +29,7 @@ describe "meals" do
 
       fill_in "Name", with: "Hackbraten mit Schweineblut"
 
-      click_on "Create Meal"
+      click_on "Gericht erstellen"
     end
 
     it "creates a new meal for the kitchen" do
@@ -47,7 +47,7 @@ describe "meals" do
 
       fill_in "Name", with: "Spaghetti"
 
-      click_on "Update Meal"
+      click_on "Gericht aktualisieren"
     end
 
     it "overwrites the existing meal with the new name" do

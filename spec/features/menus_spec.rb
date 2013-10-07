@@ -56,7 +56,7 @@ describe "menus" do
       select "Hackbraten", from: "Meals"
       select "Nusskuchen", from: "Meals"
 
-      click_on "Create Menu"
+      click_on "Menu erstellen"
     end
 
     let(:date) { Date.new(2013, 10, 3) }
