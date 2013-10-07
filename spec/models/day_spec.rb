@@ -7,22 +7,6 @@ describe Day do
     subject.offering_mapper = offering_mapper
   end
 
-  describe "attributes" do
-    it "knows about its date" do
-      d = Day.new(date: Date.new(2013, 4, 6))
-      expect(d.date).to eq Date.new(2013, 4, 6)
-    end
-  end
-
-  describe "#kitchen=" do
-    let(:kitchen) { double(:kitchen) }
-
-    it "sets the kitchen" do
-      subject.kitchen = kitchen
-      expect(subject.kitchen).to eq kitchen
-    end
-  end
-
   describe "#offer!" do
     let(:offering) { double(:menu) }
     let(:date) { Date.new(2013, 4, 5) }

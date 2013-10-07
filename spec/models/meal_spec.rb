@@ -2,15 +2,6 @@ require_relative "../../app/models/meal"
 
 describe Meal do
   describe "initialization" do
-    it "starts with blank attributes" do
-      expect(subject.name).to be_nil
-    end
-
-    it "grabs the name from attributes hash" do
-      m = Meal.new name: "Schnitzel"
-      expect(m.name).to eq "Schnitzel"
-    end
-
     it "ignores attributes it doesn't understand" do
       expect(Meal.new(foo_bar: "d", name: "Schnitzel").name).to eq "Schnitzel"
     end
