@@ -51,12 +51,6 @@ class Kitchen
     menu_mapper.fetch
   end
 
-  def menu_for_day(day)
-    menus.find do |m|
-      m.date == day
-    end
-  end
-
   def find_meal_by_id(id)
     meal_mapper.find(id.to_i).tap do |m|
       m && m.kitchen = self

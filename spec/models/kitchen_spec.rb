@@ -130,34 +130,6 @@ describe Kitchen do
     end
   end
 
-  describe "#menu_for_day" do
-    before do
-      ## TODO return menu when adding it
-      @m_1 = double(:menu, date: Date.new(2013, 4, 5))
-      @m_2 = double(:menu, date: Date.new(2013, 7, 5))
-      @m_3 = double(:menu, date: Date.new(2013, 6, 5))
-      menu_mapper.should_receive(:fetch).and_return([@m_1, @m_2, @m_3])
-    end
-
-    let(:result) { subject.menu_for_day(date) }
-
-    context "given a date with no menu" do
-      let(:date) { Date.new(2012, 5, 6) }
-
-      it "returns nil" do
-        expect(result).to be_nil
-      end
-    end
-
-    context "given a date to which a menu exists" do
-      let(:date) { Date.new(2013, 7, 5) }
-
-      it "returns the associated menu" do
-        expect(result).to eq @m_2
-      end
-    end
-  end
-
   describe "#find_meal_by_id" do
     let(:meal) { OpenStruct.new }
 
