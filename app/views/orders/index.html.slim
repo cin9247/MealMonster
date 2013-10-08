@@ -4,6 +4,8 @@ ul.days
       h2 = l date, format: '%A, der %d.%m.%Y'
       ul.orders
         - orders.each do |order|
-          li.order = order.customer.full_name
+          li.order
+            strong => order.customer.full_name
+            = order.menu.meals.first.name
 
 = link_to "Neue Bestellung aufgeben", new_order_path

@@ -18,6 +18,10 @@ class OrderMapper < BaseMapper
     def object_from_hash(order)
       customer = CustomerMapper.new.send :convert_to_object_and_set_id, order.customer
       menu = MenuMapper.new.send :convert_to_object_and_set_id, order.menu
+      meals = order.menu.meals.each do |m|
+        MealMapper.new.send :convert_to_object_and_set_id, m
+      end
+      menu.meals = meals
 
       ## TODO day creation??? which day if we have several?
       Order.new day: Day.new(date: order[:date]), menu: menu, customer: customer

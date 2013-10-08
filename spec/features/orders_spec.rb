@@ -31,7 +31,7 @@ describe "orders" do
         order = organization.day(date).new_order customer: customers[1], menu: menu_2
         order.place!
 
-        order = organization.day(another_date).new_order customer: customers[2], menu: menu_1
+        order = organization.day(another_date).new_order customer: customers[2], menu: menu_2
         order.place!
 
         visit orders_path(:date => "2013-10-05")
@@ -46,12 +46,18 @@ describe "orders" do
           expect(page).to have_content "Max"
           expect(page).to have_content "Peter"
           expect(page).to_not have_content "Johanna"
+
+          expect(page).to have_content "Spaghetti"
+          expect(page).to have_content "Braten"
         end
 
         within(".day", text: "06.10.2013") do
           expect(page).to_not have_content "Max"
           expect(page).to_not have_content "Peter"
           expect(page).to have_content "Johanna"
+
+          expect(page).to_not have_content "Spaghetti"
+          expect(page).to have_content "Braten"
         end
       end
     end
