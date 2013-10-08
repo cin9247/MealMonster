@@ -35,8 +35,6 @@ describe Day do
   end
 
   describe "#new_offering" do
-    subject { Day.new date: Date.new(2013, 4, 6) }
-
     it "returns a new offering linked to the day" do
       offering = subject.new_offering
       expect(offering.day).to eq subject
