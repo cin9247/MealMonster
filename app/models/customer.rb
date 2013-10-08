@@ -9,7 +9,7 @@ class Customer
 
   def initialize(attributes={})
     attributes.each do |key, value|
-      public_send "#{key}=", value if respond_to? "#{key}="
+      public_send "#{key}=", value
     end
   end
 

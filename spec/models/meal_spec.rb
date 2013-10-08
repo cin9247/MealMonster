@@ -1,12 +1,6 @@
 require_relative "../../app/models/meal"
 
 describe Meal do
-  describe "initialization" do
-    it "ignores attributes it doesn't understand" do
-      expect(Meal.new(foo_bar: "d", name: "Schnitzel").name).to eq "Schnitzel"
-    end
-  end
-
   describe "#attributes=" do
     let(:meal) { Meal.new name: "Spaghetti" }
 

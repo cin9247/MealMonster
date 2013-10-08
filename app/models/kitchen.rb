@@ -9,10 +9,12 @@ class Kitchen
   end
 
   def new_menu(attributes={})
+    meal_ids = attributes.delete(:meal_ids)
+
     menu_source.call(attributes).tap do |m|
       m.kitchen = self
-      if attributes[:meal_ids]
-        m.meals = attributes[:meal_ids].map { |id| find_meal_by_id(id) }.compact
+      if meal_ids
+        m.meals = meal_ids.map { |id| find_meal_by_id(id) }.compact
       end
     end
   end

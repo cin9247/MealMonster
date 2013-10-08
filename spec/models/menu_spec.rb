@@ -14,10 +14,6 @@ describe Menu do
     it "saves meals on initialization" do
       expect(subject.meals).to eq meals
     end
-
-    it "ignores attributes it doesn't understand" do
-      expect(Menu.new(foo_bar: "re", meals: meals).meals).to eq meals
-    end
   end
 
   describe "#offer!" do

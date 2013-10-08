@@ -16,4 +16,9 @@ class CustomersController < ApplicationController
   def show
     @customer = organization.find_customer_by_id params[:id]
   end
+
+  private
+    def customer_params
+      params.require(:customer).permit(:forename, :surname)
+    end
 end

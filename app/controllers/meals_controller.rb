@@ -8,7 +8,7 @@ class MealsController < ApplicationController
   end
 
   def create
-    meal = kitchen.new_meal params[:meal]
+    meal = kitchen.new_meal meal_params
     meal.offer!
     redirect_to meals_path
   end
@@ -19,9 +19,14 @@ class MealsController < ApplicationController
 
   def update
     meal = kitchen.find_meal_by_id params[:id]
-    meal.attributes = params[:meal]
+    meal.attributes = meal_params
     meal.offer!
 
     redirect_to meals_path
   end
+
+  private
+    def meal_params
+      params.require(:meal).permit(:name, :kilojoules, :bread_units)
+    end
 end

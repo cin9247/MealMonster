@@ -13,8 +13,13 @@ class MenusController < ApplicationController
   end
 
   def create
-    menu = kitchen.new_menu params[:menu]
+    menu = kitchen.new_menu menu_params
     menu.offer!
     redirect_to menus_path
   end
+
+  private
+    def menu_params
+      params.require(:menu).permit(:date, :meal_ids => [])
+    end
 end
