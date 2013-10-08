@@ -1,0 +1,8 @@
+- if @orders.present?
+  = l @orders.first.day.date, format: '%A, der %d.%m.%Y'
+
+ul
+  - @orders.each do |order|
+    li = order.customer.full_name
+
+= link_to "Neue Bestellung aufgeben", new_order_path

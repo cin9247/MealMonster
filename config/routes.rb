@@ -5,4 +5,5 @@ MealsOnWheels::Application.routes.draw do
   resources :meals
   resources :menus
   resources :tours
+  resources :orders
 end

@@ -30,6 +30,13 @@ Sequel.migration do
       column :menu_id, "integer", :null=>false
     end
 
+    create_table(:orders) do
+      primary_key :id
+      column :menu_id, "integer", :null=>false
+      column :customer_id, "integer", :null=>false
+      column :date, "date", :null=>false
+    end
+
     create_table(:schema_migrations) do
       column :filename, "text", :null=>false
 
@@ -45,5 +52,6 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131006160112_create_offerings.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131007140110_create_customers.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131007203048_add_bread_units_and_kilojoules_to_meals.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131008130823_create_orders.rb')"
   end
 end

@@ -40,12 +40,44 @@ describe Organization do
     end
   end
 
+  describe "#day" do
+    before do
+      subject.day_source = ->(args = {}) { OpenStruct.new(args) }
+    end
+
+    it "returns an object which knows about its date" do
+      expect(subject.day("2013-10-03").date).to eq Date.new(2013, 10, 3)
+    end
+
+    it "accepts date objects as well" do
+      expect(subject.day(Date.new(2013, 10, 3)).date).to eq Date.new(2013, 10, 3)
+    end
+
+    it "returns an object which knows about the organization" do
+      expect(subject.day("2013-10-03").organization).to eq subject
+    end
+  end
+
   describe "#find_customer_by_id" do
     let(:customer) { double(:customer) }
 
     it "asks the customer_mapper for the customer" do
       customer_mapper.should_receive(:find).with(23).and_return customer
       expect(subject.find_customer_by_id(23)).to eq customer
+    end
+  end
+
+  describe "#orders" do
+    let(:order_mapper) { double(:order_mapper) }
+    let(:orders) { double(:orders) }
+
+    before do
+      subject.order_mapper = order_mapper
+    end
+
+    it "asks the order mapper for all orders" do
+      order_mapper.should_receive(:fetch).and_return orders
+      expect(subject.orders).to eq orders
     end
   end
 end
