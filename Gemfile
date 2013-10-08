@@ -44,6 +44,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'guard-livereload'
+  gem 'guard-rspec'
+  gem 'terminal-notifier-guard'
   gem 'database_cleaner'
   gem 'quiet_assets'
   gem 'simplecov', require: false
