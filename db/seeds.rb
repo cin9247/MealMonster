@@ -3,13 +3,13 @@
 organization = Organization.new
 kitchen = organization.kitchen
 
-rote_beete    = kitchen.new_meal name: "Rote Beete"
-gemüse_suppe  = kitchen.new_meal name: "Gemüsesuppe"
-spaghetti     = kitchen.new_meal name: "Spaghetti mit vegetarischer Bolognese"
-würstchen     = kitchen.new_meal name: "Nürnberger Würstchen auf Sauerkraut"
-erdbeer_quark = kitchen.new_meal name: "Erdbeerquark"
-bananen_quark = kitchen.new_meal name: "Bananenquark"
-obst_salat    = kitchen.new_meal name: "Obstsalat"
+rote_beete    = kitchen.new_meal name: "Rote Beete", kilojoules: 240, bread_units: 0.4
+gemüse_suppe  = kitchen.new_meal name: "Gemüsesuppe", kilojoules: 510, bread_units: 1.2
+spaghetti     = kitchen.new_meal name: "Spaghetti mit vegetarischer Bolognese", kilojoules: 1231, bread_units: 3.5
+würstchen     = kitchen.new_meal name: "Nürnberger Würstchen auf Sauerkraut", kilojoules: 1522, bread_units: 4.2
+erdbeer_quark = kitchen.new_meal name: "Erdbeerquark", kilojoules: 752, bread_units: 1.5
+bananen_quark = kitchen.new_meal name: "Bananenquark", kilojoules: 740, bread_units: 1.6
+obst_salat    = kitchen.new_meal name: "Obstsalat", kilojoules: 331, bread_units: 0.2
 
 fleisch_menu  = kitchen.new_menu meals: [rote_beete, würstchen, bananen_quark]
 vegi_menu     = kitchen.new_menu meals: [rote_beete, spaghetti, erdbeer_quark]
