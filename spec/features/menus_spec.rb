@@ -1,7 +1,8 @@
 require "spec_helper"
 
 describe "menus" do
-  let(:kitchen) { Kitchen.new }
+  let(:organization) { Organization.new }
+  let(:kitchen) { organization.kitchen }
 
   let!(:hackbraten) { create_meal kitchen, name: "Hackbraten" }
   let!(:spaghetti)  { create_meal kitchen, name: "Spaghetti" }

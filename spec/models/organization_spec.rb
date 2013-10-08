@@ -5,6 +5,7 @@ describe Organization do
   let(:customer_mapper) { double(:customer_mapper) }
 
   before do
+    subject.kitchen_source = -> { OpenStruct.new }
     subject.customer_mapper = customer_mapper
   end
 

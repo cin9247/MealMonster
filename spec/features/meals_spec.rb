@@ -2,7 +2,8 @@ require "spec_helper"
 require "ostruct"
 
 describe "meals" do
-  let(:kitchen) { Kitchen.new }
+  let(:organization) { Organization.new }
+  let(:kitchen) { organization.kitchen }
 
   describe "listing of meals kitchen" do
     let(:meal_1) { kitchen.new_meal name: "Hackbraten mit Pommes Frites" }

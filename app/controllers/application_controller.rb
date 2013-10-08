@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   private
     def kitchen
-      @kitchen ||= Kitchen.new
+      @kitchen ||= organization.kitchen
     end
     helper_method :kitchen
 
