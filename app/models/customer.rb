@@ -1,3 +1,5 @@
+require 'active_model'
+
 class Customer
   extend ActiveModel::Naming
   extend ActiveModel::Translation

@@ -1,3 +1,5 @@
+require 'active_model'
+
 class Offering
   extend ActiveModel::Naming
   extend ActiveModel::Translation
