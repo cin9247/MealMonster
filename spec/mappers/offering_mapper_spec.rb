@@ -5,7 +5,7 @@ describe OfferingMapper do
     let(:meal) { Meal.new name: "Hackbraten" }
     let(:date) { Date.new(2013, 4, 6) }
     let(:menu) { Menu.new meals: [meal] }
-    let(:offering) { Offering.new menu: menu, date: date }
+    let(:offering) { Offering.new menu: menu, day: double(:day, date: date) }
 
     context "existing menu" do
       before do
@@ -32,9 +32,9 @@ describe OfferingMapper do
 
   describe "#fetch_by_date" do
     let(:menu) { Menu.new }
-    let(:offering_1) { Offering.new date: Date.new(2013, 5, 6), menu: menu }
-    let(:offering_2) { Offering.new date: Date.new(2013, 5, 6), menu: menu }
-    let(:offering_3) { Offering.new date: Date.new(2013, 5, 7), menu: menu }
+    let(:offering_1) { Offering.new day: Day.new(date: Date.new(2013, 5, 6)), menu: menu }
+    let(:offering_2) { Offering.new day: Day.new(date: Date.new(2013, 5, 6)), menu: menu }
+    let(:offering_3) { Offering.new day: Day.new(date: Date.new(2013, 5, 7)), menu: menu }
 
     before do
       subject.save offering_1

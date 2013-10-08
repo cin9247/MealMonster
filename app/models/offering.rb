@@ -5,7 +5,7 @@ class Offering
   extend ActiveModel::Translation
   include ActiveModel::Conversion
 
-  attr_accessor :id, :menu, :date, :day
+  attr_accessor :id, :menu, :day
 
   def initialize(attributes={})
     attributes.each do |key, value|
@@ -14,6 +14,6 @@ class Offering
   end
 
   def date
-    @date ||= day.date
+    day && day.date
   end
 end
