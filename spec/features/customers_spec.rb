@@ -40,4 +40,17 @@ describe "customers" do
       expect(customers.first.full_name).to eq "Max Mustermann"
     end
   end
+
+  describe "displaying a single customer" do
+    before do
+      customer = organization.new_customer(forename: "Peter", surname: "Mustermann")
+      customer.subscribe!
+
+      visit customer_path(customer)
+    end
+
+    it "displays the name of the customer" do
+      expect(page).to have_content "Peter Mustermann"
+    end
+  end
 end

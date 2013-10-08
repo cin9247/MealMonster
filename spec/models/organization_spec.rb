@@ -38,4 +38,13 @@ describe Organization do
       subject.add_customer customer
     end
   end
+
+  describe "#find_customer_by_id" do
+    let(:customer) { double(:customer) }
+
+    it "asks the customer_mapper for the customer" do
+      customer_mapper.should_receive(:find).with(23).and_return customer
+      expect(subject.find_customer_by_id(23)).to eq customer
+    end
+  end
 end

@@ -15,6 +15,10 @@ class Organization
     customer_mapper.save c
   end
 
+  def find_customer_by_id(id)
+    customer_mapper.find id
+  end
+
   private
     def customer_source
       @customer_source ||= Customer.public_method(:new)
