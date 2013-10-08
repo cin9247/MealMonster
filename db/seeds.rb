@@ -33,3 +33,6 @@ c_2 = organization.new_customer forename: "Peter", surname: "Henkel"
 
 c_1.subscribe!
 c_2.subscribe!
+
+order = organization.day(today).new_order customer: c_1, menu: vegi_menu
+order.place!

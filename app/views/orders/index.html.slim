@@ -1,8 +1,9 @@
-- if @orders.present?
-  = l @orders.first.day.date, format: '%A, der %d.%m.%Y'
-
-ul
-  - @orders.each do |order|
-    li = order.customer.full_name
+ul.days
+  - @orders.group_by{ |o| o.day.date }.each do |date, orders|
+    li.day
+      h2 = l date, format: '%A, der %d.%m.%Y'
+      ul.orders
+        - orders.each do |order|
+          li.order = order.customer.full_name
 
 = link_to "Neue Bestellung aufgeben", new_order_path

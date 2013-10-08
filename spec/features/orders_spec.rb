@@ -8,6 +8,7 @@ describe "orders" do
   describe "displaying orders" do
     describe "by day" do
       let(:date) { Date.parse "2013-10-05" }
+      let(:another_date) { Date.parse "2013-10-06" }
 
       before do
         customers = names.map do |name|
@@ -30,6 +31,9 @@ describe "orders" do
         order = organization.day(date).new_order customer: customers[1], menu: menu_2
         order.place!
 
+        order = organization.day(another_date).new_order customer: customers[2], menu: menu_1
+        order.place!
+
         visit orders_path(:date => "2013-10-05")
       end
 
@@ -38,9 +42,17 @@ describe "orders" do
       end
 
       it "lists all names of the people who ordered a menu" do
-        expect(page).to have_content "Max"
-        expect(page).to have_content "Peter"
-        expect(page).to_not have_content "Johanna"
+        within(".day", text: "05.10.2013") do
+          expect(page).to have_content "Max"
+          expect(page).to have_content "Peter"
+          expect(page).to_not have_content "Johanna"
+        end
+
+        within(".day", text: "06.10.2013") do
+          expect(page).to_not have_content "Max"
+          expect(page).to_not have_content "Peter"
+          expect(page).to have_content "Johanna"
+        end
       end
     end
   end
