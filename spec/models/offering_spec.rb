@@ -3,19 +3,24 @@ require_relative "../../app/models/offering"
 describe Offering do
   describe "attributes" do
     describe "#date" do
-      let(:day) { double(:day, date: Date.new(2013, 4, 6)) }
-
       before do
         subject.day = day
       end
 
-      it "knows its date by asking the associated day" do
-        expect(subject.date).to eq Date.new(2013, 4, 6)
+      context "when day exists" do
+        let(:day) { double(:day, date: Date.new(2013, 4, 6)) }
+
+        it "knows its date by asking the associated day" do
+          expect(subject.date).to eq Date.new(2013, 4, 6)
+        end
       end
 
-      it "can overwrite that information" do
-        subject.date = Date.new(2013, 4, 7)
-        expect(subject.date).to eq Date.new(2013, 4, 7)
+      context "when day doesn't exist" do
+        let(:day) { double(:day, date: nil) }
+
+        it "returns nil" do
+          expect(subject.date).to be_nil
+        end
       end
     end
   end

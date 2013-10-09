@@ -27,7 +27,9 @@ class OfferingMapper < BaseMapper
     end
     menu = MenuMapper.new.send(:convert_to_object_and_set_id, hash.menu)
     menu.meals = meals
-    Offering.new(date: hash[:date],
+    day = Day.new(date: hash[:date])
+
+    Offering.new(day: day,
                  menu: menu)
   end
 
