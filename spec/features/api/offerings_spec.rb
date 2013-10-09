@@ -11,7 +11,6 @@ describe "/api/offerings" do
   let(:second_menu) { kitchen.new_menu meals: [spaghetti, quark] }
   let(:third_menu) { kitchen.new_menu meals: [spaghetti, quark] }
 
-  let(:json_response) { JSON.parse last_response.body }
   let(:result) { json_response["offerings"] }
 
   before do
