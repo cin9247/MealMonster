@@ -5,7 +5,7 @@ describe "/api/offerings" do
   let(:kitchen) { organization.kitchen }
 
   let(:spaghetti) { kitchen.new_meal name: "Spaghetti" }
-  let(:pudding) { kitchen.new_meal name: "Pudding" }
+  let(:pudding) { kitchen.new_meal name: "Pudding", kilojoules: 412 }
   let(:quark) { kitchen.new_meal name: "Quark", bread_units: 2.1 }
   let(:first_menu) { kitchen.new_menu meals: [spaghetti, pudding] }
   let(:second_menu) { kitchen.new_menu meals: [spaghetti, quark] }
@@ -42,6 +42,7 @@ describe "/api/offerings" do
         expect(result[1]["meals"][0]["name"]).to eq "Spaghetti"
         expect(result[1]["meals"][1]["name"]).to eq "Quark"
         expect(result[1]["meals"][1]["bread_units"]).to eq 2.1
+        expect(result[0]["meals"][1]["kilojoules"]).to eq 412
       end
 
     end
