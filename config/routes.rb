@@ -6,4 +6,10 @@ MealsOnWheels::Application.routes.draw do
   resources :menus
   resources :tours
   resources :orders
+
+  namespace :api do
+    namespace :v1 do
+      resources :offerings
+    end
+  end
 end
