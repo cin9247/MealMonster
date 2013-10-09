@@ -8,7 +8,7 @@ class CustomersController < ApplicationController
   end
 
   def create
-    customer = organization.new_customer params[:customer]
+    customer = organization.new_customer customer_params
     customer.subscribe!
     redirect_to customers_path
   end
