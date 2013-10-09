@@ -6,6 +6,9 @@ gem 'rails', '4.0.0'
 gem 'sequel'
 gem 'sequel-rails'
 
+gem 'rabl', '~> 0.8.6'
+gem 'oj'
+
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 

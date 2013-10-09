@@ -16,4 +16,8 @@ class Offering
   def date
     day && day.date
   end
+
+  def meals
+    menu.meals
+  end
 end
