@@ -59,6 +59,12 @@ class Kitchen
     end
   end
 
+  def find_menu_by_id(id)
+    menu_mapper.find(id.to_i).tap do |m|
+      m && m.kitchen = self
+    end
+  end
+
   private
     def meal_source
       @meal_source ||= Meal.public_method(:new)

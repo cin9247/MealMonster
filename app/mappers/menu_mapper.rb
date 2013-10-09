@@ -39,11 +39,13 @@ class MenuMapper < BaseMapper
 
   def hash_from_object(record)
     ## TODO this looks weird, but might be filled with `name` later
-    {}
+    {
+      name: record.name
+    }
   end
 
   def object_from_hash(hash)
-    Menu.new
+    Menu.new name: hash[:name]
   end
 
   private

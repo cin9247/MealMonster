@@ -161,4 +161,35 @@ describe Kitchen do
     end
   end
 
+  describe "#find_menu_by_id" do
+    let(:menu) { OpenStruct.new }
+
+    context "given an integer id" do
+      it "asks the menu mapper for integer id" do
+        menu_mapper.should_receive(:find).with(4).and_return(menu)
+        expect(subject.find_menu_by_id(4)).to eq menu
+      end
+    end
+
+    context "given a string id" do
+      it "asks the menu mapper for integer id" do
+        menu_mapper.should_receive(:find).with(4).and_return(menu)
+        expect(subject.find_menu_by_id("4")).to eq menu
+      end
+    end
+
+    context "given a non existing id" do
+      it "returns nil" do
+        menu_mapper.should_receive(:find).and_return nil
+        expect(subject.find_menu_by_id(6)).to be_nil
+      end
+    end
+
+    it "sets the kitchen of the result to self" do
+      menu_mapper.should_receive(:find).and_return(menu)
+      subject.find_menu_by_id(4)
+      expect(menu.kitchen).to eq subject
+    end
+  end
+
 end

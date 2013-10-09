@@ -5,7 +5,7 @@ class Menu
   extend ActiveModel::Translation
   include ActiveModel::Conversion
 
-  attr_accessor :id, :meals, :kitchen, :date
+  attr_accessor :id, :meals, :kitchen, :name
 
   def initialize(attrs={})
     self.attributes = attrs

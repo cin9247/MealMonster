@@ -1,0 +1,11 @@
+= form_for @order do |f|
+  p
+    = f.label :customer_id, "Kunden"
+    = f.select :customer_id, @customers.map { |c| [c.full_name, c.id] }
+  p
+    = f.label :menu_id, "Menu"
+    = f.select :menu_id, @menus.map { |m| [m.name, m.id] }
+  p
+    = f.hidden_field :date, value: params[:date]
+  p
+    = f.submit

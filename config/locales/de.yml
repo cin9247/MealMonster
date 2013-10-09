@@ -204,6 +204,7 @@ de:
       meal: Gericht
       offering: Angebot
       customer: Kunde
+      order: Bestellung
     attributes:
       customer:
         forename: Vorname
