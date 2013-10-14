@@ -1,5 +1,5 @@
 class Kitchen
-  attr_writer :meal_source, :menu_source, :day_source
+  attr_writer :meal_source, :menu_source
   attr_writer :meal_mapper, :menu_mapper
 
   def new_meal(attributes={})
@@ -58,10 +58,6 @@ class Kitchen
 
     def menu_source
       @menu_source ||= Menu.public_method(:new)
-    end
-
-    def day_source
-      @day_source ||= Day.public_method(:new)
     end
 
     def meal_mapper
