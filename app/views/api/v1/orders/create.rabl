@@ -1,7 +1,7 @@
 object false
 
 child @order do
-  attributes :id, :customer_id
+  attributes :id, :note
 
   child :customer do
     attributes :forename, :lastname

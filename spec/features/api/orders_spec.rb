@@ -26,7 +26,7 @@ describe "/api/offerings" do
     let(:result) { json_response["order"] }
 
     context "given valid parameters" do
-      let(:parameters) { {customer_id: customer.id, offering_id: offering.id} }
+      let(:parameters) { {customer_id: customer.id, offering_id: offering.id, note: note} }
 
       it "returns 201 Created" do
         expect(last_response.status).to eq 201
@@ -38,6 +38,10 @@ describe "/api/offerings" do
 
       it "returns a representation of the created order" do
         expect(result["menu"]["meals"][1]["name"]).to eq "Pudding"
+      end
+
+      it "returns the note" do
+        expect(result["note"]).to eq note
       end
     end
 

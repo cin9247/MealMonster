@@ -3,7 +3,7 @@ class Order
   extend ActiveModel::Translation
   include ActiveModel::Conversion
 
-  attr_accessor :id, :day, :offering, :customer
+  attr_accessor :id, :day, :offering, :customer, :note
 
   def initialize(attributes={})
     attributes.each do |key, value|
