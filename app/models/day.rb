@@ -16,7 +16,9 @@ class Day
   end
 
   def offer!(menu)
-    offering_mapper.save new_offering(menu: menu)
+    new_offering(menu: menu).tap do |o|
+      offering_mapper.save o
+    end
   end
 
   def new_order(attributes={})

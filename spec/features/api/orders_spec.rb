@@ -7,15 +7,11 @@ describe "/api/offerings" do
   let(:spaghetti) { kitchen.new_meal name: "Spaghetti" }
   let(:pudding) { kitchen.new_meal name: "Pudding", kilojoules: 412 }
   let(:quark) { kitchen.new_meal name: "Quark", bread_units: 2.1 }
-  let(:first_menu) { kitchen.new_menu meals: [spaghetti, pudding] }
-  let(:second_menu) { kitchen.new_menu meals: [spaghetti, quark] }
-  let(:third_menu) { kitchen.new_menu meals: [spaghetti, quark] }
+  let(:menu) { kitchen.new_menu meals: [spaghetti, pudding] }
+  let(:offering) { organization.day("2013-10-03").offer! menu }
   let(:customer) { organization.new_customer forename: "Peter" }
 
   before do
-    organization.day("2013-10-03").offer! first_menu
-    organization.day("2013-10-03").offer! second_menu
-    organization.day("2013-10-04").offer! third_menu
     customer.subscribe!
   end
 
@@ -24,7 +20,6 @@ describe "/api/offerings" do
 
     context "given valid parameters" do
       before do
-        offering = organization.day("2013-10-03").offerings.find { |o| o.menu.id == first_menu.id }
         post "/api/v1/orders.json", {customer_id: customer.id, date: "2013-10-03", offering_id: offering.id}
       end
 
