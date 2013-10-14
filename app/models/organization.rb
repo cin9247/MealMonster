@@ -33,6 +33,10 @@ class Organization
     day
   end
 
+  def days(range)
+    range.map { |date| day date }
+  end
+
   def kitchen
     @kitchen ||= kitchen_source.call
   end

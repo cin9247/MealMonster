@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   def new
     @customers = organization.customers
     @order = organization.day(params[:date]).new_order
-    @menus = organization.kitchen.day(params[:date]).offerings.map(&:menu)
+    @menus = organization.day(params[:date]).offerings.map(&:menu)
   end
 
   def create

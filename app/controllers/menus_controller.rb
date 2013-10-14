@@ -5,7 +5,7 @@ class MenusController < ApplicationController
     else
       [Date.today, Date.today + 6.days]
     end
-    @days = kitchen.days(from..to)
+    @days = organization.days(from..to)
   end
 
   def new

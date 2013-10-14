@@ -14,9 +14,9 @@ describe "/api/offerings" do
   let(:result) { json_response["offerings"] }
 
   before do
-    kitchen.day("2013-10-03").offer! first_menu
-    kitchen.day("2013-10-03").offer! second_menu
-    kitchen.day("2013-10-04").offer! third_menu
+    organization.day("2013-10-03").offer! first_menu
+    organization.day("2013-10-03").offer! second_menu
+    organization.day("2013-10-04").offer! third_menu
   end
 
   describe "GET /api/offerings?date=?" do

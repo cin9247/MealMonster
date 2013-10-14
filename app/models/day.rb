@@ -1,7 +1,7 @@
 class Day
   attr_accessor :date
   attr_writer :offering_mapper, :order_mapper, :offering_source, :order_source
-  attr_accessor :kitchen, :organization
+  attr_accessor :organization
 
   def initialize(attributes={})
     attributes.each do |key, value|

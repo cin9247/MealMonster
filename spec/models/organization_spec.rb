@@ -58,6 +58,27 @@ describe Organization do
     end
   end
 
+  describe "#days" do
+    before do
+      subject.day_source = ->(args = {}) { OpenStruct.new(args) }
+    end
+
+    it "returns an array of days" do
+      days = subject.days(Date.new(2013, 10, 3)..Date.new(2013, 10, 7))
+      expect(days.length).to eq 5
+      expect(days.map(&:date)).to eq [
+        Date.new(2013, 10, 3),
+        Date.new(2013, 10, 4),
+        Date.new(2013, 10, 5),
+        Date.new(2013, 10, 6),
+        Date.new(2013, 10, 7),
+      ]
+      expect(days.first.organization).to eq subject
+    end
+
+    xit "it also accepts strings"
+  end
+
   describe "#find_customer_by_id" do
     let(:customer) { double(:customer) }
 

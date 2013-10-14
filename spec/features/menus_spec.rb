@@ -14,9 +14,9 @@ describe "menus" do
       m_2 = kitchen.new_menu meals: [hackbraten, nusskuchen]
       m_3 = kitchen.new_menu meals: [nusskuchen]
 
-      kitchen.day("2013-05-06").offer! m_1
-      kitchen.day("2013-05-06").offer! m_2
-      kitchen.day("2013-05-07").offer! m_3
+      organization.day("2013-05-06").offer! m_1
+      organization.day("2013-05-06").offer! m_2
+      organization.day("2013-05-07").offer! m_3
 
       visit "/menus?date=2013-05-04..2013-05-08"
     end

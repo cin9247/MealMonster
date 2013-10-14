@@ -31,20 +31,6 @@ class Kitchen
     menu_mapper.save menu
   end
 
-  def day(date)
-    day = if Date === date
-      day_source.call date: date
-    else
-      day_source.call date: Date.parse(date)
-    end
-    day.kitchen = self
-    day
-  end
-
-  def days(range)
-    range.map { |date| day date }
-  end
-
   def meals
     meal_mapper.fetch
   end
