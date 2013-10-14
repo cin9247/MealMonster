@@ -3,8 +3,8 @@
     = f.label :customer_id, "Kunden"
     = f.select :customer_id, @customers.map { |c| [c.full_name, c.id] }
   p
-    = f.label :menu_id, "Menu"
-    = f.select :menu_id, @menus.map { |m| [m.name, m.id] }
+    = f.label :offering_id, "Menu"
+    = f.select :offering_id, @offerings.map { |o| ["#{o.menu.name} (#{o.menu.meals.map(&:name).join(', ')})", o.id] }
   p
     = f.hidden_field :date, value: params[:date]
   p

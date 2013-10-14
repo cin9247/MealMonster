@@ -3,12 +3,16 @@ class Order
   extend ActiveModel::Translation
   include ActiveModel::Conversion
 
-  attr_accessor :id, :day, :menu, :customer
+  attr_accessor :id, :day, :offering, :customer
 
   def initialize(attributes={})
     attributes.each do |key, value|
       public_send "#{key}=", value
     end
+  end
+
+  def menu
+    offering.menu
   end
 
   def place!
@@ -19,8 +23,8 @@ class Order
     customer && customer.id
   end
 
-  def menu_id
-    menu && menu.id
+  def offering_id
+    offering && offering.id
   end
 
   def persisted?

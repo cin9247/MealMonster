@@ -17,13 +17,13 @@ spar_menu     = kitchen.new_menu meals: [rote_beete, obst_salat]
 
 today = Date.today
 
-kitchen.days(today..(today + 2.days)).each do |d|
+organization.days(today..(today + 2.days)).each do |d|
   d.offer! fleisch_menu
   d.offer! vegi_menu
   d.offer! spar_menu
 end
 
-kitchen.days((today + 3.days)..(today + 5.days)).each do |d|
+organization.days((today + 3.days)..(today + 5.days)).each do |d|
   d.offer! fleisch_menu
   d.offer! spar_menu
 end
@@ -34,5 +34,6 @@ c_2 = organization.new_customer forename: "Peter", surname: "Henkel"
 c_1.subscribe!
 c_2.subscribe!
 
-order = organization.day(today).new_order customer: c_1, menu: vegi_menu
+offering = organization.day(today).offerings.find { |o| o.menu.id == vegi_menu.id }
+order = organization.day(today).new_order customer: c_1, offering: offering
 order.place!

@@ -1,5 +1,5 @@
 class Organization
-  attr_writer :customer_source, :customer_mapper, :order_mapper, :kitchen_source, :day_source
+  attr_writer :customer_source, :customer_mapper, :order_mapper, :offering_mapper, :kitchen_source, :day_source
 
   def new_customer(options={})
     customer_source.call(options).tap do |c|
@@ -21,6 +21,10 @@ class Organization
 
   def find_customer_by_id(id)
     customer_mapper.find id
+  end
+
+  def find_offering_by_id(id)
+    offering_mapper.find id
   end
 
   def day(date)
@@ -60,5 +64,9 @@ class Organization
 
     def order_mapper
       @order_mapper ||= OrderMapper.new
+    end
+
+    def offering_mapper
+      @offering_mapper ||= OfferingMapper.new
     end
 end

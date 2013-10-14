@@ -18,6 +18,12 @@ describe "orders" do
     organization.day(date).offer! menu_2
   end
 
+  def offering_for_menu(menu)
+    organization.day(date).offerings.find do |o|
+      o.menu.id == menu.id
+    end
+  end
+
   describe "displaying orders" do
     describe "by day" do
       let(:date) { Date.parse "2013-10-05" }
@@ -30,13 +36,13 @@ describe "orders" do
           end
         end
 
-        order = organization.day(date).new_order customer: customers[0], menu: menu_1
+        order = organization.day(date).new_order customer: customers[0], offering: offering_for_menu(menu_1)
         order.place!
 
-        order = organization.day(date).new_order customer: customers[1], menu: menu_2
+        order = organization.day(date).new_order customer: customers[1], offering: offering_for_menu(menu_2)
         order.place!
 
-        order = organization.day(another_date).new_order customer: customers[2], menu: menu_2
+        order = organization.day(another_date).new_order customer: customers[2], offering: offering_for_menu(menu_2)
         order.place!
 
         visit orders_path(:date => "2013-10-05")
