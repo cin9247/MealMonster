@@ -60,23 +60,21 @@ describe Organization do
 
   describe "#days" do
     before do
-      subject.day_source = ->(args = {}) { OpenStruct.new(args) }
+      subject.days_source = ->(args = {}) { OpenStruct.new(args) }
     end
 
-    it "returns an array of days" do
-      days = subject.days(Date.new(2013, 10, 3)..Date.new(2013, 10, 7))
-      expect(days.length).to eq 5
-      expect(days.map(&:date)).to eq [
-        Date.new(2013, 10, 3),
-        Date.new(2013, 10, 4),
-        Date.new(2013, 10, 5),
-        Date.new(2013, 10, 6),
-        Date.new(2013, 10, 7),
-      ]
-      expect(days.first.organization).to eq subject
+    let(:from) { Date.new(2013, 10, 3) }
+    let(:to) { Date.new(2013, 10, 7) }
+    let(:days) { subject.days(from..to) }
+
+    it "returns an object which knows about the organization" do
+      expect(days.organization).to eq subject
     end
 
-    xit "it also accepts strings"
+    it "passes the from and to dates to the new object" do
+      expect(days.from).to eq from
+      expect(days.to).to eq to
+    end
   end
 
   describe "#orders" do

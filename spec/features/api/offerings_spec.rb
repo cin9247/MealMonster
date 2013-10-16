@@ -17,10 +17,11 @@ describe "/api/offerings" do
     organization.day("2013-10-03").offer! first_menu
     organization.day("2013-10-03").offer! second_menu
     organization.day("2013-10-04").offer! third_menu
+    organization.day("2013-10-07").offer! third_menu
   end
 
   describe "GET /api/offerings?date=?" do
-    context "given a valid date" do
+    context "given a single date" do
 
       before do
         get "/api/v1/offerings?date=2013-10-03"
@@ -44,6 +45,22 @@ describe "/api/offerings" do
         expect(result[0]["meals"][1]["kilojoules"]).to eq 412
       end
 
+    end
+
+    context "given a date range" do
+      before do
+        get "/api/v1/offerings?from=2013-10-03&to=2013-10-05"
+      end
+
+      it "returns 200 OK" do
+        expect(last_response.status).to eq 200
+      end
+
+      it "returns all offerings which lie in the given date range" do
+        expect(result.size).to eq 3
+        expect(result[0]["meals"][0]["name"]).to eq "Spaghetti"
+        expect(result[0]["meals"][1]["name"]).to eq "Pudding"
+      end
     end
 
     context "given an invalid date" do
