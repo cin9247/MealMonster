@@ -1,33 +1,37 @@
 = link_to "Angebotsübersicht", offerings_path
 
-h1 Neues Angbot für Tag 1
+div.row
+  div.large-6.columns
+    = form_tag "/offerings" do |f|
+      - @days.each do |day|
+        h1 Menü für #{l day.date, format: "%A"}
 
-dl.sub-nav.filter
-  dt Filter:
-  dd.active
-    a href="#" Alle
-  dd
-    a href="#" Vorspeise
-  dd
-    a href="#" Hauptgericht
-  dd
-    a href="#" Nachtisch
+        ol.menus.small-block-grid-3
+          - 3.times do |i|
+            li class="menu number#{i}"
+              h2 = "Menu #{i + 1}"
 
-ul.meals
-  - @meals.each do |meal|
-    li.meal draggable="true"
-      => meal.name
-      - 3.times do |column|
-        a.add-link> data-meal-name="#{meal.name}" data-meal-id="#{meal.id}" data-column="#{column}" href="#" = "Add to ##{column}"
+              ol.dropbox style="border: 1px solid grey"
 
-= form_tag "/offerings" do |f|
-  ol.menus.small-block-grid-3
-    - 3.times do |i|
-      li class="menu number#{i}"
-        h2 = "Menu #{i + 1}"
+              div.hidden-inputs
 
-        ol.dropbox style="border: 1px solid grey"
+    input type="submit" name="commit" value="submit"
 
-        div.hidden-inputs
-
-  input type="submit" name="commit" value="submit"
+  div.large-5.columns
+    div.panel.radius style="position: fixed"
+      dl.sub-nav.filter
+        dt Filter:
+        dd.active
+          a href="#" Alle
+        dd
+          a href="#" Vorspeise
+        dd
+          a href="#" Hauptgericht
+        dd
+          a href="#" Nachtisch
+      ul.meals
+        - @meals.each do |meal|
+          li.meal draggable="true"
+            => meal.name
+            - 3.times do |column|
+              a.add-link> data-meal-name="#{meal.name}" data-meal-id="#{meal.id}" data-column="#{column}" href="#" = "Add to ##{column}"

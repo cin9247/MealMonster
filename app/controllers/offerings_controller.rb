@@ -15,7 +15,14 @@ class OfferingsController < ApplicationController
   end
 
   def new
+    from, to = if params[:from] and params[:to]
+      [Date.parse(params[:from]), Date.parse(params[:to])]
+    else
+      start_of_next_week = Date.today.beginning_of_week + 7.days
+      [start_of_next_week, start_of_next_week + 6.days]
+    end
     @meals = kitchen.meals
+    @days = organization.days(from..to)
   end
 
   def create

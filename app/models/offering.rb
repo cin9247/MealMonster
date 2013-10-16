@@ -20,4 +20,8 @@ class Offering
   def meals
     menu.meals
   end
+
+  def persisted?
+    !id.nil?
+  end
 end
