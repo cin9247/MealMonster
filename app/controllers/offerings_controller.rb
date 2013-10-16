@@ -15,12 +15,22 @@ class OfferingsController < ApplicationController
   end
 
   def new
-    @menu = kitchen.new_menu
+    @meals = kitchen.meals
   end
 
   def create
-    menu = kitchen.new_menu menu_params
-    menu.offer!
+    params[:offerings].each do |date, value|
+      menus = value[:menus].map do |menuPosition, value|
+        meals = value[:meal_ids].map do |id|
+          kitchen.find_meal_by_id id
+        end
+        kitchen.new_menu meals: meals
+      end
+      menus.each do |m|
+        organization.day(date).offer! m
+      end
+    end
+
     redirect_to offerings_path
   end
 

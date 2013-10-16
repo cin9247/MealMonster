@@ -8,7 +8,7 @@ describe "offerings" do
   let!(:spaghetti)  { create_meal kitchen, name: "Spaghetti" }
   let!(:nusskuchen) { create_meal kitchen, name: "Nusskuchen" }
 
-  describe "viewing the menus" do
+  describe "viewing the offerings" do
     before do
       m_1 = kitchen.new_menu meals: [hackbraten, spaghetti]
       m_2 = kitchen.new_menu meals: [hackbraten, nusskuchen]

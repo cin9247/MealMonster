@@ -1,9 +1,33 @@
-= form_for @menu do |f|
-  p
-    = f.label :date
-    = f.text_field :date
-  p
-    = f.label :meal_ids, "Meals"
-    = f.select :meal_ids, kitchen.meals.map { |m| [m.name, m.id] }, {}, { multiple: true }
-  p
-    = f.submit
+= link_to "Angebotsübersicht", offerings_path
+
+h1 Neues Angbot für Tag 1
+
+dl.sub-nav.filter
+  dt Filter:
+  dd.active
+    a href="#" Alle
+  dd
+    a href="#" Vorspeise
+  dd
+    a href="#" Hauptgericht
+  dd
+    a href="#" Nachtisch
+
+ul.meals
+  - @meals.each do |meal|
+    li.meal draggable="true"
+      => meal.name
+      - 3.times do |column|
+        a.add-link> data-meal-name="#{meal.name}" data-meal-id="#{meal.id}" data-column="#{column}" href="#" = "Add to ##{column}"
+
+= form_tag "/offerings" do |f|
+  ol.menus.small-block-grid-3
+    - 3.times do |i|
+      li class="menu number#{i}"
+        h2 = "Menu #{i + 1}"
+
+        ol.dropbox style="border: 1px solid grey"
+
+        div.hidden-inputs
+
+  input type="submit" name="commit" value="submit"
