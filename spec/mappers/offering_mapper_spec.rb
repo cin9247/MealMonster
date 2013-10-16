@@ -1,10 +1,11 @@
 require "spec_helper"
 
 describe OfferingMapper do
+  let(:meal) { Meal.new name: "Hackbraten" }
+  let(:menu) { Menu.new meals: [meal] }
+
   describe "#save" do
-    let(:meal) { Meal.new name: "Hackbraten" }
     let(:date) { Date.new(2013, 4, 6) }
-    let(:menu) { Menu.new meals: [meal] }
     let(:offering) { Offering.new menu: menu, day: double(:day, date: date) }
 
     context "existing menu" do
@@ -31,7 +32,6 @@ describe OfferingMapper do
   end
 
   describe "#fetch_by_date" do
-    let(:menu) { Menu.new }
     let(:offering_1) { Offering.new day: Day.new(date: Date.new(2013, 5, 6)), menu: menu }
     let(:offering_2) { Offering.new day: Day.new(date: Date.new(2013, 5, 6)), menu: menu }
     let(:offering_3) { Offering.new day: Day.new(date: Date.new(2013, 5, 7)), menu: menu }
@@ -53,6 +53,29 @@ describe OfferingMapper do
       result = subject.fetch_by_date Date.new(2013, 5, 6)
 
       expect(result.first.menu.id).to eq menu.id
+    end
+  end
+
+  describe "#fetch_by_date_range" do
+    let(:offering_1) { Offering.new day: Day.new(date: Date.new(2013, 5, 6)), menu: menu }
+    let(:offering_2) { Offering.new day: Day.new(date: Date.new(2013, 5, 6)), menu: menu }
+    let(:offering_3) { Offering.new day: Day.new(date: Date.new(2013, 5, 7)), menu: menu }
+    let(:offering_4) { Offering.new day: Day.new(date: Date.new(2013, 5, 8)), menu: menu }
+
+    before do
+      subject.save offering_1
+      subject.save offering_2
+      subject.save offering_3
+      subject.save offering_4
+    end
+
+    it "returns all offerings within that range" do
+      result = subject.fetch_by_date_range(Date.new(2013, 5, 6), Date.new(2013, 5, 7))
+      expect(result.size).to eq 3
+      ids = result.map(&:id)
+      expect(ids).to include offering_1.id
+      expect(ids).to include offering_2.id
+      expect(ids).to include offering_3.id
     end
   end
 end

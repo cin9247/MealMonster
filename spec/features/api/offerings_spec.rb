@@ -49,7 +49,7 @@ describe "/api/offerings" do
 
     context "given a date range" do
       before do
-        get "/api/v1/offerings?date=2013-10-03..2013-10-05"
+        get "/api/v1/offerings?from=2013-10-03&to=2013-10-05"
       end
 
       it "returns 200 OK" do
@@ -58,6 +58,8 @@ describe "/api/offerings" do
 
       it "returns all offerings which lie in the given date range" do
         expect(result.size).to eq 3
+        expect(result[0]["meals"][0]["name"]).to eq "Spaghetti"
+        expect(result[0]["meals"][1]["name"]).to eq "Pudding"
       end
     end
 

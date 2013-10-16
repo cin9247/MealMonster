@@ -14,6 +14,12 @@ class OfferingMapper < BaseMapper
     end
   end
 
+  def fetch_by_date_range(from, to)
+    schema_class.eager(:menu => :meals).where(date: from..to).all.map do |o|
+      convert_to_object_and_set_id o
+    end
+  end
+
   def hash_from_object(object)
     {
       date: object.date,

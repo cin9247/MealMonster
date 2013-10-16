@@ -1,5 +1,8 @@
 class Organization
-  attr_writer :customer_source, :customer_mapper, :order_mapper, :offering_mapper, :kitchen_source, :day_source
+  attr_writer :customer_source, :customer_mapper,
+              :order_mapper, :offering_mapper,
+              :kitchen_source, :day_source,
+              :days_source
 
   def new_customer(options={})
     customer_source.call(options).tap do |c|
@@ -38,7 +41,9 @@ class Organization
   end
 
   def days(range)
-    range.map { |date| day date }
+    days_source.call(from: range.first, to: range.last).tap do |d|
+      d.organization = self
+    end
   end
 
   def kitchen
@@ -68,5 +73,9 @@ class Organization
 
     def offering_mapper
       @offering_mapper ||= OfferingMapper.new
+    end
+
+    def days_source
+      @days_source ||= Days.public_method(:new)
     end
 end
