@@ -11,7 +11,8 @@ class OrderMapper < BaseMapper
       {
         date: order.day.date,
         customer_id: order.customer.id,
-        offering_id: order.offering.id
+        offering_id: order.offering.id,
+        note: order.note
       }
     end
 
@@ -19,8 +20,12 @@ class OrderMapper < BaseMapper
       customer = CustomerMapper.new.send :convert_to_object_and_set_id, order.customer
       offering = OfferingMapper.new.send :convert_to_object_and_set_id, order.offering
 
-      ## TODO day creation??? which day if we have several?
-      Order.new day: Day.new(date: order[:date]), offering: offering, customer: customer
+      Order.new(
+        day: Day.new(date: order[:date]),
+        offering: offering,
+        customer: customer,
+        note: order[:note]
+      )
     end
 
     def schema_class
