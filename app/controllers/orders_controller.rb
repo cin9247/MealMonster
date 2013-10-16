@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
   end
 
   def new
+    params[:date] ||= Date.today
     @customers = organization.customers
     @order = organization.day(params[:date]).new_order
     @offerings = organization.day(params[:date]).offerings
