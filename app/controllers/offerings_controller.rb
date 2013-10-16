@@ -1,4 +1,4 @@
-class MenusController < ApplicationController
+class OfferingsController < ApplicationController
   def index
     from, to = if params[:date]
       params[:date].split("..").map { |d| Date.parse d }
@@ -15,7 +15,7 @@ class MenusController < ApplicationController
   def create
     menu = kitchen.new_menu menu_params
     menu.offer!
-    redirect_to menus_path
+    redirect_to offerings_path
   end
 
   private

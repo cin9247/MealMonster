@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "menus" do
+describe "offerings" do
   let(:organization) { Organization.new }
   let(:kitchen) { organization.kitchen }
 
@@ -18,7 +18,7 @@ describe "menus" do
       organization.day("2013-05-06").offer! m_2
       organization.day("2013-05-07").offer! m_3
 
-      visit "/menus?date=2013-05-04..2013-05-08"
+      visit "/offerings?date=2013-05-04..2013-05-08"
     end
 
     it "displays a list of menus for each day" do
@@ -41,29 +41,6 @@ describe "menus" do
           expect(page).to_not have_content "Hackbraten"
         end
       end
-    end
-  end
-
-  describe "creating a menu for a day" do
-    before do
-      visit new_menu_path
-
-      fill_in "Date", with: "2013-10-03"
-
-      select "Hackbraten", from: "Meals"
-      select "Nusskuchen", from: "Meals"
-
-      click_on "Menu erstellen"
-    end
-
-    let(:date) { Date.new(2013, 10, 3) }
-    let(:menu) { kitchen.menus.first }
-
-    xit "creates a menu with the selected meals" do
-      expect(kitchen.menus.length).to eq 1
-      expect(menu.meals.length).to eq 2
-      expect(menu.meals.first.name).to eq "Hackbraten"
-      expect(menu.meals.first.name).to eq "Hackbraten"
     end
   end
 end

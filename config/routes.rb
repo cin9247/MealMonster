@@ -3,7 +3,7 @@ MealsOnWheels::Application.routes.draw do
 
   resources :customers
   resources :meals
-  resources :menus
+  resources :offerings
   resources :tours
   resources :orders
 
