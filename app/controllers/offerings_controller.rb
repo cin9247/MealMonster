@@ -40,9 +40,4 @@ class OfferingsController < ApplicationController
 
     redirect_to offerings_path
   end
-
-  private
-    def menu_params
-      params.require(:menu).permit(:date, :meal_ids => [])
-    end
 end
