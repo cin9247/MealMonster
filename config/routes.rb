@@ -1,4 +1,4 @@
-MealsOnWheels::Application.routes.draw do
+CareEAR::Application.routes.draw do
   root to: "main#show"
 
   resources :customers

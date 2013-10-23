@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-MealsOnWheels::Application.load_tasks
+CareEAR::Application.load_tasks

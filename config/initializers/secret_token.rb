@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-MealsOnWheels::Application.config.secret_key_base = '8284b272fd4ee31a0c4e13c320d74c826d63bacd2af0cf40cb66c2b831f818530978417b47e3ded1267276f5be0188b7e4be1a0926a386d09929c5a68d485254'
+CareEAR::Application.config.secret_key_base = '8284b272fd4ee31a0c4e13c320d74c826d63bacd2af0cf40cb66c2b831f818530978417b47e3ded1267276f5be0188b7e4be1a0926a386d09929c5a68d485254'
