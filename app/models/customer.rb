@@ -8,16 +8,12 @@ class Customer
 
   attr_accessor :id, :organization, :forename, :surname
 
-  validates_presence_of :forename, :surname
+  # validates_presence_of :forename, :surname
 
   def initialize(attributes={})
     attributes.each do |key, value|
       public_send "#{key}=", value
     end
-  end
-
-  def subscribe!
-    organization.add_customer self
   end
 
   def full_name

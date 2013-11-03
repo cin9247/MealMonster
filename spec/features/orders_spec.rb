@@ -24,7 +24,7 @@ describe "orders" do
       before do
         customers = names.map do |name|
           organization.new_customer(forename: name).tap do |c|
-            c.subscribe!
+            Interactor::CreateCustomer.new(c).run
           end
         end
 
@@ -71,7 +71,7 @@ describe "orders" do
 
     before do
       c = organization.new_customer forename: "Max", surname: "Mustermann"
-      c.subscribe!
+      Interactor::CreateCustomer.new(c).run
     end
 
     before do

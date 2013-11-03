@@ -8,6 +8,10 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
+Dir[File.expand_path('../../app/interactors/*', __FILE__)].each do |f|
+  require f
+end
+
 module CareEAR
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

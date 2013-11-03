@@ -1,5 +1,3 @@
-require_relative "../interactors/create_customer"
-
 class CustomersController < ApplicationController
   def index
     @customers = organization.customers

@@ -12,8 +12,8 @@ describe OrderMapper do
     let(:order) { Order.new offering: offering, customer: customer, day: Day.new(date: Date.new(2013, 10, 4)) }
 
     before do
-      menu.offer!
-      customer.subscribe!
+      MenuMapper.new.save menu
+      CustomerMapper.new.save customer
       OfferingMapper.new.save offering
       subject.save order
     end
