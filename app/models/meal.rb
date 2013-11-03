@@ -4,6 +4,7 @@ class Meal
   extend ActiveModel::Naming
   extend ActiveModel::Translation
   include ActiveModel::Conversion
+  include ActiveModel::Validations
 
   attr_accessor :id, :name, :kitchen, :bread_units, :kilojoules
 
