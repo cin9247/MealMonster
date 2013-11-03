@@ -1,23 +1,9 @@
 require_relative "../../app/interactors/create_meal"
+require "interactor_spec_helper"
 require 'ostruct'
 
 describe Interactor::CreateMeal do
-  let(:meal_gateway) do
-    Class.new do
-      def all
-        items
-      end
-
-      def save item
-        items << item
-      end
-
-      private
-        def items
-          @items ||= []
-        end
-    end.new
-  end
+  let(:meal_gateway) { dummy_gateway }
 
   let(:subject) { Interactor::CreateMeal.new(request) }
 
