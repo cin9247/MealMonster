@@ -22,6 +22,7 @@ html lang="en"
     section.main
       div.row
         div.large-12.columns
+          = render "layouts/flash"
           == yield
 
     = javascript_include_tag "application"

@@ -8,9 +8,13 @@ class MealsController < ApplicationController
   end
 
   def create
-    meal = kitchen.new_meal meal_params
-    meal.offer!
-    redirect_to meals_path
+    @meal = kitchen.new_meal meal_params
+    response = Interactor::CreateMeal.new(@meal).run
+    if response.success?
+      redirect_to meals_path
+    else
+      render :new
+    end
   end
 
   def edit

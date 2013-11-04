@@ -8,9 +8,16 @@ class CustomersController < ApplicationController
   end
 
   def create
-    customer = organization.new_customer customer_params
-    customer.subscribe!
-    redirect_to customers_path
+    @customer = organization.new_customer customer_params
+
+    response = Interactor::CreateCustomer.new(@customer).run
+
+    if response.success?
+      redirect_to customers_path, notice: "Customer successfully created"
+    else
+      flash[:error] = "There was an error submitting your request"
+      render :new
+    end
   end
 
   def show

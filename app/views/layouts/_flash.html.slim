@@ -1,0 +1,10 @@
+- if flash[:notice]
+  div class="alert-box"
+    = flash[:notice]
+    a href="#" class="close"
+      | &times;
+- elsif flash[:error]
+  div class="alert-box alert"
+    = flash[:error]
+    a href="#" class="close"
+      | &times;

@@ -9,11 +9,11 @@ describe OrderMapper do
     let(:menu) { kitchen.new_menu name: "menu #2", meals: [meal_1, meal_2] }
     let(:offering) { organization.day("2013-10-06").new_offering menu: menu }
     let(:customer) { organization.new_customer forename: "Hans" }
-    let(:order) { Order.new offering: offering, customer: customer, day: Day.new(date: Date.new(2013, 10, 4)) }
+    let(:order) { Order.new offering: offering, customer: customer }
 
     before do
-      menu.offer!
-      customer.subscribe!
+      MenuMapper.new.save menu
+      CustomerMapper.new.save customer
       OfferingMapper.new.save offering
       subject.save order
     end
@@ -34,7 +34,7 @@ describe OrderMapper do
     end
 
     it "sets the day" do
-      expect(result.first.day.date).to eq Date.new(2013, 10, 4)
+      expect(result.first.day.date).to eq Date.new(2013, 10, 6)
     end
   end
 end

@@ -15,7 +15,7 @@ describe "/api/offerings" do
   let(:note) { "Could you guys please cook below 50°C?" }
 
   before do
-    customer.subscribe!
+    Interactor::CreateCustomer.new(customer).run
   end
 
   describe "POST /api/orders" do

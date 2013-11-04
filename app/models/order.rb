@@ -2,6 +2,7 @@ class Order
   extend ActiveModel::Naming
   extend ActiveModel::Translation
   include ActiveModel::Conversion
+  include ActiveModel::Validations
 
   attr_accessor :id, :day, :offering, :customer, :note
 
@@ -25,6 +26,10 @@ class Order
 
   def offering_id
     offering && offering.id
+  end
+
+  def date
+    offering.date
   end
 
   def persisted?

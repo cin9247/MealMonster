@@ -1,11 +1,17 @@
 class OfferingsController < ApplicationController
   def index
-    from, to = if params[:date]
-      params[:date].split("..").map { |d| Date.parse d }
-    else
-      [Date.today, Date.today + 6.days]
+    from, to =
+      if params[:from] && params[:to]
+        [Date.parse(params[:from]), Date.parse(params[:to])]
+      else
+        [Date.today, Date.today + 6.days]
+      end
+
+    response = Interactor::ListOfferings.new(from, to).run
+
+    @days = response.object.group_by do |o|
+      o.date
     end
-    @days = organization.days(from..to)
   end
 
   def new

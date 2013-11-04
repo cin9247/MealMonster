@@ -1,7 +1,7 @@
 class Day
   attr_accessor :date
   attr_writer :offering_mapper, :order_mapper, :offering_source, :order_source
-  attr_accessor :organization
+  attr_accessor :organization, :offerings
 
   def initialize(attributes={})
     attributes.each do |key, value|
@@ -29,10 +29,6 @@ class Day
 
   def add_order(order)
     order_mapper.save order
-  end
-
-  def offerings
-    offering_mapper.fetch_by_date date
   end
 
   def menus

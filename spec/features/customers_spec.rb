@@ -10,8 +10,8 @@ describe "customers" do
       max   = organization.new_customer forename: "Max", surname: "Mustermann"
       heinz = organization.new_customer forename: "Heinz", surname: "Rühmann"
 
-      max.subscribe!
-      heinz.subscribe!
+      Interactor::CreateCustomer.new(max).run
+      Interactor::CreateCustomer.new(heinz).run
 
       visit customers_path
     end
@@ -44,7 +44,7 @@ describe "customers" do
   describe "displaying a single customer" do
     before do
       customer = organization.new_customer(forename: "Peter", surname: "Mustermann")
-      customer.subscribe!
+      Interactor::CreateCustomer.new(customer).run
 
       visit customer_path(customer)
     end

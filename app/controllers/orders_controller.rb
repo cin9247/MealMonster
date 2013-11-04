@@ -7,14 +7,11 @@ class OrdersController < ApplicationController
     params[:date] ||= Date.today
     @customers = organization.customers
     @order = organization.day(params[:date]).new_order
-    @offerings = organization.day(params[:date]).offerings
+    @offerings = OfferingMapper.new.fetch_by_date(params[:date])
   end
 
   def create
-    customer = organization.find_customer_by_id(params[:order][:customer_id].to_i)
-    offering = organization.find_offering_by_id(params[:order][:offering_id].to_i)
-    order = organization.day(params[:order][:date]).new_order customer: customer, offering: offering
-    order.place!
+    Interactor::CreateOrder.new(params[:order][:customer_id].to_i, params[:order][:offering_id].to_i).run
 
     redirect_to orders_path
   end
