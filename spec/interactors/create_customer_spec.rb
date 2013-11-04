@@ -1,6 +1,5 @@
 require_relative "../../app/interactors/create_customer"
 require "interactor_spec_helper"
-require 'ostruct'
 
 describe Interactor::CreateCustomer do
   let(:customer_gateway) { dummy_gateway }

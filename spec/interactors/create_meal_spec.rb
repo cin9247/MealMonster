@@ -1,6 +1,5 @@
 require_relative "../../app/interactors/create_meal"
 require "interactor_spec_helper"
-require 'ostruct'
 
 describe Interactor::CreateMeal do
   let(:meal_gateway) { dummy_gateway }

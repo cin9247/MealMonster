@@ -1,3 +1,5 @@
+require "ostruct"
+
 module DummyGateway
   def dummy_gateway
     Class.new do
