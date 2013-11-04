@@ -17,9 +17,4 @@ class Api::V1::OfferingsController < Api::V1::ApiController
   rescue ArgumentError
     render json: {errors: [{message: "invalid date"}]}, status: 400
   end
-
-  private
-    def organization
-      @organization ||= Organization.new
-    end
 end
