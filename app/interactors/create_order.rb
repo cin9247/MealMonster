@@ -3,13 +3,13 @@ module Interactor
     attr_writer :order_gateway, :customer_gateway, :offering_gateway
     attr_writer :order_source
 
-    def initialize(customer_id, offering_id, note)
+    def initialize(customer_id, offering_id, note=nil)
       @customer_id = customer_id
       @offering_id = offering_id
       @note = note
     end
 
-    def run(actor_id)
+    def run(actor_id=nil)
       offering = offering_gateway.find(@offering_id)
       customer = customer_gateway.find(@customer_id)
       order = order_source.call customer: customer, offering: offering, note: @note
