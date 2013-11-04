@@ -7,7 +7,11 @@ class OfferingsController < ApplicationController
         [Date.today, Date.today + 6.days]
       end
 
-    @days = organization.days(from..to)
+    response = Interactor::ListOfferings.new(from, to).run
+
+    @days = response.object.group_by do |o|
+      o.date
+    end
   end
 
   def new
