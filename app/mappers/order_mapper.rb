@@ -9,7 +9,7 @@ class OrderMapper < BaseMapper
   private
     def hash_from_object(order)
       {
-        date: order.day.date,
+        date: order.date,
         customer_id: order.customer.id,
         offering_id: order.offering.id,
         note: order.note

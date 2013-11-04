@@ -13,14 +13,15 @@ describe "orders" do
   let(:menu_1) { kitchen.new_menu meals: [meal_1], name: "Veggie-Menu" }
   let(:menu_2) { kitchen.new_menu meals: [meal_2], name: "Für Pfundskerle" }
 
+  let(:date) { Date.parse "2013-10-05" }
+  let(:another_date) { Date.parse "2013-10-06" }
+
   let!(:offering_1) { organization.day(date).offer! menu_1 }
   let!(:offering_2) { organization.day(date).offer! menu_2 }
+  let!(:offering_3) { organization.day(another_date).offer! menu_2 }
 
   describe "displaying orders" do
     describe "by day" do
-      let(:date) { Date.parse "2013-10-05" }
-      let(:another_date) { Date.parse "2013-10-06" }
-
       before do
         customers = names.map do |name|
           organization.new_customer(forename: name).tap do |c|
@@ -34,7 +35,7 @@ describe "orders" do
         order = organization.day(date).new_order customer: customers[1], offering: offering_2
         order.place!
 
-        order = organization.day(another_date).new_order customer: customers[2], offering: offering_2
+        order = organization.day(another_date).new_order customer: customers[2], offering: offering_3
         order.place!
 
         visit orders_path(:date => "2013-10-05")
@@ -67,8 +68,6 @@ describe "orders" do
   end
 
   describe "creating order" do
-    let(:date) { Date.new(2013, 10, 5) }
-
     before do
       c = organization.new_customer forename: "Max", surname: "Mustermann"
       Interactor::CreateCustomer.new(c).run

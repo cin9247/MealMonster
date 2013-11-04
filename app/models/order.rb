@@ -27,6 +27,10 @@ class Order
     offering && offering.id
   end
 
+  def date
+    offering.date
+  end
+
   def persisted?
     !id.nil?
   end
