@@ -11,6 +11,10 @@ module DummyGateway
         items << item
       end
 
+      def find(id)
+        items.find { |i| i.id == id }
+      end
+
       private
         def items
           @items ||= []

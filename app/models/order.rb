@@ -2,6 +2,7 @@ class Order
   extend ActiveModel::Naming
   extend ActiveModel::Translation
   include ActiveModel::Conversion
+  include ActiveModel::Validations
 
   attr_accessor :id, :day, :offering, :customer, :note
 
