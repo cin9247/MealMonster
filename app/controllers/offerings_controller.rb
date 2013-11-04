@@ -1,10 +1,12 @@
 class OfferingsController < ApplicationController
   def index
-    from, to = if params[:date]
-      params[:date].split("..").map { |d| Date.parse d }
-    else
-      [Date.today, Date.today + 6.days]
-    end
+    from, to =
+      if params[:from] && params[:to]
+        [Date.parse(params[:from]), Date.parse(params[:to])]
+      else
+        [Date.today, Date.today + 6.days]
+      end
+
     @days = organization.days(from..to)
   end
 

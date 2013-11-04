@@ -18,7 +18,7 @@ describe "offerings" do
       organization.day("2013-05-06").offer! m_2
       organization.day("2013-05-07").offer! m_3
 
-      visit "/offerings?date=2013-05-04..2013-05-08"
+      visit "/offerings?from=2013-05-04&to=2013-05-08"
     end
 
     it "displays a list of menus for each day" do
