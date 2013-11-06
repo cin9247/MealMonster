@@ -49,6 +49,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'quiet_assets'
   gem 'simplecov', require: false
+  gem 'capybara-webkit'
 end
 
 # Use ActiveModel has_secure_password
