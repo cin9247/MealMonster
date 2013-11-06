@@ -1,14 +1,16 @@
 $ ->
-  createInput = (mealId, column, date) ->
-    input = $("<input name='offerings[#{date}]menus[#{column}]meal_ids[]' type='hidden' value='#{mealId}'>")
+  $(".draggable").draggable
+    cursorAt:
+      bottom: 0
+  $("ol.dropbox").droppable
+    drop: (e, ui) ->
+      date = $(this).data "date"
+      column = $(this).data "column"
+      mealId = $(ui.draggable).data "meal-id"
+      mealName = $(ui.draggable).data "meal-name"
+      inputTag = buildInputTag date, column, mealId
 
-  $("a.add-link").click ->
-    column =   $(this).data("column")
-    mealId =   $(this).data("meal-id")
-    mealName = $(this).data("meal-name")
+      $(this).append $("<li class='meal'>#{mealName}#{inputTag}</li>")
 
-    date_divs = $("div[data-date]")
-    date_divs.each (i, e) ->
-      date = $(e).data("date")
-      $(e).find(".menu.number#{column} .hidden-inputs").append createInput(mealId, parseInt(column), date)
-      $(e).find(".menu.number#{column} .dropbox").append $("<li>#{mealName}</li>")
+  buildInputTag = (date, column, mealId) ->
+    "<input name='offerings[#{date}]menus[#{column}]meal_ids[]' type='hidden' value='#{mealId}'>"

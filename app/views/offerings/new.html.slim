@@ -4,17 +4,15 @@ div.row
   div.large-6.columns
     = form_tag "/offerings"
       - @days.each do |day|
-        div data-date="#{day.date}"
+        div
           h1 Menü für #{l day.date, format: "%A"}
 
-          ol.menus.small-block-grid-3
+          ol.menus
             - 3.times do |i|
-              li class="menu number#{i}"
-                h2 = "Menu #{i + 1}"
+              li class="menu"
+                h2 = "Menu ##{i + 1}"
 
-                ol.dropbox style="border: 1px solid grey"
-
-                div.hidden-inputs
+                ol.dropbox data-column="#{i}" data-date="#{day.date}" style="border: 1px solid grey; min-height: 100px"
 
       = submit_tag "Submit"
 
@@ -32,7 +30,5 @@ div.row
           a href="#" Nachtisch
       ul.meals
         - @meals.each do |meal|
-          li.meal draggable="true"
+          li.meal.draggable data-meal-id="#{meal.id}" data-meal-name="#{meal.name}"
             => meal.name
-            - 3.times do |column|
-              a.add-link> data-meal-name="#{meal.name}" data-meal-id="#{meal.id}" data-column="#{column}" href="#" = "Add to ##{column}"
