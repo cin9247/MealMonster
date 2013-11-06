@@ -1,0 +1,16 @@
+.meals-panel {
+  position: fixed;
+  top: 5em;
+  bottom: 2em;
+}
+
+ul.meals {
+  height: 100%;
+  overflow-y: scroll;
+  position: relative;
+  .panel {
+    padding: 0.5em;
+    margin: 0;
+  }
+  padding-bottom: 3em;
+}

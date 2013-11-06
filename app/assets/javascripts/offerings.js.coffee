@@ -7,6 +7,7 @@ $ ->
     cursor: "pointer"
     helper: "clone"
     revert: true
+    appendTo: "body"
 
   $("ol.dropbox").droppable
     drop: (e, ui) ->
