@@ -25,21 +25,32 @@ describe "meals" do
   end
 
   describe "creation of new meals" do
+    let(:price_class_1) { PriceClass.new(name: "PK 1") }
+    let(:price_class_2) { PriceClass.new(name: "PK 2") }
+
     before do
+      PriceClassMapper.new.save price_class_1
+      PriceClassMapper.new.save price_class_2
+
       visit new_meal_path
 
       fill_in "Name", with: "Hackbraten mit Schweineblut"
       fill_in "Broteinheiten", with: 2
       fill_in "meal_kilojoules", with: 4153
 
+      select "PK 2", from: "Preisklasse"
+
       click_on "Gericht erstellen"
     end
 
     it "creates a new meal for the kitchen" do
       expect(kitchen.meals.length).to eq 1
-      expect(kitchen.meals.first.name).to eq "Hackbraten mit Schweineblut"
-      expect(kitchen.meals.first.bread_units).to eq 2
-      expect(kitchen.meals.first.kilojoules).to eq 4153
+
+      first_meal = kitchen.meals.first
+      expect(first_meal.name).to eq "Hackbraten mit Schweineblut"
+      expect(first_meal.bread_units).to eq 2
+      expect(first_meal.kilojoules).to eq 4153
+      expect(first_meal.price_class.name).to eq price_class_2.name
     end
   end
 

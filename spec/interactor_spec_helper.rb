@@ -7,8 +7,16 @@ module DummyGateway
         items
       end
 
-      def save item
+      def save(item)
         items << item
+      end
+
+      def update(item)
+        if i = find(item.id)
+          items.delete i
+        end
+
+        save item
       end
 
       def find(id)

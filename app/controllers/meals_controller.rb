@@ -10,7 +10,9 @@ class MealsController < ApplicationController
   def create
     @meal = kitchen.new_meal meal_params
     response = Interactor::CreateMeal.new(@meal).run
+
     if response.success?
+      Interactor::SetPriceClassForMeal.new(@meal.id, params[:meal][:price_class].to_i).run
       redirect_to meals_path
     else
       render :new

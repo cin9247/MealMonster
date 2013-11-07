@@ -9,9 +9,9 @@ module Interactor
     def run
       if @meal.valid?
         meal_gateway.save @meal
-        OpenStruct.new status: :successfully_created
+        OpenStruct.new status: :successfully_created, success?: true
       else
-        OpenStruct.new status: :invalid_request
+        OpenStruct.new status: :invalid_request, success?: false
       end
     end
 

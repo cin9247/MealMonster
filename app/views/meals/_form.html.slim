@@ -9,4 +9,7 @@
     = f.label :kilojoules
     = f.text_field :kilojoules
   p
+    = f.label :price_class, "Preisklasse"
+    = f.collection_select :price_class, PriceClassMapper.new.fetch, :id, :name
+  p
     = f.submit
