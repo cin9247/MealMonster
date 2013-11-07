@@ -6,7 +6,7 @@ class Meal
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  attr_accessor :id, :name, :kitchen, :bread_units, :kilojoules
+  attr_accessor :id, :name, :kitchen, :bread_units, :kilojoules, :price_class
 
   def initialize(attributes = {})
     self.attributes = attributes
@@ -40,5 +40,9 @@ class Meal
 
   def persisted?
     !id.nil?
+  end
+
+  def price_class_id
+    price_class.id if price_class
   end
 end

@@ -11,6 +11,7 @@ Sequel.migration do
       column :name, "text", :null=>false
       column :bread_units, "double precision"
       column :kilojoules, "integer"
+      column :price_class_id, "integer"
     end
     
     create_table(:meals_menus) do
@@ -64,5 +65,6 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131014082251_rename_menu_id_to_offering_id_in_orders.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131014145210_add_note_to_orders.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131107151212_create_price_classes.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131107152830_add_price_class_id_to_meals.rb')"
   end
 end
