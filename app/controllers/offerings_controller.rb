@@ -40,7 +40,6 @@ class OfferingsController < ApplicationController
     end
 
     def next_week
-      start_of_next_week = Date.today.beginning_of_week + 7.days
-      [start_of_next_week, start_of_next_week + 6.days]
+      [Date.today.next_week(:monday), Date.today.next_week(:sunday)]
     end
 end
