@@ -2,6 +2,8 @@ require_relative "../../app/models/offering"
 
 describe Offering do
   describe "attributes" do
+
+    ## FIXME extremely long test for simple method
     describe "#date" do
       before do
         subject.day = day

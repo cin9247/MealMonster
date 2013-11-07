@@ -4,6 +4,7 @@ class Offering
   extend ActiveModel::Naming
   extend ActiveModel::Translation
   include ActiveModel::Conversion
+  include ActiveModel::Validations
 
   attr_accessor :id, :menu, :day
 
@@ -17,7 +18,16 @@ class Offering
     day && day.date
   end
 
+  def date=(date)
+    self.day = Day.new(date: date)
+    date
+  end
+
   def meals
     menu.meals
+  end
+
+  def persisted?
+    !id.nil?
   end
 end

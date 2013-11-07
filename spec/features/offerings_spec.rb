@@ -8,7 +8,7 @@ describe "offerings" do
   let!(:spaghetti)  { create_meal kitchen, name: "Spaghetti" }
   let!(:nusskuchen) { create_meal kitchen, name: "Nusskuchen" }
 
-  describe "viewing the menus" do
+  describe "viewing the offerings" do
     before do
       m_1 = kitchen.new_menu meals: [hackbraten, spaghetti]
       m_2 = kitchen.new_menu meals: [hackbraten, nusskuchen]
@@ -39,6 +39,46 @@ describe "offerings" do
           expect(page).to have_content "Nusskuchen"
           expect(page).to_not have_content "Spaghetti"
           expect(page).to_not have_content "Hackbraten"
+        end
+      end
+    end
+  end
+
+  describe "creating a menu", js: true do
+    it "" do
+      visit new_offering_path(from: "2013-10-12", to: "2013-10-12")
+
+      first_menu = all("li.menu")[0]
+      second_menu = all("li.menu")[1]
+
+      within(first_menu) do
+        expect(page).to have_content "Menu #1"
+      end
+
+      spaghetti = find("ul.meals li", text: "Spaghetti")
+      hackbraten = find("ul.meals li", text: "Hackbraten")
+
+      spaghetti.drag_to first_menu
+      hackbraten.drag_to second_menu
+
+      within(first_menu) do
+        expect(page).to have_content "Spaghetti"
+      end
+
+      within(second_menu) do
+        expect(page).to have_content "Hackbraten"
+      end
+
+      click_on "Submit"
+
+      visit offerings_path(from: "2013-10-12", to: "2013-10-12")
+
+      within(".day", text: "12.10.2013") do
+        within("li", text: "Menu #1") do
+          expect(page).to have_content "Spaghetti"
+        end
+        within("li", text: "Menu #2") do
+          expect(page).to have_content "Hackbraten"
         end
       end
     end

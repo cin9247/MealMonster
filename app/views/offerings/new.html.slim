@@ -1,9 +1,35 @@
-= form_for @menu do |f|
-  p
-    = f.label :date
-    = f.text_field :date
-  p
-    = f.label :meal_ids, "Meals"
-    = f.select :meal_ids, kitchen.meals.map { |m| [m.name, m.id] }, {}, { multiple: true }
-  p
-    = f.submit
+= link_to "Angebotsübersicht", offerings_path
+
+div.row#new-offering
+  div.large-6.columns
+    = form_tag "/offerings"
+      - @days.each do |day|
+        div
+          h1 Menü für #{l day.date, format: "%A"}
+
+          ol.menus
+            - 3.times do |i|
+              li class="menu"
+                h2 = "Menu ##{i + 1}"
+
+                ol.dropbox data-column="#{i}" data-date="#{day.date}" style="border: 1px solid grey; min-height: 100px"
+
+      = submit_tag "Submit"
+
+  div.large-5.columns
+    div.panel.radius.meals-panel
+      dl.sub-nav.filter
+        dt Filter:
+        dd.active
+          a href="#" Alle
+        dd
+          a href="#" Vorspeise
+        dd
+          a href="#" Hauptgericht
+        dd
+          a href="#" Nachtisch
+      ul.meals
+        - @meals.each do |meal|
+          li.meal data-meal-id="#{meal.id}" data-meal-name="#{meal.name}"
+            p.panel
+              = meal.name
