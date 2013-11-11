@@ -1,4 +1,5 @@
 require "ostruct"
+Dir[File.dirname(__FILE__) + '/../app/interactors/responses/*.rb'].each { |file| require file }
 
 module DummyGateway
   def dummy_gateway

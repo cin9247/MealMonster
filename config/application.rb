@@ -8,7 +8,10 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-Dir[File.expand_path('../../app/interactors/*', __FILE__)].each do |f|
+Dir[File.expand_path('../../app/interactors/*.rb', __FILE__)].each do |f|
+  require f
+end
+Dir[File.expand_path('../../app/interactors/responses/*.rb', __FILE__)].each do |f|
   require f
 end
 

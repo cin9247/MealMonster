@@ -14,7 +14,7 @@ table.meals.large-12.small-6
         td = meal.name
         td = meal.kilojoules
         td = meal.bread_units
-        td P2 (4,80€)
+        td = meal.price_class.try(:name)
         td = link_to "Editieren", edit_meal_path(meal)
 
 = link_to "Neues Gericht", new_meal_path
