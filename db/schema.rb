@@ -5,7 +5,7 @@ Sequel.migration do
       column :forename, "text"
       column :surname, "text"
     end
-    
+
     create_table(:meals) do
       primary_key :id
       column :name, "text", :null=>false
@@ -13,25 +13,25 @@ Sequel.migration do
       column :kilojoules, "integer"
       column :price_class_id, "integer"
     end
-    
+
     create_table(:meals_menus) do
       primary_key :id
       column :menu_id, "integer", :null=>false
       column :meal_id, "integer", :null=>false
       column :position, "integer", :null=>false
     end
-    
+
     create_table(:menus) do
       primary_key :id
       column :name, "text"
     end
-    
+
     create_table(:offerings) do
       primary_key :id
       column :date, "date", :null=>false
       column :menu_id, "integer", :null=>false
     end
-    
+
     create_table(:orders) do
       primary_key :id
       column :offering_id, "integer", :null=>false
@@ -39,15 +39,15 @@ Sequel.migration do
       column :date, "date", :null=>false
       column :note, "text"
     end
-    
+
     create_table(:price_classes) do
       primary_key :id
       column :name, "text", :null=>false
     end
-    
+
     create_table(:schema_migrations) do
       column :filename, "text", :null=>false
-      
+
       primary_key [:filename]
     end
   end
