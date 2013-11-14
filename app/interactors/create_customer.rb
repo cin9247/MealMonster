@@ -11,7 +11,7 @@ module Interactor
     def run
       if @customer.valid?
         customer_gateway.save @customer
-        OpenStruct.new status: :successfully_created, success?: true
+        OpenStruct.new status: :successfully_created, success?: true, id: @customer.id
       else
         OpenStruct.new status: :invalid_request
       end

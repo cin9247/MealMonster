@@ -55,3 +55,10 @@ def create_meal(kitchen, options={})
     m.offer!
   end
 end
+
+def create_customer(name="Max Mustermann")
+  forename, surname = name.split(" ")
+  c = Customer.new forename: forename, surname: surname
+  response = Interactor::CreateCustomer.new(c).run
+  response.id
+end

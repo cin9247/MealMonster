@@ -6,6 +6,13 @@ Sequel.migration do
       column :surname, "text"
     end
 
+    create_table(:customers_tours) do
+      primary_key :id
+      column :customer_id, "integer", :null=>false
+      column :tour_id, "integer", :null=>false
+      column :position, "integer", :null=>false
+    end
+
     create_table(:meals) do
       primary_key :id
       column :name, "text", :null=>false
@@ -44,6 +51,11 @@ Sequel.migration do
 
       primary_key [:filename]
     end
+
+    create_table(:tours) do
+      primary_key :id
+      column :name, "text", :null=>false
+    end
   end
 end
 Sequel.migration do
@@ -58,5 +70,7 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131009151739_add_name_to_menus.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131014082251_rename_menu_id_to_offering_id_in_orders.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131014145210_add_note_to_orders.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131114102442_create_tour.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131114133742_create_customers_tours.rb')"
   end
 end
