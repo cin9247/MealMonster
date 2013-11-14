@@ -4,7 +4,6 @@ require "interactor_spec_helper"
 
 describe Interactor::ListOfferings do
   let(:offering_gateway) { dummy_gateway }
-  let(:day_source) { ->(args) { OpenStruct.new(args) } }
 
   context "given a start and end date" do
     let(:from) { Date.new(2013, 10, 4) }
@@ -21,7 +20,6 @@ describe Interactor::ListOfferings do
       end
 
       subject.offering_gateway = offering_gateway
-      subject.day_source       = day_source
     end
 
     let(:result) { subject.run.object }

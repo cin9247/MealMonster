@@ -1,6 +1,6 @@
 module Interactor
   class ListOfferings
-    attr_writer :offering_gateway, :day_source
+    attr_writer :offering_gateway
 
     def initialize(from, to)
       @from, @to = from, to
@@ -16,10 +16,6 @@ module Interactor
     private
       def offering_gateway
         @offering_gateway ||= OfferingMapper.new
-      end
-
-      def day_source
-        @day_source ||= Day.public_method(:new)
       end
   end
 end
