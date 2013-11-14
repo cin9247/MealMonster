@@ -123,6 +123,14 @@ describe FooMapper do
         expect(result.id).to_not be_nil
       end
     end
+
+    context "given a set of array, some existing some not" do
+      let(:id) { [@id_1, @id_2, 100] }
+
+      it "returns all elements" do
+        expect(result.size).to eq 2
+      end
+    end
   end
 
   describe "#fetch" do

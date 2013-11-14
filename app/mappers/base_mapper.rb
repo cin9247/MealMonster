@@ -19,9 +19,13 @@ class BaseMapper
   end
 
   def find(id)
-    result = schema_class[id]
-
-    convert_to_object_and_set_id(result) if result
+    if Array === id
+      id.map do |id|
+        find_by_id(id)
+      end.compact
+    else
+      find_by_id(id)
+    end
   end
 
   def hash_from_object(record)
@@ -41,5 +45,11 @@ class BaseMapper
       object_from_hash(hash).tap do |o|
         o.id = hash[:id]
       end
+    end
+
+    def find_by_id(id)
+      result = schema_class[id]
+
+      convert_to_object_and_set_id(result) if result
     end
 end
