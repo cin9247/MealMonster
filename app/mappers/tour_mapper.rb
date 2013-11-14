@@ -17,9 +17,10 @@ class TourMapper < BaseMapper
   end
 
   def object_from_hash(hash)
-    customers = Schema::Tour[hash[:id]].customers.map do |c|
-      CustomerMapper.new.send :convert_to_object_and_set_id, c
-    end
+    ## TODO use database!
+    customer_ids = Schema::CustomersTour.where(tour_id: hash[:id]).order(:position).map(&:customer_id)
+    customers = CustomerMapper.new.find customer_ids
+
     Tour.new name: hash[:name], customers: customers
   end
 
