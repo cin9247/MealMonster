@@ -3,6 +3,7 @@ require_relative "../../app/interactors/list_tours"
 
 describe Interactor::ListTours do
   let(:tour_gateway)  { dummy_gateway }
+  let(:order_gateway)  { dummy_gateway }
 
   before do
     subject.tour_gateway = tour_gateway
