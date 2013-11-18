@@ -2,8 +2,10 @@ require_relative "./base"
 
 module Interactor
   class CreateOrder < Base
-    attr_writer :order_gateway, :customer_gateway, :offering_gateway
-    attr_writer :order_source
+    register_boundary :order_gateway,    -> { OrderMapper.new}
+    register_boundary :customer_gateway, -> { CustomerMapper.new}
+    register_boundary :offering_gateway, -> { OfferingMapper.new}
+    register_boundary :order_source,     -> { Order.public_method(:new) }
 
     def initialize(customer_id, offering_id, note=nil)
       @customer_id = customer_id
@@ -23,22 +25,5 @@ module Interactor
         OpenStruct.new status: :invalid_request
       end
     end
-
-    private
-      def order_gateway
-        @order_gateway ||= OrderMapper.new
-      end
-
-      def offering_gateway
-        @offering_gateway ||= OfferingMapper.new
-      end
-
-      def customer_gateway
-        @customer_gateway ||= CustomerMapper.new
-      end
-
-      def order_source
-        @order_source ||= Order.public_method(:new)
-      end
   end
 end

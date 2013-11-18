@@ -2,7 +2,8 @@ require_relative "./base"
 
 module Interactor
   class CreateMeal < Base
-    attr_writer :meal_gateway, :meal_source
+    register_boundary :meal_gateway, -> { MealMapper.new }
+    register_boundary :meal_source,  -> { Meal.public_method(:new) }
 
     def initialize(name, kilojoules, bread_units)
       @name        = name
@@ -19,14 +20,5 @@ module Interactor
         OpenStruct.new status: :invalid_request, object: meal
       end
     end
-
-    private
-      def meal_gateway
-        @meal_gateway ||= MealMapper.new
-      end
-
-      def meal_source
-        @meal_source ||= Meal.public_method(:new)
-      end
   end
 end

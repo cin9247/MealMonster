@@ -2,8 +2,9 @@ require_relative "./base"
 
 module Interactor
   class CreateTour < Base
-    attr_writer :customer_gateway, :tour_gateway
-    attr_writer :tour_source
+    register_boundary :customer_gateway, -> { CustomerMapper.new }
+    register_boundary :tour_gateway,     -> { TourMapper.new }
+    register_boundary :tour_source,      -> { Tour.public_method(:new) }
 
     def initialize(name, customer_ids)
       @name         = name
@@ -21,18 +22,5 @@ module Interactor
         OpenStruct.new status: :invalid_request
       end
     end
-
-    private
-      def customer_gateway
-        @customer_gateway ||= CustomerMapper.new
-      end
-
-      def tour_gateway
-        @tour_gateway ||= TourMapper.new
-      end
-
-      def tour_source
-        @tour_source ||= Tour.public_method(:new)
-      end
   end
 end

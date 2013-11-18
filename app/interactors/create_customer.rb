@@ -2,7 +2,8 @@ require_relative './base'
 
 module Interactor
   class CreateCustomer < Base
-    attr_writer :customer_gateway, :customer_source
+    register_boundary :customer_gateway, -> { CustomerMapper.new }
+    register_boundary :customer_source,  -> { Customer.public_method(:new) }
 
     def initialize(forename, surname)
       @forename = forename
@@ -18,14 +19,5 @@ module Interactor
         OpenStruct.new status: :invalid_request
       end
     end
-
-    private
-      def customer_gateway
-        @customer_gateway ||= CustomerMapper.new
-      end
-
-      def customer_source
-        @customer_source ||= Customer.public_method(:new)
-      end
   end
 end

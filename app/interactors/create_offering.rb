@@ -2,7 +2,9 @@ require_relative "./base"
 
 module Interactor
   class CreateOffering < Base
-    attr_writer :offering_gateway, :meal_gateway, :offering_source
+    register_boundary :offering_gateway, -> { OfferingMapper.new }
+    register_boundary :meal_gateway, -> { MealMapper.new }
+    register_boundary :offering_source, -> { Offering.public_method(:new) }
 
     def initialize(date, meal_ids)
       @date = date
@@ -20,18 +22,5 @@ module Interactor
         OpenStruct.new status: :invalid_request
       end
     end
-
-    private
-      def offering_gateway
-        @offering_gateway ||= OfferingMapper.new
-      end
-
-      def meal_gateway
-        @meal_gateway ||= MealMapper.new
-      end
-
-      def offering_source
-        @offering_source ||= Offering.public_method(:new)
-      end
   end
 end
