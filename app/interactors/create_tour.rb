@@ -14,7 +14,7 @@ module Interactor
 
       if tour.valid?
         tour_gateway.save tour
-        OpenStruct.new status: :successfully_created
+        OpenStruct.new status: :successfully_created, object: tour
       else
         OpenStruct.new status: :invalid_request
       end

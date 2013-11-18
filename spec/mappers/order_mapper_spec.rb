@@ -1,21 +1,29 @@
 require "spec_helper"
 
 describe OrderMapper do
-  describe "#fetch" do
-    let(:organization) { Organization.new }
-    let(:kitchen) { organization.kitchen }
-    let(:meal_1) { kitchen.new_meal name: "Hack" }
-    let(:meal_2) { kitchen.new_meal name: "Karotte" }
-    let(:menu) { kitchen.new_menu name: "menu #2", meals: [meal_1, meal_2] }
-    let(:offering) { organization.day("2013-10-06").new_offering menu: menu }
-    let(:customer) { organization.new_customer forename: "Hans" }
-    let(:order) { Order.new offering: offering, customer: customer }
+  let(:organization) { Organization.new }
+  let(:kitchen) { organization.kitchen }
+  let(:meal_1) { kitchen.new_meal name: "Hack" }
+  let(:meal_2) { kitchen.new_meal name: "Karotte" }
+  let(:menu_1) { kitchen.new_menu name: "Menu #1", meals: [meal_1, meal_2] }
+  let(:menu_2) { kitchen.new_menu name: "Menu #2", meals: [meal_1] }
+  let(:offering_1) { organization.day("2013-10-06").new_offering menu: menu_1 }
+  let(:offering_2) { organization.day("2013-10-07").new_offering menu: menu_2 }
+  let(:customer) { organization.new_customer forename: "Hans" }
+  let(:order_1) { Order.new offering: offering_1, customer: customer }
+  let(:order_2) { Order.new offering: offering_2, customer: customer }
 
+  before do
+    MenuMapper.new.save menu_1
+    MenuMapper.new.save menu_2
+    CustomerMapper.new.save customer
+    OfferingMapper.new.save offering_1
+    OfferingMapper.new.save offering_2
+  end
+
+  describe "#fetch" do
     before do
-      MenuMapper.new.save menu
-      CustomerMapper.new.save customer
-      OfferingMapper.new.save offering
-      subject.save order
+      subject.save order_1
     end
 
     let(:result) { subject.fetch }
@@ -25,7 +33,7 @@ describe OrderMapper do
     end
 
     it "fetches the menu for the offering" do
-      expect(result.first.menu.name).to eq "menu #2"
+      expect(result.first.menu.name).to eq "Menu #1"
     end
 
     it "fetches each meal for the offered menu" do
@@ -35,6 +43,19 @@ describe OrderMapper do
 
     it "sets the day" do
       expect(result.first.day.date).to eq Date.new(2013, 10, 6)
+    end
+  end
+
+  describe "#find_by_date" do
+    before do
+      subject.save order_1
+      subject.save order_2
+    end
+
+    it "returns only the orders for that date" do
+      result = subject.find_by_date Date.new(2013, 10, 7)
+      expect(result.size).to eq 1
+      expect(result.first.customer.forename).to eq "Hans"
     end
   end
 end
