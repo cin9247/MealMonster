@@ -11,12 +11,8 @@ describe "/api/offerings" do
   let(:quark) { kitchen.new_meal name: "Quark", bread_units: 2.1 }
   let(:menu) { kitchen.new_menu meals: [spaghetti, pudding] }
   let(:offering) { organization.day("2013-10-03").offer! menu }
-  let(:customer) { organization.new_customer forename: "Peter" }
+  let(:customer) { Interactor::CreateCustomer.new("Peter", "Mustermann").run.object }
   let(:note) { "Could you guys please cook below 50°C?" }
-
-  before do
-    Interactor::CreateCustomer.new(customer).run
-  end
 
   describe "POST /api/orders" do
     before do

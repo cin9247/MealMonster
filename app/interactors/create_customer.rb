@@ -2,16 +2,18 @@ require 'ostruct'
 
 module Interactor
   class CreateCustomer
-    attr_writer :customer_gateway
+    attr_writer :customer_gateway, :customer_source
 
-    def initialize(customer)
-      @customer = customer
+    def initialize(forename, surname)
+      @forename = forename
+      @surname = surname
     end
 
     def run
-      if @customer.valid?
-        customer_gateway.save @customer
-        OpenStruct.new status: :successfully_created, success?: true, id: @customer.id
+      customer = customer_source.call forename: @forename, surname: @surname
+      if customer.valid?
+        customer_gateway.save customer
+        OpenStruct.new status: :successfully_created, success?: true, object: customer
       else
         OpenStruct.new status: :invalid_request
       end
@@ -20,6 +22,10 @@ module Interactor
     private
       def customer_gateway
         @customer_gateway ||= CustomerMapper.new
+      end
+
+      def customer_source
+        @customer_source ||= Customer.public_method(:new)
       end
   end
 end

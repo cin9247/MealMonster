@@ -56,7 +56,5 @@ end
 
 def create_customer(name="Max Mustermann")
   forename, surname = name.split(" ")
-  c = Customer.new forename: forename, surname: surname
-  response = Interactor::CreateCustomer.new(c).run
-  response.id
+  Interactor::CreateCustomer.new(forename, surname).run.object
 end

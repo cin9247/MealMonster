@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe "/api/tours" do
-  let(:customer_ids) { [create_customer("Max Mustermann"), create_customer("Else Schmidt")] }
+  let(:customer_ids) { [create_customer("Max Mustermann").id, create_customer("Else Schmidt").id] }
 
   before do
     @tour_id = Interactor::CreateTour.new("Tour #1", customer_ids).run.object.id
