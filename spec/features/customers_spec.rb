@@ -7,8 +7,8 @@ describe "customers" do
 
   describe "listing customers" do
     before do
-      Interactor::CreateCustomer.new("Max", "Mustermann").run
-      Interactor::CreateCustomer.new("Heinz", "Rühmann").run
+      create_customer("Max", "Mustermann")
+      create_customer("Heinz", "Rühmann")
 
       visit customers_path
     end
@@ -41,7 +41,7 @@ describe "customers" do
   describe "displaying a single customer" do
     before do
       customer = organization.new_customer(forename: "Peter", surname: "Mustermann")
-      customer = Interactor::CreateCustomer.new("Peter", "Mustermann").run.object
+      customer = create_customer("Peter", "Mustermann")
 
       visit customer_path(customer)
     end

@@ -24,7 +24,7 @@ describe "orders" do
     describe "by day" do
       before do
         customers = names.map do |name|
-          Interactor::CreateCustomer.new(name, "").run.object
+          create_customer(name, "lastname")
         end
 
         order = organization.day(date).new_order customer: customers[0], offering: offering_1
@@ -67,7 +67,7 @@ describe "orders" do
 
   describe "creating order" do
     before do
-      Interactor::CreateCustomer.new("Max", "Mustermann").run
+      create_customer "Max", "Mustermann"
     end
 
     before do
