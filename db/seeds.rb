@@ -38,7 +38,7 @@ fleisch_menu  = kitchen.new_menu meals: [rote_beete, würstchen, bananen_quark]
 vegi_menu     = kitchen.new_menu meals: [rote_beete, spaghetti, erdbeer_quark]
 spar_menu     = kitchen.new_menu meals: [rote_beete, obst_salat]
 
-today = Date.today
+today = Date.new(2013, 11, 11)
 
 (today..(today + 2.days)).each do |d|
   Interactor::CreateOffering.new(d, [rote_beete.id, würstchen.id, bananen_quark.id]).run
@@ -56,8 +56,10 @@ c_2 = create_customer "Peter Henkel"
 c_3 = create_customer "Lemon Jello"
 c_4 = create_customer "John Lennon"
 
-offering = Interactor::ListOfferings.new(today, today).run.object.first
-Interactor::CreateOrder.new(c_1.id, offering.id).run
+offering_1 = Interactor::ListOfferings.new(today, today).run.object.first
+offering_2 = Interactor::ListOfferings.new(today, today).run.object.last
+Interactor::CreateOrder.new(c_1.id, offering_1.id).run
+Interactor::CreateOrder.new(c_2.id, offering_2.id).run
 
 Interactor::CreateTour.new("Tour #1", [c_1.id, c_2.id, c_3.id, c_4.id]).run
 Interactor::CreateTour.new("Tour #2", [c_2.id, c_4.id]).run
