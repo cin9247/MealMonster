@@ -18,21 +18,13 @@ DB[:orders].delete
 
 kitchen = Organization.new.kitchen
 
-rote_beete    = kitchen.new_meal name: "Rote Beete", kilojoules: 240, bread_units: 0.4
-gemüse_suppe  = kitchen.new_meal name: "Gemüsesuppe", kilojoules: 510, bread_units: 1.2
-spaghetti     = kitchen.new_meal name: "Spaghetti mit vegetarischer Bolognese", kilojoules: 1231, bread_units: 3.5
-würstchen     = kitchen.new_meal name: "Nürnberger Würstchen auf Sauerkraut", kilojoules: 1522, bread_units: 4.2
-erdbeer_quark = kitchen.new_meal name: "Erdbeerquark", kilojoules: 752, bread_units: 1.5
-bananen_quark = kitchen.new_meal name: "Bananenquark", kilojoules: 740, bread_units: 1.6
-obst_salat    = kitchen.new_meal name: "Obstsalat", kilojoules: 331, bread_units: 0.2
-
-Interactor::CreateMeal.new(rote_beete).run
-Interactor::CreateMeal.new(gemüse_suppe).run
-Interactor::CreateMeal.new(spaghetti).run
-Interactor::CreateMeal.new(würstchen).run
-Interactor::CreateMeal.new(erdbeer_quark).run
-Interactor::CreateMeal.new(bananen_quark).run
-Interactor::CreateMeal.new(obst_salat).run
+rote_beete    = Interactor::CreateMeal.new("Rote Beete", 240, 0.4).run.object
+gemüse_suppe  = Interactor::CreateMeal.new("Gemüsesuppe", 510, 1.2).run.object
+spaghetti     = Interactor::CreateMeal.new("Spaghetti mit vegetarischer Bolognese", 1231, 3.5).run.object
+würstchen     = Interactor::CreateMeal.new("Nürnberger Würstchen auf Sauerkraut", 1522, 4.2).run.object
+erdbeer_quark = Interactor::CreateMeal.new("Erdbeerquark", 752, 1.5).run.object
+bananen_quark = Interactor::CreateMeal.new("Bananenquark", 740, 1.6).run.object
+obst_salat    = Interactor::CreateMeal.new("Obstsalat", 331, 0.2).run.object
 
 fleisch_menu  = kitchen.new_menu meals: [rote_beete, würstchen, bananen_quark]
 vegi_menu     = kitchen.new_menu meals: [rote_beete, spaghetti, erdbeer_quark]

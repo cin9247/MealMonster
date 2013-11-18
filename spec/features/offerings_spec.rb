@@ -4,9 +4,9 @@ describe "offerings" do
   let(:organization) { Organization.new }
   let(:kitchen) { organization.kitchen }
 
-  let!(:hackbraten) { create_meal kitchen, name: "Hackbraten" }
-  let!(:spaghetti)  { create_meal kitchen, name: "Spaghetti" }
-  let!(:nusskuchen) { create_meal kitchen, name: "Nusskuchen" }
+  let!(:hackbraten) { create_meal "Hackbraten" }
+  let!(:spaghetti)  { create_meal "Spaghetti" }
+  let!(:nusskuchen) { create_meal "Nusskuchen" }
 
   describe "viewing the offerings" do
     before do
