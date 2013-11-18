@@ -9,7 +9,7 @@ class BaseMapper
     raise "Can't update non-existing record. Try #save instead" unless record.id
 
     schema_class.where(id: record.id)
-               .update(hash_from_object(record))
+                .update(hash_from_object(record))
   end
 
   def fetch
@@ -19,8 +19,21 @@ class BaseMapper
   end
 
   def find(id)
-    result = schema_class[id]
+    if Array === id
+      find_by_ids id
+    else
+      find_by_id id
+    end
+  end
 
+  def find_by_ids(ids)
+    ids.map do |id|
+      find_by_id(id)
+    end.compact
+  end
+
+  def find_by_id(id)
+    result = schema_class[id]
     convert_to_object_and_set_id(result) if result
   end
 

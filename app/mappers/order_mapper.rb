@@ -6,6 +6,12 @@ class OrderMapper < BaseMapper
     super
   end
 
+  def find_by_date(date)
+    schema_class.where(date: date).map do |o|
+      convert_to_object_and_set_id o
+    end
+  end
+
   private
     def hash_from_object(order)
       {
