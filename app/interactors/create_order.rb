@@ -1,5 +1,7 @@
+require_relative "./base"
+
 module Interactor
-  class CreateOrder
+  class CreateOrder < Base
     attr_writer :order_gateway, :customer_gateway, :offering_gateway
     attr_writer :order_source
 

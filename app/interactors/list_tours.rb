@@ -1,5 +1,7 @@
+require_relative "./base"
+
 module Interactor
-  class ListTours
+  class ListTours < Base
     attr_writer :tour_gateway
 
     def initialize(date)

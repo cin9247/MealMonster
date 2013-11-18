@@ -1,5 +1,7 @@
+require_relative "./base"
+
 module Interactor
-  class CreateTour
+  class CreateTour < Base
     attr_writer :customer_gateway, :tour_gateway
     attr_writer :tour_source
 

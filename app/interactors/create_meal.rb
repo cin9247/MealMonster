@@ -1,5 +1,7 @@
+require_relative "./base"
+
 module Interactor
-  class CreateMeal
+  class CreateMeal < Base
     attr_writer :meal_gateway, :meal_source
 
     def initialize(name, kilojoules, bread_units)

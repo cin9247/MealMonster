@@ -1,5 +1,7 @@
+require_relative "./base"
+
 module Interactor
-  class ListStations
+  class ListStations < Base
     attr_writer :tour_gateway, :order_gateway
 
     def initialize(tour_id, date)

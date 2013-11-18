@@ -1,7 +1,7 @@
-require 'ostruct'
+require_relative './base'
 
 module Interactor
-  class CreateCustomer
+  class CreateCustomer < Base
     attr_writer :customer_gateway, :customer_source
 
     def initialize(forename, surname)

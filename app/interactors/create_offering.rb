@@ -1,5 +1,7 @@
+require_relative "./base"
+
 module Interactor
-  class CreateOffering
+  class CreateOffering < Base
     attr_writer :offering_gateway, :meal_gateway, :offering_source
 
     def initialize(date, meal_ids)

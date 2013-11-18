@@ -1,5 +1,7 @@
+require_relative "./base"
+
 module Interactor
-  class ListOfferings
+  class ListOfferings < Base
     attr_writer :offering_gateway
 
     def initialize(from, to)
