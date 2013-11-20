@@ -19,6 +19,15 @@ describe CustomerMapper do
 
       expect(subject.fetch.first.address.town).to eq "Karlsruhe"
     end
+
+    it "only updates the address if the customer shares the address" do
+      subject.save customer
+
+      new_customer = Customer.new forename: "Peter", address: customer.address
+
+      subject.save new_customer
+      expect(subject.fetch.first.address.town).to eq "Karlsruhe"
+    end
   end
 
   describe "#update" do

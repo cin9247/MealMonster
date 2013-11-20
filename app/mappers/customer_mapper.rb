@@ -1,20 +1,12 @@
 class CustomerMapper < BaseMapper
   def save(record)
-    if record.address
-      AddressMapper.new.save(record.address)
-    end
+    maybe_save_or_update record.address
 
     super(record)
   end
 
   def update(record)
-    if record.address
-      if record.address.persisted?
-        AddressMapper.new.update(record.address)
-      else
-        AddressMapper.new.save(record.address)
-      end
-    end
+    maybe_save_or_update record.address
 
     super(record)
   end
@@ -39,5 +31,15 @@ class CustomerMapper < BaseMapper
 
     def schema_class
       Schema::Customer
+    end
+
+    def maybe_save_or_update(address)
+      return unless address
+
+      if address.persisted?
+        AddressMapper.new.update address
+      else
+        AddressMapper.new.save address
+      end
     end
 end
