@@ -17,6 +17,7 @@ DB[:menus].delete
 DB[:meals_menus].delete
 DB[:offerings].delete
 DB[:customers].delete
+DB[:addresses].delete
 DB[:tours].delete
 DB[:customers_tours].delete
 DB[:orders].delete
