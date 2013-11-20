@@ -107,8 +107,10 @@ describe FooMapper do
     context "given unexisting id" do
       let(:id) { 0 }
 
-      it "returns nil" do
-        expect(result).to be_nil
+      it "raises exception" do
+        expect {
+          result
+        }.to raise_error(RecordNotFound)
       end
     end
 
@@ -127,8 +129,10 @@ describe FooMapper do
     context "given a set of array, some existing some not" do
       let(:id) { [@id_1, @id_2, 100] }
 
-      it "returns all elements" do
-        expect(result.size).to eq 2
+      it "raises an exception" do
+        expect {
+          result
+        }.to raise_error(RecordNotFound)
       end
     end
   end
