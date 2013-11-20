@@ -57,3 +57,9 @@ end
 def create_customer(forename="Max", surname="Mustermann")
   Interactor::CreateCustomer.new(forename, surname).run.object
 end
+
+def create_customer_with_town(forename, surname, town)
+  c = create_customer(forename, surname)
+  Interactor::AddAddressToCustomer.new(c.id, "", "", "12345", town).run
+  c
+end

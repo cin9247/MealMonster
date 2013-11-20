@@ -6,9 +6,7 @@ class Customer
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  attr_accessor :id, :organization, :forename, :surname
-
-  # validates_presence_of :forename, :surname
+  attr_accessor :id, :organization, :forename, :surname, :address
 
   def initialize(attributes={})
     attributes.each do |key, value|
@@ -22,5 +20,17 @@ class Customer
 
   def persisted?
     !id.nil?
+  end
+
+  def town
+    address.try(:town)
+  end
+
+  def street_name
+    address.try(:street_name)
+  end
+
+  def postal_code
+    address.try(:postal_code)
   end
 end

@@ -5,6 +5,13 @@ def create_customer(name)
   Interactor::CreateCustomer.new(forename, surname).run.object
 end
 
+def create_customer_with_address(name, town, postal_code)
+  forename, surname = name.split(" ")
+  c = Interactor::CreateCustomer.new(forename, surname).run.object
+  Interactor::AddAddressToCustomer.new(c.id, "", "", postal_code, town).run
+  c
+end
+
 DB[:meals].delete
 DB[:menus].delete
 DB[:meals_menus].delete
@@ -35,10 +42,10 @@ end
   Interactor::CreateOffering.new(d, [rote_beete.id, obst_salat.id]).run
 end
 
-c_1 = create_customer "Max Mustermann"
-c_2 = create_customer "Peter Henkel"
-c_3 = create_customer "Lemon Jello"
-c_4 = create_customer "John Lennon"
+c_1 = create_customer_with_address "Max Mustermann", "Stuttgart", "71424"
+c_2 = create_customer_with_address "Peter Henkel", "Karlsruhe", "76132"
+c_3 = create_customer_with_address "Lemon Jello", "Karlsurhe", "76131"
+c_4 = create_customer_with_address "John Lennon", "Karlsruhe", "76147"
 
 offering_1 = Interactor::ListOfferings.new(today, today).run.object.first
 offering_2 = Interactor::ListOfferings.new(today, today).run.object.last

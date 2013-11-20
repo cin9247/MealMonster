@@ -19,8 +19,8 @@ describe Interactor::CreateOrder do
     let(:order_source) { ->(args) { OpenStruct.new(args.merge(:valid? => true)) }}
 
     before do
-      customer_gateway.save OpenStruct.new id: 23, name: "Peter"
-      offering_gateway.save OpenStruct.new id: 14
+      customer_gateway.update OpenStruct.new id: 23, name: "Peter"
+      offering_gateway.update OpenStruct.new id: 14
     end
 
     let!(:response) { subject.run("actor-id") }

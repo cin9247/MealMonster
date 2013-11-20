@@ -1,4 +1,4 @@
-require_relative './base'
+require_relative "./base"
 
 module Interactor
   class CreateCustomer < Base

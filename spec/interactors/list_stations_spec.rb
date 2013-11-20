@@ -11,15 +11,15 @@ describe Interactor::ListStations do
   let(:customer_3) { double(:customer, id: 3) }
   let(:order_1) { OpenStruct.new id: 1, customer: customer_1, date: date }
   let(:order_2) { OpenStruct.new id: 2, customer: customer_2, date: Date.new(2013, 10, 6) }
-  let(:order_3) { OpenStruct.new id: 2, customer: customer_3, date: date }
+  let(:order_3) { OpenStruct.new id: 3, customer: customer_3, date: date }
 
   before do
     customers = [customer_1, customer_2]
 
-    tour_gateway.save OpenStruct.new id: tour_id, name: "Tour", customers: customers
-    order_gateway.save order_1
-    order_gateway.save order_2
-    order_gateway.save order_3
+    tour_gateway.update OpenStruct.new id: tour_id, name: "Tour", customers: customers
+    order_gateway.update order_1
+    order_gateway.update order_2
+    order_gateway.update order_3
     subject.tour_gateway = tour_gateway
     subject.order_gateway = order_gateway
   end

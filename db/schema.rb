@@ -1,9 +1,18 @@
 Sequel.migration do
   change do
+    create_table(:addresses) do
+      primary_key :id
+      column :street_name, "text"
+      column :street_number, "text"
+      column :postal_code, "text", :null=>false
+      column :town, "text", :null=>false
+    end
+
     create_table(:customers) do
       primary_key :id
       column :forename, "text"
       column :surname, "text"
+      column :address_id, "integer"
     end
 
     create_table(:customers_tours) do
@@ -72,5 +81,7 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131014145210_add_note_to_orders.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131114102442_create_tour.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131114133742_create_customers_tours.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131120125138_create_addresses.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131120131030_add_address_id_to_customers.rb')"
   end
 end
