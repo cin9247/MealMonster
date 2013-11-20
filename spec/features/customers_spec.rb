@@ -7,8 +7,10 @@ describe "customers" do
 
   describe "listing customers" do
     before do
-      create_customer("Max", "Mustermann")
+      customer_1 = create_customer("Max", "Mustermann")
       create_customer("Heinz", "Rühmann")
+
+      Interactor::AddAddressToCustomer.new(customer_1.id, "Heinestr.", "43", "74123", "München").run
 
       visit customers_path
     end
@@ -17,6 +19,7 @@ describe "customers" do
       within(".customers") do
         expect(page).to have_content "Max Mustermann"
         expect(page).to have_content "Heinz Rühmann"
+        expect(page).to have_content "München"
       end
     end
   end
@@ -27,6 +30,7 @@ describe "customers" do
 
       fill_in "Vorname", with: "Max"
       fill_in "Nachname", with: "Mustermann"
+      fill_in "Stadt", with: "Karslruhe"
 
       click_on "Kunde erstellen"
     end
@@ -35,6 +39,7 @@ describe "customers" do
       customers = organization.customers
       expect(customers.length).to eq 1
       expect(customers.first.full_name).to eq "Max Mustermann"
+      expect(customers.first.address.town).to eq "Karslruhe"
     end
   end
 

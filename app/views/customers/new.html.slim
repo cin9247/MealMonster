@@ -5,5 +5,19 @@
   p
     = f.label :surname
     = f.text_field :surname
+
+  = f.fields_for :address do |af|
+    p
+      = af.label :street_name
+      = af.text_field :street_name
+    p
+      = af.label :street_number
+      = af.text_field :street_number
+    p
+      = af.label :postal_code
+      = af.text_field :postal_code
+    p
+      = af.label :town
+      = af.text_field :town
   p
     = f.submit

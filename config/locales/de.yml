@@ -125,6 +125,10 @@ de:
         one: ! 'Konnte %{model} nicht speichern: ein Fehler.'
         other: ! 'Konnte %{model} nicht speichern: %{count} Fehler.'
   helpers:
+    label:
+      "customer[address]":
+        postal_code: PLZ
+        town: Stadt
     select:
       prompt: Bitte wählen
     submit:

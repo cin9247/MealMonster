@@ -3,6 +3,7 @@ table.customers.large-12.small-6
   thead
     tr
       th Name
+      th Wohnort
       th Aktionen
 
   tbody
@@ -10,6 +11,8 @@ table.customers.large-12.small-6
       tr.customer
         td
           = customer.full_name
+        td
+          = "#{customer.street_name}, #{customer.town}"
         td
           = link_to "Details", customer_path(customer)
           = link_to "Editieren", edit_customer_path(customer)
