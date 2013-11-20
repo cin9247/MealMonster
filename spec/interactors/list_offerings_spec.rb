@@ -11,9 +11,9 @@ describe Interactor::ListOfferings do
     let(:subject) { Interactor::ListOfferings.new(from, to) }
 
     before do
-      offering_gateway.save double(:offering, date: from)
-      offering_gateway.save double(:offering, date: to)
-      offering_gateway.save double(:offering, date: Date.new(2013, 10, 6))
+      offering_gateway.save OpenStruct.new(date: from)
+      offering_gateway.save OpenStruct.new(date: to)
+      offering_gateway.save OpenStruct.new(date: Date.new(2013, 10, 6))
 
       def offering_gateway.fetch_by_date(date)
         all.select { |i| i.date == date }

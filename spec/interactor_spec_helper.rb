@@ -13,6 +13,13 @@ module DummyGateway
 
       def save item
         items << item
+        id = item.id = rand(10_000)
+      end
+
+      def update item
+        existing_item = find(item.id)
+        items.delete existing_item
+        items << item
       end
 
       def find(id)

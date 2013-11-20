@@ -11,8 +11,8 @@ describe Interactor::CreateOffering do
     subject.meal_gateway = meal_gateway
     subject.offering_source = offering_source
 
-    meal_gateway.save double(:meal, id: 2)
-    meal_gateway.save double(:meal, id: 5)
+    meal_gateway.update double(:meal, id: 2)
+    meal_gateway.update double(:meal, id: 5)
   end
 
   subject { Interactor::CreateOffering.new(date, meal_ids) }
