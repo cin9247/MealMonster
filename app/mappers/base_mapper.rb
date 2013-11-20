@@ -1,3 +1,5 @@
+class RecordNotFound < StandardError; end
+
 class BaseMapper
   def save(record)
     raise "Can't be saved again. Try #update instead" if record.id
@@ -34,7 +36,8 @@ class BaseMapper
 
   def find_by_id(id)
     result = schema_class[id]
-    convert_to_object_and_set_id(result) if result
+    raise RecordNotFound.new unless result
+    convert_to_object_and_set_id(result)
   end
 
   def hash_from_object(record)

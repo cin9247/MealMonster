@@ -23,7 +23,12 @@ class CustomerMapper < BaseMapper
     end
 
     def object_from_hash(hash)
-      address = AddressMapper.new.find(hash[:address_id])
+      address = begin
+        AddressMapper.new.find(hash[:address_id])
+      rescue RecordNotFound
+        nil
+      end
+
       Customer.new(forename: hash[:forename],
                    surname:  hash[:surname],
                    address: address)
