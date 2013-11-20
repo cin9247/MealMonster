@@ -29,4 +29,8 @@ class Customer
   def street_name
     address.try(:street_name)
   end
+
+  def postal_code
+    address.try(:postal_code)
+  end
 end

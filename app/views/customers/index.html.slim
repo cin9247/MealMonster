@@ -12,7 +12,7 @@ table.customers.large-12.small-6
         td
           = customer.full_name
         td
-          = "#{customer.street_name}, #{customer.town}"
+          = "#{customer.street_name}, #{customer.postal_code} #{customer.town}"
         td
           = link_to "Details", customer_path(customer)
           = link_to "Editieren", edit_customer_path(customer)
