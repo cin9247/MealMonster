@@ -2,9 +2,7 @@
 
 def create_customer(name)
   forename, surname = name.split(" ")
-  c = Organization.new.new_customer forename: forename, surname: surname
-  Interactor::CreateCustomer.new(c).run
-  c
+  Interactor::CreateCustomer.new(forename, surname).run.object
 end
 
 DB[:meals].delete
@@ -16,8 +14,6 @@ DB[:tours].delete
 DB[:customers_tours].delete
 DB[:orders].delete
 
-kitchen = Organization.new.kitchen
-
 rote_beete    = Interactor::CreateMeal.new("Rote Beete", 240, 0.4).run.object
 gemüse_suppe  = Interactor::CreateMeal.new("Gemüsesuppe", 510, 1.2).run.object
 spaghetti     = Interactor::CreateMeal.new("Spaghetti mit vegetarischer Bolognese", 1231, 3.5).run.object
@@ -25,10 +21,6 @@ würstchen     = Interactor::CreateMeal.new("Nürnberger Würstchen auf Sauerkra
 erdbeer_quark = Interactor::CreateMeal.new("Erdbeerquark", 752, 1.5).run.object
 bananen_quark = Interactor::CreateMeal.new("Bananenquark", 740, 1.6).run.object
 obst_salat    = Interactor::CreateMeal.new("Obstsalat", 331, 0.2).run.object
-
-fleisch_menu  = kitchen.new_menu meals: [rote_beete, würstchen, bananen_quark]
-vegi_menu     = kitchen.new_menu meals: [rote_beete, spaghetti, erdbeer_quark]
-spar_menu     = kitchen.new_menu meals: [rote_beete, obst_salat]
 
 today = Date.new(2013, 11, 11)
 
