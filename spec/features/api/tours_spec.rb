@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe "/api/tours" do
-  let(:customer_ids) { [create_customer("Max", "Mustermann").id, create_customer("Else", "Schmidt").id] }
+  let(:customer_ids) { [create_customer_with_town("Max", "Mustermann", "Karlsruhe").id, create_customer_with_town("Else", "Schmidt", "Stuttgart").id] }
 
   before do
     @tour_id = Interactor::CreateTour.new("Tour #1", customer_ids).run.object.id
@@ -34,6 +34,7 @@ describe "/api/tours" do
 
       expect(tour["stations"].size).to eq 1
       expect(tour["stations"].first["customer"]["forename"]).to eq "Max"
+      expect(tour["stations"].first["customer"]["address"]["town"]).to eq "Karlsruhe"
     end
   end
 end
