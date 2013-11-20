@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe "/api/tours" do
-  let(:customer_ids) { [create_customer("Max Mustermann"), create_customer("Else Schmidt")] }
+  let(:customer_ids) { [create_customer("Max", "Mustermann").id, create_customer("Else", "Schmidt").id] }
 
   before do
     @tour_id = Interactor::CreateTour.new("Tour #1", customer_ids).run.object.id
@@ -22,8 +22,7 @@ describe "/api/tours" do
 
   describe "GET/tours/:id?date=2013-10-04" do
     before do
-      meal = Meal.new name: "Schweineschnitzel"
-      Interactor::CreateMeal.new(meal).run
+      meal = create_meal "Schweineschnitzel"
       offering_id = Interactor::CreateOffering.new(Date.new(2013, 10, 4), [meal.id]).run.object.id
       Interactor::CreateOrder.new(customer_ids.first, offering_id).run
       get "api/v1/tours/#{@tour_id}?date=2013-10-04"

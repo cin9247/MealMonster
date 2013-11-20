@@ -1,6 +1,9 @@
+require_relative "./base"
+
 module Interactor
-  class ListStations
-    attr_writer :tour_gateway, :order_gateway
+  class ListStations < Base
+    register_boundary :tour_gateway,  -> { TourMapper.new }
+    register_boundary :order_gateway, -> { OrderMapper.new }
 
     def initialize(tour_id, date)
       @tour_id = tour_id
@@ -19,14 +22,5 @@ module Interactor
 
       OpenStruct.new object: muh
     end
-
-    private
-      def tour_gateway
-        @tour_gateway ||= TourMapper.new
-      end
-
-      def order_gateway
-        @order_gateway ||= OrderMapper.new
-      end
   end
 end

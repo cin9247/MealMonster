@@ -8,11 +8,11 @@ class MealsController < ApplicationController
   end
 
   def create
-    @meal = kitchen.new_meal meal_params
-    response = Interactor::CreateMeal.new(@meal).run
+    response = Interactor::CreateMeal.new(meal_params[:name], meal_params[:kilojoules], meal_params[:bread_units]).run
     if response.success?
       redirect_to meals_path
     else
+      @meal = response.object
       render :new
     end
   end

@@ -8,13 +8,12 @@ class CustomersController < ApplicationController
   end
 
   def create
-    @customer = organization.new_customer customer_params
-
-    response = Interactor::CreateCustomer.new(@customer).run
+    response = Interactor::CreateCustomer.new(customer_params[:forename], customer_params[:surname]).run
 
     if response.success?
       redirect_to customers_path, notice: "Customer successfully created"
     else
+      @customer = response.object
       flash[:error] = "There was an error submitting your request"
       render :new
     end

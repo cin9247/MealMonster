@@ -50,15 +50,10 @@ RSpec.configure do |config|
   config.include ApiHelper, example_group: { file_path: /spec\/features\/api/ }
 end
 
-def create_meal(kitchen, options={})
-  kitchen.new_meal(options).tap do |m|
-    m.offer!
-  end
+def create_meal(name="Schweineschnitzel")
+  Interactor::CreateMeal.new(name, 1000, 2.1).run.object
 end
 
-def create_customer(name="Max Mustermann")
-  forename, surname = name.split(" ")
-  c = Customer.new forename: forename, surname: surname
-  response = Interactor::CreateCustomer.new(c).run
-  response.id
+def create_customer(forename="Max", surname="Mustermann")
+  Interactor::CreateCustomer.new(forename, surname).run.object
 end

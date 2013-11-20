@@ -1,25 +1,23 @@
-require 'ostruct'
+require_relative './base'
 
 module Interactor
-  class CreateCustomer
-    attr_writer :customer_gateway
+  class CreateCustomer < Base
+    register_boundary :customer_gateway, -> { CustomerMapper.new }
+    register_boundary :customer_source,  -> { Customer.public_method(:new) }
 
-    def initialize(customer)
-      @customer = customer
+    def initialize(forename, surname)
+      @forename = forename
+      @surname = surname
     end
 
     def run
-      if @customer.valid?
-        customer_gateway.save @customer
-        OpenStruct.new status: :successfully_created, success?: true, id: @customer.id
+      customer = customer_source.call forename: @forename, surname: @surname
+      if customer.valid?
+        customer_gateway.save customer
+        OpenStruct.new status: :successfully_created, success?: true, object: customer
       else
         OpenStruct.new status: :invalid_request
       end
     end
-
-    private
-      def customer_gateway
-        @customer_gateway ||= CustomerMapper.new
-      end
   end
 end

@@ -1,6 +1,8 @@
+require_relative "./base"
+
 module Interactor
-  class ListOfferings
-    attr_writer :offering_gateway
+  class ListOfferings < Base
+    register_boundary :offering_gateway, -> { OfferingMapper.new }
 
     def initialize(from, to)
       @from, @to = from, to
@@ -12,10 +14,5 @@ module Interactor
       end.flatten
       OpenStruct.new :object => result
     end
-
-    private
-      def offering_gateway
-        @offering_gateway ||= OfferingMapper.new
-      end
   end
 end
