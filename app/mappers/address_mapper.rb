@@ -1,4 +1,16 @@
 class AddressMapper < BaseMapper
+  def save(record)
+    super record
+    save_keys record
+    record.id
+  end
+
+  def update(record)
+    super record
+    save_keys record
+    record.id
+  end
+
   private
     def hash_from_object(object)
       {
@@ -10,13 +22,27 @@ class AddressMapper < BaseMapper
     end
 
     def object_from_hash(hash)
+      keys = DB[:keys].filter(address_id: hash[:id]).map do |key|
+        KeyMapper.new.send :convert_to_object_and_set_id, key
+      end
       Address.new(town: hash[:town],
                   postal_code: hash[:postal_code],
                   street_name: hash[:street_name],
-                  street_number: hash[:street_number])
+                  street_number: hash[:street_number],
+                  keys: keys)
     end
 
     def schema_class
       Schema::Address
+    end
+
+    def save_keys(record)
+      record.keys.each do |key|
+        if key.persisted?
+          DB[:keys].filter(id: key.id).update(address_id: record.id, name: key.name)
+        else
+          key.id = DB[:keys].insert address_id: record.id, name: key.name
+        end
+      end
     end
 end

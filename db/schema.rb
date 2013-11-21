@@ -22,6 +22,12 @@ Sequel.migration do
       column :position, "integer", :null=>false
     end
 
+    create_table(:keys) do
+      primary_key :id
+      column :name, "text", :null=>false
+      column :address_id, "integer", :null=>false
+    end
+
     create_table(:meals) do
       primary_key :id
       column :name, "text", :null=>false
@@ -83,5 +89,6 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131114133742_create_customers_tours.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131120125138_create_addresses.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131120131030_add_address_id_to_customers.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131121104531_create_keys.rb')"
   end
 end

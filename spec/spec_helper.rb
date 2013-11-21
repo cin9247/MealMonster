@@ -61,5 +61,17 @@ end
 def create_customer_with_town(forename, surname, town)
   c = create_customer(forename, surname)
   Interactor::AddAddressToCustomer.new(c.id, "", "", "12345", town).run
-  c
+  ## TODO this can be solved by using identity map
+  CustomerMapper.new.find c.id
+end
+
+def create_tour(name, customer_ids)
+  Interactor::CreateTour.new(name, customer_ids).run.object
+end
+
+def create_offering(date)
+  meal_ids = (1..3).to_a.map do
+    create_meal.id
+  end
+  Interactor::CreateOffering.new(date, meal_ids).run.object
 end
