@@ -6,7 +6,7 @@ class Tour
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  attr_accessor :id, :name, :customers
+  attr_accessor :id, :name, :customers, :stations
 
   def initialize(attributes={})
     attributes.each do |key, value|

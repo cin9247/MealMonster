@@ -1,47 +1,15 @@
 = link_to "Neue Touren erstellen", new_tour_path
 
-h2 Montag, den 23.09.2013
+- @days.each do |day|
+  h2 = l day.date, format: '%A, der %d.%m.%Y'
 
-ul.tours.row
-  li.tour.columns.large-6
-    h3 Tour #1
-    h5.subheader Fahrer: Zivi Peter
-    ol.stations
-      li
-        | Anna Ade
-        small< Menu #1
-      li
-        | Eva Becker
-        small< Menu #2
-      li
-        | Karl Ellwanger
-        small< Menu #1
-
-  li.tour.columns.large-6
-    h3 Tour #2
-    h5.subheader Fahrer: Peter Blitz
-    ol.stations
-      li Selma Anstett
-      li SDS Ausschuss
-      li Rudolf Blieberger
-      li Dorothea Bulia
-
-h2 Dienstag, den 24.09.2013
-
-ul.tours.row
-  li.columns.large-6
-    h3 Tour #1
-    h5.subheader Fahrer: Zivi Peter
-    ol
-      li Anna Ade
-      li Eva Becker
-      li Karl Ellwanger
-
-  li.columns.large-6
-    h3 Tour #2
-    h5.subheader Fahrer: Peter Blitz
-    ol
-      li Selma Anstett
-      li SDS Ausschuss
-      li Rudolf Blieberger
-      li Dorothea Bulia
+  ul.tours.row
+    - day.tours.each do |tour|
+      li.tour.columns class="large-#{12/day.tours.size}"
+        h3= tour.name
+        h5.subheader Fahrer: Zivi Peter
+        ol.stations
+          - tour.stations.each do |s|
+            li
+              = s.customer.full_name
+              small< = s.order.offering.menu.meals.map(&:name).join(",")
