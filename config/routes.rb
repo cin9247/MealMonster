@@ -11,7 +11,9 @@ CareEAR::Application.routes.draw do
     namespace :v1 do
       resources :offerings
       resources :orders
-      resources :tours
+      resources :tours do
+        resources :keys
+      end
     end
   end
 end
