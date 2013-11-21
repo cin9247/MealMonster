@@ -28,5 +28,6 @@ module CareEAR
 
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '*.rb')]
     config.autoload_paths += Dir[Rails.root.join('app', 'mappers', '*.rb')]
+    config.autoload_paths += Dir[Rails.root.join('app', 'presenters', '*.rb')]
   end
 end

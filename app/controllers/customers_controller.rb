@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
   def index
-    @customers = organization.customers
+    @customers = wrap organization.customers
   end
 
   def new
@@ -22,7 +22,7 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @customer = organization.find_customer_by_id params[:id]
+    @customer = wrap organization.find_customer_by_id(params[:id])
   end
 
   private

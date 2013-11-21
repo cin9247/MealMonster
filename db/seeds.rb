@@ -8,7 +8,7 @@ end
 def create_customer_with_address_and_key(name, town, postal_code, key_name)
   forename, surname = name.split(" ")
   c = Interactor::CreateCustomer.new(forename, surname).run.object
-  address = Interactor::AddAddressToCustomer.new(c.id, "", "", postal_code, town).run.object
+  address = Interactor::AddAddressToCustomer.new(c.id, "Heinestr.", "#{rand(20) + 1}", postal_code, town).run.object
   Interactor::AddKeyToAddress.new(address.id, key_name).run
   c
 end

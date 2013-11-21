@@ -13,4 +13,22 @@ class ApplicationController < ActionController::Base
       @organization ||= Organization.new
     end
     helper_method :organization
+
+    def wrap(object)
+      klass = if Array === object
+        object.first.class
+      else
+        object.class
+      end
+
+      presenter_klass = Module.const_get("#{klass}Presenter")
+
+      if Array === object
+        object.map do |o|
+          presenter_klass.new(o)
+        end
+      else
+        presenter_klass.new(object)
+      end
+    end
 end
