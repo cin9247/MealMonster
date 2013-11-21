@@ -1,6 +1,6 @@
-class RecordNotFound < StandardError; end
-
 class BaseMapper
+  class RecordNotFound < StandardError; end
+
   def save(record)
     raise "Can't be saved again. Try #update instead" if record.id
 

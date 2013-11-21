@@ -110,7 +110,7 @@ describe FooMapper do
       it "raises exception" do
         expect {
           result
-        }.to raise_error(RecordNotFound)
+        }.to raise_error(BaseMapper::RecordNotFound)
       end
     end
 
@@ -132,7 +132,7 @@ describe FooMapper do
       it "raises an exception" do
         expect {
           result
-        }.to raise_error(RecordNotFound)
+        }.to raise_error(BaseMapper::RecordNotFound)
       end
     end
   end
