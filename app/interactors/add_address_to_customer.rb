@@ -21,6 +21,7 @@ module Interactor
                                              town: @town)
 
       customer_gateway.update customer
+      OpenStruct.new object: customer.address
     end
   end
 end
