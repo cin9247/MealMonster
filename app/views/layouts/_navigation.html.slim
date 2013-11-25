@@ -1,4 +1,4 @@
-nav.top-bar
+nav.top-bar.header
   ul.title-area
     li.name
       h1
@@ -10,3 +10,19 @@ nav.top-bar
       - navigation_items.each do |item|
         li class=(item.active ? "active" : "inactive")
           = link_to item.title, item.url
+
+    - if logged_in?
+      ul.right
+        li.divider
+        li
+          a
+            = "Eingeloggt als #{current_user.name}"
+        li
+          = link_to "Ausloggen", sessions_path, method: :delete
+    - else
+      ul.right
+        li.divider
+        li
+          = link_to "Registrieren", new_user_path
+        li
+          = link_to "Einloggen", login_path
