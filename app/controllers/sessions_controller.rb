@@ -6,9 +6,7 @@ class SessionsController < ApplicationController
     ## TODO login interactor
     user = UserMapper.new.find_by_name params["session"]["username"]
 
-    if user && BCrypt::Password.new(user.password_digest) == params["session"]["password"]
-      self.current_user = user
-      session[:user_id] = user.id
+    if login! params["session"]["username"], params["session"]["password"]
       redirect_to root_path, notice: "Sie haben sich erfolgreich eingeloggt"
     else
       flash.now[:error] = "Falcher Benutzername oder falsches Passwort."
