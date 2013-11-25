@@ -73,6 +73,12 @@ Sequel.migration do
       primary_key :id
       column :name, "text", :null=>false
     end
+
+    create_table(:users) do
+      primary_key :id
+      column :name, "text", :null=>false
+      column :password_digest, "text", :null=>false
+    end
   end
 end
 Sequel.migration do
@@ -92,6 +98,7 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131120125138_create_addresses.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131120131030_add_address_id_to_customers.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131121104531_create_keys.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131125120034_create_users.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131216161434_add_state_to_order.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131219101730_add_prefix_to_customer.rb')"
   end
