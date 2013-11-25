@@ -77,4 +77,12 @@ class ApplicationController < ActionController::Base
       session[:user_id] = user ? user.id : nil
       @current_user = user
     end
+
+    def login!(name, password)
+      user = UserMapper.new.find_by_name name
+
+      if user && BCrypt::Password.new(user.password_digest) == password
+        self.current_user = user
+      end
+    end
 end
