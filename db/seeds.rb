@@ -17,6 +17,14 @@ def create_offering(name, date, meal_ids)
   Interactor::CreateOffering.new(name, date, meal_ids, 1).run
 end
 
+def create_driver
+  Interactor::CreateUser.new("driver", "driver").run.object
+end
+
+def create_admin
+  Interactor::CreateUser.new("admin", "admin").run.object
+end
+
 DB[:meals].delete
 DB[:menus].delete
 DB[:meals_menus].delete
@@ -62,3 +70,6 @@ Interactor::CreateTour.new("Tour #1", [c_1.id, c_2.id, c_3.id, c_4.id]).run
 Interactor::CreateTour.new("Tour #2", [c_2.id, c_4.id]).run
 Interactor::CreateTour.new("Tour #3", [c_1.id, c_2.id]).run
 Interactor::CreateTour.new("Tour #4", [c_2.id] * 100).run
+
+create_admin
+create_driver
