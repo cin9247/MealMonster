@@ -43,6 +43,25 @@ describe "customers" do
     end
   end
 
+  describe "editing customers" do
+    before do
+      create_customer("Peter", "Mustermann")
+
+      visit customers_path
+      click_on "Editieren"
+
+      fill_in "Vorname", with: "Max"
+
+      click_on "Kunde aktualisieren"
+    end
+
+    it "updates the customer" do
+      visit customers_path
+
+      expect(page).to have_content("Max Mustermann")
+    end
+  end
+
   describe "displaying a single customer" do
     before do
       customer = organization.new_customer(forename: "Peter", surname: "Mustermann")

@@ -7,6 +7,21 @@ class CustomersController < ApplicationController
     @customer = organization.new_customer
   end
 
+  def edit
+    @customer = CustomerMapper.new.find(params[:id].to_i)
+  end
+
+  def update
+    @customer = CustomerMapper.new.find(params[:id].to_i)
+
+    @customer.forename = customer_params[:forename]
+    @customer.surname = customer_params[:surname]
+
+    CustomerMapper.new.update @customer
+
+    redirect_to customers_path, notice: "Der Kunde wurde erfolgreich aktualisiert."
+  end
+
   def create
     response = Interactor::CreateCustomer.new(customer_params[:forename], customer_params[:surname]).run
 
