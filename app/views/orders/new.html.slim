@@ -1,3 +1,5 @@
+h1= "Bestellung für #{l @date}"
+
 = form_for @order do |f|
   p
     = f.label :customer_id, "Kunden"
@@ -6,6 +8,11 @@
     = f.label :offering_id, "Menu"
     = f.select :offering_id, @offerings.map { |o| ["#{o.menu.name} (#{meal_list o.menu})", o.id] }
   p
-    = f.hidden_field :date, value: params[:date]
+    = f.hidden_field :date, value: @date.iso8601
   p
     = f.submit
+
+div.pagination.pagination-centered
+  ul
+    li= link_to "Previous day", new_order_path(date: previous_day)
+    li= link_to "Next day", new_order_path(date: next_day)

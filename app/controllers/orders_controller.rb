@@ -4,10 +4,11 @@ class OrdersController < ApplicationController
   end
 
   def new
-    params[:date] ||= Date.today
+    params[:date] ||= Date.today.iso8601
+    @date = Date.parse(params[:date])
     @customers = organization.customers
-    @order = organization.day(params[:date]).new_order
-    @offerings = OfferingMapper.new.fetch_by_date(params[:date])
+    @order = organization.day(@date).new_order
+    @offerings = OfferingMapper.new.fetch_by_date(@date)
   end
 
   def create
