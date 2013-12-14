@@ -1,51 +1,22 @@
+h1 = "Angebote vom #{l @days.first} bis #{l @days.last}"
+
 ol.days
-  - @days.each do |date, offerings|
+  - @days.each do |date|
     li.day
-      h2
+      h3
         = l date, format: '%A, der %d.%m.%Y'
-      ol.menus class="small-block-grid-#{offerings.size}"
-        - offerings.each_with_index do |offering, i|
-          li.menu
-            h3 Menu ##{i + 1}
-            ol.meals
-              - offering.meals.each do |meal|
-                li = meal.name
+      - if @offerings[date]
+        ol.menus class="small-block-grid-#{@offerings[date].size}"
+          - @offerings[date].each_with_index do |offering, i|
+            li.menu
+              h3 Menu ##{i + 1}
+              ol.meals
+                - offering.meals.each do |meal|
+                  li = meal.name
+
+div.pagination.pagination-centered
+  ul
+    li = link_to "Vorherige Woche", offerings_path(from: @days.first - 7.days, to: @days.last - 7.days)
+    li = link_to "Nächste Woche", offerings_path(from: @days.first + 7.days, to: @days.last + 7.days)
 
 = link_to "Neues Angebot erstellen", new_offering_path
-
-/ h2 Montag, den 23.09.2013
-/ ul.menus.small-block-grid-2
-/   li.menu
-/     h3 Menu #1
-/     ol.meals
-/       li.meal Brokkolisuppe
-/       li.meal Spaghetti Bolognese
-/       li.meal Aprikosenkompott
-/   li.menu
-/     h3 Menu #2
-/     ol.meals
-/       li.meal Selleriesalat
-/       li.meal Hackbraten
-/       li.meal Obstsalat
-
-
-/ h2 Dienstag, den 24.09.2013
-/ ul.menus.small-block-grid-3
-/   li.menu
-/     h3 Menu #1
-/     ol.meals
-/       li.meal Brokkolisuppe
-/       li.meal Spaghetti Bolognese
-/       li.meal Aprikosenkompott
-/   li.menu
-/     h3 Menu #2
-/     ol.meals
-/       li.meal Selleriesalat
-/       li.meal Hackbraten
-/       li.meal Obstsalat
-/   li.menu
-/     h3 Menu #3
-/     ol.meals
-/       li.meal Selleriesalat
-/       li.meal Hackbraten
-/       li.meal Obstsalat
