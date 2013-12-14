@@ -5,12 +5,12 @@ div.row#new-offering
     = form_tag "/offerings"
       - @days.each do |day|
         div
-          h1 Menü für #{l day.date, format: "%A"}
+          h1 #{l day.date, format: "%A, %e. %b"}
 
           ol.menus
             - 3.times do |i|
               li class="menu"
-                h2 = "Menu ##{i + 1}"
+                h3 = "Menu ##{i + 1}"
 
                 ol.dropbox data-column="#{i}" data-date="#{day.date}" style="border: 1px solid grey; min-height: 100px"
 
