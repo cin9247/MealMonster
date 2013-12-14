@@ -15,14 +15,7 @@ class CustomersController < ApplicationController
     response = Interactor::UpdateCustomer.new(params[:id].to_i, customer_params[:forename], customer_params[:surname]).run
     @customer = response.object
 
-    @customer.address = Address.new unless @customer.address
-
-    @customer.address.town = params[:customer][:address][:town]
-    @customer.address.street_name = params[:customer][:address][:street_name]
-    @customer.address.street_number = params[:customer][:address][:street_number]
-    @customer.address.postal_code = params[:customer][:address][:postal_code]
-
-    CustomerMapper.new.update @customer
+    Interactor::UpdateAddressForCustomer.new(params[:id].to_i, address_params[:street_name], address_params[:street_number], address_params[:postal_code], address_params[:town]).run
 
     redirect_to customers_path, notice: "Der Kunde wurde erfolgreich aktualisiert."
   end
@@ -31,7 +24,6 @@ class CustomersController < ApplicationController
     response = Interactor::CreateCustomer.new(customer_params[:forename], customer_params[:surname]).run
 
     if response.success?
-      address_params = params[:customer][:address]
       Interactor::AddAddressToCustomer.new(response.object.id, address_params[:street_name], address_params[:street_number], address_params[:postal_code], address_params[:town]).run
       redirect_to customers_path, notice: "Customer successfully created"
     else
@@ -48,5 +40,9 @@ class CustomersController < ApplicationController
   private
     def customer_params
       params.require(:customer).permit(:forename, :surname)
+    end
+
+    def address_params
+      params[:customer][:address]
     end
 end
