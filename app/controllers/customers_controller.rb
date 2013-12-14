@@ -17,6 +17,13 @@ class CustomersController < ApplicationController
     @customer.forename = customer_params[:forename]
     @customer.surname = customer_params[:surname]
 
+    @customer.address = Address.new unless @customer.address
+
+    @customer.address.town = params[:customer][:address][:town]
+    @customer.address.street_name = params[:customer][:address][:street_name]
+    @customer.address.street_number = params[:customer][:address][:street_number]
+    @customer.address.postal_code = params[:customer][:address][:postal_code]
+
     CustomerMapper.new.update @customer
 
     redirect_to customers_path, notice: "Der Kunde wurde erfolgreich aktualisiert."

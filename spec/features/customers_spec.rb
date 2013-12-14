@@ -51,6 +51,7 @@ describe "customers" do
       click_on "Editieren"
 
       fill_in "Vorname", with: "Max"
+      fill_in "Stadt", with: "Berlin"
 
       click_on "Kunde aktualisieren"
     end
@@ -59,6 +60,7 @@ describe "customers" do
       visit customers_path
 
       expect(page).to have_content("Max Mustermann")
+      expect(page).to have_content("Berlin")
     end
   end
 
