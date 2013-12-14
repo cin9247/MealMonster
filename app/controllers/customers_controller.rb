@@ -12,10 +12,8 @@ class CustomersController < ApplicationController
   end
 
   def update
-    @customer = CustomerMapper.new.find(params[:id].to_i)
-
-    @customer.forename = customer_params[:forename]
-    @customer.surname = customer_params[:surname]
+    response = Interactor::UpdateCustomer.new(params[:id].to_i, customer_params[:forename], customer_params[:surname]).run
+    @customer = response.object
 
     @customer.address = Address.new unless @customer.address
 
