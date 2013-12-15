@@ -31,4 +31,32 @@ class ApplicationController < ActionController::Base
         presenter_klass.new(object)
       end
     end
+
+    def parse_dates_or_default_to_this_week
+      if params[:from] && params[:to]
+        parse_from_to params
+      else
+        this_week
+      end
+    end
+
+    def parse_dates_or_default_to_next_week
+      if params[:from] && params[:to]
+        parse_from_to params
+      else
+        next_week
+      end
+    end
+
+    def parse_from_to(params)
+      [Date.parse(params[:from]), Date.parse(params[:to])]
+    end
+
+    def next_week
+      [Date.today.next_week(:monday), Date.today.next_week(:sunday)]
+    end
+
+    def this_week
+      [Date.today.beginning_of_week, Date.today.end_of_week]
+    end
 end
