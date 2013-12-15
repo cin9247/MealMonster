@@ -1,16 +1,22 @@
 h1= "Bestellung für #{l @date}"
 
-= form_for @order do |f|
-  p
-    = f.label :customer_id, "Kunden"
-    = f.select :customer_id, @customers.map { |c| [c.full_name, c.id] }
-  p
-    = f.label :offering_id, "Menu"
-    = f.select :offering_id, @offerings.map { |o| ["#{o.menu.name} (#{meal_list o.menu})", o.id] }
-  p
-    = f.hidden_field :date, value: @date.iso8601
-  p
-    = f.submit
+- if @offerings.present?
+
+  = form_for @order do |f|
+    p
+      = f.label :customer_id, "Kunden"
+      = f.select :customer_id, @customers.map { |c| [c.full_name, c.id] }
+    p
+      = f.label :offering_id, "Menu"
+      = f.select :offering_id, @offerings.map { |o| ["#{o.menu.name} (#{meal_list o.menu})", o.id] }
+    p
+      = f.hidden_field :date, value: @date.iso8601
+    p
+      = f.submit
+- else
+  div.panel
+    | Für den heutigen Tag liegen keine Angebote vor, die bestellt werden können.
+    =< link_to "Erstellen Sie neue Angebote!", new_offering_path(from: @date, to: @date)
 
 div.pagination.pagination-centered
   ul
