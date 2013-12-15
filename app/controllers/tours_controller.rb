@@ -1,6 +1,7 @@
 class ToursController < ApplicationController
   def index
-    @days = (Date.new(2013, 11, 11)..Date.new(2013, 11, 14)).map do |date|
+    from, to = parse_dates_or_default_to_this_week
+    @days = (from..to).map do |date|
       tours = Interactor::ListTours.new(date).run.object
       tours.each do |t|
         stations = Interactor::ListStations.new(t.id, date).run.object

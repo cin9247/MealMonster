@@ -13,3 +13,8 @@
             li
               = s.customer.full_name
               small< = s.order.offering.menu.meals.map(&:name).join(",")
+
+div.pagination.pagination-centered
+  ul
+    li = link_to "Vorherige Woche", tours_path(from: @days.first.date - 7.days, to: @days.last.date - 7.days)
+    li = link_to "Nächste Woche", tours_path(from: @days.first.date + 7.days, to: @days.last.date + 7.days)

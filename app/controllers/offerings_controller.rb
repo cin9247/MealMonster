@@ -27,21 +27,4 @@ class OfferingsController < ApplicationController
 
     redirect_to offerings_path
   end
-
-  private
-    def parse_dates_or_default_to_next_week
-      if params[:from] && params[:to]
-        parse_from_to params
-      else
-        next_week
-      end
-    end
-
-    def parse_from_to(params)
-      [Date.parse(params[:from]), Date.parse(params[:to])]
-    end
-
-    def next_week
-      [Date.today.next_week(:monday), Date.today.next_week(:sunday)]
-    end
 end
