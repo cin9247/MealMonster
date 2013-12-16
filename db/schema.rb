@@ -59,6 +59,7 @@ Sequel.migration do
       column :customer_id, "integer", :null=>false
       column :date, "date", :null=>false
       column :note, "text"
+      column :state, "text", :default=>"ordered", :null=>false
     end
 
     create_table(:schema_migrations) do
@@ -90,5 +91,6 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131120125138_create_addresses.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131120131030_add_address_id_to_customers.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131121104531_create_keys.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131216161434_add_state_to_order.rb')"
   end
 end

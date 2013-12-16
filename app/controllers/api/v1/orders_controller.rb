@@ -13,6 +13,11 @@ class Api::V1::OrdersController < Api::V1::ApiController
     end
   end
 
+  def deliver
+    Interactor::Deliver.new(params[:id]).run.object
+    head :no_content
+  end
+
   private
     def valid_request?(params)
       require_param :offering_id

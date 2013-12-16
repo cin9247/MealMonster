@@ -10,4 +10,17 @@ describe Order do
       subject.place!
     end
   end
+
+  describe "#deliver!" do
+    it "sets the state to delivered" do
+      subject.deliver!
+      expect(subject.delivered?).to eq true
+    end
+  end
+
+  describe "after initialization" do
+    it "is not delivered" do
+      expect(subject.delivered?).to eq false
+    end
+  end
 end
