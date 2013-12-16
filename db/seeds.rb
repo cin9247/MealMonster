@@ -14,11 +14,15 @@ def create_customer_with_address_and_key(name, street_name, street_number, posta
 end
 
 def create_driver
-  Interactor::CreateUser.new("driver", "driver").run.object
+  user = Interactor::CreateUser.new("driver", "driver").run.object
+  Interactor::AddRole.new(user.id, "driver").run
+  user
 end
 
 def create_admin
-  Interactor::CreateUser.new("admin", "admin").run.object
+  user = Interactor::CreateUser.new("admin", "admin").run.object
+  Interactor::AddRole.new(user.id, "admin").run
+  user
 end
 
 DB[:meals].delete
@@ -30,6 +34,7 @@ DB[:addresses].delete
 DB[:tours].delete
 DB[:customers_tours].delete
 DB[:orders].delete
+DB[:users].delete
 
 rote_beete    = Interactor::CreateMeal.new("Rote Beete", 240, 0.4).run.object
 gemüse_suppe  = Interactor::CreateMeal.new("Gemüsesuppe", 510, 1.2).run.object
