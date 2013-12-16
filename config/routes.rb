@@ -6,7 +6,10 @@ CareEAR::Application.routes.draw do
   end
   resources :meals
   resources :offerings
-  resources :tours
+  resources :tours do
+    get :manage, on: :collection
+  end
+  put "tours", to: "tours#update"
   resources :orders
   resource :sessions
   resources :users
