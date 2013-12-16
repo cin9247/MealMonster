@@ -5,10 +5,10 @@ def create_customer(name)
   Interactor::CreateCustomer.new(forename, surname).run.object
 end
 
-def create_customer_with_address_and_key(name, town, postal_code, key_name)
+def create_customer_with_address_and_key(name, street_name, street_number, postal_code, town, key_name)
   forename, surname = name.split(" ")
   c = Interactor::CreateCustomer.new(forename, surname).run.object
-  address = Interactor::AddAddressToCustomer.new(c.id, "Heinestr.", "#{rand(20) + 1}", postal_code, town).run.object
+  address = Interactor::AddAddressToCustomer.new(c.id, street_name, street_number, postal_code, town).run.object
   Interactor::AddKeyToAddress.new(address.id, key_name).run
   c
 end
@@ -44,10 +44,10 @@ end
   Interactor::CreateOffering.new(d, [rote_beete.id, obst_salat.id]).run
 end
 
-c_1 = create_customer_with_address_and_key "Max Mustermann", "Stuttgart", "71424", "Schlüssel 1"
-c_2 = create_customer_with_address_and_key "Peter Henkel", "Karlsruhe", "76132", "Schlüssel 2"
-c_3 = create_customer_with_address_and_key "Lemon Jello", "Karlsurhe", "76131", "Schlüssel 3"
-c_4 = create_customer_with_address_and_key "John Lennon", "Karlsruhe", "76147", "Schlüssel 4"
+c_1 = create_customer_with_address_and_key "Max Mustermann", "Rudolfstraße", "26", "76131", "Karlsruhe", "Schlüssel 1"
+c_2 = create_customer_with_address_and_key "Peter Henkel", "Rudolfstraße", "3", "76131", "Karlsruhe", "Schlüssel 2"
+c_3 = create_customer_with_address_and_key "Lemon Jello", "Wendtstraße", "7", "76185", "Karlsurhe", "Schlüssel 3"
+c_4 = create_customer_with_address_and_key "John Lennon", "Schubertstraße", "5", "76147", "Karlsruhe", "Schlüssel 4"
 
 offering_1 = Interactor::ListOfferings.new(today, today).run.object.first
 offering_2 = Interactor::ListOfferings.new(today, today).run.object.last
