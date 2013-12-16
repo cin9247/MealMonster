@@ -1,3 +1,5 @@
+require 'active_model'
+
 class User
   extend ActiveModel::Naming
   extend ActiveModel::Translation
@@ -14,5 +16,13 @@ class User
 
   def persisted?
     !id.nil?
+  end
+
+  def roles
+    @roles ||= []
+  end
+
+  def add_role(role)
+    roles << role
   end
 end
