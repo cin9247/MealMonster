@@ -14,6 +14,8 @@ child(@tour) do
       child :offering do
         attributes :id
       end
+      attributes :delivered
+      attributes :loaded
     end
   end
 end

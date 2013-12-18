@@ -18,7 +18,8 @@ class OrderMapper < BaseMapper
         date: order.date,
         customer_id: order.customer.id,
         offering_id: order.offering.id,
-        note: order.note
+        note: order.note,
+        state: order.state
       }
     end
 
@@ -30,7 +31,8 @@ class OrderMapper < BaseMapper
         day: Day.new(date: order[:date]),
         offering: offering,
         customer: customer,
-        note: order[:note]
+        note: order[:note],
+        state: order[:state]
       )
     end
 

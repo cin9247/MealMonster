@@ -10,7 +10,10 @@ CareEAR::Application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :offerings
-      resources :orders
+      resources :orders do
+        put :deliver, on: :member
+        put :load, on: :member
+      end
       resources :tours do
         resources :keys
       end

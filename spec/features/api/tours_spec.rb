@@ -43,6 +43,8 @@ describe "/api/tours" do
         expect(tour["stations"].size).to eq 1
         expect(tour["stations"].first["customer"]["forename"]).to eq "Max"
         expect(tour["stations"].first["customer"]["address"]["town"]).to eq "Karlsruhe"
+        expect(tour["stations"].first["order"]["delivered"]).to eq false
+        expect(tour["stations"].first["order"]["loaded"]).to eq false
       end
     end
 
