@@ -55,23 +55,48 @@ describe "/api/offerings" do
     end
   end
 
-  describe "PUT /deliver" do
+  describe "order flags" do
     let(:customer) { create_customer }
+    let(:order) { Interactor::CreateOrder.new(customer.id, offering.id).run.object }
 
-    before do
-      order = Interactor::CreateOrder.new(customer.id, offering.id).run.object
-      put "/api/v1/orders/#{order.id}/deliver"
+    describe "PUT /deliver" do
+      before do
+        put "/api/v1/orders/#{order.id}/deliver"
+      end
+
+      it "returns status 204 No Content" do
+        expect(last_response.status).to eq 204
+      end
+
+      it "sets the delivered flag to true" do
+        tour = create_tour("Tour", [customer.id])
+        get "api/v1/tours/#{tour.id}?date=2013-10-03"
+
+        order = json_response["tour"]["stations"][0]["order"]
+
+        expect(order["delivered"]).to eq true
+        expect(order["loaded"]).to eq false
+      end
     end
 
-    it "returns status 204 No Content" do
-      expect(last_response.status).to eq 204
-    end
+    describe "PUT /load" do
+      before do
+        put "/api/v1/orders/#{order.id}/load"
+      end
 
-    it "sets the delivered flag to true" do
-      tour = create_tour("Tour", [customer.id])
-      get "api/v1/tours/#{tour.id}?date=2013-10-03"
+      it "returns status 204 No Content" do
+        expect(last_response.status).to eq 204
+      end
 
-      expect(json_response["tour"]["stations"][0]["order"]["delivered"]).to eq true
+      it "sets the delivered flag to true" do
+        tour = create_tour("Tour", [customer.id])
+        get "api/v1/tours/#{tour.id}?date=2013-10-03"
+
+        order = json_response["tour"]["stations"][0]["order"]
+
+        expect(order["loaded"]).to eq true
+        expect(order["delivered"]).to eq false
+      end
     end
   end
 end

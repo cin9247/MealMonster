@@ -18,6 +18,11 @@ class Api::V1::OrdersController < Api::V1::ApiController
     head :no_content
   end
 
+  def load
+    Interactor::Load.new(params[:id]).run.object
+    head :no_content
+  end
+
   private
     def valid_request?(params)
       require_param :offering_id

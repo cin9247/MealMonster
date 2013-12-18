@@ -28,6 +28,10 @@ class Order
     @state = "delivered"
   end
 
+  def load!
+    @state = "loaded"
+  end
+
   def customer_id
     customer && customer.id
   end
@@ -44,6 +48,11 @@ class Order
     @state == "delivered"
   end
   alias_method :delivered, :delivered?
+
+  def loaded?
+    @state == "loaded"
+  end
+  alias_method :loaded, :loaded?
 
   def persisted?
     !id.nil?
