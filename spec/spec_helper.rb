@@ -77,7 +77,7 @@ def create_offering(date)
 end
 
 def create_user(name, password)
-  user = Interactor::CreateUser.new(name, password).run.object
+  user = Interactor::RegisterUser.new(name, password).run.object
   Interactor::AddRole.new(user.id, "admin").run
   user
 end

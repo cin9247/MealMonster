@@ -1,7 +1,7 @@
 require_relative "./base"
 
 module Interactor
-  class CreateUser < Base
+  class RegisterUser < Base
     register_boundary :user_gateway, -> { UserMapper.new }
     register_boundary :user_source, -> { User.public_method(:new) }
 
