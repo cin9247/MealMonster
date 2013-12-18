@@ -13,7 +13,7 @@ module Interactor
       @note = note
     end
 
-    def run(actor_id=nil)
+    def run
       offering = offering_gateway.find(@offering_id)
       customer = customer_gateway.find(@customer_id)
       order = order_source.call customer: customer, offering: offering, note: @note

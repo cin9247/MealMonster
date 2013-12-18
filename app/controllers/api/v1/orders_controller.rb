@@ -5,7 +5,7 @@ class Api::V1::OrdersController < Api::V1::ApiController
     if valid_request? params
       interactor = Interactor::CreateOrder.new(params[:customer_id].to_i, params[:offering_id].to_i, params[:note])
 
-      @order = interactor.run(12).object
+      @order = interactor.run.object
 
       respond_with @order, status: 201
     else
