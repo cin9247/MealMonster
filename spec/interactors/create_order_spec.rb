@@ -23,7 +23,7 @@ describe Interactor::CreateOrder do
       offering_gateway.update OpenStruct.new id: 14
     end
 
-    let!(:response) { subject.run("actor-id") }
+    let!(:response) { subject.run }
 
     it "saves the order" do
       expect(order_gateway.all.size).to eq 1
