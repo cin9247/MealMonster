@@ -4,11 +4,12 @@ require "spec_helper"
 
 describe "api/tours/:id/keys" do
   describe "GET /keys" do
+    let(:customer_1) { create_customer_with_town("Peter", "Mustermann", "Karlsruhe") }
+    let(:customer_2) { create_customer_with_town("Maria", "Mustermann", "Stuttgart") }
+    let(:customer_3) { create_customer_with_town("David", "Mustermann", "Nürnberg") }
+
     before do
       offering = create_offering Date.new(2013, 11, 11)
-      customer_1 = create_customer_with_town("Peter", "Mustermann", "Karlsruhe")
-      customer_2 = create_customer_with_town("Maria", "Mustermann", "Stuttgart")
-      customer_3 = create_customer_with_town("David", "Mustermann", "Nürnberg")
       Interactor::AddKeyToAddress.new(customer_1.address.id, "Schlüssel 4").run
       Interactor::AddKeyToAddress.new(customer_2.address.id, "Schlüssel 6").run
       Interactor::AddKeyToAddress.new(customer_3.address.id, "Schlüssel 10").run
@@ -26,7 +27,9 @@ describe "api/tours/:id/keys" do
     it "returns all keys for the customers in this tour" do
       expect(json_response["keys"].size).to eq 2
       expect(json_response["keys"].first["name"]).to eq "Schlüssel 4"
+      expect(json_response["keys"].first["customer_id"]).to eq customer_1.id
       expect(json_response["keys"].last["name"]).to eq "Schlüssel 6"
+      expect(json_response["keys"].last["customer_id"]).to eq customer_2.id
     end
   end
 end
