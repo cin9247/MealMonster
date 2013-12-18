@@ -18,6 +18,8 @@ describe "/api/offerings" do
     organization.day("2013-10-03").offer! second_menu
     organization.day("2013-10-04").offer! third_menu
     organization.day("2013-10-07").offer! third_menu
+
+    login_as_admin
   end
 
   describe "GET /api/offerings?date=?" do
