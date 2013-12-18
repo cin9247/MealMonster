@@ -2,7 +2,9 @@ require 'bcrypt'
 
 class UserMapper < BaseMapper
   def hash_from_object(record)
-    record.password_digest = BCrypt::Password.create(record.password)
+    if record.password
+      record.password_digest = BCrypt::Password.create(record.password)
+    end
     {
       name: record.name,
       password_digest: record.password_digest
