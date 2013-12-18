@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = Interactor::CreateUser.new(params[:user][:name], params[:user][:password]).run.object
+    user = Interactor::RegisterUser.new(params[:user][:name], params[:user][:password]).run.object
     self.current_user = user
     redirect_to root_path, notice: "Sie haben sicher erfolgreich registriert."
   end

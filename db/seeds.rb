@@ -18,13 +18,13 @@ def create_offering(name, date, meal_ids)
 end
 
 def create_driver
-  user = Interactor::CreateUser.new("driver", "driver").run.object
+  user = Interactor::RegisterUser.new("driver", "driver").run.object
   Interactor::AddRole.new(user.id, "driver").run
   user
 end
 
 def create_admin
-  user = Interactor::CreateUser.new("admin", "admin").run.object
+  user = Interactor::RegisterUser.new("admin", "admin").run.object
   Interactor::AddRole.new(user.id, "admin").run
   user
 end

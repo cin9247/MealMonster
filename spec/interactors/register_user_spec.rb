@@ -1,13 +1,13 @@
 require "interactor_spec_helper"
-require_relative "../../app/interactors/create_user"
+require_relative "../../app/interactors/register_user"
 
-describe Interactor::CreateUser do
+describe Interactor::RegisterUser do
   let(:name) { "hans" }
   let(:password) { "secret123" }
   let(:user_gateway) { dummy_gateway }
   let(:user_source) { ->(args) { OpenStruct.new(args) } }
 
-  subject { Interactor::CreateUser.new(name, password) }
+  subject { Interactor::RegisterUser.new(name, password) }
 
   before do
     subject.user_gateway = user_gateway
