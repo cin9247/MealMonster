@@ -6,6 +6,8 @@ describe "/api/tours" do
   before do
     @tour_id = Interactor::CreateTour.new("Tour #1", customer_ids).run.object.id
     Interactor::CreateTour.new("Tour #2", customer_ids[0..0]).run
+
+    login_as_admin
   end
 
   describe "GET /tours?date=2013-10-04" do

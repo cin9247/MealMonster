@@ -79,3 +79,14 @@ def create_offering(date, name="Menu", meal_ids=nil)
   end
   Interactor::CreateOffering.new(name, date, meal_ids, 2).run.object
 end
+
+def create_user(name, password)
+  user = Interactor::CreateUser.new(name, password).run.object
+  Interactor::AddRole.new(user.id, "admin").run
+  user
+end
+
+def login_as_admin
+  create_user "admin", "admin"
+  basic_authorize "admin", "admin"
+end
