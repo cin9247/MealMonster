@@ -211,6 +211,7 @@ de:
       order: Bestellung
     attributes:
       customer:
+        prefix: Anrede
         forename: Vorname
         surname: Nachname
       meal:

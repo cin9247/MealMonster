@@ -28,6 +28,7 @@ describe "customers" do
     before do
       visit new_customer_path
 
+      fill_in "Anrede", with: "Herr"
       fill_in "Vorname", with: "Max"
       fill_in "Nachname", with: "Mustermann"
       fill_in "Stadt", with: "Karslruhe"
@@ -40,6 +41,7 @@ describe "customers" do
       expect(customers.length).to eq 1
       expect(customers.first.full_name).to eq "Max Mustermann"
       expect(customers.first.address.town).to eq "Karslruhe"
+      expect(customers.first.prefix).to eq "Herr"
     end
   end
 

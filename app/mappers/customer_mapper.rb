@@ -18,6 +18,7 @@ class CustomerMapper < BaseMapper
       {
         forename: object.forename,
         surname:  object.surname,
+        prefix:   object.prefix,
         address_id: address_id
       }
     end
@@ -31,6 +32,7 @@ class CustomerMapper < BaseMapper
 
       Customer.new(forename: hash[:forename],
                    surname:  hash[:surname],
+                   prefix:   hash[:prefix],
                    address: address)
     end
 

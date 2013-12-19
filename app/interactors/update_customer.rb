@@ -4,10 +4,11 @@ module Interactor
   class UpdateCustomer < Base
     register_boundary :customer_gateway,  -> { CustomerMapper.new }
 
-    def initialize(customer_id, forename, surname)
+    def initialize(customer_id, forename, surname, prefix=nil)
       @customer_id = customer_id
       @forename    = forename
       @surname     = surname
+      @prefix      = prefix
     end
 
     def run
@@ -15,6 +16,7 @@ module Interactor
 
       customer.forename = @forename
       customer.surname  = @surname
+      customer.prefix   = @prefix
 
       customer_gateway.update customer
 

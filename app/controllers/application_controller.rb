@@ -16,8 +16,10 @@ class ApplicationController < ActionController::Base
 
     def wrap(object)
       klass = if Array === object
+        return [] if object.empty?
         object.first.class
       else
+        return nil if object.nil?
         object.class
       end
 

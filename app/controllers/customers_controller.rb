@@ -12,7 +12,7 @@ class CustomersController < ApplicationController
   end
 
   def update
-    response = Interactor::UpdateCustomer.new(params[:id].to_i, customer_params[:forename], customer_params[:surname]).run
+    response = Interactor::UpdateCustomer.new(params[:id].to_i, customer_params[:forename], customer_params[:surname], customer_params[:prefix]).run
     @customer = response.object
 
     Interactor::UpdateAddressForCustomer.new(params[:id].to_i, address_params[:street_name], address_params[:street_number], address_params[:postal_code], address_params[:town]).run
@@ -21,7 +21,7 @@ class CustomersController < ApplicationController
   end
 
   def create
-    response = Interactor::CreateCustomer.new(customer_params[:forename], customer_params[:surname]).run
+    response = Interactor::CreateCustomer.new(customer_params[:forename], customer_params[:surname], customer_params[:prefix]).run
 
     if response.success?
       Interactor::AddAddressToCustomer.new(response.object.id, address_params[:street_name], address_params[:street_number], address_params[:postal_code], address_params[:town]).run
@@ -39,7 +39,7 @@ class CustomersController < ApplicationController
 
   private
     def customer_params
-      params.require(:customer).permit(:forename, :surname)
+      params.require(:customer).permit(:forename, :surname, :prefix)
     end
 
     def address_params

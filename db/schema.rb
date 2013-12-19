@@ -13,6 +13,7 @@ Sequel.migration do
       column :forename, "text"
       column :surname, "text"
       column :address_id, "integer"
+      column :prefix, "text"
     end
 
     create_table(:customers_tours) do
@@ -92,5 +93,6 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131120131030_add_address_id_to_customers.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131121104531_create_keys.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131216161434_add_state_to_order.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131219101730_add_prefix_to_customer.rb')"
   end
 end

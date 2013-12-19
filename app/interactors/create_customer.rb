@@ -5,13 +5,14 @@ module Interactor
     register_boundary :customer_gateway, -> { CustomerMapper.new }
     register_boundary :customer_source,  -> { Customer.public_method(:new) }
 
-    def initialize(forename, surname)
+    def initialize(forename, surname, prefix=nil)
       @forename = forename
       @surname = surname
+      @prefix = prefix
     end
 
     def run
-      customer = customer_source.call forename: @forename, surname: @surname
+      customer = customer_source.call forename: @forename, surname: @surname, prefix: @prefix
       if customer.valid?
         customer_gateway.save customer
         OpenStruct.new status: :successfully_created, success?: true, object: customer

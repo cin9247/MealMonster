@@ -16,11 +16,12 @@ describe Interactor::CreateCustomer do
 
   describe "valid request" do
     let(:valid) { true }
-    let(:request) { ["Peter", "Mustermann"] }
+    let(:request) { ["Peter", "Mustermann", "Herr"] }
 
     it "adds the customer" do ## how to test this?
       expect(customer_gateway.all.size).to eq 1
       expect(customer_gateway.all.first.forename).to eq "Peter"
+      expect(customer_gateway.all.first.prefix).to eq "Herr"
     end
 
     it "returns a successful response" do
