@@ -70,6 +70,9 @@ class ApplicationController < ActionController::Base
     def current_user
       return unless session[:user_id]
       @current_user ||= UserMapper.new.find session[:user_id]
+    rescue BaseMapper::RecordNotFound
+      session.delete(:user_id)
+      nil
     end
     helper_method :current_user
 
