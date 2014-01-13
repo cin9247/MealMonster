@@ -6,14 +6,15 @@ module Interactor
     register_boundary :meal_gateway, -> { MealMapper.new }
     register_boundary :offering_source, -> { Offering.public_method(:new) }
 
-    def initialize(date, meal_ids)
+    def initialize(name, date, meal_ids)
+      @name = name
       @date = date
       @meal_ids = meal_ids
     end
 
     def run
       meals = @meal_ids.map { |id| meal_gateway.find(id) }
-      offering = offering_source.call(date: @date, menu: OpenStruct.new(meals: meals))
+      offering = offering_source.call(date: @date, menu: OpenStruct.new(meals: meals, name: @name))
 
       if offering.valid?
         offering_gateway.save offering

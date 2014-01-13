@@ -15,9 +15,10 @@ describe Interactor::CreateOffering do
     meal_gateway.update double(:meal, id: 5)
   end
 
-  subject { Interactor::CreateOffering.new(date, meal_ids) }
+  subject { Interactor::CreateOffering.new(name, date, meal_ids) }
 
   context "given valid input" do
+    let(:name) { "Menu" }
     let(:meal_ids) { [2, 5] }
     let(:date) { Date.new(2013, 5, 6) }
 
@@ -25,6 +26,7 @@ describe Interactor::CreateOffering do
 
     it "returns the created offering" do
       expect(result.object.date).to eq date
+      expect(result.object.menu.name).to eq name
       expect(result.object.menu.meals.length).to eq 2
       expect(result.object.menu.meals.last.id).to eq 5
     end

@@ -9,7 +9,7 @@ ol.days
         ol.menus class="small-block-grid-#{@offerings[date].size}"
           - @offerings[date].each_with_index do |offering, i|
             li.menu
-              h3 Menu ##{i + 1}
+              h3 = offering.menu.name
               ol.meals
                 - offering.meals.each do |meal|
                   li = meal.name

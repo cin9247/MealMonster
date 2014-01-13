@@ -73,5 +73,5 @@ def create_offering(date)
   meal_ids = (1..3).to_a.map do
     create_meal.id
   end
-  Interactor::CreateOffering.new(date, meal_ids).run.object
+  Interactor::CreateOffering.new("Menu", date, meal_ids).run.object
 end

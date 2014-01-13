@@ -19,9 +19,9 @@ class OfferingsController < ApplicationController
 
   def create
     params[:offerings].each do |date, value|
-      value[:menus].each do |menuPosition, value|
-        meal_ids = value[:meal_ids].map(&:to_i)
-        Interactor::CreateOffering.new(date, meal_ids).run
+      value[:menus].each do |menu_position, value|
+        meal_ids = (value[:meal_ids] || []).map(&:to_i)
+        Interactor::CreateOffering.new(value[:name], date, meal_ids).run
       end
     end
 

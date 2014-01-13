@@ -10,7 +10,9 @@ div.row#new-offering
           ol.menus
             - 3.times do |i|
               li class="menu"
-                h3 = "Menu ##{i + 1}"
+                /h3 = "Menu ##{i + 1}"
+                label for="offerings[#{day.date.iso8601}]menus[#{i}]name" Name
+                input type="text" id="offerings[#{day.date.iso8601}]menus[#{i}]name" name="offerings[#{day.date.iso8601}]menus[#{i}]name" value="Menü ##{i + 1}"
 
                 ol.dropbox data-column="#{i}" data-date="#{day.date}" style="border: 1px solid grey; min-height: 100px"
 
