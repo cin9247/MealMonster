@@ -1,1 +1,27 @@
-h1 Welcome
+div.row
+  h1.large-6.large-centered.columns Dashboard
+
+div.row.dashboard
+  div.large-4.columns
+    h3 Kundenmanagement
+    ul
+      li= link_to "Neuen Kunden anlegen", new_customer_path
+      li= link_to_if false, "Kundenabrechnung", root_path
+      li= link_to "Bestellung aufgeben", new_order_path
+      li= link_to "Bestellübersicht", orders_path
+
+  div.large-4.columns
+    h3 Küche
+    ul
+      li= link_to "Neues Gericht einpflegen", new_meal_path
+      li= link_to "Menüangebot planen", offerings_path
+      li= link_to "Einkaufsliste anzeigen", root_path
+
+  div.large-4.columns
+    h3 Infos
+    p Es sind bisher <strong>14/124</strong> Essen ausgeliefert worden.
+    p Für heute wurden bestellt:
+    ul
+      li <strong>15</strong> mal Menü 1
+      li <strong>12</strong> mal Menü 2
+      li <strong>23</strong> mal Menü 3

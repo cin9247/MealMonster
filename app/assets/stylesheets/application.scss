@@ -1,6 +1,7 @@
 @import "foundation_and_overrides";
-@import "offerings";
-
 ul, ol {
   list-style-type: none;
 }
+
+@import "offerings";
+@import "dashboard";
