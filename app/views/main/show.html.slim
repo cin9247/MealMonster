@@ -22,7 +22,7 @@ div.row.dashboard
     p
       | Es sind bisher
 
-      strong<>= "#{@orders.count(&:delivered?)}/#{@orders.size}"
+      strong<>= "#{@orders.count(&:delivered?)} von #{@orders.size}"
       | Essen ausgeliefert worden.
     p Für heute wurden bestellt:
     ul
