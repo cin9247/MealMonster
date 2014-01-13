@@ -21,7 +21,10 @@ class OfferingsController < ApplicationController
     params[:offerings].each do |date, value|
       value[:menus].each do |menu_position, value|
         meal_ids = (value[:meal_ids] || []).map(&:to_i)
-        Interactor::CreateOffering.new(value[:name], date, meal_ids).run
+
+        if meal_ids.present?
+          Interactor::CreateOffering.new(value[:name], date, meal_ids).run
+        end
       end
     end
 
