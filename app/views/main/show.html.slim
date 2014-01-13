@@ -18,17 +18,16 @@ div.row.dashboard
       li= link_to "Einkaufsliste anzeigen", root_path
 
   div.large-4.columns
-    - orders = OrderMapper.new.find_by_date(Date.today)
     h3 Infos
     p
       | Es sind bisher
 
-      strong<>= "#{orders.count(&:delivered?)}/#{orders.size}"
+      strong<>= "#{@orders.count(&:delivered?)}/#{@orders.size}"
       | Essen ausgeliefert worden.
     p Für heute wurden bestellt:
     ul
       - i = 0
-      - orders.group_by(&:offering_id).each do |offering_id, orders|
+      - @orders.group_by(&:offering_id).each do |offering_id, orders|
         li
           strong=> orders.size
           | mal
