@@ -31,4 +31,4 @@ div.row.dashboard
         li
           strong=> orders.size
           | mal
-          =< "(#{orders.first.menu.meals.map(&:name).join(", ")})"
+          strong<= "#{orders.first.menu.name}"
