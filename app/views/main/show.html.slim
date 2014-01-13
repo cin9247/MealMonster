@@ -19,9 +19,15 @@ div.row.dashboard
 
   div.large-4.columns
     h3 Infos
-    p Es sind bisher <strong>14/124</strong> Essen ausgeliefert worden.
+    p
+      | Es sind bisher
+      strong<>= "?/#{OrderMapper.new.find_by_date(Date.today).size}"
+      | Essen ausgeliefert worden.
     p Für heute wurden bestellt:
     ul
-      li <strong>15</strong> mal Menü 1
-      li <strong>12</strong> mal Menü 2
-      li <strong>23</strong> mal Menü 3
+      - i = 0
+      - OrderMapper.new.find_by_date(Date.today).group_by(&:offering_id).each do |offering_id, orders|
+        li
+          strong=> orders.size
+          | mal
+          =< "(#{orders.first.menu.meals.map(&:name).join(", ")})"
