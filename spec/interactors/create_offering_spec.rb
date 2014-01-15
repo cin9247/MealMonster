@@ -17,7 +17,9 @@ describe Interactor::CreateOffering do
     meal_gateway.update double(:meal, id: 5)
   end
 
-  subject { Interactor::CreateOffering.new(name, date, meal_ids, price_class_id) }
+  let(:request) { OpenStruct.new(name: name, date: date, meal_ids: meal_ids, price_class_id: price_class_id) }
+
+  subject { Interactor::CreateOffering.new(request) }
 
   context "given valid input" do
     let(:name) { "Menu" }

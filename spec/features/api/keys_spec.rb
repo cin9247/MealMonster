@@ -10,11 +10,12 @@ describe "api/tours/:id/keys" do
 
     before do
       offering = create_offering Date.new(2013, 11, 11)
-      Interactor::AddKeyToAddress.new(customer_1.address.id, "Schlüssel 4").run
-      Interactor::AddKeyToAddress.new(customer_2.address.id, "Schlüssel 6").run
-      Interactor::AddKeyToAddress.new(customer_3.address.id, "Schlüssel 10").run
-      Interactor::CreateOrder.new(customer_1.id, offering.id).run
-      Interactor::CreateOrder.new(customer_2.id, offering.id).run
+      add_key_for_customer(customer_1, "Schlüssel 4")
+      add_key_for_customer(customer_2, "Schlüssel 6")
+      add_key_for_customer(customer_3, "Schlüssel 10")
+      create_order(customer_1.id, offering.id)
+      create_order(customer_2.id, offering.id)
+
       tour = create_tour("Tour #1", [customer_1.id, customer_2.id])
 
       login_as_admin

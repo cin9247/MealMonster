@@ -8,7 +8,8 @@ describe Interactor::ListOfferings do
   context "given a start and end date" do
     let(:from) { Date.new(2013, 10, 4) }
     let(:to)   { Date.new(2013, 10, 5) }
-    let(:subject) { Interactor::ListOfferings.new(from, to) }
+    let(:request) { OpenStruct.new(from: from, to: to) }
+    let(:subject) { Interactor::ListOfferings.new(request) }
 
     before do
       offering_gateway.save OpenStruct.new(date: from)

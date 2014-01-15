@@ -7,7 +7,8 @@ describe Interactor::RegisterUser do
   let(:user_gateway) { dummy_gateway }
   let(:user_source) { ->(args) { OpenStruct.new(args) } }
 
-  subject { Interactor::RegisterUser.new(name, password) }
+  let(:request) { OpenStruct.new(name: name, password: password) }
+  subject { Interactor::RegisterUser.new(request) }
 
   before do
     subject.user_gateway = user_gateway

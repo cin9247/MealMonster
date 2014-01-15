@@ -5,13 +5,8 @@ module Interactor
     register_boundary :user_gateway, -> { UserMapper.new }
     register_boundary :user_source, -> { User.public_method(:new) }
 
-    def initialize(name, password)
-      @name = name
-      @password = password
-    end
-
     def run
-      user = user_source.call name: @name, password: @password
+      user = user_source.call name: request.name, password: request.password
 
       user_gateway.save user
 

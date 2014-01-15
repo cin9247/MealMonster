@@ -3,7 +3,7 @@ require_relative "../../app/interactors/deliver"
 require_relative "../../app/models/order"
 
 describe Interactor::Deliver do
-  let(:subject) { Interactor::Deliver.new(order_id) }
+  let(:subject) { Interactor::Deliver.new(OpenStruct.new(order_id: order_id)) }
   let(:order_gateway) { dummy_gateway }
   let(:order) { Order.new }
   let(:order_id) { order_gateway.save order }

@@ -12,7 +12,8 @@ class Api::V1::OfferingsController < Api::V1::ApiController
         [Date.today, Date.today + 7.days]
       end
 
-    @offerings = Interactor::ListOfferings.new(from_date, to_date).run.object
+    request = OpenStruct.new(from: from_date, to: to_date)
+    @offerings = Interactor::ListOfferings.new(request).run.object
 
   rescue ArgumentError
     render json: {errors: [{message: "invalid date"}]}, status: 400

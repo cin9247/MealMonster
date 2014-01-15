@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = Interactor::RegisterUser.new(params[:user][:name], params[:user][:password]).run.object
+    request = OpenStruct.new(name: params[:user][:name], password: params[:user][:password])
+    user = Interactor::RegisterUser.new(request).run.object
     self.current_user = user
     redirect_to root_path, notice: "Sie haben sicher erfolgreich registriert."
   end

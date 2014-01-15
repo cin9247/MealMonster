@@ -6,7 +6,8 @@ describe Interactor::AddAddressToCustomer do
     let(:address_source) { ->(args) { OpenStruct.new(args) } }
     let(:customer_gateway) { dummy_gateway }
     let(:customer_id) { customer_gateway.save(OpenStruct.new) }
-    subject { Interactor::AddAddressToCustomer.new(customer_id, "Heinestr.", "43", "74123", "München") }
+    let(:request) { OpenStruct.new(customer_id: customer_id, street_name: "Heinestr.", street_number: "43", postal_code: "74123", town: "München")}
+    subject { Interactor::AddAddressToCustomer.new(request) }
 
     before do
       subject.address_source = address_source
