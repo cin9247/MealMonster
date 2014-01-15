@@ -12,7 +12,7 @@
           - tour.stations.each do |s|
             li
               = s.customer.full_name
-              small< = s.order.offering.menu.meals.map(&:name).join(",")
+              small< = s.order.offering.menu.name
 
 div.pagination.pagination-centered
   ul
