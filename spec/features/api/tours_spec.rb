@@ -4,8 +4,8 @@ describe "/api/tours" do
   let(:customer_ids) { [create_customer_with_town("Max", "Mustermann", "Karlsruhe").id, create_customer_with_town("Else", "Schmidt", "Stuttgart").id] }
 
   before do
-    @tour_id = Interactor::CreateTour.new("Tour #1", customer_ids).run.object.id
-    Interactor::CreateTour.new("Tour #2", customer_ids[0..0]).run
+    @tour_id = create_tour("Tour #1", customer_ids).id
+    create_tour("Tour #2", customer_ids[0..0])
 
     login_as_admin
   end
@@ -29,8 +29,8 @@ describe "/api/tours" do
   describe "GET/tours/:id?date=2013-10-04" do
     before do
       meal = create_meal "Schweineschnitzel"
-      offering_id = Interactor::CreateOffering.new("Menü 1", Date.new(2013, 10, 4), [meal.id]).run.object.id
-      Interactor::CreateOrder.new(customer_ids.first, offering_id).run
+      offering_id = create_offering(Date.new(2013, 10, 4)).id
+      create_order(customer_ids.first, offering_id)
     end
 
     context "existing tour" do

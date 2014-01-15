@@ -5,23 +5,15 @@ module Interactor
     register_boundary :customer_gateway, -> { CustomerMapper.new }
     register_boundary :address_source,  -> { Address.public_method(:new) }
 
-    def initialize(customer_id, street_name, street_number, postal_code, town)
-      @customer_id = customer_id
-      @street_name = street_name
-      @street_number = street_number
-      @postal_code = postal_code
-      @town = town
-    end
-
     def run
-      customer = customer_gateway.find @customer_id
+      customer = customer_gateway.find request.customer_id
 
       customer.address ||= address_source.call
 
-      customer.address.street_name = @street_name
-      customer.address.street_number = @street_number
-      customer.address.postal_code = @postal_code
-      customer.address.town = @town
+      customer.address.street_name = request.street_name
+      customer.address.street_number = request.street_number
+      customer.address.postal_code = request.postal_code
+      customer.address.town = request.town
 
       customer_gateway.update customer
     end

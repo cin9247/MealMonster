@@ -12,7 +12,8 @@ class OrdersController < ApplicationController
   end
 
   def create
-    Interactor::CreateOrder.new(params[:order][:customer_id].to_i, params[:order][:offering_id].to_i).run
+    request = OpenStruct.new(customer_id: params[:order][:customer_id], offering_id: params[:order][:offering_id])
+    Interactor::CreateOrder.new(request).run
 
     redirect_to orders_path
   end

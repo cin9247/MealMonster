@@ -24,7 +24,8 @@ describe Interactor::ListStations do
     subject.order_gateway = order_gateway
   end
 
-  subject { Interactor::ListStations.new(tour_id, date) }
+  let(:request) { OpenStruct.new(tour_id: tour_id, date: date) }
+  subject { Interactor::ListStations.new(request) }
 
   let(:result) { subject.run }
 

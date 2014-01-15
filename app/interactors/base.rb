@@ -11,5 +11,11 @@ module Interactor
         instance_variable_set("@#{name}", instance_variable_get("@#{name}") || default_proc.call)
       end
     end
+
+    attr_reader :request
+
+    def initialize(request)
+      @request = request
+    end
   end
 end

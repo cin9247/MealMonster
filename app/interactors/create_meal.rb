@@ -5,14 +5,8 @@ module Interactor
     register_boundary :meal_gateway, -> { MealMapper.new }
     register_boundary :meal_source,  -> { Meal.public_method(:new) }
 
-    def initialize(name, kilojoules, bread_units)
-      @name        = name
-      @kilojoules  = kilojoules
-      @bread_units = bread_units
-    end
-
     def run
-      meal = meal_source.call name: @name, kilojoules: @kilojoules, bread_units: @bread_units
+      meal = meal_source.call name: request.name, kilojoules: request.kilojoules, bread_units: request.bread_units
       if meal.valid?
         meal_gateway.save meal
         OpenStruct.new status: :successfully_created, object: meal

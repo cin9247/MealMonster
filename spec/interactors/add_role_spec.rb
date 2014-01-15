@@ -7,8 +7,9 @@ describe Interactor::AddRole do
   let(:user) { User.new }
   let(:user_id) { user_gateway.save user }
   let(:role) { "driver" }
+  let(:request) { OpenStruct.new(user_id: user_id, role: role) }
 
-  subject { Interactor::AddRole.new(user_id, role) }
+  subject { Interactor::AddRole.new(request) }
 
   before do
     subject.user_gateway = user_gateway

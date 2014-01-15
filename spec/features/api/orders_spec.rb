@@ -58,7 +58,8 @@ describe "/api/offerings" do
 
   describe "order flags" do
     let(:customer) { create_customer }
-    let(:order) { Interactor::CreateOrder.new(customer.id, offering.id).run.object }
+    let(:request) { OpenStruct.new(customer_id: customer.id, offering_id: offering.id) }
+    let(:order) { Interactor::CreateOrder.new(request).run.object }
 
     describe "PUT /deliver" do
       before do

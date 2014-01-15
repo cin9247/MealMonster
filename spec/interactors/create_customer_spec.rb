@@ -5,7 +5,7 @@ describe Interactor::CreateCustomer do
   let(:customer_gateway) { dummy_gateway }
   let(:customer_source) { ->(args) { OpenStruct.new(args.merge(valid?: valid)) } }
 
-  let(:subject) { Interactor::CreateCustomer.new(*request) }
+  let(:subject) { Interactor::CreateCustomer.new(request) }
 
   before do
     subject.customer_gateway = customer_gateway
@@ -16,7 +16,7 @@ describe Interactor::CreateCustomer do
 
   describe "valid request" do
     let(:valid) { true }
-    let(:request) { ["Peter", "Mustermann", "Herr"] }
+    let(:request) { OpenStruct.new(forename: "Peter", surname: "Mustermann", prefix: "Herr") }
 
     it "adds the customer" do ## how to test this?
       expect(customer_gateway.all.size).to eq 1
@@ -31,7 +31,7 @@ describe Interactor::CreateCustomer do
 
   describe "invalid request" do
     let(:valid) { false }
-    let(:request) { ["Peter", ""] }
+    let(:request) { OpenStruct.new(forename: "Peter", surname: "") }
 
     it "returns an error response" do
       expect(response.status).to eq :invalid_request

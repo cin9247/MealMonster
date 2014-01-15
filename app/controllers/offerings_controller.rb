@@ -1,7 +1,7 @@
 class OfferingsController < ApplicationController
   def index
     from, to = parse_dates_or_default_to_next_week
-    response = Interactor::ListOfferings.new(from, to).run
+    response = Interactor::ListOfferings.new(OpenStruct.new(from: from, to: to)).run
 
     @days = (from..to).to_a
 
@@ -23,7 +23,8 @@ class OfferingsController < ApplicationController
         meal_ids = (value[:meal_ids] || []).map(&:to_i)
 
         if meal_ids.present?
-          Interactor::CreateOffering.new(value[:name], date, meal_ids).run
+          request = OpenStruct.new(name: value[:name], date: date, meal_ids: meal_ids)
+          Interactor::CreateOffering.new(request).run
         end
       end
     end

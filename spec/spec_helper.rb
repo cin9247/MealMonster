@@ -51,35 +51,52 @@ RSpec.configure do |config|
 end
 
 def create_meal(name="Schweineschnitzel")
-  Interactor::CreateMeal.new(name, 1000, 2.1).run.object
+  request = OpenStruct.new(name: name, kilojoules: 1000, bread_units: 2.1)
+  Interactor::CreateMeal.new(request).run.object
 end
 
 def create_customer(forename="Max", surname="Mustermann")
-  Interactor::CreateCustomer.new(forename, surname).run.object
+  request = OpenStruct.new(forename: forename, surname: surname)
+  Interactor::CreateCustomer.new(request).run.object
 end
 
 def create_customer_with_town(forename, surname, town)
   c = create_customer(forename, surname)
-  Interactor::AddAddressToCustomer.new(c.id, "", "", "12345", town).run
-  ## TODO this can be solved by using identity map
+  request = OpenStruct.new(customer_id: c.id, street_name: "", street_number: "", postal_code: "12345", town: town)
+  Interactor::AddAddressToCustomer.new(request).run
+  ## TODO this can be solved by using an identity map
   CustomerMapper.new.find c.id
 end
 
 def create_tour(name, customer_ids)
-  Interactor::CreateTour.new(name, customer_ids).run.object
+  request = OpenStruct.new(name: name, customer_ids: customer_ids)
+  Interactor::CreateTour.new(request).run.object
 end
 
 def create_offering(date)
   meal_ids = (1..3).to_a.map do
     create_meal.id
   end
-  Interactor::CreateOffering.new("Menu", date, meal_ids).run.object
+  request = OpenStruct.new(name: "Menu", date: date, meal_ids: meal_ids)
+  Interactor::CreateOffering.new(request).run.object
 end
 
 def create_user(name, password)
-  user = Interactor::RegisterUser.new(name, password).run.object
-  Interactor::AddRole.new(user.id, "admin").run
+  request = OpenStruct.new(name: name, password: password)
+  user = Interactor::RegisterUser.new(request).run.object
+  request = OpenStruct.new(user_id: user.id, role: "admin")
+  Interactor::AddRole.new(request).run
   user
+end
+
+def add_key_for_customer(customer, name)
+  request = OpenStruct.new(address_id: customer.address.id, name: name)
+  Interactor::AddKeyToAddress.new(request).run
+end
+
+def create_order(customer_id, offering_id)
+  request = OpenStruct.new(customer_id: customer_id, offering_id: offering_id)
+  Interactor::CreateOrder.new(request).run
 end
 
 def login_as_admin

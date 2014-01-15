@@ -6,14 +6,9 @@ module Interactor
     register_boundary :tour_gateway,     -> { TourMapper.new }
     register_boundary :tour_source,      -> { Tour.public_method(:new) }
 
-    def initialize(name, customer_ids)
-      @name         = name
-      @customer_ids = customer_ids
-    end
-
     def run
-      customers = customer_gateway.find(@customer_ids)
-      tour = tour_source.call(customers: customers, name: @name)
+      customers = customer_gateway.find(request.customer_ids)
+      tour = tour_source.call(customers: customers, name: request.name)
 
       if tour.valid?
         tour_gateway.save tour
