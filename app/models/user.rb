@@ -34,4 +34,8 @@ class User
   def set_role(role)
     @roles = [role]
   end
+
+  def has_role?(role)
+    roles.include? role
+  end
 end

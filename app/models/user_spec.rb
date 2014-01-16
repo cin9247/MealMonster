@@ -16,4 +16,20 @@ describe User do
       expect(subject.roles).to eq ["admin"]
     end
   end
+
+  describe "#has_role?" do
+    context "has the desired role" do
+      it "returns true" do
+        subject.add_role "driver"
+        expect(subject.has_role? "driver").to eq true
+      end
+    end
+
+    context "hasn't the desired role" do
+      it "returns false" do
+        subject.add_role "driver"
+        expect(subject.has_role? "user").to eq false
+      end
+    end
+  end
 end

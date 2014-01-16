@@ -4,9 +4,7 @@ class Api::V1::OrdersController < Api::V1::ApiController
   def create
     if valid_request? params
       request = OpenStruct.new(customer_id: params[:customer_id].to_i, offering_id: params[:offering_id], note: params[:note])
-      interactor = Interactor::CreateOrder.new(request)
-
-      @order = interactor.run.object
+      @order = interact_with(:create_order, request).object
 
       respond_with @order, status: 201
     else
@@ -41,5 +39,18 @@ class Api::V1::OrdersController < Api::V1::ApiController
 
     def request_from_id
       OpenStruct.new(order_id: params[:id])
+    end
+
+    def interact_with(use_case, request)
+      interactor_class = Interactor.const_get use_case.to_s.camelize
+      begin
+        policy_class = Policy.const_get "#{use_case.to_s.camelize}Policy"
+      rescue NameError
+
+      end
+
+      if policy_class.new(current_user).can? request
+        interactor_class.new(request).run
+      end
     end
 end
