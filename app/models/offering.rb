@@ -23,11 +23,19 @@ class Offering
     date
   end
 
+  def name
+    menu.name
+  end
+
   def meals
     menu.meals
   end
 
   def persisted?
     !id.nil?
+  end
+
+  def price
+    Money.new(430, 'EUR')
   end
 end

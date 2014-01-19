@@ -69,9 +69,13 @@ def create_tour(name, customer_ids)
   Interactor::CreateTour.new(name, customer_ids).run.object
 end
 
-def create_offering(date)
+def create_order(customer, offering)
+  Interactor::CreateOrder.new(customer.id, offering.id).run
+end
+
+def create_offering(date, name="Menu")
   meal_ids = (1..3).to_a.map do
     create_meal.id
   end
-  Interactor::CreateOffering.new("Menu", date, meal_ids).run.object
+  Interactor::CreateOffering.new(name, date, meal_ids).run.object
 end
