@@ -6,7 +6,7 @@ class Offering
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  attr_accessor :id, :menu, :day
+  attr_accessor :id, :menu, :day, :price_class
 
   def initialize(attributes={})
     attributes.each do |key, value|
@@ -36,6 +36,6 @@ class Offering
   end
 
   def price
-    Money.new(430, 'EUR')
+    price_class.price
   end
 end

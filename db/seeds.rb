@@ -13,6 +13,10 @@ def create_customer_with_address_and_key(name, street_name, street_number, posta
   c
 end
 
+def create_offering(name, date, meal_ids)
+  Interactor::CreateOffering.new(name, date, meal_ids, 1).run
+end
+
 DB[:meals].delete
 DB[:menus].delete
 DB[:meals_menus].delete
@@ -34,14 +38,14 @@ obst_salat    = Interactor::CreateMeal.new("Obstsalat", 331, 0.2).run.object
 today = Date.new(2013, 11, 11)
 
 (today..(today + 2.days)).each do |d|
-  Interactor::CreateOffering.new("Menü #1", d, [rote_beete.id, würstchen.id, bananen_quark.id]).run
-  Interactor::CreateOffering.new("Menü #2", d, [rote_beete.id, spaghetti.id, erdbeer_quark.id]).run
-  Interactor::CreateOffering.new("Menü #3", d, [rote_beete.id, obst_salat.id]).run
+  create_offering("Menü #1", d, [rote_beete.id, würstchen.id, bananen_quark.id])
+  create_offering("Menü #2", d, [rote_beete.id, spaghetti.id, erdbeer_quark.id])
+  create_offering("Menü #3", d, [rote_beete.id, obst_salat.id])
 end
 
 ((today + 3.days)..(today + 5.days)).each do |d|
-  Interactor::CreateOffering.new("Menü #1", d, [rote_beete.id, würstchen.id, bananen_quark.id]).run
-  Interactor::CreateOffering.new("Menü #2", d, [rote_beete.id, obst_salat.id]).run
+  create_offering("Menü #1", d, [rote_beete.id, würstchen.id, bananen_quark.id])
+  create_offering("Menü #2", d, [rote_beete.id, obst_salat.id])
 end
 
 c_1 = create_customer_with_address_and_key "Max Mustermann", "Rudolfstraße", "26", "76131", "Karlsruhe", "Schlüssel 1"

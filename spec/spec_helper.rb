@@ -73,9 +73,9 @@ def create_order(customer, offering)
   Interactor::CreateOrder.new(customer.id, offering.id).run
 end
 
-def create_offering(date, name="Menu")
-  meal_ids = (1..3).to_a.map do
+def create_offering(date, name="Menu", meal_ids=nil)
+  meal_ids = meal_ids || (1..3).to_a.map do
     create_meal.id
   end
-  Interactor::CreateOffering.new(name, date, meal_ids).run.object
+  Interactor::CreateOffering.new(name, date, meal_ids, 2).run.object
 end

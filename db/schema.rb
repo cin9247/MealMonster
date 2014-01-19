@@ -52,6 +52,7 @@ Sequel.migration do
       primary_key :id
       column :date, "date", :null=>false
       column :menu_id, "integer", :null=>false
+      column :price_class_id, "integer", :null=>false
     end
 
     create_table(:orders) do
@@ -94,5 +95,6 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131121104531_create_keys.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131216161434_add_state_to_order.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131219101730_add_prefix_to_customer.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140119224408_add_price_class_id_to_offering.rb')"
   end
 end
