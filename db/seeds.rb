@@ -19,13 +19,13 @@ end
 
 def create_driver
   user = Interactor::RegisterUser.new("driver", "driver").run.object
-  Interactor::AddRole.new(user.id, "driver").run
+  Interactor::SetRole.new(user.id, "driver").run
   user
 end
 
 def create_admin
   user = Interactor::RegisterUser.new("admin", "admin").run.object
-  Interactor::AddRole.new(user.id, "admin").run
+  Interactor::SetRole.new(user.id, "admin").run
   user
 end
 

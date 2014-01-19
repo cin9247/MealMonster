@@ -22,7 +22,6 @@ class User
     @roles ||= []
   end
 
-
   ## FIXME hack used in registration view
   def role
     roles.first
@@ -30,5 +29,9 @@ class User
 
   def add_role(role)
     roles << role
+  end
+
+  def set_role(role)
+    @roles = [role]
   end
 end
