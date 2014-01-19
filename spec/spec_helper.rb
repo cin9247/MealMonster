@@ -89,7 +89,7 @@ def create_user(name, password, role)
   request = OpenStruct.new(name: name, password: password)
   user = Interactor::RegisterUser.new(request).run.object
   request = OpenStruct.new(user_id: user.id, role: role)
-  Interactor::AddRole.new(request).run
+  Interactor::SetRole.new(request).run
   user
 end
 
