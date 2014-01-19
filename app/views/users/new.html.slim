@@ -9,4 +9,8 @@
     = f.label :password_confirmation
     = f.password_field :password_confirmation
   p
+    = f.label :role, "Rolle"
+    = f.select :role, @roles
+
+  p
     = f.submit "Register"
