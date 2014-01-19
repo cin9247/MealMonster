@@ -1,7 +1,9 @@
 CareEAR::Application.routes.draw do
   root to: "main#show"
 
-  resources :customers
+  resources :customers do
+    resources :invoices
+  end
   resources :meals
   resources :offerings
   resources :tours

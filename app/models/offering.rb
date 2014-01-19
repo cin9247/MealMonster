@@ -6,7 +6,7 @@ class Offering
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  attr_accessor :id, :menu, :day
+  attr_accessor :id, :menu, :day, :price_class
 
   def initialize(attributes={})
     attributes.each do |key, value|
@@ -23,11 +23,19 @@ class Offering
     date
   end
 
+  def name
+    menu.name
+  end
+
   def meals
     menu.meals
   end
 
   def persisted?
     !id.nil?
+  end
+
+  def price
+    price_class.price
   end
 end

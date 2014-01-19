@@ -23,7 +23,8 @@ class OfferingMapper < BaseMapper
   def hash_from_object(object)
     {
       date: object.date,
-      menu_id: object.menu.id
+      menu_id: object.menu.id,
+      price_class_id: object.price_class.id
     }
   end
 
@@ -35,8 +36,11 @@ class OfferingMapper < BaseMapper
     menu.meals = meals
     day = Day.new(date: hash[:date])
 
+    price_class = PriceClassMapper.new.find(hash[:price_class_id])
+
     Offering.new(day: day,
-                 menu: menu)
+                 menu: menu,
+                 price_class: price_class)
   end
 
   private

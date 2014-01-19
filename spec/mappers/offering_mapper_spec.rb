@@ -3,10 +3,16 @@ require "spec_helper"
 describe OfferingMapper do
   let(:meal) { Meal.new name: "Hackbraten" }
   let(:menu) { Menu.new meals: [meal] }
+  let(:price_class) { PriceClass.new(id: 1, name: "Preisklasse 1") }
+
+  before do
+    ## TODO add this later when price class is not static
+    # PriceClassMapper.new.save price_class
+  end
 
   describe "#save" do
     let(:date) { Date.new(2013, 4, 6) }
-    let(:offering) { Offering.new menu: menu, day: double(:day, date: date) }
+    let(:offering) { Offering.new menu: menu, day: double(:day, date: date), price_class: price_class }
 
     context "existing menu" do
       before do
@@ -29,12 +35,20 @@ describe OfferingMapper do
         expect(subject.fetch.first.menu.id).to eq menu.id
       end
     end
+
+    describe "price class" do
+      it "saves the price class" do
+        subject.save offering
+
+        expect(subject.fetch.first.price_class.name).to eq "Preisklasse 1"
+      end
+    end
   end
 
   describe "#fetch_by_date" do
-    let(:offering_1) { Offering.new day: Day.new(date: Date.new(2013, 5, 6)), menu: menu }
-    let(:offering_2) { Offering.new day: Day.new(date: Date.new(2013, 5, 6)), menu: menu }
-    let(:offering_3) { Offering.new day: Day.new(date: Date.new(2013, 5, 7)), menu: menu }
+    let(:offering_1) { Offering.new day: Day.new(date: Date.new(2013, 5, 6)), menu: menu, price_class: price_class }
+    let(:offering_2) { Offering.new day: Day.new(date: Date.new(2013, 5, 6)), menu: menu, price_class: price_class }
+    let(:offering_3) { Offering.new day: Day.new(date: Date.new(2013, 5, 7)), menu: menu, price_class: price_class }
 
     before do
       subject.save offering_1
@@ -57,10 +71,10 @@ describe OfferingMapper do
   end
 
   describe "#fetch_by_date_range" do
-    let(:offering_1) { Offering.new day: Day.new(date: Date.new(2013, 5, 6)), menu: menu }
-    let(:offering_2) { Offering.new day: Day.new(date: Date.new(2013, 5, 6)), menu: menu }
-    let(:offering_3) { Offering.new day: Day.new(date: Date.new(2013, 5, 7)), menu: menu }
-    let(:offering_4) { Offering.new day: Day.new(date: Date.new(2013, 5, 8)), menu: menu }
+    let(:offering_1) { Offering.new day: Day.new(date: Date.new(2013, 5, 6)), menu: menu, price_class: price_class }
+    let(:offering_2) { Offering.new day: Day.new(date: Date.new(2013, 5, 6)), menu: menu, price_class: price_class }
+    let(:offering_3) { Offering.new day: Day.new(date: Date.new(2013, 5, 7)), menu: menu, price_class: price_class }
+    let(:offering_4) { Offering.new day: Day.new(date: Date.new(2013, 5, 8)), menu: menu, price_class: price_class }
 
     before do
       subject.save offering_1

@@ -13,6 +13,7 @@ class OfferingsController < ApplicationController
   def new
     from, to = parse_dates_or_default_to_next_week
 
+    @price_classes = PriceClassMapper.new.fetch
     @meals = kitchen.meals
     @days = organization.days(from..to)
   end
@@ -21,9 +22,10 @@ class OfferingsController < ApplicationController
     params[:offerings].each do |date, value|
       value[:menus].each do |menu_position, value|
         meal_ids = (value[:meal_ids] || []).map(&:to_i)
+        price_class_id = value[:price_class_id].to_i
 
         if meal_ids.present?
-          Interactor::CreateOffering.new(value[:name], date, meal_ids).run
+          Interactor::CreateOffering.new(value[:name], date, meal_ids, price_class_id).run
         end
       end
     end

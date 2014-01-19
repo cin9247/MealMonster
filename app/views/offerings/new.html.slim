@@ -13,6 +13,7 @@ div.row#new-offering
                 /h3 = "Menu ##{i + 1}"
                 label for="offerings[#{day.date.iso8601}]menus[#{i}]name" Name
                 input type="text" id="offerings[#{day.date.iso8601}]menus[#{i}]name" name="offerings[#{day.date.iso8601}]menus[#{i}]name" value="Menü ##{i + 1}"
+                = select_tag "offerings[#{day.date.iso8601}]menus[#{i}]price_class_id", options_from_collection_for_select(@price_classes, "id", "name")
 
                 ol.dropbox data-column="#{i}" data-date="#{day.date}" style="border: 1px solid grey; min-height: 100px"
 
