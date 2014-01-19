@@ -1,22 +1,21 @@
+h1= "Rechnung für #{@customer.full_name}"
+
 table
   thead
     tr
       th Datum
-      th Kunde
-      th Bestellung
+      th Angebot
       th Stückzahl
       th Preis
   tbody
     - @orders.each do |o|
       tr
         td= o.offering.date
-        td= o.customer.full_name
         td= o.offering.name
         td 1
         td= o.offering.price
   tfooter
     tr
-      td
       td
       td
       td= @orders.size
