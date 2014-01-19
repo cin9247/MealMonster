@@ -78,6 +78,7 @@ Sequel.migration do
       primary_key :id
       column :name, "text", :null=>false
       column :password_digest, "text", :null=>false
+      column :roles, "text", :null=>false
     end
   end
 end
@@ -101,5 +102,6 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131125120034_create_users.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131216161434_add_state_to_order.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131219101730_add_prefix_to_customer.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140119121741_add_roles_to_users.rb')"
   end
 end

@@ -1,4 +1,5 @@
 require 'bcrypt'
+require 'yaml'
 
 class UserMapper < BaseMapper
   def hash_from_object(record)
@@ -7,13 +8,16 @@ class UserMapper < BaseMapper
     end
     {
       name: record.name,
-      password_digest: record.password_digest
+      password_digest: record.password_digest,
+      roles: YAML.dump(record.roles)
     }
   end
 
   def object_from_hash(hash)
-    User.new name: hash[:name],
-             password_digest: hash[:password_digest]
+    roles = YAML.load(hash[:roles])
+    User.new(name: hash[:name], password_digest: hash[:password_digest]).tap do |u|
+      roles.each { |r| u.add_role r }
+    end
   end
 
   def find_by_name(name)
