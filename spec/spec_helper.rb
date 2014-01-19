@@ -81,10 +81,14 @@ def create_offering(date)
   Interactor::CreateOffering.new(request).run.object
 end
 
-def create_user(name, password)
+def create_admin(name, password)
+  create_user(name, password, "admin")
+end
+
+def create_user(name, password, role)
   request = OpenStruct.new(name: name, password: password)
   user = Interactor::RegisterUser.new(request).run.object
-  request = OpenStruct.new(user_id: user.id, role: "admin")
+  request = OpenStruct.new(user_id: user.id, role: role)
   Interactor::AddRole.new(request).run
   user
 end
@@ -99,7 +103,16 @@ def create_order(customer_id, offering_id)
   Interactor::CreateOrder.new(request).run
 end
 
+def login_with(user, password)
+  visit "/login"
+
+  fill_in "Username", with: user
+  fill_in "Password", with: password
+
+  click_on "Login"
+end
+
 def login_as_admin
-  create_user "admin", "admin"
+  create_admin "admin", "admin"
   basic_authorize "admin", "admin"
 end

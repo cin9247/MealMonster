@@ -3,6 +3,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def index
+    @users = UserMapper.new.fetch
+  end
+
   def create
     request = OpenStruct.new(name: params[:user][:name], password: params[:user][:password])
     user = Interactor::RegisterUser.new(request).run.object
