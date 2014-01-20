@@ -14,7 +14,7 @@ class OfferingsController < ApplicationController
     from, to = parse_dates_or_default_to_next_week
 
     @price_classes = PriceClassMapper.new.fetch
-    @meals = kitchen.meals
+    @meals = MealMapper.new.fetch
     @days = organization.days(from..to)
   end
 

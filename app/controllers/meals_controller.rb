@@ -1,10 +1,10 @@
 class MealsController < ApplicationController
   def index
-    @meals = kitchen.meals
+    @meals = MealMapper.new.fetch
   end
 
   def new
-    @meal = kitchen.new_meal
+    @meal = Meal.new
   end
 
   def create
@@ -20,7 +20,7 @@ class MealsController < ApplicationController
   end
 
   def edit
-    @meal = kitchen.find_meal_by_id params[:id]
+    @meal = MealMapper.new.find params[:id]
   end
 
   def update

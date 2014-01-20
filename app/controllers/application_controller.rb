@@ -4,11 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   private
-    def kitchen
-      @kitchen ||= organization.kitchen
-    end
-    helper_method :kitchen
-
     def organization
       @organization ||= Organization.new
     end
