@@ -88,4 +88,8 @@ class ApplicationController < ActionController::Base
         self.current_user = user
       end
     end
+
+    def interact_with(use_case, request)
+      InteractorFactory.execute(use_case, request, current_user)
+    end
 end

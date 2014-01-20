@@ -10,7 +10,7 @@ module Policy
     end
 
     def can?(request)
-      return true if user.has_role? :admin
+      return true if user.has_role?(:admin) || user.has_role?(:user)
 
       if user.has_role? :customer
         return user.customer.id == request.customer_id

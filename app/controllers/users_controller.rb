@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     user = UserMapper.new.find params[:id]
     user.name = params[:user][:name]
     UserMapper.new.update user
-    Interactor::SetRole.new(OpenStruct.new(user_id: user.id, role: params[:user][:role])).run
+    interact_with :set_role, OpenStruct.new(user_id: user.id, role: params[:user][:role])
 
     redirect_to users_path
   end
@@ -24,9 +24,9 @@ class UsersController < ApplicationController
 
   def create
     request = OpenStruct.new(name: params[:user][:name], password: params[:user][:password])
-    user = Interactor::RegisterUser.new(request).run.object
+    user = interact_with(:register_user, request).object
     request = OpenStruct.new(user_id: user.id, role: params[:user][:role])
-    Interactor::SetRole.new(request).run
+    interact_with :set_role, request
     self.current_user = user
     redirect_to root_path, notice: "Sie haben sicher erfolgreich registriert."
   end
