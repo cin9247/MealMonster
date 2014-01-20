@@ -12,22 +12,20 @@ class CustomersController < ApplicationController
   end
 
   def update
-    request = OpenStruct.new(customer_id: params[:id].to_i, forename: customer_params[:forename], surname: customer_params[:surname], prefix: customer_params[:prefix])
-    response = Interactor::UpdateCustomer.new(request).run
+    response = Interactor::UpdateCustomer.new(customer_request(params[:id].to_i)).run
     @customer = response.object
 
-    request = OpenStruct.new(customer_id: params[:id].to_i, street_name: address_params[:street_name], street_number: address_params[:street_number], postal_code: address_params[:postal_code], town: address_params[:town])
+    request = address_request params[:id].to_i
     Interactor::UpdateAddressForCustomer.new(request).run
 
     redirect_to customers_path, notice: "Der Kunde wurde erfolgreich aktualisiert."
   end
 
   def create
-    request = OpenStruct.new(forename: customer_params[:forename], surname: customer_params[:surname], prefix: customer_params[:prefix])
-    response = Interactor::CreateCustomer.new(request).run
+    response = Interactor::CreateCustomer.new(customer_request).run
 
     if response.success?
-      request = OpenStruct.new(customer_id: response.object.id, street_name: address_params[:street_name], street_number: address_params[:street_number], postal_code: address_params[:postal_code], town: address_params[:town])
+      request = address_request response.object.id
       Interactor::AddAddressToCustomer.new(request).run
       redirect_to customers_path, notice: "Customer successfully created"
     else
@@ -48,5 +46,13 @@ class CustomersController < ApplicationController
 
     def address_params
       params[:customer][:address]
+    end
+
+    def customer_request(customer_id=nil)
+      OpenStruct.new(customer_id: customer_id, forename: customer_params[:forename], surname: customer_params[:surname], prefix: customer_params[:prefix])
+    end
+
+    def address_request(customer_id)
+      OpenStruct.new(customer_id: customer_id, street_name: address_params[:street_name], street_number: address_params[:street_number], postal_code: address_params[:postal_code], town: address_params[:town])
     end
 end
