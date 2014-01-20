@@ -2,14 +2,13 @@ require "spec_helper"
 
 describe "/api/offerings" do
   let(:organization) { Organization.new }
-  let(:kitchen) { organization.kitchen }
 
-  let(:spaghetti) { kitchen.new_meal name: "Spaghetti" }
-  let(:pudding) { kitchen.new_meal name: "Pudding", kilojoules: 412 }
-  let(:quark) { kitchen.new_meal name: "Quark", bread_units: 2.1 }
-  let(:first_menu) { kitchen.new_menu meals: [spaghetti, pudding] }
-  let(:second_menu) { kitchen.new_menu meals: [spaghetti, quark] }
-  let(:third_menu) { kitchen.new_menu meals: [spaghetti, quark] }
+  let(:spaghetti) { Meal.new name: "Spaghetti" }
+  let(:pudding) { Meal.new name: "Pudding", kilojoules: 412 }
+  let(:quark) { Meal.new name: "Quark", bread_units: 2.1 }
+  let(:first_menu) { Menu.new meals: [spaghetti, pudding] }
+  let(:second_menu) { Menu.new meals: [spaghetti, quark] }
+  let(:third_menu) { Menu.new meals: [spaghetti, quark] }
 
   let(:result) { json_response["offerings"] }
 

@@ -33,10 +33,11 @@ describe "meals" do
     end
 
     it "creates a new meal for the kitchen" do
-      expect(kitchen.meals.length).to eq 1
-      expect(kitchen.meals.first.name).to eq "Hackbraten mit Schweineblut"
-      expect(kitchen.meals.first.bread_units).to eq 2
-      expect(kitchen.meals.first.kilojoules).to eq 4153
+      meals = MealMapper.new.fetch
+      expect(meals.length).to eq 1
+      expect(meals.first.name).to eq "Hackbraten mit Schweineblut"
+      expect(meals.first.bread_units).to eq 2
+      expect(meals.first.kilojoules).to eq 4153
     end
   end
 
@@ -52,8 +53,9 @@ describe "meals" do
     end
 
     it "overwrites the existing meal with the new name" do
-      expect(kitchen.meals.length).to eq 1
-      expect(kitchen.meals.first.name).to eq "Spaghetti"
+      meals = MealMapper.new.fetch
+      expect(meals.length).to eq 1
+      expect(meals.first.name).to eq "Spaghetti"
     end
   end
 end

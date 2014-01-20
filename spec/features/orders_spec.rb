@@ -4,14 +4,13 @@ require "spec_helper"
 
 describe "orders" do
   let(:organization) { Organization.new }
-  let(:kitchen) { organization.kitchen }
   let(:names) { %w(Max Peter Johanna) }
 
-  let(:meal_1) { kitchen.new_meal name: "Spaghetti" }
-  let(:meal_2) { kitchen.new_meal name: "Braten" }
+  let(:meal_1) { Meal.new name: "Spaghetti" }
+  let(:meal_2) { Meal.new name: "Braten" }
 
-  let(:menu_1) { kitchen.new_menu meals: [meal_1], name: "Veggie-Menu" }
-  let(:menu_2) { kitchen.new_menu meals: [meal_2], name: "Für Pfundskerle" }
+  let(:menu_1) { Menu.new meals: [meal_1], name: "Veggie-Menu" }
+  let(:menu_2) { Menu.new meals: [meal_2], name: "Für Pfundskerle" }
 
   let(:date) { Date.parse "2013-10-05" }
   let(:another_date) { Date.parse "2013-10-06" }

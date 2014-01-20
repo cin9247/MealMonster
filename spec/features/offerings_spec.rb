@@ -2,7 +2,6 @@ require "spec_helper"
 
 describe "offerings" do
   let(:organization) { Organization.new }
-  let(:kitchen) { organization.kitchen }
 
   let!(:hackbraten) { create_meal "Hackbraten" }
   let!(:spaghetti)  { create_meal "Spaghetti" }
@@ -10,9 +9,9 @@ describe "offerings" do
 
   describe "viewing the offerings" do
     before do
-      m_1 = kitchen.new_menu name: "Menü #1", meals: [hackbraten, spaghetti]
-      m_2 = kitchen.new_menu name: "Menü #2", meals: [hackbraten, nusskuchen]
-      m_3 = kitchen.new_menu name: "Menü #1", meals: [nusskuchen]
+      m_1 = Menu.new name: "Menü #1", meals: [hackbraten, spaghetti]
+      m_2 = Menu.new name: "Menü #2", meals: [hackbraten, nusskuchen]
+      m_3 = Menu.new name: "Menü #1", meals: [nusskuchen]
 
       organization.day("2013-05-06").offer! m_1
       organization.day("2013-05-06").offer! m_2

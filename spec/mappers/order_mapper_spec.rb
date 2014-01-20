@@ -2,11 +2,10 @@ require "spec_helper"
 
 describe OrderMapper do
   let(:organization) { Organization.new }
-  let(:kitchen) { organization.kitchen }
-  let(:meal_1) { kitchen.new_meal name: "Hack" }
-  let(:meal_2) { kitchen.new_meal name: "Karotte" }
-  let(:menu_1) { kitchen.new_menu name: "Menu #1", meals: [meal_1, meal_2] }
-  let(:menu_2) { kitchen.new_menu name: "Menu #2", meals: [meal_1] }
+  let(:meal_1) { Meal.new name: "Hack" }
+  let(:meal_2) { Meal.new name: "Karotte" }
+  let(:menu_1) { Menu.new name: "Menu #1", meals: [meal_1, meal_2] }
+  let(:menu_2) { Menu.new name: "Menu #2", meals: [meal_1] }
   let(:offering_1) { organization.day("2013-10-06").new_offering menu: menu_1 }
   let(:offering_2) { organization.day("2013-10-07").new_offering menu: menu_2 }
   let(:customer) { organization.new_customer forename: "Hans" }
