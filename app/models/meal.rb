@@ -34,10 +34,6 @@ class Meal
     end
   end
 
-  def offer!
-    kitchen.add_meal self
-  end
-
   def persisted?
     !id.nil?
   end
