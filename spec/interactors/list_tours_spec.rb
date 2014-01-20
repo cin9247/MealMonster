@@ -20,8 +20,8 @@ describe Interactor::ListTours do
     order_gateway.save OpenStruct.new id: 1, customer: peter, date: Date.new(2013, 10, 1)
   end
 
-  let(:date) { Date.new(2013, 10, 1) }
-  subject { Interactor::ListTours.new(date) }
+  let(:request) { OpenStruct.new(date: Date.new(2013, 10, 1)) }
+  subject { Interactor::ListTours.new(request) }
 
   let!(:response) { subject.run }
 

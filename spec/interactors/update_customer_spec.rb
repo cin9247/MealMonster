@@ -5,7 +5,8 @@ describe Interactor::UpdateCustomer do
   let(:customer_gateway) { dummy_gateway }
   let(:customer) { OpenStruct.new(forename: "Max", surname: "Musterfrau")}
   let(:customer_id) { customer_gateway.save customer }
-  let(:subject) { Interactor::UpdateCustomer.new(customer_id, "Peter", "Mustermann") }
+  let(:request) { OpenStruct.new(customer_id: customer_id, forename: "Peter", surname: "Mustermann") }
+  let(:subject) { Interactor::UpdateCustomer.new(request) }
 
   before do
     subject.customer_gateway = customer_gateway

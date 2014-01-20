@@ -8,8 +8,9 @@ module NavigationHelper
       OpenStruct.new(title: "Angebotene Menus", url: offerings_path, active: controller?("offerings")),
       OpenStruct.new(title: "Gerichte", url: meals_path, active: controller?("meals")),
       OpenStruct.new(title: "Bestellungen", url: orders_path, active: controller?("orders")),
-      OpenStruct.new(title: "Touren", url: tours_path, active: controller?("tours"))
-    ]
+      OpenStruct.new(title: "Touren", url: tours_path, active: controller?("tours")),
+      (OpenStruct.new(title: "Benutzerverwaltung", url: users_path, active: controller?("users")) if logged_in?)
+    ].compact
   end
 
   def controller?(*names)

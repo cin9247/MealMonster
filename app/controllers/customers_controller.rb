@@ -12,19 +12,23 @@ class CustomersController < ApplicationController
   end
 
   def update
-    response = Interactor::UpdateCustomer.new(params[:id].to_i, customer_params[:forename], customer_params[:surname], customer_params[:prefix]).run
+    request = OpenStruct.new(customer_id: params[:id].to_i, forename: customer_params[:forename], surname: customer_params[:surname], prefix: customer_params[:prefix])
+    response = Interactor::UpdateCustomer.new(request).run
     @customer = response.object
 
-    Interactor::UpdateAddressForCustomer.new(params[:id].to_i, address_params[:street_name], address_params[:street_number], address_params[:postal_code], address_params[:town]).run
+    request = OpenStruct.new(customer_id: params[:id].to_i, street_name: address_params[:street_name], street_number: address_params[:street_number], postal_code: address_params[:postal_code], town: address_params[:town])
+    Interactor::UpdateAddressForCustomer.new(request).run
 
     redirect_to customers_path, notice: "Der Kunde wurde erfolgreich aktualisiert."
   end
 
   def create
-    response = Interactor::CreateCustomer.new(customer_params[:forename], customer_params[:surname], customer_params[:prefix]).run
+    request = OpenStruct.new(forename: customer_params[:forename], surname: customer_params[:surname], prefix: customer_params[:prefix])
+    response = Interactor::CreateCustomer.new(request).run
 
     if response.success?
-      Interactor::AddAddressToCustomer.new(response.object.id, address_params[:street_name], address_params[:street_number], address_params[:postal_code], address_params[:town]).run
+      request = OpenStruct.new(customer_id: response.object.id, street_name: address_params[:street_name], street_number: address_params[:street_number], postal_code: address_params[:postal_code], town: address_params[:town])
+      Interactor::AddAddressToCustomer.new(request).run
       redirect_to customers_path, notice: "Customer successfully created"
     else
       @customer = response.object

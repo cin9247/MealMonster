@@ -16,6 +16,7 @@ describe "/api/offerings" do
 
   describe "POST /api/orders" do
     before do
+      login_as_admin
       post "/api/v1/orders.json", parameters
     end
 
@@ -57,10 +58,12 @@ describe "/api/offerings" do
 
   describe "order flags" do
     let(:customer) { create_customer }
-    let(:order) { Interactor::CreateOrder.new(customer.id, offering.id).run.object }
+    let(:request) { OpenStruct.new(customer_id: customer.id, offering_id: offering.id) }
+    let(:order) { Interactor::CreateOrder.new(request).run.object }
 
     describe "PUT /deliver" do
       before do
+        login_as_admin
         put "/api/v1/orders/#{order.id}/deliver"
       end
 
@@ -81,6 +84,7 @@ describe "/api/offerings" do
 
     describe "PUT /load" do
       before do
+        login_as_admin
         put "/api/v1/orders/#{order.id}/load"
       end
 

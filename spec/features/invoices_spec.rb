@@ -10,8 +10,8 @@ describe "invoices" do
     let(:offering_4) { create_offering(date + 2.day, "Frühstück") }
 
     before do
-      create_order(customer, offering_2)
-      create_order(customer, offering_4)
+      create_order(customer.id, offering_2.id)
+      create_order(customer.id, offering_4.id)
 
       visit customer_invoices_path(customer)
     end

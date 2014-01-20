@@ -13,7 +13,7 @@ describe Interactor::Base do
   end
 
   describe "#register_boundary" do
-    let(:subject) { dummy_interactor_class.new }
+    let(:subject) { dummy_interactor_class.new(double) }
 
     context "boundary set" do
       let(:dummy_source) { "No default" }

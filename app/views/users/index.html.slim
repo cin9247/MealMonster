@@ -1,0 +1,16 @@
+table
+  thead
+    tr
+      th Username
+      th Rollen
+      th Aktionen
+  tbody
+    - @users.each do |user|
+      tr
+        td= user.name
+        td= user.roles.join(", ")
+        td
+          => link_to "Editieren", edit_user_path(user, method: :delete)
+          = link_to "Löschen", user_path(user)
+
+= link_to "Neuen Benutzer anlegen", new_user_path

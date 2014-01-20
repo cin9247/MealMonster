@@ -4,7 +4,7 @@ require "interactor_spec_helper"
 describe Interactor::CreateMeal do
   let(:meal_gateway) { dummy_gateway }
   let(:meal_source) { ->(args) { OpenStruct.new(args.merge(valid?: valid)) } }
-  let(:subject) { Interactor::CreateMeal.new(*request) }
+  let(:subject) { Interactor::CreateMeal.new(request) }
 
   before do
     subject.meal_gateway = meal_gateway
@@ -15,7 +15,7 @@ describe Interactor::CreateMeal do
 
   describe "valid request" do
     let(:valid) { true }
-    let(:request) { ["Hackbraten", 1200, 1.3] }
+    let(:request) { OpenStruct.new(name: "Hackbraten", kilojoules: 1200, bread_units: 1.3) }
 
     it "adds the meal" do ## how to test this?
       expect(meal_gateway.all.size).to eq 1
@@ -35,7 +35,7 @@ describe Interactor::CreateMeal do
 
   describe "invalid request" do
     let(:valid) { false }
-    let(:request) { ["", 1200, 1.3] }
+    let(:request) { OpenStruct.new(name: "", kilojoules: 1200, bread_units: 1.3) }
 
     it "returns an error response" do
       expect(response.status).to eq :invalid_request

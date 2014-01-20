@@ -19,7 +19,8 @@ describe Interactor::AddKeyToAddress do
 
   let(:address_id) { address_gateway.save address }
 
-  let(:subject) { Interactor::AddKeyToAddress.new(address_id, "Schlüssel 1") }
+  let(:request) { OpenStruct.new(address_id: address_id, name: "Schlüssel 1") }
+  let(:subject) { Interactor::AddKeyToAddress.new(request) }
 
   it "adds the new key to the address" do
     subject.run

@@ -8,9 +8,7 @@ describe "customers" do
   describe "listing customers" do
     before do
       customer_1 = create_customer("Max", "Mustermann")
-      create_customer("Heinz", "Rühmann")
-
-      Interactor::AddAddressToCustomer.new(customer_1.id, "Heinestr.", "43", "74123", "München").run
+      create_customer_with_town("Heinz", "Rühmann", "München")
 
       visit customers_path
     end
