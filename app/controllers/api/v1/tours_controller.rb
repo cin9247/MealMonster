@@ -1,13 +1,13 @@
 class Api::V1::ToursController < Api::V1::ApiController
   def index
-    @tours = Interactor::ListTours.new(OpenStruct.new(date: parsed_date)).run.object
+    @tours = interact_with(:list_tours, OpenStruct.new(date: parsed_date)).object
   end
 
   def show
     tour_id = params[:id].to_i
     @tour = TourMapper.new.find tour_id
     request = OpenStruct.new(tour_id: tour_id, date: parsed_date)
-    @stations = Interactor::ListStations.new(request).run.object
+    @stations = interact_with(:list_stations, request).object
   end
 
   private

@@ -32,6 +32,10 @@ class Api::V1::ApiController < ActionController::Base
     end
 
     def current_user
-      @current_user
+      @current_user || Guest.new
+    end
+
+    def interact_with(use_case, request)
+      InteractorFactory.execute(use_case, request, current_user)
     end
 end

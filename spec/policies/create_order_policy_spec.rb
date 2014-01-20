@@ -26,6 +26,7 @@ describe Policy::CreateOrderPolicy do
 
     before do
       user.should_receive(:has_role?).with(:admin).and_return false
+      user.should_receive(:has_role?).with(:user).and_return false
       user.should_receive(:has_role?).with(:customer).and_return true
     end
 

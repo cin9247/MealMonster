@@ -12,21 +12,21 @@ class CustomersController < ApplicationController
   end
 
   def update
-    response = Interactor::UpdateCustomer.new(customer_request(params[:id].to_i)).run
+    response = interact_with :update_customer, customer_request(params[:id].to_i)
     @customer = response.object
 
-    request = address_request params[:id].to_i
-    Interactor::UpdateAddressForCustomer.new(request).run
+    interact_with :update_address_for_customer, address_request(params[:id].to_i)
 
     redirect_to customers_path, notice: "Der Kunde wurde erfolgreich aktualisiert."
   end
 
   def create
-    response = Interactor::CreateCustomer.new(customer_request).run
+    response = interact_with :create_customer, customer_request
 
     if response.success?
       request = address_request response.object.id
-      Interactor::AddAddressToCustomer.new(request).run
+      interact_with :add_address_to_customer, request
+
       redirect_to customers_path, notice: "Customer successfully created"
     else
       @customer = response.object

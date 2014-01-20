@@ -67,6 +67,8 @@ describe "orders" do
 
   describe "creating order" do
     before do
+      create_user "admin", "admin", "admin"
+      login_with "admin", "admin"
       create_customer "Max", "Mustermann"
     end
 

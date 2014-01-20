@@ -9,7 +9,8 @@ class MealsController < ApplicationController
 
   def create
     request = OpenStruct.new(name: meal_params[:name], kilojoules: meal_params[:kilojoules], bread_units: meal_params[:bread_units])
-    response = Interactor::CreateMeal.new(request).run
+    response = interact_with :create_meal, request
+
     if response.success?
       redirect_to meals_path
     else

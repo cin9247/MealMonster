@@ -13,12 +13,12 @@ class Api::V1::OrdersController < Api::V1::ApiController
   end
 
   def deliver
-    Interactor::Deliver.new(request_from_id).run
+    interact_with :deliver, request_from_id
     head :no_content
   end
 
   def load
-    Interactor::Load.new(request_from_id).run
+    interact_with :load, request_from_id
     head :no_content
   end
 
