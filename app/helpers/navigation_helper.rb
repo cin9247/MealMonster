@@ -9,7 +9,7 @@ module NavigationHelper
       OpenStruct.new(title: "Gerichte", url: meals_path, active: controller?("meals")),
       OpenStruct.new(title: "Bestellungen", url: orders_path, active: controller?("orders")),
       OpenStruct.new(title: "Touren", url: tours_path, active: controller?("tours")),
-      (OpenStruct.new(title: "Benutzerverwaltung", url: users_path, active: controller?("users")) if logged_in?)
+      (OpenStruct.new(title: "Benutzerverwaltung", url: users_path, active: controller?("users")) if current_user.has_role?(:admin))
     ].compact
   end
 

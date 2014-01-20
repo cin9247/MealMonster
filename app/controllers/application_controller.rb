@@ -63,16 +63,16 @@ class ApplicationController < ActionController::Base
     end
 
     def logged_in?
-      !current_user.nil?
+      !current_user.is_a? Guest
     end
     helper_method :logged_in?
 
     def current_user
-      return unless session[:user_id]
+      return Guest.new unless session[:user_id]
       @current_user ||= UserMapper.new.find session[:user_id]
     rescue BaseMapper::RecordNotFound
       session.delete(:user_id)
-      nil
+      Guest.new
     end
     helper_method :current_user
 

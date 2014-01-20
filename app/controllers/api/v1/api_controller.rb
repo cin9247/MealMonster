@@ -15,6 +15,8 @@ class Api::V1::ApiController < ActionController::Base
       authenticate_or_request_with_http_basic do |username, password|
         if user = authenticated?(username, password)
           @current_user = user
+        else
+          @current_user = Guest.new
         end
       end
     end
