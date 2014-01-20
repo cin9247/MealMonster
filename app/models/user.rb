@@ -34,4 +34,8 @@ class User
   def set_role(role)
     @roles = [role]
   end
+
+  def has_role?(role)
+    roles.map(&:to_sym).include? role.to_sym
+  end
 end
