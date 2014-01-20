@@ -6,12 +6,9 @@ describe "meals" do
   let(:kitchen) { organization.kitchen }
 
   describe "listing of meals kitchen" do
-    let(:meal_1) { kitchen.new_meal name: "Hackbraten mit Pommes Frites" }
-    let(:meal_2) { kitchen.new_meal name: "Spaghetti Bolognese" }
-
     before do
-      meal_1.offer!
-      meal_2.offer!
+      create_meal "Hackbraten mit Pommes Frites"
+      create_meal "Spaghetti Bolognese"
 
       visit meals_path
     end
@@ -45,8 +42,7 @@ describe "meals" do
 
   describe "editing of existing meals" do
     before do
-      meal = kitchen.new_meal name: "Hackbraten"
-      meal.offer!
+      meal = create_meal "Hackbraten"
 
       visit edit_meal_path(meal)
 

@@ -54,19 +54,6 @@ describe Meal do
     end
   end
 
-  describe "#offer!" do
-    let(:kitchen) { double(:kitchen) }
-
-    before do
-      subject.kitchen = kitchen
-    end
-
-    it "adds itself to the kitchen meals" do
-      kitchen.should_receive(:add_meal).with(subject)
-      subject.offer!
-    end
-  end
-
   describe "#persisted?" do
     context "when id exists" do
       it "is persisted" do

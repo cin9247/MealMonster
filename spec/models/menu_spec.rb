@@ -16,19 +16,6 @@ describe Menu do
     end
   end
 
-  describe "#offer!" do
-    let(:kitchen) { double(:kitchen) }
-
-    before do
-      subject.kitchen = kitchen
-    end
-
-    it "adds the menu to the kitchen" do
-      kitchen.should_receive(:add_menu).with(subject)
-      subject.offer!
-    end
-  end
-
   describe "#meal_ids" do
     before do
       subject.meals = [double(:meal, id: 2), double(:meal, id: 5)]

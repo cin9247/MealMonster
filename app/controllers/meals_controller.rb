@@ -24,9 +24,9 @@ class MealsController < ApplicationController
   end
 
   def update
-    meal = kitchen.find_meal_by_id params[:id]
+    meal = MealMapper.new.find(params[:id])
     meal.attributes = meal_params
-    meal.offer!
+    MealMapper.new.update meal
 
     redirect_to meals_path
   end
