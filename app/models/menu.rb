@@ -17,10 +17,6 @@ class Menu
     end
   end
 
-  def offer!
-    kitchen.add_menu self
-  end
-
   def meals
     @meals ||= []
   end
