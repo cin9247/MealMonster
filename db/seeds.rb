@@ -98,7 +98,7 @@ create_order(c_2.id, offering_2.id)
 create_tour("Tour #1", [c_1.id, c_2.id, c_3.id, c_4.id])
 create_tour("Tour #2", [c_2.id, c_4.id])
 create_tour("Tour #3", [c_1.id, c_2.id])
-create_tour("Tour #4", [c_2.id] * 100)
+create_tour("Tour #4", [c_2.id])
 
 create_admin
 create_driver
