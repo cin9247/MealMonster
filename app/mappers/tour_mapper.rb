@@ -1,22 +1,16 @@
 class TourMapper < BaseMapper
   def save(record)
-    super(record)
+    super record
 
-    record.customers.each_with_index do |c, i|
-      r = Schema::CustomersTour.new customer_id: c.id, tour_id: record.id, position: i
-      r.save
-    end
+    create_customers_mapping record
 
     record.id
   end
 
   def update(record)
-    super(record)
+    super record
 
-    record.customers.each_with_index do |c, i|
-      r = Schema::CustomersTour.new customer_id: c.id, tour_id: record.id, position: i
-      r.save
-    end
+    create_customers_mapping record
 
     record.id
   end
@@ -38,5 +32,12 @@ class TourMapper < BaseMapper
   private
     def schema_class
       Schema::Tour
+    end
+
+    def create_customers_mapping(record)
+      record.customers.each_with_index do |c, i|
+        r = Schema::CustomersTour.new customer_id: c.id, tour_id: record.id, position: i
+        r.save
+      end
     end
 end
