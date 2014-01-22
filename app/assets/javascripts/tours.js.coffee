@@ -25,7 +25,7 @@ CustomerTable = React.createClass
     tableHead = React.DOM.thead(null, React.DOM.tr(null, headers))
     tableBody = React.DOM.tbody(null, customerRows)
 
-    React.DOM.table(null, [tableHead, tableBody])
+    React.DOM.table(className: "customers", [tableHead, tableBody])
 
 CustomerInTour = React.createClass
   handleRemove: (event) ->
@@ -64,7 +64,7 @@ ToursWidget = React.createClass
       console.log i
       TourWidget({columnWidth: 12 / @props.tours.length, tour: t, removeCustomer: @props.removeCustomerFromTour.bind(@, t)})
 
-    React.DOM.ul({className: "row"}, tourWidgets)
+    React.DOM.ul({className: "row tours"}, tourWidgets)
 
 ManageTourWidget = React.createClass
   getInitialState: ->
