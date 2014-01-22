@@ -44,7 +44,7 @@ describe OrderMapper do
     end
 
     it "sets the day" do
-      expect(result.first.day.date).to eq Date.new(2013, 10, 6)
+      expect(result.first.date).to eq Date.new(2013, 10, 6)
     end
   end
 

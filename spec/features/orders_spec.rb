@@ -74,7 +74,7 @@ describe "orders" do
     it "should have created the order" do
       orders = OrderMapper.new.fetch
       expect(orders.length).to eq 1
-      expect(orders.first.day.date).to eq Date.new(2013, 10, 5)
+      expect(orders.first.date).to eq Date.new(2013, 10, 5)
       expect(orders.first.menu.name).to eq "Veggie-Menu"
     end
   end
