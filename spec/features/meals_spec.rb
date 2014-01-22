@@ -2,9 +2,6 @@ require "spec_helper"
 require "ostruct"
 
 describe "meals" do
-  let(:organization) { Organization.new }
-  let(:kitchen) { organization.kitchen }
-
   describe "listing of meals kitchen" do
     before do
       create_meal "Hackbraten mit Pommes Frites"
@@ -32,7 +29,7 @@ describe "meals" do
       click_on "Gericht erstellen"
     end
 
-    it "creates a new meal for the kitchen" do
+    it "creates a new meal" do
       meals = MealMapper.new.fetch
       expect(meals.length).to eq 1
       expect(meals.first.name).to eq "Hackbraten mit Schweineblut"
