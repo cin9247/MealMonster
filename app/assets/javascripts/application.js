@@ -14,6 +14,7 @@
 //= require jquery-ui-1.10.3
 //= require jquery_ujs
 //= require foundation
+//= require react-0.8.0
 //= require_tree .
 
 $(document).foundation();

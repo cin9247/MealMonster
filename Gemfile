@@ -50,6 +50,7 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'simplecov', require: false
   gem 'capybara-webkit'
+  gem 'launchy'
 end
 
 gem 'bcrypt-ruby', '~> 3.0.0'
