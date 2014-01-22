@@ -28,31 +28,50 @@ CustomerTable = React.createClass
     React.DOM.table(null, [tableHead, tableBody])
 
 CustomerInTour = React.createClass
+  handleRemove: (event) ->
+    @props.removeCustomer(@props.customer)
+    event.preventDefault()
+
   render: ->
-    React.DOM.li(null, @props.customer.full_name)
+    React.DOM.li(null, [React.DOM.span(null, @props.customer.full_name), React.DOM.a({href: "#", onClick: @handleRemove}, ' X')])
 
 TourWidget = React.createClass
   render: ->
-    customerList = @props.tour.customers.map (c) ->
-      CustomerInTour({customer: c})
+    customerList = @props.tour.customers.map (c) =>
+      CustomerInTour({customer: c, removeCustomer: @props.removeCustomer})
 
     React.DOM.li({className: "tour columns large-#{@props.columnWidth}"}, [
       React.DOM.h2(null, @props.tour.name),
       React.DOM.ul(null, customerList)
     ])
 
+DirtyWidget = React.createClass
+  render: ->
+    content = if @props.dirtyState.saving
+      React.DOM.div(className: "alert-box secondary", "We're busy saving your changes")
+    else if @props.dirtyState.saved
+      React.DOM.div(className: "alert-box success", "Successfully saved")
+    else if @props.dirtyState.error
+      React.DOM.div(className: "alert-box alert", "There was an error saving your changes")
+    else if @props.dirtyState.modified
+      React.DOM.div(className: "alert-box secondary", "You have unsaved changes")
+    else
+      React.DOM.div(null, "")
+
 ToursWidget = React.createClass
   render: ->
-    tourWidgets = @props.tours.map (t) =>
-      TourWidget({columnWidth: 12 / @props.tours.length, tour: t})
+    tourWidgets = @props.tours.map (t, i) =>
+      console.log i
+      TourWidget({columnWidth: 12 / @props.tours.length, tour: t, removeCustomer: @props.removeCustomerFromTour.bind(@, t)})
 
     React.DOM.ul({className: "row"}, tourWidgets)
 
 ManageTourWidget = React.createClass
   getInitialState: ->
     {
-      customers: @props.customers,
+      customers: @props.customers
       tours: @props.tours
+      dirtyState: {modified: false, saving: false, saved: false, error: false}
     }
 
   ## TODO set visible flag instead of removing it
@@ -64,24 +83,59 @@ ManageTourWidget = React.createClass
   addCustomerToTour: (customer, tour) ->
     tour.customers.push customer
 
+  removeCustomerFromTour: (tour, customer) ->
+    customerIndex = tour.customers.indexOf customer
+    if customerIndex > -1
+      tour.customers.splice(customerIndex, 1)
+    @pushState()
+    @updateDirtyState("saved", false)
+    @updateDirtyState("modified", true)
+
   addToTourHandler: (tourIndex, customer) ->
     ## modify stuff in place
     @removeCustomer customer
     @addCustomerToTour customer, @state.tours[tourIndex]
     ## trigger update
-    @setState({customers: @state.customers, tours: @state.tours})
+    @pushState()
+    @updateDirtyState("modified", true)
+    @updateDirtyState("saved", false)
 
   submit: ->
-    $.ajax "/tours",
+    @updateDirtyState("saving", true)
+    @updateDirtyState("saved", false)
+    $.ajax("/tours",
       type: "PUT"
       data: {tours: @state.tours}
+    ).then(=>
+      console.log "saved"
+      @updateDirtyState("saved", true)
+      @updateDirtyState("saving", false)
+      @updateDirtyState("modified", false)
+    , =>
+      @updateDirtyState("saving", false)
+      @updateDirtyState("error", true)
+    )
+
+  updateDirtyState: (property, value) ->
+    @state.dirtyState[property] = value
+    @setState(@state)
+
+  pushState: ->
+    @setState(@state)
 
   render: ->
     React.DOM.div(null, [
-      CustomerTable({customers: @state.customers, addToTourHandler: @addToTourHandler, tourCount: @state.tours.length}),
-      ToursWidget({tours: @state.tours}),
+      CustomerTable({customers: @state.customers, addToTourHandler: @addToTourHandler, tourCount: @state.tours.length})
+
+      React.DOM.div(className: "row", [
+        React.DOM.div({className: "columns large-3"}, [
+          React.DOM.button({onClick: @submit}, "Speichern")
+        ])
+        React.DOM.div({className: "columns large-9"}, DirtyWidget(dirtyState: @state.dirtyState))
+      ])
+
+      ToursWidget({tours: @state.tours, removeCustomerFromTour: @removeCustomerFromTour})
       React.DOM.a({onClick: @addTour, href: "/tours/new"}, "Neue Tour erstellen")
-      React.DOM.button({onClick: @submit}, "Speichern")
     ])
 
 $ ->
@@ -91,3 +145,5 @@ $ ->
   tours = $("#manage-tours").data("tours")
 
   React.renderComponent(ManageTourWidget(customers: customers, tours: tours), $("#manage-tours")[0])
+
+  ##TODO let TourWidget handle removing and shit, but send callback "new tour list" back to parent which then saves this in order to push it to the server
