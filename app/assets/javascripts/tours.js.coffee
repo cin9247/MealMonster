@@ -47,7 +47,7 @@ TourWidget = React.createClass
 
 DirtyWidget = React.createClass
   render: ->
-    content = if @props.dirtyState.saving
+    if @props.dirtyState.saving
       React.DOM.div(className: "alert-box secondary", "We're busy saving your changes")
     else if @props.dirtyState.saved
       React.DOM.div(className: "alert-box success", "Successfully saved")
