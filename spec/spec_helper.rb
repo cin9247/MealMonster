@@ -81,6 +81,10 @@ def create_offering(date, name="Menu", meal_ids=nil)
   Interactor::CreateOffering.new(request).run.object
 end
 
+def create_driver(name)
+  create_user name, name, "driver"
+end
+
 def create_admin(name, password)
   create_user(name, password, "admin")
 end

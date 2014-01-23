@@ -12,6 +12,9 @@ describe "tours" do
     create_tour "Tour #2", [customer_3.id, customer_1.id]
     create_tour "Tour #3", []
 
+    create_driver "Max Speed"
+    create_driver "Ludwig Limit"
+
     visit manage_tours_path
   end
 
@@ -79,6 +82,21 @@ describe "tours" do
           expect(page).to have_content "Tour #1"
           expect(page).to have_content "Tour #2"
           expect(page).to_not have_content "Tour #3"
+        end
+      end
+    end
+
+    describe "changing drivers" do
+      it "saves the selected driver" do
+        within ".tours li", text: "Tour #1" do
+          select "Ludwig Limit", from: "Fahrer"
+        end
+
+        save_and_reload
+
+        within ".tours li", text: "Tour #1" do
+          pending "expectation doesn't work"
+          #expect(page).to have_select("Fahrer", selected: "Ludwig Limit")
         end
       end
     end

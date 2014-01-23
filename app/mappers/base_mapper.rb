@@ -41,6 +41,12 @@ class BaseMapper
     convert_to_object_and_set_id(result)
   end
 
+  def non_whiny_find(id)
+    find id
+  rescue BaseMapper::RecordNotFound
+    nil
+  end
+
   def hash_from_object(record)
     raise "Your mapper needs to implement `hash_from_object`."
   end

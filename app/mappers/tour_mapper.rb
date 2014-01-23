@@ -21,7 +21,8 @@ class TourMapper < BaseMapper
 
   def hash_from_object(record)
     {
-      name: record.name
+      name: record.name,
+      driver_id: record.driver.try(:id)
     }
   end
 
@@ -30,7 +31,9 @@ class TourMapper < BaseMapper
     customer_ids = Schema::CustomersTour.where(tour_id: hash[:id]).order(:position).map(&:customer_id)
     customers = CustomerMapper.new.find customer_ids
 
-    Tour.new name: hash[:name], customers: customers
+    driver = UserMapper.new.non_whiny_find hash[:driver_id]
+
+    Tour.new name: hash[:name], customers: customers, driver: driver
   end
 
   private

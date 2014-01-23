@@ -15,12 +15,24 @@ class ToursController < ApplicationController
   def manage
     @customers = customers_to_hash CustomerMapper.new.fetch
 
+    @drivers = UserMapper.new.fetch.select { |u| u.has_role? :driver }
+
     @tours = Interactor::ListTours.new(nil).run.object.map do |t|
       customers = customers_to_hash t.customers
+      driver_hash = if t.driver
+        {
+          id: t.driver.id,
+          name: t.driver.name
+        }
+      else
+        {}
+      end
+
       {
         id: t.id,
         name: t.name,
-        customers: customers
+        customers: customers,
+        driver: driver_hash
       }
     end
   end
@@ -39,6 +51,12 @@ class ToursController < ApplicationController
 
       if tour[:id].present?
         t = TourMapper.new.find tour[:id].to_i
+        d = if tour[:driver]
+          UserMapper.new.find tour[:driver][:id].to_i
+        else
+          nil
+        end
+        t.driver = d
         t.customers = customers
         t.name = tour[:name]
         TourMapper.new.update t
