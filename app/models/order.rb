@@ -20,10 +20,6 @@ class Order
     offering.menu
   end
 
-  def place!
-    day.add_order self
-  end
-
   def deliver!
     @state = "delivered"
   end
