@@ -11,7 +11,7 @@ class User
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  attr_accessor :id, :name, :password, :password_confirmation, :password_digest
+  attr_accessor :id, :name, :password, :password_confirmation, :password_digest, :customer
 
   def initialize(attributes={})
     attributes.each do |key, value|

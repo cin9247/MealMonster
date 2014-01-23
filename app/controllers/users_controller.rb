@@ -22,6 +22,18 @@ class UsersController < ApplicationController
     @users = UserMapper.new.fetch
   end
 
+  def link
+    @user = UserMapper.new.find params[:id].to_i
+    @customers = CustomerMapper.new.fetch
+    @link = Link.new(@user)
+  end
+
+  def save_link
+    request = OpenStruct.new customer_id: params[:link][:customer_id].to_i, user_id: params[:id].to_i
+    interact_with :link_user_to_customer, request
+    redirect_to users_path
+  end
+
   def create
     request = OpenStruct.new(name: params[:user][:name], password: params[:user][:password])
     user = interact_with(:register_user, request).object

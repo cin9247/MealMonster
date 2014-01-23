@@ -80,6 +80,7 @@ Sequel.migration do
       column :name, "text", :null=>false
       column :password_digest, "text", :null=>false
       column :roles, "text", :null=>false
+      column :customer_id, "integer"
     end
   end
 end
@@ -105,5 +106,6 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20131219101730_add_prefix_to_customer.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140119121741_add_roles_to_users.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140119224408_add_price_class_id_to_offering.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140123095956_add_customer_id_to_user.rb')"
   end
 end

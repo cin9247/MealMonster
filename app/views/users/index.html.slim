@@ -1,4 +1,4 @@
-table
+table.users
   thead
     tr
       th Username
@@ -11,6 +11,7 @@ table
         td= user.roles.join(", ")
         td
           => link_to "Editieren", edit_user_path(user, method: :delete)
-          = link_to "Löschen", user_path(user)
+          => link_to "Löschen", user_path(user)
+          = if user.has_role?(:customer) then link_to "Mit Kunde verbinden", link_user_path(user) end
 
 = link_to "Neuen Benutzer anlegen", new_user_path
