@@ -1,19 +1,17 @@
+require "date_range"
+
 class Api::V1::OfferingsController < Api::V1::ApiController
   def index
-    from_date, to_date =
+    range =
       if params[:from] && params[:to]
-        from_date = Date.parse params[:from]
-        to_date = Date.parse params[:to]
-        [from_date, to_date]
+        DateRange.parse params[:from], params[:to]
       elsif params[:date]
-        date = Date.parse params[:date]
-        [date, date]
+        DateRange.parse params[:date], params[:date]
       else
-        [Date.today, Date.today + 7.days]
+        DateRange.next_week
       end
 
-    request = OpenStruct.new(from: from_date, to: to_date)
-    @offerings = interact_with(:list_offerings, request).object
+    @offerings = interact_with(:list_offerings, range).object
 
   rescue ArgumentError
     render json: {errors: [{message: "invalid date"}]}, status: 400
