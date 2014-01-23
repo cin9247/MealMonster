@@ -6,9 +6,6 @@ describe Policy::CreateOrderPolicy do
   subject { Policy::CreateOrderPolicy.new(user) }
   let(:request) { OpenStruct.new(customer_id: 4, offering_id: 2) }
 
-  before do
-  end
-
   context "logged in as admin" do
     let(:user) { double(:user) }
 
@@ -22,7 +19,7 @@ describe Policy::CreateOrderPolicy do
   end
 
   context "logged in as customer" do
-    let(:user) { double(:user, customer?: true, customer: customer, admin?: false) }
+    let(:user) { double(:user, customer: customer) }
 
     before do
       user.should_receive(:has_role?).with(:admin).and_return false
@@ -43,6 +40,14 @@ describe Policy::CreateOrderPolicy do
 
       it "can be ordered" do
         expect(subject.can?(request)).to eq true
+      end
+    end
+
+    context "customer isn't linked to any account" do
+      let(:customer) { nil }
+
+      it "cannot be ordered" do
+        expect(subject.can?(request)).to eq false
       end
     end
   end

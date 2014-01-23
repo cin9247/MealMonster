@@ -13,7 +13,7 @@ module Policy
       return true if user.has_role?(:admin) || user.has_role?(:manager)
 
       if user.has_role? :customer
-        return user.customer.id == request.customer_id
+        return !!user.customer && user.customer.id == request.customer_id
       end
     end
   end
