@@ -1,3 +1,5 @@
+require "date_range"
+
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -26,30 +28,18 @@ class ApplicationController < ActionController::Base
 
     def parse_dates_or_default_to_this_week
       if params[:from] && params[:to]
-        parse_from_to params
+        DateRange.parse(params[:from], params[:to])
       else
-        this_week
+        DateRange.this_week
       end
     end
 
     def parse_dates_or_default_to_next_week
       if params[:from] && params[:to]
-        parse_from_to params
+        DateRange.parse(params[:from], params[:to])
       else
-        next_week
+        DateRange.next_week
       end
-    end
-
-    def parse_from_to(params)
-      [Date.parse(params[:from]), Date.parse(params[:to])]
-    end
-
-    def next_week
-      [Date.today.next_week(:monday), Date.today.next_week(:sunday)]
-    end
-
-    def this_week
-      [Date.today.beginning_of_week, Date.today.end_of_week]
     end
 
     def logged_in?

@@ -1,9 +1,9 @@
 class OfferingsController < ApplicationController
   def index
-    from, to = parse_dates_or_default_to_next_week
-    response = interact_with :list_offerings, OpenStruct.new(from: from, to: to)
+    range = parse_dates_or_default_to_next_week
+    response = interact_with :list_offerings, range
 
-    @days = (from..to).to_a
+    @days = range.to_a
 
     @offerings = response.object.group_by do |o|
       o.date
@@ -11,11 +11,11 @@ class OfferingsController < ApplicationController
   end
 
   def new
-    from, to = parse_dates_or_default_to_next_week
+    range = parse_dates_or_default_to_next_week
 
     @price_classes = PriceClassMapper.new.fetch
     @meals = MealMapper.new.fetch
-    @days = (from..to).to_a
+    @days = range.to_a
   end
 
   def create
