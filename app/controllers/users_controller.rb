@@ -34,6 +34,12 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def remove_link
+    request = OpenStruct.new user_id: params[:id]
+    interact_with :remove_link_from_user, request
+    redirect_to users_path
+  end
+
   def create
     request = OpenStruct.new(name: params[:user][:name], password: params[:user][:password])
     user = interact_with(:register_user, request).object

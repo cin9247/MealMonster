@@ -54,4 +54,23 @@ describe "users" do
       expect(UserMapper.new.fetch.last.customer.forename).to eq "Peter"
     end
   end
+
+  describe "remove link to customer from user" do
+    before do
+      create_user "admin", "admin", "admin"
+      login_with "admin", "admin"
+
+      user = create_user "peter", "peter", "customer"
+      customer = create_customer "Peter", "Mustermann"
+      link_user_to_customer user.id, customer.id
+
+      visit users_path
+    end
+
+    it "lets user unlink to the accounts" do
+      click_on "Verbindung mit Peter Mustermann löschen"
+
+      expect(UserMapper.new.fetch.all? { |u| !u.is_linked? }).to eq true
+    end
+  end
 end

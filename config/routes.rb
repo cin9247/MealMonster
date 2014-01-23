@@ -15,6 +15,7 @@ CareEAR::Application.routes.draw do
   resources :users do
     get :link, on: :member
     post :save_link, on: :member
+    put :remove_link, on: :member
   end
 
   get "login", to: "sessions#new"

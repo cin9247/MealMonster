@@ -103,6 +103,11 @@ def create_order(customer_id, offering_id)
   Interactor::CreateOrder.new(request).run
 end
 
+def link_user_to_customer(user_id, customer_id)
+  request = OpenStruct.new(customer_id: customer_id, user_id: user_id)
+  Interactor::LinkUserToCustomer.new(request).run
+end
+
 def login_with(user, password)
   visit "/login"
 

@@ -18,7 +18,7 @@ describe Interactor::LinkUserToCustomer do
     subject.run
   end
 
-  it "mu" do
+  it "adds the link" do
     expect(user_gateway.fetch.first.customer.forename).to eq "Peter"
   end
 end

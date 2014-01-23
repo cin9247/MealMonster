@@ -23,6 +23,10 @@ class User
     !id.nil?
   end
 
+  def is_linked?
+    !customer.nil?
+  end
+
   def roles
     @roles ||= []
   end
