@@ -19,6 +19,7 @@ class BaseMapper
       convert_to_object_and_set_id m
     end
   end
+  alias_method :all, :fetch
 
   def find(id)
     if Array === id
