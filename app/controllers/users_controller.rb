@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   def new
-    @roles = ["admin", "driver", "user"]
+    @roles = User::ROLES
     @user = User.new
   end
 
   def edit
-    @roles = ["admin", "driver", "user"]
+    @roles = User::ROLES
     @user = UserMapper.new.find params[:id]
   end
 

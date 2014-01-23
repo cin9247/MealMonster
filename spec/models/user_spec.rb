@@ -4,8 +4,14 @@ describe User do
   describe "#add_role" do
     it "adds the role" do
       subject.add_role "driver"
-      subject.add_role "administrator"
-      expect(subject.roles).to eq ["driver", "administrator"]
+      subject.add_role "admin"
+      expect(subject.roles).to eq [:driver, :admin]
+    end
+
+    it "raises an exception if the role is unknown" do
+      expect {
+        subject.add_role "butcher"
+      }.to raise_error(UnknownRoleError)
     end
   end
 
@@ -13,7 +19,7 @@ describe User do
     it "sets roles to just the provided role" do
       subject.add_role "driver"
       subject.set_role "admin"
-      expect(subject.roles).to eq ["admin"]
+      expect(subject.roles).to eq [:admin]
     end
   end
 

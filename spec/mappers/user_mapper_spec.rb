@@ -20,8 +20,8 @@ describe UserMapper do
 
     it "loads the associated roles" do
       expect(roles.size).to eq 2
-      expect(roles).to include "admin"
-      expect(roles).to include "driver"
+      expect(roles).to include :admin
+      expect(roles).to include :driver
     end
   end
 end
