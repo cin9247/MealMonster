@@ -29,16 +29,29 @@ CustomerTable = React.createClass
 
 CustomerInTour = React.createClass
   handleRemove: (event) ->
-    @props.removeCustomer(@props.customer)
     event.preventDefault()
+    @props.removeCustomer(@props.customer)
+
+  handleMoveUp: (event) ->
+    event.preventDefault()
+    @props.moveUp()
+
+  handleMoveDown: (event) ->
+    event.preventDefault()
+    @props.moveDown()
 
   render: ->
-    React.DOM.li(null, [React.DOM.span(null, @props.customer.full_name), React.DOM.a({href: "#", onClick: @handleRemove}, ' X')])
+    React.DOM.li(null, [
+      React.DOM.a({href: "#", onClick: @handleMoveUp}, "Up")
+      React.DOM.a({href: "#", onClick: @handleMoveDown}, "Down")
+      React.DOM.span(null, @props.customer.full_name)
+      React.DOM.a({href: "#", onClick: @handleRemove}, ' X')
+    ])
 
 TourWidget = React.createClass
   render: ->
-    customerList = @props.tour.customers.map (c) =>
-      CustomerInTour({customer: c, removeCustomer: @props.removeCustomer})
+    customerList = @props.tour.customers.map (c, i) =>
+      CustomerInTour({customer: c, removeCustomer: @props.removeCustomer, moveUp: @props.moveUp.bind(@, c, i), moveDown: @props.moveDown.bind(@, c, i)})
 
     React.DOM.li({className: "tour columns large-#{@props.columnWidth}"}, [
       React.DOM.h2(null, @props.tour.name),
@@ -61,8 +74,7 @@ DirtyWidget = React.createClass
 ToursWidget = React.createClass
   render: ->
     tourWidgets = @props.tours.map (t, i) =>
-      console.log i
-      TourWidget({columnWidth: 12 / @props.tours.length, tour: t, removeCustomer: @props.removeCustomerFromTour.bind(@, t)})
+      TourWidget({columnWidth: 12 / @props.tours.length, tour: t, removeCustomer: @props.removeCustomerFromTour.bind(@, t), moveUp: @props.moveUp.bind(@, t), moveDown: @props.moveDown.bind(@, t)})
 
     React.DOM.ul({className: "row tours"}, tourWidgets)
 
@@ -123,6 +135,22 @@ ManageTourWidget = React.createClass
   pushState: ->
     @setState(@state)
 
+  moveUp: (tour, customer, oldPosition) ->
+    return if oldPosition == 0
+
+    upperCustomer = tour.customers[oldPosition - 1]
+    tour.customers[oldPosition - 1] = customer
+    tour.customers[oldPosition] = upperCustomer
+    @pushState()
+
+  moveDown: (tour, customer, oldPosition) ->
+    return if tour.customers.length - 1 == oldPosition
+
+    lowerCustomer = tour.customers[oldPosition + 1]
+    tour.customers[oldPosition + 1] = customer
+    tour.customers[oldPosition] = lowerCustomer
+    @pushState()
+
   render: ->
     React.DOM.div(null, [
       CustomerTable({customers: @state.customers, addToTourHandler: @addToTourHandler, tourCount: @state.tours.length})
@@ -134,7 +162,7 @@ ManageTourWidget = React.createClass
         React.DOM.div({className: "columns large-9"}, DirtyWidget(dirtyState: @state.dirtyState))
       ])
 
-      ToursWidget({tours: @state.tours, removeCustomerFromTour: @removeCustomerFromTour})
+      ToursWidget({tours: @state.tours, removeCustomerFromTour: @removeCustomerFromTour, moveUp: @moveUp, moveDown: @moveDown})
       React.DOM.a({onClick: @addTour, href: "/tours/new"}, "Neue Tour erstellen")
     ])
 
