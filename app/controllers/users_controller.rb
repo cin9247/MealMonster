@@ -45,7 +45,11 @@ class UsersController < ApplicationController
     user = interact_with(:register_user, request).object
     request = OpenStruct.new(user_id: user.id, role: params[:user][:role])
     interact_with :set_role, request
-    self.current_user = user unless logged_in?
-    redirect_to root_path, notice: "Sie haben sicher erfolgreich registriert."
+    if logged_in?
+      redirect_to users_path, notice: "Benutzer #{user.name} erfolgreich angelegt."
+    else
+      self.current_user = user
+      redirect_to root_path, notice: "Sie haben sich erfolgreich registriert."
+    end
   end
 end
