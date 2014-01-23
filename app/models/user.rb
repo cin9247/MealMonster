@@ -1,12 +1,17 @@
 require 'active_model'
 
+class UnknownRoleError < ArgumentError
+end
+
 class User
+  ROLES = [:user, :customer, :driver, :admin]
+
   extend ActiveModel::Naming
   extend ActiveModel::Translation
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  attr_accessor :id, :name, :password, :password_confirmation, :password_digest
+  attr_accessor :id, :name, :password, :password_confirmation, :password_digest, :customer
 
   def initialize(attributes={})
     attributes.each do |key, value|
@@ -16,6 +21,10 @@ class User
 
   def persisted?
     !id.nil?
+  end
+
+  def is_linked?
+    !customer.nil?
   end
 
   def roles
@@ -28,14 +37,15 @@ class User
   end
 
   def add_role(role)
-    roles << role
+    raise UnknownRoleError.new unless ROLES.include? role.to_sym
+    roles << role.to_sym
   end
 
   def set_role(role)
-    @roles = [role]
+    @roles = [role.to_sym]
   end
 
   def has_role?(role)
-    roles.map(&:to_sym).include? role.to_sym
+    roles.include? role.to_sym
   end
 end

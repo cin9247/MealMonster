@@ -12,7 +12,11 @@ CareEAR::Application.routes.draw do
   put "tours", to: "tours#update"
   resources :orders
   resource :sessions
-  resources :users
+  resources :users do
+    get :link, on: :member
+    post :save_link, on: :member
+    put :remove_link, on: :member
+  end
 
   get "login", to: "sessions#new"
   get "register", to: "users#new"

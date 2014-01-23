@@ -1,0 +1,9 @@
+h1 "#{@user.name}" verbinden
+
+= form_for @link, url: save_link_user_path(@user) do |f|
+  p
+    = f.label :customer_id, "Kunde"
+    = f.select :customer_id, @customers.map { |c| [c.full_name, c.id] }
+
+  p
+    = f.submit

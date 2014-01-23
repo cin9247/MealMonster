@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   def new
-    @roles = ["admin", "driver", "user"]
+    @roles = User::ROLES
     @user = User.new
   end
 
   def edit
-    @roles = ["admin", "driver", "user"]
+    @roles = User::ROLES
     @user = UserMapper.new.find params[:id]
   end
 
@@ -20,6 +20,24 @@ class UsersController < ApplicationController
 
   def index
     @users = UserMapper.new.fetch
+  end
+
+  def link
+    @user = UserMapper.new.find params[:id].to_i
+    @customers = CustomerMapper.new.fetch
+    @link = Link.new(@user)
+  end
+
+  def save_link
+    request = OpenStruct.new customer_id: params[:link][:customer_id].to_i, user_id: params[:id].to_i
+    interact_with :link_user_to_customer, request
+    redirect_to users_path
+  end
+
+  def remove_link
+    request = OpenStruct.new user_id: params[:id]
+    interact_with :remove_link_from_user, request
+    redirect_to users_path
   end
 
   def create

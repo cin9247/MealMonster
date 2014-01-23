@@ -9,7 +9,8 @@ class UserMapper < BaseMapper
     {
       name: record.name,
       password_digest: record.password_digest,
-      roles: YAML.dump(record.roles)
+      roles: YAML.dump(record.roles),
+      customer_id: record.customer.try(:id)
     }
   end
 
@@ -17,6 +18,7 @@ class UserMapper < BaseMapper
     roles = YAML.load(hash[:roles])
     User.new(name: hash[:name], password_digest: hash[:password_digest]).tap do |u|
       roles.each { |r| u.add_role r }
+      u.customer = CustomerMapper.new.find(hash[:customer_id]) if hash[:customer_id]
     end
   end
 

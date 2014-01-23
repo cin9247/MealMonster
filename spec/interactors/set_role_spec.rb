@@ -18,6 +18,6 @@ describe Interactor::SetRole do
   it "adds the role to the user" do
     subject.run
     user = user_gateway.find user_id
-    expect(user.roles).to include "driver"
+    expect(user.roles).to include :driver
   end
 end
