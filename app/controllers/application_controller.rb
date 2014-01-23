@@ -4,11 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   private
-    def organization
-      @organization ||= Organization.new
-    end
-    helper_method :organization
-
     def wrap(object)
       klass = if Array === object
         return [] if object.empty?

@@ -1,13 +1,13 @@
 class OrdersController < ApplicationController
   def index
-    @orders = organization.orders
+    @orders = OrderMapper.new.fetch
   end
 
   def new
     params[:date] ||= Date.today.iso8601
     @date = Date.parse(params[:date])
-    @customers = organization.customers
-    @order = organization.day(@date).new_order
+    @customers = CustomerMapper.new.fetch
+    @order = Order.new
     @offerings = OfferingMapper.new.fetch_by_date(@date)
   end
 

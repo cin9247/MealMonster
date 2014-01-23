@@ -15,7 +15,7 @@ class OfferingsController < ApplicationController
 
     @price_classes = PriceClassMapper.new.fetch
     @meals = MealMapper.new.fetch
-    @days = organization.days(from..to)
+    @days = (from..to).to_a
   end
 
   def create

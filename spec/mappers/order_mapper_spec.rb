@@ -1,27 +1,15 @@
 require "spec_helper"
 
 describe OrderMapper do
-  let(:organization) { Organization.new }
-  let(:meal_1) { Meal.new name: "Hack" }
-  let(:meal_2) { Meal.new name: "Karotte" }
-  let(:menu_1) { Menu.new name: "Menu #1", meals: [meal_1, meal_2] }
-  let(:menu_2) { Menu.new name: "Menu #2", meals: [meal_1] }
-  let(:offering_1) { organization.day("2013-10-06").new_offering menu: menu_1 }
-  let(:offering_2) { organization.day("2013-10-07").new_offering menu: menu_2 }
-  let(:customer) { organization.new_customer forename: "Hans" }
-  let(:other_customer) { organization.new_customer forename: "Peter" }
+  let(:meal_1) { create_meal "Hack" }
+  let(:meal_2) { create_meal "Karotte" }
+  let(:offering_1) { create_offering(Date.new(2013, 10, 6), "Menu #1", [meal_1.id, meal_2.id]) }
+  let(:offering_2) { create_offering(Date.new(2013, 10, 7), "Menu #2", [meal_1.id]) }
+  let(:customer) { create_customer "Hans" }
+  let(:other_customer) { create_customer "Peter" }
   let(:order_1) { Order.new offering: offering_1, customer: customer }
   let(:order_2) { Order.new offering: offering_2, customer: customer }
   let(:order_3) { Order.new offering: offering_2, customer: other_customer }
-
-  before do
-    MenuMapper.new.save menu_1
-    MenuMapper.new.save menu_2
-    CustomerMapper.new.save customer
-    CustomerMapper.new.save other_customer
-    OfferingMapper.new.save offering_1
-    OfferingMapper.new.save offering_2
-  end
 
   describe "#fetch" do
     before do
