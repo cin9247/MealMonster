@@ -1,23 +1,17 @@
 require "spec_helper"
 
 describe "/api/offerings" do
-  let(:organization) { Organization.new }
-  let(:kitchen) { organization.kitchen }
-
-  let(:spaghetti) { kitchen.new_meal name: "Spaghetti" }
-  let(:pudding) { kitchen.new_meal name: "Pudding", kilojoules: 412 }
-  let(:quark) { kitchen.new_meal name: "Quark", bread_units: 2.1 }
-  let(:first_menu) { kitchen.new_menu meals: [spaghetti, pudding] }
-  let(:second_menu) { kitchen.new_menu meals: [spaghetti, quark] }
-  let(:third_menu) { kitchen.new_menu meals: [spaghetti, quark] }
+  let(:spaghetti) { create_meal "Spaghetti" }
+  let(:pudding) { create_meal "Pudding", 412 }
+  let(:quark) { create_meal "Quark", 500, 2.1 }
 
   let(:result) { json_response["offerings"] }
 
   before do
-    organization.day("2013-10-03").offer! first_menu
-    organization.day("2013-10-03").offer! second_menu
-    organization.day("2013-10-04").offer! third_menu
-    organization.day("2013-10-07").offer! third_menu
+    create_offering(Date.new(2013, 10, 3), "Menu #1", [spaghetti, pudding].map(&:id))
+    create_offering(Date.new(2013, 10, 3), "Menu #2", [spaghetti, quark].map(&:id))
+    create_offering(Date.new(2013, 10, 4), "Menu #1", [spaghetti, quark].map(&:id))
+    create_offering(Date.new(2013, 10, 7), "Menu #1", [spaghetti, quark].map(&:id))
 
     login_as_admin
   end

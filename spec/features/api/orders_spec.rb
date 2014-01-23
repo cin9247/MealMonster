@@ -3,14 +3,10 @@
 require "spec_helper"
 
 describe "/api/offerings" do
-  let(:organization) { Organization.new }
-  let(:kitchen) { organization.kitchen }
-
-  let(:spaghetti) { kitchen.new_meal name: "Spaghetti" }
-  let(:pudding) { kitchen.new_meal name: "Pudding", kilojoules: 412 }
-  let(:quark) { kitchen.new_meal name: "Quark", bread_units: 2.1 }
-  let(:menu) { kitchen.new_menu meals: [spaghetti, pudding] }
-  let(:offering) { organization.day("2013-10-03").offer! menu }
+  let(:spaghetti) { create_meal "Spaghetti" }
+  let(:pudding) { create_meal "Pudding", 412 }
+  let(:quark) { create_meal "Quark", 500, 2.1 }
+  let(:offering) { create_offering(Date.new(2013, 10, 3), "Menu #1", [spaghetti, pudding].map(&:id)) }
   let(:customer) { create_customer("Peter", "Mustermann") }
   let(:note) { "Could you guys please cook below 50°C?" }
 
@@ -30,7 +26,7 @@ describe "/api/offerings" do
       end
 
       it "creates the order" do
-        expect(organization.orders.size).to eq 1
+        expect(OrderMapper.new.fetch.size).to eq 1
       end
 
       it "returns a representation of the created order" do

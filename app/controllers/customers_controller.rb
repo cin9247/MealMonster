@@ -1,10 +1,10 @@
 class CustomersController < ApplicationController
   def index
-    @customers = wrap organization.customers
+    @customers = wrap CustomerMapper.new.fetch
   end
 
   def new
-    @customer = organization.new_customer
+    @customer = Customer.new
   end
 
   def edit
@@ -36,7 +36,7 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @customer = wrap organization.find_customer_by_id(params[:id])
+    @customer = wrap CustomerMapper.new.find(params[:id].to_i)
   end
 
   private

@@ -13,7 +13,7 @@ class ToursController < ApplicationController
   end
 
   def manage
-    @customers = customers_to_hash organization.customers
+    @customers = customers_to_hash CustomerMapper.new.fetch
 
     @tours = Interactor::ListTours.new(nil).run.object.map do |t|
       customers = customers_to_hash t.customers

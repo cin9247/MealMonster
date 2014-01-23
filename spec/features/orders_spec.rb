@@ -3,22 +3,17 @@
 require "spec_helper"
 
 describe "orders" do
-  let(:organization) { Organization.new }
-  let(:kitchen) { organization.kitchen }
   let(:names) { %w(Max Peter Johanna) }
 
-  let(:meal_1) { kitchen.new_meal name: "Spaghetti" }
-  let(:meal_2) { kitchen.new_meal name: "Braten" }
+  let(:meal_1) { create_meal "Spaghetti" }
+  let(:meal_2) { create_meal "Braten" }
 
-  let(:menu_1) { kitchen.new_menu meals: [meal_1], name: "Veggie-Menu" }
-  let(:menu_2) { kitchen.new_menu meals: [meal_2], name: "Für Pfundskerle" }
+  let(:date) { Date.new(2013, 10, 5) }
+  let(:another_date) { Date.new(2013, 10, 6) }
 
-  let(:date) { Date.parse "2013-10-05" }
-  let(:another_date) { Date.parse "2013-10-06" }
-
-  let!(:offering_1) { organization.day(date).offer! menu_1 }
-  let!(:offering_2) { organization.day(date).offer! menu_2 }
-  let!(:offering_3) { organization.day(another_date).offer! menu_2 }
+  let!(:offering_1) { create_offering(date, "Veggie-Menu", [meal_1].map(&:id)) }
+  let!(:offering_2) { create_offering(date, "Für Pfundskerle", [meal_2].map(&:id)) }
+  let!(:offering_3) { create_offering(another_date, "Für Pfundskerle", [meal_2].map(&:id)) }
 
   describe "displaying orders" do
     describe "by day" do
@@ -27,14 +22,9 @@ describe "orders" do
           create_customer(name, "lastname")
         end
 
-        order = organization.day(date).new_order customer: customers[0], offering: offering_1
-        order.place!
-
-        order = organization.day(date).new_order customer: customers[1], offering: offering_2
-        order.place!
-
-        order = organization.day(another_date).new_order customer: customers[2], offering: offering_3
-        order.place!
+        create_order(customers[0].id, offering_1.id)
+        create_order(customers[1].id, offering_2.id)
+        create_order(customers[2].id, offering_3.id)
 
         visit orders_path(:date => "2013-10-05")
       end
@@ -82,9 +72,10 @@ describe "orders" do
     end
 
     it "should have created the order" do
-      expect(organization.orders.length).to eq 1
-      expect(organization.orders.first.day.date).to eq Date.new(2013, 10, 5)
-      expect(organization.orders.first.menu.name).to eq "Veggie-Menu"
+      orders = OrderMapper.new.fetch
+      expect(orders.length).to eq 1
+      expect(orders.first.date).to eq Date.new(2013, 10, 5)
+      expect(orders.first.menu.name).to eq "Veggie-Menu"
     end
   end
 end

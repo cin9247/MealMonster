@@ -1,22 +1,15 @@
 require "spec_helper"
 
 describe "offerings" do
-  let(:organization) { Organization.new }
-  let(:kitchen) { organization.kitchen }
-
   let!(:hackbraten) { create_meal "Hackbraten" }
   let!(:spaghetti)  { create_meal "Spaghetti" }
   let!(:nusskuchen) { create_meal "Nusskuchen" }
 
   describe "viewing the offerings" do
     before do
-      m_1 = kitchen.new_menu name: "Menü #1", meals: [hackbraten, spaghetti]
-      m_2 = kitchen.new_menu name: "Menü #2", meals: [hackbraten, nusskuchen]
-      m_3 = kitchen.new_menu name: "Menü #1", meals: [nusskuchen]
-
-      organization.day("2013-05-06").offer! m_1
-      organization.day("2013-05-06").offer! m_2
-      organization.day("2013-05-07").offer! m_3
+      create_offering(Date.new(2013, 5, 6), "Menü #1", [hackbraten, spaghetti].map(&:id))
+      create_offering(Date.new(2013, 5, 6), "Menü #2", [hackbraten, nusskuchen].map(&:id))
+      create_offering(Date.new(2013, 5, 7), "Menü #1", [nusskuchen].map(&:id))
 
       visit "/offerings?from=2013-05-04&to=2013-05-08"
     end

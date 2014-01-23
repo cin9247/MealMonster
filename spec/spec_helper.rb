@@ -50,8 +50,8 @@ RSpec.configure do |config|
   config.include ApiHelper, example_group: { file_path: /spec\/features\/api/ }
 end
 
-def create_meal(name="Schweineschnitzel")
-  request = OpenStruct.new(name: name, kilojoules: 1000, bread_units: 2.1)
+def create_meal(name="Schweineschnitzel", kilojoules=1000, bread_units=2.1)
+  request = OpenStruct.new(name: name, kilojoules: kilojoules, bread_units: bread_units)
   Interactor::CreateMeal.new(request).run.object
 end
 

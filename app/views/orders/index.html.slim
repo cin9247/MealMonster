@@ -1,5 +1,5 @@
 ul.days
-  - @orders.group_by{ |o| o.day.date }.each do |date, orders|
+  - @orders.group_by{ |o| o.date }.each do |date, orders|
     li.day
       h2 = l date, format: '%A, der %d.%m.%Y'
       ul.orders

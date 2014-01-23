@@ -3,8 +3,6 @@
 require "spec_helper"
 
 describe "customers" do
-  let(:organization) { Organization.new }
-
   describe "listing customers" do
     before do
       customer_1 = create_customer("Max", "Mustermann")
@@ -35,7 +33,7 @@ describe "customers" do
     end
 
     it "creates the customer successfully" do
-      customers = organization.customers
+      customers = CustomerMapper.new.fetch
       expect(customers.length).to eq 1
       expect(customers.first.full_name).to eq "Max Mustermann"
       expect(customers.first.address.town).to eq "Karslruhe"
@@ -66,7 +64,6 @@ describe "customers" do
 
   describe "displaying a single customer" do
     before do
-      customer = organization.new_customer(forename: "Peter", surname: "Mustermann")
       customer = create_customer("Peter", "Mustermann")
 
       visit customer_path(customer)
