@@ -74,7 +74,7 @@ DirtyWidget = React.createClass
 ToursWidget = React.createClass
   render: ->
     tourWidgets = @props.tours.map (t, i) =>
-      TourWidget({columnWidth: 12 / @props.tours.length, tour: t, removeCustomer: @props.removeCustomerFromTour.bind(@, t), moveUp: @props.moveUp.bind(@, t), moveDown: @props.moveDown.bind(@, t)})
+      TourWidget({columnWidth: parseInt(12 / @props.tours.length, 10), tour: t, removeCustomer: @props.removeCustomerFromTour.bind(@, t), moveUp: @props.moveUp.bind(@, t), moveDown: @props.moveDown.bind(@, t)})
 
     React.DOM.ul({className: "row tours"}, tourWidgets)
 
@@ -102,6 +102,11 @@ ManageTourWidget = React.createClass
     @pushState()
     @updateDirtyState("saved", false)
     @updateDirtyState("modified", true)
+
+  addTour: (event) ->
+    event.preventDefault()
+    @state.tours.push {id: null, name: "Tour ##{@state.tours.length + 1}", customers: []}
+    @pushState()
 
   addToTourHandler: (tourIndex, customer) ->
     ## modify stuff in place

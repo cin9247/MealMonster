@@ -28,12 +28,17 @@ class ToursController < ApplicationController
   def update
     DB[:customers_tours].delete
     params[:tours].each do |index, tour|
-      t = TourMapper.new.find tour[:id].to_i
       customers = (tour[:customers] || []).map do |position, customer|
         CustomerMapper.new.find(customer[:id].to_i)
       end
-      t.customers = customers
-      TourMapper.new.update t
+
+      if tour[:id].present?
+        t = TourMapper.new.find tour[:id].to_i
+        t.customers = customers
+        TourMapper.new.update t
+      else
+        interact_with :create_tour, OpenStruct.new(customer_ids: customers.map(&:id), name: tour[:name])
+      end
     end
     head 204
   end
