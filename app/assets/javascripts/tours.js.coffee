@@ -48,13 +48,37 @@ CustomerInTour = React.createClass
       React.DOM.a({href: "#", onClick: @handleRemove}, ' X')
     ])
 
+EditableHeader = React.createClass
+  getInitialState: ->
+    {editing: false}
+
+  changeEditState: (event) ->
+    event.preventDefault()
+    @setState {editing: !@state.editing}
+
+  updateContent: (event) ->
+    #event.preventDefault()
+    @props.updateContent(event.target.value)
+
+  render: ->
+    if !@state.editing
+      React.DOM.div(null, [
+        React.DOM.h2(null, @props.content)
+        React.DOM.a({href: "#", onClick: @changeEditState}, "Editieren")
+      ])
+    else
+      React.DOM.div(null, [
+        React.DOM.input({value: @props.content, onChange: @updateContent})
+        React.DOM.a({href: "#", onClick: @changeEditState}, "Fertig")
+      ])
+
 TourWidget = React.createClass
   render: ->
     customerList = @props.tour.customers.map (c, i) =>
       CustomerInTour({customer: c, removeCustomer: @props.removeCustomer, moveUp: @props.moveUp.bind(@, c, i), moveDown: @props.moveDown.bind(@, c, i)})
 
     React.DOM.li({className: "tour columns large-#{@props.columnWidth}"}, [
-      React.DOM.h2(null, @props.tour.name),
+      EditableHeader({content: @props.tour.name, updateContent: @props.updateName})
       React.DOM.ul(null, customerList)
     ])
 
@@ -74,7 +98,7 @@ DirtyWidget = React.createClass
 ToursWidget = React.createClass
   render: ->
     tourWidgets = @props.tours.map (t, i) =>
-      TourWidget({columnWidth: parseInt(12 / @props.tours.length, 10), tour: t, removeCustomer: @props.removeCustomerFromTour.bind(@, t), moveUp: @props.moveUp.bind(@, t), moveDown: @props.moveDown.bind(@, t)})
+      TourWidget({columnWidth: parseInt(12 / @props.tours.length, 10), tour: t, updateName: @props.updateName.bind(@, t), removeCustomer: @props.removeCustomerFromTour.bind(@, t), moveUp: @props.moveUp.bind(@, t), moveDown: @props.moveDown.bind(@, t)})
 
     React.DOM.ul({className: "row tours"}, tourWidgets)
 
@@ -140,6 +164,10 @@ ManageTourWidget = React.createClass
   pushState: ->
     @setState(@state)
 
+  updateName: (tour, name) ->
+    tour.name = name
+    @pushState()
+
   moveUp: (tour, customer, oldPosition) ->
     return if oldPosition == 0
 
@@ -167,7 +195,7 @@ ManageTourWidget = React.createClass
         React.DOM.div({className: "columns large-9"}, DirtyWidget(dirtyState: @state.dirtyState))
       ])
 
-      ToursWidget({tours: @state.tours, removeCustomerFromTour: @removeCustomerFromTour, moveUp: @moveUp, moveDown: @moveDown})
+      ToursWidget({updateName: @updateName, tours: @state.tours, removeCustomerFromTour: @removeCustomerFromTour, moveUp: @moveUp, moveDown: @moveDown})
       React.DOM.a({onClick: @addTour, href: "/tours/new"}, "Neue Tour erstellen")
     ])
 

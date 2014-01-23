@@ -35,6 +35,7 @@ class ToursController < ApplicationController
       if tour[:id].present?
         t = TourMapper.new.find tour[:id].to_i
         t.customers = customers
+        t.name = tour[:name]
         TourMapper.new.update t
       else
         interact_with :create_tour, OpenStruct.new(customer_ids: customers.map(&:id), name: tour[:name])
