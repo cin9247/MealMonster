@@ -42,10 +42,12 @@ CustomerInTour = React.createClass
 
   render: ->
     React.DOM.li({className: "station"}, [
-      React.DOM.a({href: "#", onClick: @handleMoveUp}, "Up")
-      React.DOM.a({href: "#", onClick: @handleMoveDown}, "Down")
-      React.DOM.span(null, @props.customer.full_name)
-      React.DOM.a({href: "#", onClick: @handleRemove}, ' X')
+      React.DOM.div(null, @props.customer.full_name)
+      React.DOM.div(null, [
+        React.DOM.a({href: "#", onClick: @handleMoveUp}, "Up")
+        React.DOM.a({href: "#", onClick: @handleMoveDown}, " Down")
+        React.DOM.a({href: "#", onClick: @handleRemove}, " X")
+      ])
     ])
 
 EditableHeader = React.createClass
