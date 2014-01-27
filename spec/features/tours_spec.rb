@@ -3,7 +3,7 @@ require "spec_helper"
 describe "tours" do
   def save_and_reload
     find("button", text: "Speichern").click
-    find("div.alert-box", text: "Successfully saved")
+    find("div.alert-box", text: "Erfolgreich gespeichert")
 
     visit manage_tours_path
   end

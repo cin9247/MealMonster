@@ -64,7 +64,7 @@ EditableHeader = React.createClass
     if !@state.editing
       React.DOM.div(null, [
         React.DOM.h2(null, @props.content)
-        React.DOM.a({href: "#", onClick: @changeEditState}, "Editieren")
+        React.DOM.a({href: "#", onClick: @changeEditState}, "Name editieren")
       ])
     else
       React.DOM.div(null, [
@@ -85,13 +85,13 @@ TourWidget = React.createClass
 DirtyWidget = React.createClass
   render: ->
     if @props.dirtyState.saving
-      React.DOM.div(className: "alert-box secondary", "We're busy saving your changes")
+      React.DOM.div(className: "alert-box secondary", "Änderungen werden gespeichert.")
     else if @props.dirtyState.saved
-      React.DOM.div(className: "alert-box success", "Successfully saved")
+      React.DOM.div(className: "alert-box success", "Erfolgreich gespeichert.")
     else if @props.dirtyState.error
-      React.DOM.div(className: "alert-box alert", "There was an error saving your changes")
+      React.DOM.div(className: "alert-box alert", "Es gab einen Fehler beim Speichern ihrer Touren.")
     else if @props.dirtyState.modified
-      React.DOM.div(className: "alert-box secondary", "You have unsaved changes")
+      React.DOM.div(className: "alert-box secondary", "Achtung! Ein paar Änderungen sind noch nicht gespeichert worden.")
     else
       React.DOM.div(null, "")
 
