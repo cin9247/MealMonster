@@ -110,12 +110,6 @@ ManageTourWidget = React.createClass
       dirtyState: {modified: false, saving: false, saved: false, error: false}
     }
 
-  ## TODO set visible flag instead of removing it
-  removeCustomer: (customer) ->
-    customerIndex = @state.customers.indexOf(customer)
-    if customerIndex > -1
-      @state.customers.splice(customerIndex, 1)
-
   addCustomerToTour: (customer, tour) ->
     tour.customers.push customer
 
@@ -134,7 +128,6 @@ ManageTourWidget = React.createClass
 
   addToTourHandler: (tourIndex, customer) ->
     ## modify stuff in place
-    @removeCustomer customer
     @addCustomerToTour customer, @state.tours[tourIndex]
     ## trigger update
     @pushState()
