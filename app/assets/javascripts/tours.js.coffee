@@ -83,7 +83,7 @@ TourWidget = React.createClass
     customerList = @props.tour.customers.map (c, i) =>
       CustomerInTour({customer: c, removeCustomer: @props.removeCustomer, moveUp: @props.moveUp.bind(@, c, i), moveDown: @props.moveDown.bind(@, c, i)})
 
-    React.DOM.li({className: "tour columns large-#{@props.columnWidth}"}, [
+    React.DOM.li({className: "tour"}, [
       EditableHeader({content: @props.tour.name, updateContent: @props.updateName})
       React.DOM.ul(null, customerList)
     ])
@@ -106,7 +106,7 @@ ToursWidget = React.createClass
     tourWidgets = @props.tours.map (t, i) =>
       TourWidget({columnWidth: parseInt(12 / @props.tours.length, 10), tour: t, updateName: @props.updateName.bind(@, t), removeCustomer: @props.removeCustomerFromTour.bind(@, t), moveUp: @props.moveUp.bind(@, t), moveDown: @props.moveDown.bind(@, t)})
 
-    React.DOM.ul({className: "row tours"}, tourWidgets)
+    React.DOM.ul({className: "large-block-grid-3 tours"}, tourWidgets)
 
 ManageTourWidget = React.createClass
   getInitialState: ->
