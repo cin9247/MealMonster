@@ -73,6 +73,8 @@ describe "authorization" do
 
   describe "registration" do
     before do
+      login_as_admin_web
+
       visit "/register"
 
       fill_in "Name", with: "peter"
@@ -83,15 +85,22 @@ describe "authorization" do
 
     it "creates a new user" do
       users = UserMapper.new.fetch
-      expect(users.size).to eq 2
+      expect(users.size).to eq 3
       expect(users.last.name).to eq "peter"
-      expect(page).to have_content "erfolgreich registriert"
+    end
+  end
+
+  describe "login in required" do
+    before do
+      visit root_path
     end
 
-    it "logs the user in" do
-      within ".header" do
-        expect(page).to have_content "Eingeloggt als peter"
-      end
+    it "should redirect to login path" do
+      expect(current_path).to eq login_path
+    end
+
+    it "should notice the user that login is required" do
+      expect(page).to have_content "Sie müssen eingeloggt sein um CareEAR benutzen zu können."
     end
   end
 end

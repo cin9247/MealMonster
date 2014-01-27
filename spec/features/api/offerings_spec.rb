@@ -13,7 +13,7 @@ describe "/api/offerings" do
     create_offering(Date.new(2013, 10, 4), "Menu #1", [spaghetti, quark].map(&:id))
     create_offering(Date.new(2013, 10, 7), "Menu #1", [spaghetti, quark].map(&:id))
 
-    login_as_admin
+    login_as_admin_basic_auth
   end
 
   describe "GET /api/offerings?date=?" do

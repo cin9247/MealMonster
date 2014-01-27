@@ -3,6 +3,10 @@
 require "spec_helper"
 
 describe "customers" do
+  before do
+    login_as_admin_web
+  end
+
   describe "listing customers" do
     before do
       customer_1 = create_customer("Max", "Mustermann")

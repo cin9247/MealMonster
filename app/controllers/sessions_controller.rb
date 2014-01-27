@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_filter :login_required, only: [:new, :create]
+
   def new
   end
 
@@ -16,6 +18,6 @@ class SessionsController < ApplicationController
 
   def destroy
     self.current_user = nil
-    redirect_to root_path, notice: "Sie sind erfolgreich ausgeloggt."
+    redirect_to login_path, notice: "Sie sind erfolgreich ausgeloggt."
   end
 end

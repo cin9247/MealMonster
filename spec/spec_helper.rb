@@ -117,7 +117,12 @@ def login_with(user, password)
   click_on "Login"
 end
 
-def login_as_admin
+def login_as_admin_basic_auth
   create_admin "admin", "admin"
   basic_authorize "admin", "admin"
+end
+
+def login_as_admin_web
+  create_admin "admin", "admin"
+  login_with "admin", "admin"
 end

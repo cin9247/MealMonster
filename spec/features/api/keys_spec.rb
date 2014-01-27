@@ -18,7 +18,7 @@ describe "api/tours/:id/keys" do
 
       tour = create_tour("Tour #1", [customer_1.id, customer_2.id])
 
-      login_as_admin
+      login_as_admin_basic_auth
       get "api/v1/tours/#{tour.id}/keys?date=2013-11-11"
     end
 

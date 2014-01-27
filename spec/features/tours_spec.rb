@@ -1,6 +1,10 @@
 require "spec_helper"
 
 describe "tours" do
+  before do
+    login_as_admin_web
+  end
+
   def save_and_reload
     find("button", text: "Speichern").click
     find("div.alert-box", text: "Erfolgreich gespeichert")

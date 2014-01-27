@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_filter :login_required
+
   private
     def wrap(object)
       klass = if Array === object
@@ -71,5 +73,12 @@ class ApplicationController < ActionController::Base
 
     def interact_with(use_case, request)
       InteractorFactory.execute(use_case, request, current_user)
+    end
+
+    def login_required
+      if !logged_in?
+        flash[:error] = "Sie müssen eingeloggt sein um CareEAR benutzen zu können."
+        redirect_to login_path
+      end
     end
 end

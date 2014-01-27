@@ -7,7 +7,7 @@ describe "/api/tours" do
     @tour_id = create_tour("Tour #1", customer_ids).id
     create_tour("Tour #2", customer_ids[0..0])
 
-    login_as_admin
+    login_as_admin_basic_auth
   end
 
   describe "GET /tours?date=2013-10-04" do

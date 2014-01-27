@@ -12,7 +12,7 @@ describe "/api/offerings" do
 
   describe "POST /api/orders" do
     before do
-      login_as_admin
+      login_as_admin_basic_auth
       post "/api/v1/orders.json", parameters
     end
 
@@ -58,7 +58,7 @@ describe "/api/offerings" do
 
     describe "PUT /deliver" do
       before do
-        login_as_admin
+        login_as_admin_basic_auth
         put "/api/v1/orders/#{order.id}/deliver"
       end
 
@@ -79,7 +79,7 @@ describe "/api/offerings" do
 
     describe "PUT /load" do
       before do
-        login_as_admin
+        login_as_admin_basic_auth
         put "/api/v1/orders/#{order.id}/load"
       end
 

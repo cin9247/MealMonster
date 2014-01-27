@@ -1,6 +1,10 @@
 require "spec_helper"
 
 describe "invoices" do
+  before do
+    login_as_admin_web
+  end
+
   describe "for one customer" do
     let(:customer) { create_customer }
     let(:date) { Date.new(2013, 2, 2) }

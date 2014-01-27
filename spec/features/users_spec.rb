@@ -1,8 +1,8 @@
 require "spec_helper"
 
 describe "users" do
-  describe "registration" do
-    pending "can register"
+  before do
+    login_as_admin_web
   end
 
   describe "overview" do

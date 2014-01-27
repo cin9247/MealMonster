@@ -3,6 +3,10 @@
 require "spec_helper"
 
 describe "orders" do
+  before do
+    login_as_admin_web
+  end
+
   let(:names) { %w(Max Peter Johanna) }
 
   let(:meal_1) { create_meal "Spaghetti" }

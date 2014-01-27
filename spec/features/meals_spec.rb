@@ -2,6 +2,10 @@ require "spec_helper"
 require "ostruct"
 
 describe "meals" do
+  before do
+    login_as_admin_web
+  end
+
   describe "listing of meals kitchen" do
     before do
       create_meal "Hackbraten mit Pommes Frites"

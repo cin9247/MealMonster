@@ -5,6 +5,10 @@ describe "offerings" do
   let!(:spaghetti)  { create_meal "Spaghetti" }
   let!(:nusskuchen) { create_meal "Nusskuchen" }
 
+  before do
+    login_as_admin_web
+  end
+
   describe "viewing the offerings" do
     before do
       create_offering(Date.new(2013, 5, 6), "Menü #1", [hackbraten, spaghetti].map(&:id))
