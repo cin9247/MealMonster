@@ -41,7 +41,7 @@ CustomerInTour = React.createClass
     @props.moveDown()
 
   render: ->
-    React.DOM.li(null, [
+    React.DOM.li({className: "station"}, [
       React.DOM.a({href: "#", onClick: @handleMoveUp}, "Up")
       React.DOM.a({href: "#", onClick: @handleMoveDown}, "Down")
       React.DOM.span(null, @props.customer.full_name)
@@ -61,16 +61,20 @@ EditableHeader = React.createClass
     @props.updateContent(event.target.value)
 
   render: ->
-    if !@state.editing
-      React.DOM.div(null, [
-        React.DOM.h2(null, @props.content)
-        React.DOM.a({href: "#", onClick: @changeEditState}, "Name editieren")
-      ])
+    inner = if !@state.editing
+      [
+        React.DOM.h2(null, @props.content),
+        React.DOM.div({className: "inplace-edit"},
+          React.DOM.a({href: "#", onClick: @changeEditState}, "Name editieren")
+        )
+      ]
     else
-      React.DOM.div(null, [
-        React.DOM.input({value: @props.content, onChange: @updateContent})
+      [
+        React.DOM.input({value: @props.content, onChange: @updateContent}),
         React.DOM.a({href: "#", onClick: @changeEditState}, "Fertig")
-      ])
+      ]
+
+    React.DOM.div({className: "tour-header"}, inner)
 
 TourWidget = React.createClass
   render: ->
