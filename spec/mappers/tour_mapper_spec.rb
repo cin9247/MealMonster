@@ -5,6 +5,7 @@ describe TourMapper do
   let(:customer_1) { Customer.new forename: "Peter" }
   let(:customer_2) { Customer.new forename: "Dieter" }
   let(:customer_3) { Customer.new forename: "Hans" }
+  let(:driver) { create_user "Hans Speed", "password", "driver" }
 
   before do
     @c_ids = []
@@ -55,6 +56,17 @@ describe TourMapper do
       subject.only_keep_ids([tour_2.id, 1523])
       expect(subject.fetch.size).to eq 1
       expect(subject.fetch.first.name).to eq "Tour #2"
+    end
+  end
+
+  describe "loading of driver" do
+    before do
+      tour.driver = driver
+      subject.save tour
+    end
+
+    it "saves and loads the driver" do
+      expect(subject.fetch.first.driver.name).to eq "Hans Speed"
     end
   end
 end

@@ -89,13 +89,25 @@ EditableHeader = React.createClass
     React.DOM.div({className: "tour-header"}, inner)
 
 TourWidget = React.createClass
+  driverChanged: (event) ->
+    @props.driverChanged(parseInt(event.target.value))
+
   render: ->
     customerList = @props.tour.customers.map (c, i) =>
       CustomerInTour({customer: c, removeCustomer: @props.removeCustomer, moveUp: @props.moveUp.bind(@, c, i), moveDown: @props.moveDown.bind(@, c, i)})
 
+    driverList = @props.drivers.map (d) =>
+      React.DOM.option(value: d.id, d.name)
+
+    selectedValue = if @props.tour.driver then @props.tour.driver.id else null
+
     React.DOM.li({className: "tour"}, [
       React.DOM.h5(className: "subheader", "Tour ##{@props.tourIndex + 1}"),
       EditableHeader({content: @props.tour.name, updateContent: @props.updateName, removeTour: @props.removeTour})
+      React.DOM.div(className: "driver-select", [
+        React.DOM.label({htmlFor: "tour-#{@props.tour.id}"}, "Fahrer")
+        React.DOM.select({value: selectedValue, id: "tour-#{@props.tour.id}", onChange: @driverChanged}, driverList)
+      ])
       React.DOM.ul(null, customerList)
     ])
 
@@ -115,7 +127,7 @@ DirtyWidget = React.createClass
 ToursWidget = React.createClass
   render: ->
     tourWidgets = @props.tours.map (t, i) =>
-      TourWidget({columnWidth: parseInt(12 / @props.tours.length, 10), tour: t, tourIndex: i, updateName: @props.updateName.bind(@, t), removeTour: @props.removeTour.bind(@, t, i), removeCustomer: @props.removeCustomerFromTour.bind(@, t), moveUp: @props.moveUp.bind(@, t), moveDown: @props.moveDown.bind(@, t)})
+      TourWidget({columnWidth: parseInt(12 / @props.tours.length, 10), tour: t, tourIndex: i, updateName: @props.updateName.bind(@, t), removeTour: @props.removeTour.bind(@, t, i), removeCustomer: @props.removeCustomerFromTour.bind(@, t), moveUp: @props.moveUp.bind(@, t), moveDown: @props.moveDown.bind(@, t), drivers: @props.drivers, driverChanged: @props.driverChanged.bind(@, t)})
 
     React.DOM.ul({className: "large-block-grid-3 tours"}, tourWidgets)
 
@@ -138,12 +150,11 @@ ManageTourWidget = React.createClass
 
   addTour: (event) ->
     event.preventDefault()
-    @state.tours.push {id: null, name: "Tour ##{@state.tours.length + 1}", customers: []}
+    @state.tours.push {id: null, name: "Tour ##{@state.tours.length + 1}", customers: [], driver: null}
     @pushState()
 
   removeTour: (tour, tourIndex) ->
     @state.tours.splice(tourIndex, 1)
-    console.log @state.tours
     @pushState()
 
   addToTourHandler: (tourIndex, customer) ->
@@ -198,6 +209,15 @@ ManageTourWidget = React.createClass
     tour.customers[oldPosition] = lowerCustomer
     @pushState()
 
+  driverChanged: (tour, driverId) ->
+    foundDriver = null
+    @props.drivers.forEach (d) ->
+      if d.id == driverId
+        foundDriver = d
+    tour.driver = foundDriver
+
+    @pushState()
+
   render: ->
     React.DOM.div(null, [
       CustomerTable({customers: @state.customers, addToTourHandler: @addToTourHandler, tourCount: @state.tours.length})
@@ -209,7 +229,7 @@ ManageTourWidget = React.createClass
         React.DOM.div({className: "columns large-9"}, DirtyWidget(dirtyState: @state.dirtyState))
       ])
 
-      ToursWidget({updateName: @updateName, tours: @state.tours, removeTour: @removeTour, removeCustomerFromTour: @removeCustomerFromTour, moveUp: @moveUp, moveDown: @moveDown})
+      ToursWidget({updateName: @updateName, tours: @state.tours, removeTour: @removeTour, removeCustomerFromTour: @removeCustomerFromTour, drivers: @props.drivers, driverChanged: @driverChanged, moveUp: @moveUp, moveDown: @moveDown})
       React.DOM.button({className: "tiny secondary", onClick: @addTour, href: "/tours/new"}, "Neue Tour erstellen")
     ])
 
@@ -218,7 +238,8 @@ $ ->
 
   customers = $("#manage-tours").data("customers")
   tours = $("#manage-tours").data("tours")
+  drivers = $("#manage-tours").data("drivers")
 
-  React.renderComponent(ManageTourWidget(customers: customers, tours: tours), $("#manage-tours")[0])
+  React.renderComponent(ManageTourWidget(customers: customers, tours: tours, drivers: drivers), $("#manage-tours")[0])
 
   ##TODO let TourWidget handle removing and shit, but send callback "new tour list" back to parent which then saves this in order to push it to the server

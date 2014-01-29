@@ -79,6 +79,7 @@ Sequel.migration do
     create_table(:tours) do
       primary_key :id
       column :name, "text", :null=>false
+      column :driver_id, "integer"
     end
 
     create_table(:users) do
@@ -113,6 +114,7 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140119121741_add_roles_to_users.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140119224408_add_price_class_id_to_offering.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140123095956_add_customer_id_to_user.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140123131815_add_driver_id_to_tour.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140129151213_create_catchment_areas.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140129152023_add_catchment_area_id_to_customers.rb')"
   end
