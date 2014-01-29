@@ -26,8 +26,13 @@ class ToursController < ApplicationController
   end
 
   def update
+    params_tours = params[:tours] ? params[:tours].values : []
+    committed_tour_ids = params_tours.map { |p| p[:id] }.reject { |id| id.blank? }.compact
+    TourMapper.new.only_keep_ids(committed_tour_ids)
+
     DB[:customers_tours].delete
-    params[:tours].each do |index, tour|
+
+    (params_tours).each do |tour|
       customers = (tour[:customers] || []).map do |position, customer|
         CustomerMapper.new.find(customer[:id].to_i)
       end

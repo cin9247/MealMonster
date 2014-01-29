@@ -13,4 +13,8 @@ class Tour
       public_send "#{key}=", value
     end
   end
+
+  def customers
+    @customers || []
+  end
 end

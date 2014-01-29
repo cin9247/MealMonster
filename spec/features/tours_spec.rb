@@ -68,5 +68,21 @@ describe "tours" do
         end
       end
     end
+
+    describe "removing tours" do
+      it "let's users remove tours" do
+        all("li.tour")[2].click_on "Tour löschen"
+
+        save_and_reload
+
+        expect(all("li.tour").length).to eq 2
+
+        within ".tours" do
+          expect(page).to have_content "Tour #1"
+          expect(page).to have_content "Tour #2"
+          expect(page).to_not have_content "Tour #3"
+        end
+      end
+    end
   end
 end
