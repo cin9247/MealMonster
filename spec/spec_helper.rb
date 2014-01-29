@@ -100,12 +100,22 @@ end
 
 def create_order(customer_id, offering_id)
   request = OpenStruct.new(customer_id: customer_id, offering_id: offering_id)
-  Interactor::CreateOrder.new(request).run
+  Interactor::CreateOrder.new(request).run.object
 end
 
 def link_user_to_customer(user_id, customer_id)
   request = OpenStruct.new(customer_id: customer_id, user_id: user_id)
   Interactor::LinkUserToCustomer.new(request).run
+end
+
+def deliver_order(order_id)
+  request = OpenStruct.new(order_id: order_id)
+  Interactor::Deliver.new(request).run
+end
+
+def load_order(order_id)
+  request = OpenStruct.new(order_id: order_id)
+  Interactor::Load.new(request).run
 end
 
 def login_with(user, password)

@@ -1,8 +1,18 @@
 require "spec_helper"
 
 describe "tours" do
+  let!(:customer_1) { create_customer "Peter", "Mustermann" }
+  let!(:customer_2) { create_customer "Dieter", "Heinzelmann" }
+  let!(:customer_3) { create_customer "Maria", "Mustermann" }
+
   before do
     login_as_admin_web
+
+    create_tour "Tour #1", []
+    create_tour "Tour #2", [customer_3.id, customer_1.id]
+    create_tour "Tour #3", []
+
+    visit manage_tours_path
   end
 
   def save_and_reload
@@ -13,18 +23,6 @@ describe "tours" do
   end
 
   describe "manage tours", js: true do
-    before do
-      create_customer "Peter", "Mustermann"
-      create_customer "Dieter", "Heinzelmann"
-      maria = create_customer "Maria", "Mustermann"
-
-      create_tour "Tour #1", []
-      create_tour "Tour #2", [maria.id]
-      create_tour "Tour #3", []
-
-      visit manage_tours_path
-    end
-
     it "shows all customers in the table and tours" do
       within("table.customers") do
         expect(page).to have_content "Peter Mustermann"
@@ -58,7 +56,7 @@ describe "tours" do
     describe "removing of customers" do
       it "let's users remove customers from tours" do
         within ".tours" do
-          find("li.tour", text: "Maria Mustermann").click_on "Löschen"
+          find(".station", text: "Maria Mustermann").click_on "Löschen"
         end
 
         save_and_reload
@@ -81,6 +79,31 @@ describe "tours" do
           expect(page).to have_content "Tour #1"
           expect(page).to have_content "Tour #2"
           expect(page).to_not have_content "Tour #3"
+        end
+      end
+    end
+  end
+
+  describe "list tours" do
+    let(:offering) { create_offering(Date.new(2014, 1, 29)) }
+    let(:marias_order) { create_order(customer_3.id, offering.id) }
+    let(:peters_order) { create_order(customer_1.id, offering.id) }
+
+    before do
+      deliver_order(marias_order.id)
+      load_order(peters_order.id)
+
+      visit tours_path(from: Date.new(2014, 1, 29), to: Date.new(2014, 2, 3))
+    end
+
+    it "displays tags for delivered and loaded" do
+      within ".day", text: "Mittwoch, der 29.01.2014" do
+        expect(all("li.tour").size).to eq 3
+        within ".station", text: "Maria Mustermann" do
+          expect(page).to have_content "Beliefert"
+        end
+        within ".station", text: "Peter Mustermann" do
+          expect(page).to have_content "Beladen"
         end
       end
     end

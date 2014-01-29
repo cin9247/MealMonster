@@ -1,18 +1,23 @@
 = link_to "Touren verwalten", manage_tours_path
 
 - @days.each do |day|
-  h2 = l day.date, format: '%A, der %d.%m.%Y'
+  div.day
+    h2 = l day.date, format: '%A, der %d.%m.%Y'
 
-  ul.tours.large-block-grid-4.small-block-grid-2
-    - day.tours.each do |tour|
-      li.tour
-        h3= tour.name
-        h5.subheader Fahrer: Zivi Peter
-        ol.stations
-          - tour.stations.each do |s|
-            li
-              = s.customer.full_name
-              small< = s.order.offering.menu.name
+    ul.tours.large-block-grid-3.small-block-grid-3
+      - day.tours.each do |tour|
+        li.tour
+          h3= tour.name
+          h6.subheader.driver Fahrer: Zivi Peter
+          ol.stations
+            - tour.stations.each do |s|
+              li.station
+                div
+                  = s.customer.full_name
+                  small<= "Beliefert" if s.order.delivered?
+                  small<= "Beladen" if s.order.loaded?
+                small<
+                  = s.order.offering.menu.name
 
 div.pagination.pagination-centered
   ul

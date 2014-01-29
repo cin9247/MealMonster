@@ -9,10 +9,16 @@
     }
   }
 
-  .station {
-    list-style-type: decimal;
-  }
   .tour {
     margin-bottom: 1.5em;
+  }
+}
+
+.tour {
+  li.station {
+    list-style-type: decimal;
+  }
+  .driver {
+    margin-top: -1em;
   }
 }

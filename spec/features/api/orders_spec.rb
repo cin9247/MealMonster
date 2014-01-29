@@ -54,7 +54,7 @@ describe "/api/offerings" do
 
   describe "order flags" do
     let(:customer) { create_customer }
-    let(:order) { create_order(customer.id, offering.id).object}
+    let(:order) { create_order(customer.id, offering.id) }
 
     describe "PUT /deliver" do
       before do
