@@ -17,7 +17,7 @@ div.row#new-offering
 
                 ol.dropbox data-column="#{i}" data-date="#{date}" style="border: 1px solid grey; min-height: 100px"
 
-      = submit_tag "Submit"
+      = submit_tag "Submit", data: { disable_with: "Bitte warten" }
 
   div.large-5.columns
     div.panel.radius.meals-panel
