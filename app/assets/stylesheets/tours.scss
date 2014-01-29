@@ -1,9 +1,12 @@
 #manage-tours {
   .inplace-edit {
-    margin-top: -1.5em;
+    margin-top: -1em;
   }
   .tour-header {
     margin-bottom: 1.5em;
+    .header {
+      margin-top: -0.3em;
+    }
   }
 
   .station {

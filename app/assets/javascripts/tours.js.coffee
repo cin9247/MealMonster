@@ -44,9 +44,9 @@ CustomerInTour = React.createClass
     React.DOM.li({className: "station"}, [
       React.DOM.div(null, @props.customer.full_name)
       React.DOM.div(null, [
-        React.DOM.a({href: "#", onClick: @handleMoveUp}, "Up")
-        React.DOM.a({href: "#", onClick: @handleMoveDown}, " Down")
-        React.DOM.a({href: "#", onClick: @handleRemove}, " X")
+        React.DOM.a({href: "#", onClick: @handleMoveUp}, "Hoch")
+        React.DOM.a({href: "#", onClick: @handleMoveDown}, " Runter")
+        React.DOM.a({href: "#", onClick: @handleRemove}, " Löschen")
       ])
     ])
 
@@ -65,7 +65,7 @@ EditableHeader = React.createClass
   render: ->
     inner = if !@state.editing
       [
-        React.DOM.h2(null, @props.content),
+        React.DOM.h3(className: "header", @props.content),
         React.DOM.div({className: "inplace-edit"},
           React.DOM.a({href: "#", onClick: @changeEditState}, "Name editieren")
         )
@@ -84,6 +84,7 @@ TourWidget = React.createClass
       CustomerInTour({customer: c, removeCustomer: @props.removeCustomer, moveUp: @props.moveUp.bind(@, c, i), moveDown: @props.moveDown.bind(@, c, i)})
 
     React.DOM.li({className: "tour"}, [
+      React.DOM.h5(className: "subheader", "Tour ##{@props.tourIndex + 1}"),
       EditableHeader({content: @props.tour.name, updateContent: @props.updateName})
       React.DOM.ul(null, customerList)
     ])
@@ -104,7 +105,7 @@ DirtyWidget = React.createClass
 ToursWidget = React.createClass
   render: ->
     tourWidgets = @props.tours.map (t, i) =>
-      TourWidget({columnWidth: parseInt(12 / @props.tours.length, 10), tour: t, updateName: @props.updateName.bind(@, t), removeCustomer: @props.removeCustomerFromTour.bind(@, t), moveUp: @props.moveUp.bind(@, t), moveDown: @props.moveDown.bind(@, t)})
+      TourWidget({columnWidth: parseInt(12 / @props.tours.length, 10), tour: t, tourIndex: i, updateName: @props.updateName.bind(@, t), removeCustomer: @props.removeCustomerFromTour.bind(@, t), moveUp: @props.moveUp.bind(@, t), moveDown: @props.moveDown.bind(@, t)})
 
     React.DOM.ul({className: "large-block-grid-3 tours"}, tourWidgets)
 
