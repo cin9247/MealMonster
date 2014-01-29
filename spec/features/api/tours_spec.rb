@@ -12,18 +12,34 @@ describe "/api/tours" do
 
   describe "GET /tours?date=2013-10-04" do
     before do
-      get "api/v1/tours", date: "2013-10-04"
+      get "api/v1/tours", date: date
     end
 
-    it "returns a simple description of all tours for this day" do
-      expect(json_response["tours"].size).to eq 2
-      first_tour = json_response["tours"][0]
-      second_tour = json_response["tours"][1]
-      expect(first_tour["name"]).to eq "Tour #1"
-      expect(second_tour["name"]).to eq "Tour #2"
+    context "given valid date" do
+      let(:date) { "2013-10-04" }
+
+      it "returns a simple description of all tours for this day" do
+        expect(json_response["tours"].size).to eq 2
+        first_tour = json_response["tours"][0]
+        second_tour = json_response["tours"][1]
+        expect(first_tour["name"]).to eq "Tour #1"
+        expect(second_tour["name"]).to eq "Tour #2"
+      end
+
+      it "does not include tours which are not planned for today"
     end
 
-    it "does not include tours which are not planned for today"
+    context "invalid date" do
+      let(:date) { "2014-00-03" }
+
+      it "returns 400 Bad Request" do
+        expect(last_response.status).to eq 400
+      end
+
+      it "returns an error describing the problem" do
+        expect(json_response["error"]).to eq "invalid date"
+      end
+    end
   end
 
   describe "GET/tours/:id?date=2013-10-04" do
@@ -33,11 +49,14 @@ describe "/api/tours" do
       create_order(customer_ids.first, offering_id)
     end
 
-    context "existing tour" do
-      before do
-        get "api/v1/tours/#{@tour_id}?date=2013-10-04"
-      end
+    before do
+      get "/api/v1/tours/#{tour_id}?date=#{date}"
+    end
 
+    let(:date) { "2013-10-04" }
+    let(:tour_id) { @tour_id }
+
+    context "existing tour" do
       it "returns all stations for that day" do
         tour = json_response["tour"]
         expect(tour["name"]).to eq "Tour #1"
@@ -51,9 +70,7 @@ describe "/api/tours" do
     end
 
     context "non-existing tour" do
-      before do
-        get "/api/v1/tours/1337?date=2013-10-04"
-      end
+      let(:tour_id) { 1337 }
 
       it "returns status 404" do
         expect(last_response.status).to eq 404
@@ -61,6 +78,18 @@ describe "/api/tours" do
 
       it "returns error message 'not found'" do
         expect(json_response["error"]).to eq "not found"
+      end
+    end
+
+    context "invalid date" do
+      let(:date) { "2014-00-03" }
+
+      it "returns 400 Bad Request" do
+        expect(last_response.status).to eq 400
+      end
+
+      it "returns an error describing the problem" do
+        expect(json_response["error"]).to eq "invalid date"
       end
     end
   end
