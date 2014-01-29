@@ -9,6 +9,14 @@ class Api::V1::ApiController < ActionController::Base
     render :json => {error: "unauthorized"}, status: 401
   end
 
+  rescue_from ArgumentError do |exception|
+    if exception.message == "invalid date"
+      render :json => {error: "invalid date"}, status: 400
+    else
+      raise exception
+    end
+  end
+
   private
 
     def authenticate

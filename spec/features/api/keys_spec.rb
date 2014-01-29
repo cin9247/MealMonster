@@ -7,6 +7,7 @@ describe "api/tours/:id/keys" do
     let(:customer_1) { create_customer_with_town("Peter", "Mustermann", "Karlsruhe") }
     let(:customer_2) { create_customer_with_town("Maria", "Mustermann", "Stuttgart") }
     let(:customer_3) { create_customer_with_town("David", "Mustermann", "Nürnberg") }
+    let(:date) { "2013-11-11" }
 
     before do
       offering = create_offering Date.new(2013, 11, 11)
@@ -19,7 +20,7 @@ describe "api/tours/:id/keys" do
       tour = create_tour("Tour #1", [customer_1.id, customer_2.id])
 
       login_as_admin_basic_auth
-      get "api/v1/tours/#{tour.id}/keys?date=2013-11-11"
+      get "api/v1/tours/#{tour.id}/keys?date=#{date}"
     end
 
     it "returns status 200" do
@@ -32,6 +33,18 @@ describe "api/tours/:id/keys" do
       expect(json_response["keys"].first["customer_id"]).to eq customer_1.id
       expect(json_response["keys"].last["name"]).to eq "Schlüssel 6"
       expect(json_response["keys"].last["customer_id"]).to eq customer_2.id
+    end
+
+    context "invalid date" do
+      let(:date) { "2014-00-03" }
+
+      it "returns 400 Bad Request" do
+        expect(last_response.status).to eq 400
+      end
+
+      it "returns an error describing the problem" do
+        expect(json_response["error"]).to eq "invalid date"
+      end
     end
   end
 end

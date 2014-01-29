@@ -69,8 +69,7 @@ describe "/api/offerings" do
       end
 
       it "returns an error mentioning the invalid date" do
-        messages = json_response["errors"].map { |e| e["message"] }
-        expect(messages).to include "invalid date"
+        expect(json_response["error"]).to eq "invalid date"
       end
     end
   end
