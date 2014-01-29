@@ -39,7 +39,7 @@ describe User do
     context "hasn't the desired role" do
       it "returns false" do
         subject.add_role "driver"
-        expect(subject.has_role? "user").to eq false
+        expect(subject.has_role? "manager").to eq false
       end
     end
   end

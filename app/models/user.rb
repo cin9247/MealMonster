@@ -4,7 +4,7 @@ class UnknownRoleError < ArgumentError
 end
 
 class User
-  ROLES = [:user, :customer, :driver, :admin]
+  ROLES = [:manager, :customer, :driver, :admin]
 
   extend ActiveModel::Naming
   extend ActiveModel::Translation
