@@ -3,9 +3,9 @@
 - @days.each do |day|
   h2 = l day.date, format: '%A, der %d.%m.%Y'
 
-  ul.tours.row
+  ul.tours.large-block-grid-4.small-block-grid-2
     - day.tours.each do |tour|
-      li.tour.columns class="large-#{12/day.tours.size}"
+      li.tour
         h3= tour.name
         h5.subheader Fahrer: Zivi Peter
         ol.stations
