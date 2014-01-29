@@ -26,17 +26,9 @@ class CustomerMapper < BaseMapper
     end
 
     def object_from_hash(hash)
-      address = begin
-        AddressMapper.new.find(hash[:address_id])
-      rescue RecordNotFound
-        nil
-      end
+      address = AddressMapper.new.non_whiny_find(hash[:address_id])
 
-      catchment_area = begin
-        CatchmentAreaMapper.new.find(hash[:catchment_area_id])
-      rescue RecordNotFound
-        nil
-      end
+      catchment_area = CatchmentAreaMapper.new.non_whiny_find(hash[:catchment_area_id])
 
       Customer.new(forename: hash[:forename],
                    surname:  hash[:surname],
