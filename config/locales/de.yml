@@ -214,6 +214,7 @@ de:
         prefix: Anrede
         forename: Vorname
         surname: Nachname
+        catchment_area_id: Einzugsgebiet
       meal:
         name: Name
         bread_units: Broteinheiten

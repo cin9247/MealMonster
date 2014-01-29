@@ -7,6 +7,7 @@ module Interactor
 
     def run
       customer = customer_source.call forename: request.forename, surname: request.surname, prefix: request.prefix
+
       if customer.valid?
         customer_gateway.save customer
         OpenStruct.new status: :successfully_created, success?: true, object: customer
