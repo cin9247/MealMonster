@@ -6,7 +6,7 @@ class ToursController < ApplicationController
       tours.each do |t|
         request = OpenStruct.new(tour_id: t.id, date: date)
         stations = interact_with :list_stations, request
-        t.stations = stations
+        t.stations = stations.object
       end
       OpenStruct.new tours: tours, date: date
     end
