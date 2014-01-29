@@ -8,7 +8,7 @@
       - day.tours.each do |tour|
         li.tour
           h3= tour.name
-          h6.subheader.driver Fahrer: Zivi Peter
+          h6.subheader.driver= "Fahrer: #{tour.driver.try(:name)}"
           ol.stations
             - tour.stations.each do |s|
               li.station
