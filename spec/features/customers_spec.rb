@@ -5,6 +5,9 @@ require "spec_helper"
 describe "customers" do
   before do
     login_as_admin_web
+
+    CatchmentAreaMapper.new.save CatchmentArea.new(name: "Else-Heydlauf-Stiftung")
+    CatchmentAreaMapper.new.save CatchmentArea.new(name: "Krankenhaus")
   end
 
   describe "listing customers" do
@@ -33,6 +36,8 @@ describe "customers" do
       fill_in "Nachname", with: "Mustermann"
       fill_in "Stadt", with: "Karslruhe"
 
+      select "Else-Heydlauf-Stiftung", from: "Einzugsgebiet"
+
       click_on "Kunde erstellen"
     end
 
@@ -42,6 +47,7 @@ describe "customers" do
       expect(customers.first.full_name).to eq "Max Mustermann"
       expect(customers.first.address.town).to eq "Karslruhe"
       expect(customers.first.prefix).to eq "Herr"
+      expect(customers.first.catchment_area.name).to eq "Else-Heydlauf-Stiftung"
     end
   end
 
@@ -55,6 +61,8 @@ describe "customers" do
       fill_in "Vorname", with: "Max"
       fill_in "Stadt", with: "Berlin"
 
+      select "Krankenhaus", from: "Einzugsgebiet"
+
       click_on "Kunde aktualisieren"
     end
 
@@ -63,6 +71,7 @@ describe "customers" do
 
       expect(page).to have_content("Max Mustermann")
       expect(page).to have_content("Berlin")
+      expect(page).to have_content("Krankenhaus")
     end
   end
 

@@ -28,6 +28,20 @@ describe CustomerMapper do
       subject.save new_customer
       expect(subject.fetch.first.address.town).to eq "Karlsruhe"
     end
+
+    describe "catchment area" do
+      let(:catchment_area) { CatchmentArea.new(name: "Krankenhaus") }
+
+      before do
+        CatchmentAreaMapper.new.save catchment_area
+        customer.catchment_area = catchment_area
+        subject.save customer
+      end
+
+      it "saves the link" do
+        expect(subject.find(customer.id).catchment_area.name).to eq "Krankenhaus"
+      end
+    end
   end
 
   describe "#update" do

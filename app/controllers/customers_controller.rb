@@ -1,4 +1,6 @@
 class CustomersController < ApplicationController
+  before_filter :fetch_catchment_areas, only: [:new, :edit]
+
   def index
     @customers = wrap CustomerMapper.new.fetch
   end
@@ -41,7 +43,7 @@ class CustomersController < ApplicationController
 
   private
     def customer_params
-      params.require(:customer).permit(:forename, :surname, :prefix)
+      params.require(:customer).permit(:forename, :surname, :prefix, :catchment_area_id)
     end
 
     def address_params
@@ -49,10 +51,14 @@ class CustomersController < ApplicationController
     end
 
     def customer_request(customer_id=nil)
-      OpenStruct.new(customer_id: customer_id, forename: customer_params[:forename], surname: customer_params[:surname], prefix: customer_params[:prefix])
+      OpenStruct.new(customer_id: customer_id, forename: customer_params[:forename], surname: customer_params[:surname], prefix: customer_params[:prefix], catchment_area_id: customer_params[:catchment_area_id])
     end
 
     def address_request(customer_id)
       OpenStruct.new(customer_id: customer_id, street_name: address_params[:street_name], street_number: address_params[:street_number], postal_code: address_params[:postal_code], town: address_params[:town])
+    end
+
+    def fetch_catchment_areas
+      @catchment_areas = CatchmentAreaMapper.new.fetch
     end
 end

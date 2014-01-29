@@ -31,4 +31,24 @@ describe CustomerPresenter do
       end
     end
   end
+
+  describe "#catchment_area_name" do
+    let(:catchment_area) { double(name: "Krankenhaus") }
+
+    before do
+      customer.catchment_area = catchment_area
+    end
+
+    it "returns the name" do
+      expect(subject.catchment_area_name).to eq "Krankenhaus"
+    end
+
+    context "given no catchment area" do
+      let(:catchment_area) { nil }
+
+      it "returns '(Keines)'" do
+        expect(subject.catchment_area_name).to eq "(Keines)"
+      end
+    end
+  end
 end

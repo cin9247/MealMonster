@@ -15,11 +15,13 @@ class CustomerMapper < BaseMapper
   private
     def hash_from_object(object)
       address_id = object.address.id if object.address
+      catchment_area_id = object.catchment_area.id if object.catchment_area
       {
         forename: object.forename,
         surname:  object.surname,
         prefix:   object.prefix,
-        address_id: address_id
+        address_id: address_id,
+        catchment_area_id: catchment_area_id
       }
     end
 
@@ -30,10 +32,17 @@ class CustomerMapper < BaseMapper
         nil
       end
 
+      catchment_area = begin
+        CatchmentAreaMapper.new.find(hash[:catchment_area_id])
+      rescue RecordNotFound
+        nil
+      end
+
       Customer.new(forename: hash[:forename],
                    surname:  hash[:surname],
                    prefix:   hash[:prefix],
-                   address: address)
+                   address: address,
+                   catchment_area: catchment_area)
     end
 
     def schema_class
