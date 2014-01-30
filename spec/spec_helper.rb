@@ -85,6 +85,11 @@ def create_driver(name)
   create_user name, name, "driver"
 end
 
+def set_driver_for_tour(driver_id, tour_id)
+  request = OpenStruct.new(driver_id: driver_id, tour_id: tour_id)
+  Interactor::SetDriverForTour.new(request).run.object
+end
+
 def create_admin(name, password)
   create_user(name, password, "admin")
 end

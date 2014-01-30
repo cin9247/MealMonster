@@ -2,10 +2,13 @@ require "spec_helper"
 
 describe "/api/tours" do
   let(:customer_ids) { [create_customer_with_town("Max", "Mustermann", "Karlsruhe").id, create_customer_with_town("Else", "Schmidt", "Stuttgart").id] }
+  let(:driver) { create_driver("Max Speed") }
 
   before do
     @tour_id = create_tour("Tour #1", customer_ids).id
     create_tour("Tour #2", customer_ids[0..0])
+
+    set_driver_for_tour(driver.id, @tour_id)
 
     login_as_admin_basic_auth
   end
@@ -20,10 +23,14 @@ describe "/api/tours" do
 
       it "returns a simple description of all tours for this day" do
         expect(json_response["tours"].size).to eq 2
-        first_tour = json_response["tours"][0]
-        second_tour = json_response["tours"][1]
-        expect(first_tour["name"]).to eq "Tour #1"
-        expect(second_tour["name"]).to eq "Tour #2"
+        names = json_response["tours"].map { |t| t["name"] }
+        expect(names).to include "Tour #1"
+        expect(names).to include "Tour #2"
+      end
+
+      it "returns the driver" do
+        expect(json_response["tours"][1]["driver"]["name"]).to eq "Max Speed"
+        expect(json_response["tours"][1]["driver"]["id"]).to eq driver.id
       end
 
       it "does not include tours which are not planned for today"

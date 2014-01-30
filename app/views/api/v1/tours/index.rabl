@@ -2,5 +2,6 @@ collection @tours => :tours
 
 attributes :id, :name
 
-node(:driver) do
+child(:driver => :driver) do
+  attributes :id, :name
 end
