@@ -2,20 +2,70 @@ require "interactor_spec_helper"
 require_relative "../../app/policies/create_order_policy"
 require "ostruct"
 
+shared_examples "authorized" do
+  let(:user_stub_class) do
+    Class.new do
+      def initialize(role)
+        @role = role
+      end
+
+      def has_role?(role)
+        @role == role
+      end
+    end
+  end
+  let(:policy) { described_class.new(user) }
+  let(:user) do
+    user_stub_class.new(role)
+  end
+
+  it "is authorized to take actions" do
+    expect(policy.can?(request)).to eq true
+  end
+end
+
+shared_examples "not authorized" do
+  let(:user_stub_class) do
+    Class.new do
+      def initialize(role)
+        @role = role
+      end
+
+      def has_role?(role)
+        @role == role
+      end
+    end
+  end
+  let(:policy) { described_class.new(user) }
+  let(:user) do
+    user_stub_class.new(role)
+  end
+
+  it "is authorized to take actions" do
+    expect(policy.can?(request)).to eq false
+  end
+end
+
 describe Policy::CreateOrderPolicy do
-  subject { Policy::CreateOrderPolicy.new(user) }
+  subject { described_class.new(user) }
   let(:request) { OpenStruct.new(customer_id: 4, offering_id: 2) }
 
   context "logged in as admin" do
-    let(:user) { double(:user) }
+    let(:role) { :admin }
+    it_behaves_like "authorized"
+  end
 
+  context "logged in as manager" do
+    let(:role) { :manager }
+    it_behaves_like "authorized"
+  end
+
+  context "logged in as customer" do
+    let(:role) { :customer }
     before do
-      user.should_receive(:has_role?).with(:admin).and_return true
+      user.stub()
     end
-
-    it "can order anything" do
-      expect(subject.can?(request)).to eq true
-    end
+    it_behaves_like "not authorized"
   end
 
   context "logged in as customer" do

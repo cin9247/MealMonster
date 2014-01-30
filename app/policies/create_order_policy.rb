@@ -15,6 +15,7 @@ module Policy
       if user.has_role? :customer
         return !!user.customer && user.customer.id == request.customer_id
       end
+      return false
     end
   end
 end
