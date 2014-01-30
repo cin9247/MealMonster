@@ -53,6 +53,10 @@ group :development, :test do
   gem 'launchy'
 end
 
+group :production do
+  gem 'newrelic_rpm'
+end
+
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
