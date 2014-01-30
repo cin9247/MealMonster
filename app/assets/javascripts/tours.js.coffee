@@ -73,7 +73,7 @@ EditableHeader = React.createClass
   render: ->
     inner = if !@state.editing
       [
-        React.DOM.h3(className: "header", @props.content),
+        React.DOM.h3(className: "header", onDoubleClick: @changeEditState, @props.content),
         React.DOM.div(className: "inplace-edit",
           React.DOM.a(href: "#", onClick: @changeEditState, "Name editieren")
           SPACE()
