@@ -50,13 +50,11 @@ class ToursController < ApplicationController
       end
 
       if tour[:id].present?
-        t = TourMapper.new.find tour[:id].to_i
-        d = if tour[:driver]
-          UserMapper.new.find tour[:driver][:id].to_i
-        else
-          nil
+        if tour[:driver]
+          request = OpenStruct.new(driver_id: tour[:driver][:id].to_i, tour_id: tour[:id].to_i)
+          interact_with :set_driver_for_tour, request
         end
-        t.driver = d
+        t = TourMapper.new.find tour[:id].to_i
         t.customers = customers
         t.name = tour[:name]
         TourMapper.new.update t
