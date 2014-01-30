@@ -42,13 +42,25 @@ CustomerInTour = React.createClass
     event.preventDefault()
     @props.moveDown()
 
+  upLink: ->
+    if @props.isFirst
+      React.DOM.span(style: {color: "#ccc"}, "Hoch")
+    else
+      React.DOM.a({href: "#", onClick: @handleMoveUp}, "Hoch")
+
+  downLink: ->
+    if @props.isLast
+      React.DOM.span(style: {color: "#ccc"}, "Runter")
+    else
+      React.DOM.a({href: "#", onClick: @handleMoveDown}, "Runter")
+
   render: ->
     React.DOM.li({className: "station"}, [
       React.DOM.div(null, @props.customer.full_name)
       React.DOM.div(null, [
-        React.DOM.a({href: "#", onClick: @handleMoveUp}, "Hoch")
+        @upLink()
         SPACE()
-        React.DOM.a({href: "#", onClick: @handleMoveDown}, "Runter")
+        @downLink()
         SPACE()
         React.DOM.a({href: "#", onClick: @handleRemove}, "Löschen")
       ])
@@ -94,7 +106,9 @@ TourWidget = React.createClass
 
   render: ->
     customerList = @props.tour.customers.map (c, i) =>
-      CustomerInTour({customer: c, removeCustomer: @props.removeCustomer, moveUp: @props.moveUp.bind(@, c, i), moveDown: @props.moveDown.bind(@, c, i)})
+      isFirst = (i == 0)
+      isLast = (i == @props.tour.customers.length - 1)
+      CustomerInTour({customer: c, isFirst: isFirst, isLast: isLast, removeCustomer: @props.removeCustomer, moveUp: @props.moveUp.bind(@, c, i), moveDown: @props.moveDown.bind(@, c, i)}, position: i)
 
     driverList = @props.drivers.map (d) =>
       React.DOM.option(value: d.id, d.name)
