@@ -17,4 +17,8 @@ class Tour
   def customers
     @customers || []
   end
+
+  def eject_driver!
+    self.driver = nil
+  end
 end

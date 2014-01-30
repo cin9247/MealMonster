@@ -25,7 +25,7 @@ class ToursController < ApplicationController
           name: t.driver.name
         }
       else
-        {}
+        nil
       end
 
       {
@@ -50,16 +50,23 @@ class ToursController < ApplicationController
       end
 
       if tour[:id].present?
-        if tour[:driver]
+        if tour[:driver].present?
           request = OpenStruct.new(driver_id: tour[:driver][:id].to_i, tour_id: tour[:id].to_i)
           interact_with :set_driver_for_tour, request
+        else
+          request = OpenStruct.new(tour_id: tour[:id].to_i)
+          interact_with :remove_driver_from_tour, request
         end
         t = TourMapper.new.find tour[:id].to_i
         t.customers = customers
         t.name = tour[:name]
         TourMapper.new.update t
       else
-        interact_with :create_tour, OpenStruct.new(customer_ids: customers.map(&:id), name: tour[:name])
+        t = interact_with(:create_tour, OpenStruct.new(customer_ids: customers.map(&:id), name: tour[:name])).object
+        if tour[:driver].present?
+          request = OpenStruct.new(driver_id: tour[:driver][:id].to_i, tour_id: t.id)
+          interact_with :set_driver_for_tour, request
+        end
       end
     end
     head 204

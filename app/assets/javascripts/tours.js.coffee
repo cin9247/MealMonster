@@ -100,9 +100,13 @@ EditableHeader = React.createClass
 
     React.DOM.div({className: "tour-header"}, inner)
 
+NO_DRIVER = "no-driver"
 TourWidget = React.createClass
   driverChanged: (event) ->
-    @props.driverChanged(parseInt(event.target.value))
+    if event.target.value == NO_DRIVER
+      @props.removeDriver()
+    else
+      @props.setDriver(parseInt(event.target.value))
 
   render: ->
     customerList = @props.tour.customers.map (c, i) =>
@@ -110,10 +114,12 @@ TourWidget = React.createClass
       isLast = (i == @props.tour.customers.length - 1)
       CustomerInTour({customer: c, isFirst: isFirst, isLast: isLast, removeCustomer: @props.removeCustomer, moveUp: @props.moveUp.bind(@, c, i), moveDown: @props.moveDown.bind(@, c, i)}, position: i)
 
-    driverList = @props.drivers.map (d) =>
-      React.DOM.option(value: d.id, d.name)
+    driverList = [React.DOM.option(value: NO_DRIVER, "(Kein Fahrer)")]
 
-    selectedValue = if @props.tour.driver then @props.tour.driver.id else null
+    @props.drivers.forEach (d) =>
+      driverList.push React.DOM.option(value: d.id, d.name)
+
+    selectedValue = if @props.tour.driver then @props.tour.driver.id else NO_DRIVER
 
     React.DOM.li({className: "tour"}, [
       React.DOM.h5(className: "subheader", "Tour ##{@props.tourIndex + 1}"),
@@ -141,7 +147,7 @@ DirtyWidget = React.createClass
 ToursWidget = React.createClass
   render: ->
     tourWidgets = @props.tours.map (t, i) =>
-      TourWidget({columnWidth: parseInt(12 / @props.tours.length, 10), tour: t, tourIndex: i, updateName: @props.updateName.bind(@, t), removeTour: @props.removeTour.bind(@, t, i), removeCustomer: @props.removeCustomerFromTour.bind(@, t), moveUp: @props.moveUp.bind(@, t), moveDown: @props.moveDown.bind(@, t), drivers: @props.drivers, driverChanged: @props.driverChanged.bind(@, t)})
+      TourWidget({columnWidth: parseInt(12 / @props.tours.length, 10), tour: t, tourIndex: i, updateName: @props.updateName.bind(@, t), removeTour: @props.removeTour.bind(@, t, i), removeCustomer: @props.removeCustomerFromTour.bind(@, t), moveUp: @props.moveUp.bind(@, t), moveDown: @props.moveDown.bind(@, t), drivers: @props.drivers, setDriver: @props.setDriver.bind(@, t), removeDriver: @props.removeDriver.bind(@, t)})
 
     React.DOM.ul({className: "large-block-grid-3 tours"}, tourWidgets)
 
@@ -223,12 +229,17 @@ ManageTourWidget = React.createClass
     tour.customers[oldPosition] = lowerCustomer
     @pushState()
 
-  driverChanged: (tour, driverId) ->
+  setDriver: (tour, driverId) ->
     foundDriver = null
     @props.drivers.forEach (d) ->
       if d.id == driverId
         foundDriver = d
     tour.driver = foundDriver
+
+    @pushState()
+
+  removeDriver: (tour) ->
+    delete tour.driver
 
     @pushState()
 
@@ -243,7 +254,7 @@ ManageTourWidget = React.createClass
         React.DOM.div({className: "columns large-9"}, DirtyWidget(dirtyState: @state.dirtyState))
       ])
 
-      ToursWidget({updateName: @updateName, tours: @state.tours, removeTour: @removeTour, removeCustomerFromTour: @removeCustomerFromTour, drivers: @props.drivers, driverChanged: @driverChanged, moveUp: @moveUp, moveDown: @moveDown})
+      ToursWidget({updateName: @updateName, tours: @state.tours, removeTour: @removeTour, removeCustomerFromTour: @removeCustomerFromTour, drivers: @props.drivers, setDriver: @setDriver, removeDriver: @removeDriver, moveUp: @moveUp, moveDown: @moveDown})
       React.DOM.button({className: "tiny secondary", onClick: @addTour, href: "/tours/new"}, "Neue Tour erstellen")
     ])
 
