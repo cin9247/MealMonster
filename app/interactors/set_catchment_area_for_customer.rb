@@ -12,7 +12,7 @@ module Interactor
       customer.catchment_area = catchment_area
       customer_gateway.update customer
 
-      OpenStruct.new object: customer.address
+      OpenStruct.new object: customer.catchment_area
     end
   end
 end
