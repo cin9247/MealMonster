@@ -7,7 +7,7 @@ CustomerRow = React.createClass
 
   render: ->
     links = [0...@props.tourCount].map (i) =>
-      React.DOM.a({href: "#", onClick: @handleClick.bind(@, i)}, "##{i + 1} ")
+      React.DOM.a({href: "#", onClick: @handleClick.bind(null, i)}, "##{i + 1} ")
 
     customer = @props.customer
     React.DOM.tr(null, [
@@ -112,7 +112,7 @@ TourWidget = React.createClass
     customerList = @props.tour.customers.map (c, i) =>
       isFirst = (i == 0)
       isLast = (i == @props.tour.customers.length - 1)
-      CustomerInTour({customer: c, isFirst: isFirst, isLast: isLast, removeCustomer: @props.removeCustomer, moveUp: @props.moveUp.bind(@, c, i), moveDown: @props.moveDown.bind(@, c, i)}, position: i)
+      CustomerInTour({customer: c, isFirst: isFirst, isLast: isLast, removeCustomer: @props.removeCustomer, moveUp: @props.moveUp.bind(null, c, i), moveDown: @props.moveDown.bind(null, c, i)}, position: i)
 
     driverList = [React.DOM.option(value: NO_DRIVER, "(Kein Fahrer)")]
 
@@ -147,7 +147,7 @@ DirtyWidget = React.createClass
 ToursWidget = React.createClass
   render: ->
     tourWidgets = @props.tours.map (t, i) =>
-      TourWidget({columnWidth: parseInt(12 / @props.tours.length, 10), tour: t, tourIndex: i, updateName: @props.updateName.bind(@, t), removeTour: @props.removeTour.bind(@, t, i), removeCustomer: @props.removeCustomerFromTour.bind(@, t), moveUp: @props.moveUp.bind(@, t), moveDown: @props.moveDown.bind(@, t), drivers: @props.drivers, setDriver: @props.setDriver.bind(@, t), removeDriver: @props.removeDriver.bind(@, t)})
+      TourWidget({columnWidth: parseInt(12 / @props.tours.length, 10), tour: t, tourIndex: i, updateName: @props.updateName.bind(null, t), removeTour: @props.removeTour.bind(null, t, i), removeCustomer: @props.removeCustomerFromTour.bind(null, t), moveUp: @props.moveUp.bind(null, t), moveDown: @props.moveDown.bind(null, t), drivers: @props.drivers, setDriver: @props.setDriver.bind(null, t), removeDriver: @props.removeDriver.bind(null, t)})
 
     React.DOM.ul({className: "large-block-grid-3 tours"}, tourWidgets)
 
