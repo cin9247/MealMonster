@@ -73,11 +73,18 @@ def create_tour(name, customer_ids)
   Interactor::CreateTour.new(request).run.object
 end
 
+def create_price_class(name="Preisklasse 1")
+  pc = PriceClass.new(name: name, price: Money.new(2031, 'EUR'))
+  PriceClassMapper.new.save pc
+  pc
+end
+
 def create_offering(date, name="Menu", meal_ids=nil)
   meal_ids = meal_ids || (1..3).to_a.map do
     create_meal.id
   end
-  request = OpenStruct.new(name: name, date: date, meal_ids: meal_ids, price_class_id: 2)
+  price_class = create_price_class
+  request = OpenStruct.new(name: name, date: date, meal_ids: meal_ids, price_class_id: price_class.id)
   Interactor::CreateOffering.new(request).run.object
 end
 

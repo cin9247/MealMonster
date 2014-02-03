@@ -8,4 +8,9 @@ module ApplicationHelper
     date = Date.parse params[:date]
     (date - 1.day).iso8601
   end
+
+  def money(price)
+    return "-,--" if price.nil?
+    ("%.2f" % (price.amount / 100.0) + " €").gsub(".", ",")
+  end
 end

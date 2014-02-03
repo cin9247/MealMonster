@@ -1,4 +1,7 @@
 class PriceClass
+  extend ActiveModel::Naming
+  extend ActiveModel::Translation
+  include ActiveModel::Conversion
   attr_accessor :id, :name, :price
 
   def initialize(attributes={})
@@ -9,5 +12,9 @@ class PriceClass
 
   def name_and_price
     "#{name} (#{price})"
+  end
+
+  def persisted?
+    !id.nil?
   end
 end

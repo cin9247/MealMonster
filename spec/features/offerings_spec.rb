@@ -1,9 +1,10 @@
 require "spec_helper"
 
 describe "offerings" do
-  let!(:hackbraten) { create_meal "Hackbraten" }
-  let!(:spaghetti)  { create_meal "Spaghetti" }
-  let!(:nusskuchen) { create_meal "Nusskuchen" }
+  let!(:hackbraten)  { create_meal "Hackbraten" }
+  let!(:spaghetti)   { create_meal "Spaghetti" }
+  let!(:nusskuchen)  { create_meal "Nusskuchen" }
+  let!(:price_class) { create_price_class("Preisklasse 4") }
 
   before do
     login_as_admin_web
@@ -56,11 +57,13 @@ describe "offerings" do
 
       within(first_menu) do
         fill_in "Name", with: "Feinkost-Menü"
+        select "Preisklasse 4", from: "Preisklasse"
         expect(page).to have_content "Spaghetti"
       end
 
       within(second_menu) do
         fill_in "Name", with: "Magerkost-Menü"
+        select "Preisklasse 4", from: "Preisklasse"
         expect(page).to have_content "Hackbraten"
       end
 

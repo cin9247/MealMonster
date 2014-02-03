@@ -47,6 +47,10 @@ class BaseMapper
     nil
   end
 
+  def delete(record)
+    schema_class[record.id].destroy
+  end
+
   def hash_from_object(record)
     raise "Your mapper needs to implement `hash_from_object`."
   end

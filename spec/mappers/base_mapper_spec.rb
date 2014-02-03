@@ -150,4 +150,18 @@ describe FooMapper do
       expect(subject.fetch.map(&:id).sort).to eq [@id_1, @id_2].sort
     end
   end
+
+  describe "#delete" do
+    let(:foo) { Foo.new("Peter") }
+
+    before do
+      subject.save foo
+    end
+
+    it "removes the record from the database" do
+      expect(subject.fetch.size).to eq 1
+      subject.delete foo
+      expect(subject.fetch.size).to eq 0
+    end
+  end
 end

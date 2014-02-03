@@ -3,11 +3,10 @@ require "spec_helper"
 describe OfferingMapper do
   let(:meal) { Meal.new name: "Hackbraten" }
   let(:menu) { Menu.new meals: [meal] }
-  let(:price_class) { PriceClass.new(id: 1, name: "Preisklasse 1") }
+  let(:price_class) { PriceClass.new(name: "Preisklasse 1", price: Money.new(2010)) }
 
   before do
-    ## TODO add this later when price class is not static
-    # PriceClassMapper.new.save price_class
+    PriceClassMapper.new.save price_class
   end
 
   describe "#save" do

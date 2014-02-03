@@ -1,0 +1,20 @@
+h1 Preisklassen
+table.price-classes.large-12
+  thead
+    tr
+      th Name
+      th Preis
+      th Aktionen
+
+  tbody
+    - @price_classes.each do |pc|
+      tr.price-class
+        td
+          = pc.name
+        td
+          = money pc.price
+        td
+          => link_to "Editieren", edit_price_class_path(pc)
+          => link_to "Löschen", price_class_path(pc), method: :delete, confirm: "Wollen sie diese Preisklasse wirklich löschen?"
+
+= link_to "Neue Preisklasse hinzufügen", new_price_class_path

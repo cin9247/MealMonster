@@ -209,6 +209,7 @@ de:
       offering: Angebot
       customer: Kunde
       order: Bestellung
+      price_class: Preisklasse
     attributes:
       customer:
         prefix: Anrede
@@ -219,6 +220,9 @@ de:
         name: Name
         bread_units: Broteinheiten
         kilojoules: 'Kilojoule (kJ)'
+      price_class:
+        name: Name
+        price: Preis in €
   activerecord:
     errors:
       <<: *errors
