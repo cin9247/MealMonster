@@ -1,4 +1,5 @@
 require 'active_model'
+require_relative './day'
 
 class Offering
   extend ActiveModel::Naming

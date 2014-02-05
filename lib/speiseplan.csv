@@ -1,0 +1,91 @@
+Speiseplan,Speiseplan Else Vollverpflegung,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Kalenderwoche,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+DatumVon,1/13/2014,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+DatumBis,1/19/2014,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Legende,"101 - mit Farbstoff, 102 - mit Konservierungsst, 103 - mit Antioxidationsmi, 104 - mit Geschmacksverstä, 105 - mit Süßungsmittel, 106 - enth. eine Phenylala, 107 - mit Phosphat, 108 - gewachst, 109 - geschwärzt , 110 - geschwefelt, 111 - mit Schwein oder tie, 112 - z. T. fein zerkleine, 113 - enth. Gluten, 114 - enth. Krebstiere, 115 - enth. Ei, 116 - enth. Fisch, 117 - enth. Erdnüsse, 118 - enth. Soja (gen-tech, 119 - enth. Milch einschl., 120 - enth. Schalenfrüchte, 121 - enth. Sellerie, 122 - enth. Senf , 123 - enth. Sesam, 124 - enth. Schwefeldioxid, 125 - mit einer Zuckerart , 126 - kann bei übermäßigem, 127 - unter Schutzatmosphä, 128 - mit Milcheiweiß, 129 - coffeinhaltig, 130 - mit Geflügelfleischa, 131 - chininhaltig, 132 - auf der Grundlage von Tafelsüße, 133 - mit Alkohol, 134 - bestrahlt oder m. ionisierenden Strahlen behandelt, 135 - aus gentech. veränderten Lebensmitteln hergestellt, 136 - gentechnisch verändert, 137 - enth. Lupinen, 138 - enth. Weichtiere, 139 - mit erhöhtem Tauringehalt, 140 - mit Stärke oder Pflanzenstärke, 141 - mit Jodsalz, 142 - Kann Aktivität und Aufmerksamkeit bei Kindern beeinträchtigen ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Anzahl Inhaltsstoffe,24,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Bezeichnung Inhaltsstoffe,Energie (Kilokalorien),Energie (Kilojoule),Broteinheiten,Eiweiß (Protein),Fett,"Kohlenhydrate, resorbierbare",Cholesterin,mehrfach ungesättigte Fettsäuren,gesättigte Fettsäuren,Einfach ungesättigte Fettsäuren,Kalium,Natrium,Ballaststoffe,Harnsäure,Vitamin E   - Tocopheroläquivalent,Vitamin B1  - Thiamin,Vitamin C   - Ascorbinsäure,Calcium,Magnesium,Eisen,Jod,Disaccharide (2 M),Octadecadiensäure / Linolsäure,Octadecatriensäure / Linolensäure,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Anzahl Menülinien,10,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Bez./Sort. Menülinien,Frühstück,Tagessuppe,Hauptgricht 1,Hauptgericht 2,Dessert,Kaffee und Kuchen,Abendessen,Zwischenverpflegung,Getränke,Grießbrei,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Exportversion,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Exportmodus,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Die Daten müssen alphabetisch nach Menülinien sortiert ohne Leerzeilen innerhalb eines Tages vorliegen! Sortierung für die Anzeige wird über Zeile 9 hergestellt!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Montag,1/13/2014,,Preise,Nährwerte vollständig (0|1),Zusatzstoffe,Energie (Kilokalorien),,Energie (Kilojoule),,Broteinheiten,,Eiweiß (Protein),,Fett,,"Kohlenhydrate, resorbierbare",,Cholesterin,,mehrfach ungesättigte Fettsäuren,,gesättigte Fettsäuren,,Einfach ungesättigte Fettsäuren,,Kalium,,Natrium,,Ballaststoffe,,Harnsäure,,Vitamin E   - Tocopheroläquivalent,,Vitamin B1  - Thiamin,,Vitamin C   - Ascorbinsäure,,Calcium,,Magnesium,,Eisen,,Jod,,Disaccharide (2 M),,Octadecadiensäure / Linolsäure,,Octadecatriensäure / Linolensäure,
+Abendessen,,,"0,85",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Dessert,Birnenkompott,Birnenkompott,"0,3",1,,84,kcal,350,kJ,1.7,BE,414,mg,249,mg,19.9,g,,,92,mg,21,mg,87,mg,74,mg,2,mg,2.5,g,13,mg,397,µg,14,µg,1.1,mg,11,mg,6,mg,256,µg,1.6,µg,14.3,g,90,mg,2,mg
+Frühstück,,,"0,95",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Getränke,,,"0,25",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Grießbrei,,,"0,2",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Hauptgericht 2,Schlemmerfilet a la Bordelaise mit Kräuterauflage an Karottengemüse und Salzkartoffeln,Schlemmerfilet a la Bordelaise mit Kräuterauflage an Karottengemüse und Salzkartoffeln,"1,05",1,,139.9,kcal,582.1,kJ,2.3,BE,3.7,g,335.8,mg,27.2,g,2.4,mg,152,mg,94.2,mg,287.3,mg,611.8,mg,5.1,mg,4.2,g,30.6,mg,112,µg,143.6,µg,20.5,mg,15.2,mg,37.1,mg,1.2,mg,7.1,µg,1.1,g,93.4,mg,28,mg
+Hauptgricht 1,Grillbratwurst auf Sauerkraut mit Kartoffelpüree,Grillbratwurst auf Sauerkraut mit Kartoffelpüree,"1,25",1,121 ,480.2,kcal,2010.1,kJ,1.3,BE,22.2,g,36.1,g,15.6,g,94.5,mg,4.3,g,12.8,g,17,g,398.6,mg,842.1,mg,1.3,g,145.5,mg,418.6,µg,779.1,µg,83.6,µg,20.6,mg,41.8,mg,2.3,mg,1.9,µg,1.2,g,3.7,g,308.1,mg
+Kaffee und Kuchen,,,"0,45",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Tagessuppe,Kräutercremesuppe,Kräutercremesuppe,"0,2",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Zwischenverpflegung,,,"0,22",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Dienstag,1/14/2014,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Abendessen,,,"0,85",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Dessert,Vanillejoghurt,Vanillejoghurt,"0,3",1,,114,kcal,478,kJ,1.5,BE,2.6,g,3,g,18.2,g,11,mg,112,mg,1.8,g,916,mg,128,mg,40,mg,,,,,70,µg,32,µg,800,µg,104,mg,10,mg,84,µg,6,µg,17.3,g,72,mg,40,mg
+Frühstück,,,"0,95",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Getränke,,,"0,25",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Grießbrei,,,"0,2",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Hauptgericht 2,Nudelpfanne mit Schinkenstreifen und Gemüse mit Tomatensoße,Nudelpfanne mit Schinkenstreifen und Gemüse mit Tomatensoße,"1,05",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Hauptgricht 1,Frikadelle mit Rahmkohlrabi und Schwenkkartoffeln,Frikadelle mit Rahmkohlrabi und Schwenkkartoffeln,"1,25",1,,357.6,kcal,1491.3,kJ,3,BE,29.7,g,7.9,g,36.5,g,102.3,mg,1.2,g,2.6,g,3.8,g,949.9,mg,460.6,mg,5,g,193.1,mg,1.1,mg,662.5,µg,21.2,mg,37.7,mg,71.2,mg,4.1,mg,9.6,µg,1.8,g,932.9,mg,145.6,mg
+Kaffee und Kuchen,,,"0,45",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Tagessuppe,Nudelsuppe,Nudelsuppe,"0,2",1,,40.5,kcal,317.3,kJ,1.2,BE,2.8,g,814.4,mg,14,g,10.3,mg,229.1,mg,214,mg,170.3,mg,170.4,mg,20.9,mg,1.9,g,29.1,mg,198.7,µg,47,µg,8.7,mg,18.2,mg,24.3,mg,1.6,mg,1.7,µg,1.5,g,74.3,mg,26,mg
+Zwischenverpflegung,,,"0,22",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Mittwoch,1/15/2014,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Abendessen,,,"0,85",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Dessert,frisches Obst,frisches Obst,"0,3",1,,61.5,kcal,255,kJ,1.1,BE,1.2,g,150,mg,13.4,g,,,60,mg,13.5,mg,46.5,mg,264,mg,1.5,mg,3.5,g,27,mg,1.4,mg,40.5,µg,15,mg,10.5,mg,13.5,mg,720,µg,1.5,µg,8.6,g,58.5,mg,1.5,mg
+Frühstück,,,"0,95",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Getränke,,,"0,25",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Grießbrei,,,"0,2",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Hauptgericht 2,Apfelstrudel an Amarettosoße und Zimt-Zucker,Apfelstrudel an Amarettosoße und Zimt-Zucker,"1,05",1,,43.2,kcal,181.1,kJ,0.9,BE,39,mg,32,mg,10.5,g,,,7.2,mg,8.8,mg,6.5,mg,5.2,mg,260,µg,243.5,mg,410,µg,,,0.8,µg,,,12.4,mg,560,µg,410,µg,0.1,µg,10,g,,,,
+Hauptgricht 1,Schwäbische Maultaschen mit Zwiebelschmelze und Kartoffelsalat,Schwäbische Maultaschen mit Zwiebelschmelze und Kartoffelsalat,"1,25",1,"101, 102, 121 ",488.1,kcal,2045.3,kJ,4.1,BE,3.2,g,5.5,g,23.3,g,124.1,mg,4.5,g,3.9,g,5.2,g,767.8,mg,671.8,mg,5.9,g,95.4,mg,4.6,mg,278.2,µg,29.9,mg,79.2,mg,57.5,mg,3.1,mg,14.2,µg,1,g,3.3,g,48,mg
+Kaffee und Kuchen,,,"0,45",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Tagessuppe,Tessiner Käsecremesuppe,Tessiner Käsecremesuppe,"0,2",1,,45.7,kcal,190.9,kJ,0.5,BE,1.8,g,1.3,g,6.6,g,10.4,mg,137,mg,533.7,mg,419.1,mg,129.7,mg,75.4,mg,644.6,mg,11,mg,63.7,µg,9,µg,94.5,µg,23.9,mg,15.7,mg,1.2,mg,1.1,µg,1.1,g,99.3,mg,29.4,mg
+Zwischenverpflegung,,,"0,22",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Donnerstag,1/16/2014,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Abendessen,,,"0,85",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Dessert,Waldfruchtpudding,Waldfruchtpudding,"0,3",1,,215,kcal,900,kJ,2.9,BE,6.4,g,5.3,g,34.5,g,121,mg,802,mg,1.9,g,1.9,g,181,mg,81,mg,1.2,g,18,mg,786,µg,45,µg,914,µg,65,mg,12,mg,1,mg,5.3,µg,16.9,g,619,mg,124,mg
+Frühstück,,,"0,95",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Getränke,,,"0,25",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Grießbrei,,,"0,2",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Hauptgericht 2,"""Köfta"" mediterrane Fleischbällchen aus Rindfleisch und Gemüse mit Paprikasoße Butterreis","""Köfta"" mediterrane Fleischbällchen aus Rindfleisch und Gemüse mit Paprikasoße Butterreis","1,05",1,,189.4,kcal,791.7,kJ,3.1,BE,3.3,g,532.1,mg,37.6,g,6,mg,218,mg,144.5,mg,743.5,mg,151.4,mg,6.6,mg,1.2,g,43.3,mg,170.5,µg,181.1,µg,5,µg,19.6,mg,24.3,mg,2.3,mg,1.5,µg,1.2,g,124.1,mg,17.2,mg
+Hauptgricht 1,Hähnchen-Cordon Bleu mit Spätzle und Zucchinigemüse,Hähnchen-Cordon Bleu mit Spätzle und Zucchinigemüse,"1,25",1,"102, 113, 121 ",437,kcal,1841,kJ,#NUM!,BE,28.7,g,3,g,34,g,#NUM!,mg,#NUM!,mg,#NUM!,mg,#NUM!,mg,#NUM!,mg,#NUM!,mg,#NUM!,mg,#NUM!,mg,#NUM!,µg,#NUM!,µg,#NUM!,µg,#NUM!,mg,#NUM!,mg,#NUM!,µg,#NUM!,µg,#NUM!,mg,#NUM!,mg,#NUM!,mg
+Kaffee und Kuchen,,,"0,45",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Tagessuppe,Gemüsesuppe,Gemüsesuppe,"0,2",1,,38.7,kcal,161.6,kJ,0.6,BE,998.8,mg,717.5,mg,6.9,g,900,µg,93.4,mg,318.1,mg,182.4,mg,116.4,mg,49.3,mg,773.5,mg,12.4,mg,43.9,µg,10.4,µg,1.6,mg,14.7,mg,15,mg,1.3,mg,1.3,µg,1.2,g,70.8,mg,22.6,mg
+Zwischenverpflegung,,,"0,22",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Freitag,1/17/2014,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Abendessen,,,"0,85",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Dessert,Erdbeercreme,Erdbeercreme,"0,3",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Frühstück,,,"0,95",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Getränke,,,"0,25",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Grießbrei,,,"0,2",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Hauptgericht 2,Eieromlette mit Rahmspinat und Salzkartoffeln,Eieromlette mit Rahmspinat und Salzkartoffeln,"1,05",1,,139.9,kcal,582.1,kJ,2.3,BE,3.7,g,335.8,mg,27.2,g,2.4,mg,152,mg,94.2,mg,287.3,mg,611.8,mg,5.1,mg,4.2,g,30.6,mg,112,µg,143.6,µg,20.5,mg,15.2,mg,37.1,mg,1.2,mg,7.1,µg,1.1,g,93.4,mg,28,mg
+Hauptgricht 1,gedünsteter Seelachs auf Wurzelgemüse mit Weißweinsoße und Kartoffeln,gedünsteter Seelachs auf Wurzelgemüse mit Weißweinsoße und Kartoffeln,"1,25",1,,580.3,kcal,2420,kJ,5.3,BE,39.4,g,6.1,g,55.4,g,148.3,mg,1.4,g,2.6,g,4.6,g,1.9,g,232.1,mg,8.9,g,334,mg,1.5,mg,365.5,µg,59.2,mg,260.1,mg,152.8,mg,6.3,mg,324,µg,10.7,g,394.1,mg,159.9,mg
+Kaffee und Kuchen,,,"0,45",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Tagessuppe,Karottencremesuppe,Karottencremesuppe,"0,2",1,,256.7,kcal,1076.5,kJ,2.2,BE,4.1,g,14,g,10.8,g,14.1,mg,2.8,g,4.8,g,5.8,g,400.2,mg,70.9,mg,3.2,g,25.6,mg,2.4,mg,85.8,µg,4.4,mg,153.4,mg,38.8,mg,2.5,mg,15.7,µg,5.9,g,2.3,g,291.4,mg
+Zwischenverpflegung,,,"0,22",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Samstag,1/18/2014,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Abendessen,,,"0,85",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Dessert,frisches Obst,frisches Obst,"0,3",1,,85.5,kcal,357,kJ,1.5,BE,1.4,g,150,mg,18.6,g,,,60,mg,13.5,mg,46.5,mg,318,mg,13.5,mg,3.3,g,27,mg,750,µg,30,µg,12,mg,6,mg,15,mg,750,µg,0.8,µg,13,g,58.5,mg,1.5,mg
+Frühstück,,,"0,95",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Getränke,,,"0,25",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Grießbrei,,,"0,2",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Hauptgericht 2,,,"1,05",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Hauptgricht 1,"Ungarische Gulaschsuppe vom Rind und Schwein, Brot","deftiger Linseneintopf mit Wursteinlage, Brot","1,25",1,"102, 103, 107 ",993.2,kcal,4164.4,kJ,#NUM!,BE,23,g,29.7,g,107,g,#NUM!,mg,#NUM!,mg,#NUM!,mg,#NUM!,mg,#NUM!,mg,#NUM!,mg,#NUM!,mg,#NUM!,mg,#NUM!,µg,#NUM!,µg,#NUM!,µg,#NUM!,mg,#NUM!,mg,#NUM!,µg,#NUM!,µg,#NUM!,mg,#NUM!,mg,#NUM!,mg
+Kaffee und Kuchen,,,"0,45",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Tagessuppe,,,"0,2",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Zwischenverpflegung,,,"0,22",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Sonntag,1/19/2014,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Abendessen,,,"0,85",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Dessert,Pudding,Pudding,"0,3",1,101 ,299,kcal,1253,kJ,2.6,BE,7.9,g,16,g,30.8,g,170,mg,1.1,g,8.3,g,5.3,g,156,mg,127,mg,950,mg,18,mg,1,mg,69,µg,148,µg,74,mg,20,mg,1.3,mg,6.3,µg,20.4,g,790,mg,205,mg
+Frühstück,,,"0,95",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Getränke,,,"0,25",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Grießbrei,,,"0,2",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Hauptgericht 2,,,"1,05",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Hauptgricht 1,Kasslerbraten mit Apfelrotkohl und Kartoffelklößen,Kasslerbraten mit Apfelrotkohl und Kartoffelklößen,"1,25",1,"102, 103, 107, 125 ",547.7,kcal,2286.9,kJ,#NUM!,BE,23,g,13.6,g,37.3,g,#NUM!,mg,#NUM!,mg,#NUM!,mg,#NUM!,mg,#NUM!,mg,#NUM!,mg,#NUM!,mg,#NUM!,mg,#NUM!,µg,#NUM!,µg,#NUM!,µg,#NUM!,mg,#NUM!,mg,#NUM!,µg,#NUM!,µg,#NUM!,mg,#NUM!,mg,#NUM!,mg
+Kaffee und Kuchen,,,"0,45",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Tagessuppe,Backerbsensuppe,Backerbsensuppe,"0,2",1,,72.2,kcal,303,kJ,0.8,BE,2.8,g,2.3,g,10,g,16.5,mg,246.8,mg,1,g,737.4,mg,195.6,mg,81.6,mg,1.6,g,25.1,mg,205.1,µg,33,µg,9,mg,19.3,mg,19.6,mg,1.5,mg,1.9,µg,1.7,g,159.4,mg,54.5,mg
+Zwischenverpflegung,,,"0,22",1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

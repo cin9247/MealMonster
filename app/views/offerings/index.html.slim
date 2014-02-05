@@ -1,3 +1,7 @@
+= form_tag import_offerings_path, multipart: true do
+  = file_field_tag :file
+  = submit_tag "Import"
+
 h1 = "Angebote vom #{l @days.first} bis #{l @days.last}"
 
 ol.days
