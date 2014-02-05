@@ -127,6 +127,8 @@ de:
   helpers:
     label:
       "customer[address]":
+        street_name: Straße
+        street_number: Hausnummer
         postal_code: PLZ
         town: Stadt
     select:
