@@ -24,7 +24,7 @@ class Api::V1::ApiController < ActionController::Base
         if user = authenticated?(username, password)
           @current_user = user
         else
-          @current_user = Guest.new
+          raise Policy::NotAuthorized
         end
       end
     end
