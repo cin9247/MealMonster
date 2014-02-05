@@ -20,6 +20,7 @@ Sequel.migration do
       column :address_id, "integer"
       column :prefix, "text"
       column :catchment_area_id, "integer"
+      column :telephone_number, "text"
     end
 
     create_table(:customers_tours) do
@@ -124,5 +125,6 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140129152023_add_catchment_area_id_to_customers.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140123131815_add_driver_id_to_tour.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140203221429_create_price_classes.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140205100144_add_telephone_number_to_customers.rb')"
   end
 end

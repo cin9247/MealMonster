@@ -21,7 +21,8 @@ class CustomerMapper < BaseMapper
         surname:  object.surname,
         prefix:   object.prefix,
         address_id: address_id,
-        catchment_area_id: catchment_area_id
+        catchment_area_id: catchment_area_id,
+        telephone_number: object.telephone_number
       }
     end
 
@@ -33,6 +34,7 @@ class CustomerMapper < BaseMapper
       Customer.new(forename: hash[:forename],
                    surname:  hash[:surname],
                    prefix:   hash[:prefix],
+                   telephone_number: hash[:telephone_number],
                    address: address,
                    catchment_area: catchment_area)
     end

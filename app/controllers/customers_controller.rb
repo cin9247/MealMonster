@@ -54,7 +54,7 @@ class CustomersController < ApplicationController
 
   private
     def customer_params
-      params.require(:customer).permit(:forename, :surname, :prefix, :catchment_area_id)
+      params.require(:customer).permit(:forename, :surname, :prefix, :telephone_number, :catchment_area_id)
     end
 
     def address_params
@@ -62,7 +62,7 @@ class CustomersController < ApplicationController
     end
 
     def customer_request(customer_id=nil)
-      OpenStruct.new(customer_id: customer_id, forename: customer_params[:forename], surname: customer_params[:surname], prefix: customer_params[:prefix])
+      OpenStruct.new(customer_id: customer_id, forename: customer_params[:forename], surname: customer_params[:surname], prefix: customer_params[:prefix], telephone_number: customer_params[:telephone_number])
     end
 
     def address_request(customer_id)

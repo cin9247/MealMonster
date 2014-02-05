@@ -9,6 +9,9 @@
     = f.label :surname
     = f.text_field :surname
   p
+    = f.label :telephone_number
+    = f.text_field :telephone_number
+  p
     = f.label :catchment_area_id
     = f.select :catchment_area_id, @catchment_areas.map { |c| [c.name, c.id] }
 

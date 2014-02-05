@@ -34,6 +34,7 @@ describe "customers" do
       fill_in "Anrede", with: "Herr"
       fill_in "Vorname", with: "Max"
       fill_in "Nachname", with: "Mustermann"
+      fill_in "Telefonnummer", with: "0174/257 12 42"
       fill_in "Stadt", with: "Karslruhe"
 
       select "Else-Heydlauf-Stiftung", from: "Einzugsgebiet"
@@ -45,6 +46,7 @@ describe "customers" do
       customers = CustomerMapper.new.fetch
       expect(customers.length).to eq 1
       expect(customers.first.full_name).to eq "Max Mustermann"
+      expect(customers.first.telephone_number).to eq "0174/257 12 42"
       expect(customers.first.address.town).to eq "Karslruhe"
       expect(customers.first.prefix).to eq "Herr"
       expect(customers.first.catchment_area.name).to eq "Else-Heydlauf-Stiftung"
@@ -60,6 +62,7 @@ describe "customers" do
 
       fill_in "Vorname", with: "Max"
       fill_in "Stadt", with: "Berlin"
+      fill_in "Telefonnummer", with: "28"
 
       select "Krankenhaus", from: "Einzugsgebiet"
 
@@ -68,6 +71,8 @@ describe "customers" do
 
     it "updates the customer" do
       visit customers_path
+
+      expect(CustomerMapper.new.fetch.first.telephone_number).to eq "28"
 
       expect(page).to have_content("Max Mustermann")
       expect(page).to have_content("Berlin")

@@ -216,6 +216,7 @@ de:
         prefix: Anrede
         forename: Vorname
         surname: Nachname
+        telephone_number: Telefonnummer
         catchment_area_id: Einzugsgebiet
       meal:
         name: Name

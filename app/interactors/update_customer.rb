@@ -7,9 +7,10 @@ module Interactor
     def run
       customer = customer_gateway.find request.customer_id
 
-      customer.forename       = request.forename
-      customer.surname        = request.surname
-      customer.prefix         = request.prefix
+      customer.forename         = request.forename
+      customer.surname          = request.surname
+      customer.prefix           = request.prefix
+      customer.telephone_number = request.telephone_number
 
       customer_gateway.update customer
 
