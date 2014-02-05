@@ -15,6 +15,6 @@ table.price-classes.large-12
           = money pc.price
         td
           => link_to "Editieren", edit_price_class_path(pc)
-          => link_to "Löschen", price_class_path(pc), method: :delete, confirm: "Wollen sie diese Preisklasse wirklich löschen?"
+          => link_to "Löschen", price_class_path(pc), method: :delete, data: { confirm: "Wollen sie diese Preisklasse wirklich löschen?" }
 
 = link_to "Neue Preisklasse hinzufügen", new_price_class_path
