@@ -55,6 +55,7 @@ end
 
 group :production do
   gem 'newrelic_rpm'
+  gem 'rails_12factor'
 end
 
 gem 'bcrypt-ruby', '~> 3.0.0'
