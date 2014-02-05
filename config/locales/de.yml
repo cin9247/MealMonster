@@ -210,6 +210,7 @@ de:
       customer: Kunde
       order: Bestellung
       price_class: Preisklasse
+      catchment_area: Einzugsgebiet
     attributes:
       customer:
         prefix: Anrede

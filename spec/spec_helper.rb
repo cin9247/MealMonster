@@ -124,6 +124,12 @@ def link_user_to_customer(user_id, customer_id)
   Interactor::LinkUserToCustomer.new(request).run
 end
 
+def create_catchment_area(name="Krankenhaus")
+  c = CatchmentArea.new(name: name)
+  CatchmentAreaMapper.new.save c
+  c
+end
+
 def deliver_order(order_id)
   request = OpenStruct.new(order_id: order_id)
   Interactor::Deliver.new(request).run

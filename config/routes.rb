@@ -6,6 +6,7 @@ CareEAR::Application.routes.draw do
     resources :invoices
   end
   resources :price_classes
+  resources :catchment_areas
   resources :meals
   resources :offerings
   resources :tours do

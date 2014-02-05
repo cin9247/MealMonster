@@ -1,0 +1,16 @@
+h1 Einzugsgebiete
+table.price-classes.large-12
+  thead
+    tr
+      th Name
+      th Aktionen
+
+  tbody
+    - @catchment_areas.each do |pc|
+      tr.price-class
+        td
+          = pc.name
+        td
+          => link_to "Editieren", edit_catchment_area_path(pc)
+
+= link_to "Neues Einzugsgebiet hinzufügen", new_catchment_area_path
