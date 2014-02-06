@@ -71,9 +71,9 @@ describe "customers" do
 
     it "updates the customer" do
       visit customers_path
+      click_on "Details"
 
-      expect(CustomerMapper.new.fetch.first.telephone_number).to eq "28"
-
+      expect(page).to have_content "28"
       expect(page).to have_content("Max Mustermann")
       expect(page).to have_content("Berlin")
       expect(page).to have_content("Krankenhaus")
