@@ -11,6 +11,11 @@ class CustomerMapper < BaseMapper
     super(record)
   end
 
+  def fetch
+    schema_class.order(Sequel.function(:lower, :surname)).all.map do |c|
+      convert_to_object_and_set_id c
+    end
+  end
 
   private
     def hash_from_object(object)

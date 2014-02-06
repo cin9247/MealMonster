@@ -2,7 +2,8 @@ h1 Kunden
 table.customers.large-12.small-6
   thead
     tr
-      th Name
+      th Nachname
+      th Vorname
       th Wohnort
       th Einzugsgebiet
       th Aktionen
@@ -11,7 +12,9 @@ table.customers.large-12.small-6
     - @customers.each do |customer|
       tr.customer
         td
-          = customer.full_name
+          = customer.surname
+        td
+          = customer.forename
         td
           = customer.short_address
         td
