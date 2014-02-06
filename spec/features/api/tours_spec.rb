@@ -32,8 +32,6 @@ describe "/api/tours" do
         expect(json_response["tours"][1]["driver"]["name"]).to eq "Max Speed"
         expect(json_response["tours"][1]["driver"]["id"]).to eq driver.id
       end
-
-      it "does not include tours which are not planned for today"
     end
 
     context "invalid date" do
@@ -53,7 +51,7 @@ describe "/api/tours" do
     before do
       meal = create_meal "Schweineschnitzel"
       offering_id = create_offering(Date.new(2013, 10, 4), "Menü 1", [meal.id]).id
-      create_order(customer_ids.first, offering_id)
+      @order = create_order(customer_ids.first, offering_id)
     end
 
     before do
@@ -73,6 +71,7 @@ describe "/api/tours" do
         expect(tour["stations"].first["customer"]["address"]["town"]).to eq "Karlsruhe"
         expect(tour["stations"].first["order"]["delivered"]).to eq false
         expect(tour["stations"].first["order"]["loaded"]).to eq false
+        expect(tour["stations"].first["order"]["id"]).to eq @order.id
       end
     end
 
