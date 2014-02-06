@@ -1,6 +1,6 @@
 class OfferingsController < ApplicationController
   def index
-    range = parse_dates_or_default_to_next_week
+    range = parse_dates_or_default_to_this_week
     response = interact_with :list_offerings, range
 
     @days = range.to_a
