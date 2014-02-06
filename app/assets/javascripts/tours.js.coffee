@@ -63,7 +63,7 @@ CustomerInTour = React.createClass
         SPACE()
         @downLink()
         SPACE()
-        React.DOM.a({href: "#", onClick: @handleRemove}, "Löschen")
+        React.DOM.a({href: "#", onClick: @handleRemove}, React.DOM.i(className: "fi-trash", style: {"font-size": "1.5em"}))
       ])
     ])
 
