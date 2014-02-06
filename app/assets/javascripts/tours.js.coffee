@@ -44,15 +44,16 @@ CustomerInTour = React.createClass
 
   upLink: ->
     if @props.isFirst
-      React.DOM.span(style: {color: "#ccc"}, "Hoch")
+      React.DOM.span(style: {color: "#ccc", "font-size": "1.5em"}, React.DOM.i(className: "fi-arrow-up"))
     else
-      React.DOM.a({href: "#", onClick: @handleMoveUp}, "Hoch")
+      React.DOM.a({href: "#", style: {"font-size": "1.5em"}, onClick: @handleMoveUp},
+        React.DOM.i(className: "fi-arrow-up"))
 
   downLink: ->
     if @props.isLast
-      React.DOM.span(style: {color: "#ccc"}, "Runter")
+      React.DOM.span(style: {color: "#ccc", "font-size": "1.5em"}, React.DOM.i(className: "fi-arrow-down"))
     else
-      React.DOM.a({href: "#", onClick: @handleMoveDown}, "Runter")
+      React.DOM.a({href: "#", style: {"font-size": "1.5em"}, onClick: @handleMoveDown}, React.DOM.i(className: "fi-arrow-down"))
 
   render: ->
     React.DOM.li({className: "station"}, [
