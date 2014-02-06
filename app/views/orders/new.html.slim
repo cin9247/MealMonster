@@ -4,7 +4,7 @@ h1= "Bestellung für #{l @date}"
 
   = form_for @order do |f|
     p
-      = f.label :customer_id, "Kunden"
+      = f.label :customer_id, "Kunde"
       = f.select :customer_id, @customers.map { |c| [c.full_name, c.id] }
     p
       = f.label :offering_id, "Menu"
