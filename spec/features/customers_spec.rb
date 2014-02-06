@@ -20,8 +20,10 @@ describe "customers" do
 
     it "lists all customers" do
       within(".customers") do
-        expect(page).to have_content "Max Mustermann"
-        expect(page).to have_content "Heinz Rühmann"
+        expect(page).to have_content "Max"
+        expect(page).to have_content "Mustermann"
+        expect(page).to have_content "Heinz"
+        expect(page).to have_content "Rühmann"
         expect(page).to have_content "München"
       end
     end

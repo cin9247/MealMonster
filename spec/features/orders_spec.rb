@@ -69,7 +69,7 @@ describe "orders" do
     before do
       visit new_order_path(:date => "2013-10-05")
 
-      select "Max Mustermann", from: "Kunden"
+      select "Max Mustermann", from: "Kunde"
       select "Veggie-Menu", from: "Menu"
 
       click_on "Bestellung erstellen"

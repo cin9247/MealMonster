@@ -59,7 +59,7 @@ describe "tours" do
     describe "removing of customers" do
       it "let's users remove customers from tours" do
         within ".tours" do
-          find(".station", text: "Maria Mustermann").click_on "Löschen"
+          find(".station", text: "Maria Mustermann").find(".remove").click# "Löschen"
         end
 
         save_and_reload
