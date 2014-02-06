@@ -83,6 +83,13 @@ Sequel.migration do
       primary_key [:filename]
     end
 
+    create_table(:tickets) do
+      primary_key :id
+      column :title, "text", :null=>false
+      column :body, "text", :null=>false
+      column :customer_id, "integer", :null=>false
+    end
+
     create_table(:tours) do
       primary_key :id
       column :name, "text", :null=>false
@@ -126,5 +133,7 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140123131815_add_driver_id_to_tour.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140203221429_create_price_classes.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140205100144_add_telephone_number_to_customers.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140206155138_create_tickets.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140206222410_add_customer_id_to_tickets.rb')"
   end
 end
