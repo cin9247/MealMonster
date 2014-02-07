@@ -213,6 +213,7 @@ de:
       order: Bestellung
       price_class: Preisklasse
       catchment_area: Einzugsgebiet
+      ticket: Ticket
     attributes:
       customer:
         prefix: Anrede
@@ -227,6 +228,9 @@ de:
       price_class:
         name: Name
         price: Preis in €
+      ticket:
+        title: Titel
+        body: Beschreibung
   activerecord:
     errors:
       <<: *errors

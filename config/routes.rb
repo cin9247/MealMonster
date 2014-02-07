@@ -15,6 +15,7 @@ CareEAR::Application.routes.draw do
   put "tours", to: "tours#update"
   resources :orders
   resource :sessions
+  resources :tickets
   resources :users do
     get :link, on: :member
     post :save_link, on: :member

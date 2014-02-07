@@ -14,6 +14,14 @@ class Ticket
     end
   end
 
+  def status
+    :open
+  end
+
+  def customer_id
+    customer && customer.id
+  end
+
   def persisted?
     !id.nil?
   end

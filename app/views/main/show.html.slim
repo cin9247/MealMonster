@@ -32,3 +32,9 @@ div.row.dashboard
           strong=> orders.size
           | mal
           strong<= "#{orders.first.menu.name}"
+
+    p
+      | Es existieren
+      strong<>= TicketMapper.new.fetch.size
+      = link_to "unbeantwortete Tickets", tickets_path
+      | .
