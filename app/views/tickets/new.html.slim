@@ -1,0 +1,14 @@
+h1 Ticket erstellen
+
+= form_for @ticket do |f|
+  p
+    = f.label :title
+    = f.text_field :title
+  p
+    = f.label :body
+    = f.text_area :body
+  p
+    = f.label :customer_id, "Kunde"
+    = f.select :customer_id, @customers.map { |c| [c.full_name, c.id] }
+  p
+    = f.submit

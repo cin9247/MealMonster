@@ -1,0 +1,20 @@
+h1 Service-Tickets
+
+table.tickets
+  thead
+    tr
+      th Nummer
+      th Titel
+      th Kunde
+      th Erstellt am
+      th Status
+  tbody
+    - @tickets.each do |ticket|
+      tr
+        td.id= link_to "##{ticket.id}", ticket_path(ticket)
+        td.title= ticket.title
+        td.customer= ticket.customer.full_name
+        td.created-at= "16.1.2014"
+        td.status= (ticket.status == :open ? "offen" : "geschlossen")
+
+= link_to "Neues Ticket erstellen", new_ticket_path

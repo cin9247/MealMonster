@@ -4,7 +4,7 @@ child @order do
   attributes :id, :note
 
   child :customer do
-    attributes :forename, :lastname
+    attributes :forename, :surname
   end
 
   child @order.offering.menu, object_root: false do
