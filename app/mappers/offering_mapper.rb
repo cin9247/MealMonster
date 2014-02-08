@@ -21,6 +21,7 @@ class OfferingMapper < BaseMapper
   end
 
   def hash_from_object(object)
+    ## TODO don't depend on price_class
     {
       date: object.date,
       menu_id: object.menu.id,

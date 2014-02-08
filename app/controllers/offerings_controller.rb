@@ -1,3 +1,5 @@
+require 'offering_importer'
+
 class OfferingsController < ApplicationController
   def index
     range = parse_dates_or_default_to_this_week
@@ -32,5 +34,35 @@ class OfferingsController < ApplicationController
     end
 
     redirect_to offerings_path
+  end
+
+  def new_import
+  end
+
+  def import
+    offering_mapper = OfferingMapper.new
+    menu_mapper = MenuMapper.new
+    price_class = PriceClass.new(name: "Random Preis", price: Money.new(2032))
+
+    PriceClassMapper.new.save price_class
+
+    offerings = OfferingImporter.new(params[:file].path).import!
+
+    dates = offerings.map(&:date).uniq
+    dates.each do |d|
+      offering_mapper.fetch_by_date(d).each do |o|
+        offering_mapper.delete o
+      end
+    end
+
+    offerings.each do |o|
+      menu_mapper.save o.menu
+      o.price_class = price_class
+      offering_mapper.save o
+    end
+
+    first_date = offerings.map(&:date).min
+    last_date = offerings.map(&:date).max
+    redirect_to offerings_path(from: first_date, to: last_date)
   end
 end

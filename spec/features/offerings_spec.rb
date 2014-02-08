@@ -81,4 +81,34 @@ describe "offerings" do
       end
     end
   end
+
+  describe "importing an offering" do
+    before do
+      visit offerings_path
+
+      click_on "Speiseplan importieren"
+
+      attach_file "Speiseplan", "spec/fixtures/speiseplan.csv"
+      click_on "Importieren"
+    end
+
+    it "redirects to offerings_path" do
+      expect(page).to have_content "Kräutercremesuppe"
+    end
+
+    let(:offerings) { OfferingMapper.new.fetch }
+
+    it "has created the imported offerings" do
+      expect(offerings.size).to eq 12
+      expect(offerings[0].name).to eq "Menü 1"
+      expect(offerings[1].name).to eq "Menü 2"
+      expect(offerings[0].date).to eq Date.new(2014, 1, 13)
+      expect(offerings[11].date).to eq Date.new(2014, 1, 19)
+    end
+
+    it "has created the nested meals in its correct order" do
+      expect(offerings[0].menu.meals.map(&:name)).to eq ["Kräutercremesuppe", "Grillbratwurst auf Sauerkraut mit Kartoffelpüree", "Birnenkompott"]
+      expect(offerings[1].menu.meals.map(&:name)).to eq ["Kräutercremesuppe", "Schlemmerfilet a la Bordelaise mit Kräuterauflage an Karottengemüse und Salzkartoffeln", "Birnenkompott"]
+    end
+  end
 end
