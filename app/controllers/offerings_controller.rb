@@ -36,6 +36,9 @@ class OfferingsController < ApplicationController
     redirect_to offerings_path
   end
 
+  def new_import
+  end
+
   def import
     offering_mapper = OfferingMapper.new
     menu_mapper = MenuMapper.new
@@ -57,6 +60,9 @@ class OfferingsController < ApplicationController
       o.price_class = price_class
       offering_mapper.save o
     end
-    redirect_to offerings_path
+
+    first_date = offerings.map(&:date).min
+    last_date = offerings.map(&:date).max
+    redirect_to offerings_path(from: first_date, to: last_date)
   end
 end

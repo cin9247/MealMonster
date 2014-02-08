@@ -1,6 +1,5 @@
-= form_tag import_offerings_path, multipart: true do
-  = file_field_tag :file
-  = submit_tag "Import"
+= link_to "Speiseplan importieren", new_import_offerings_path, class: "button"
+=< link_to "Neues Angebot erstellen", new_offering_path, class: "button secondary"
 
 h1 = "Angebote vom #{l @days.first} bis #{l @days.last}"
 
@@ -23,4 +22,4 @@ div.pagination.pagination-centered
     li = link_to "Vorherige Woche", offerings_path(from: @days.first - 7.days, to: @days.last - 7.days)
     li = link_to "Nächste Woche", offerings_path(from: @days.first + 7.days, to: @days.last + 7.days)
 
-= link_to "Neues Angebot erstellen", new_offering_path
+

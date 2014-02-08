@@ -9,6 +9,7 @@ CareEAR::Application.routes.draw do
   resources :catchment_areas
   resources :meals
   resources :offerings do
+    get :new_import, on: :collection
     post :import, on: :collection
   end
   resources :tours do

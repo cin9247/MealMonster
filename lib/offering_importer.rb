@@ -42,7 +42,7 @@ class OfferingImporter
       main_meal_1 = rows.find { |r| r[:name] == "Hauptgricht 1" }
       main_meal_2 = rows.find { |r| r[:name] == "Hauptgericht 2" }
 
-      soup_meal, desert_meal, main_meal_1, main_meal2 = [soup_meal, desert_meal, main_meal_1, main_meal_2].map do |meal|
+      soup_meal, desert_meal, main_meal_1, main_meal_2 = [soup_meal, desert_meal, main_meal_1, main_meal_2].map do |meal|
         if meal[:sub_name]
           Meal.new(name: meal[:sub_name], bread_units: meal[:bread_units], kilojoules: meal[:kilojoules])
         else
@@ -51,12 +51,17 @@ class OfferingImporter
       end
 
       main_menu_1 = Menu.new(name: "Menü 1", meals: [soup_meal, main_meal_1, desert_meal].compact)
-      main_menu_2 = Menu.new(name: "Menü 2", meals: [soup_meal, main_meal_1, desert_meal].compact)
 
-      [
-        Offering.new(menu: main_menu_1, date: date),
-        Offering.new(menu: main_menu_2, date: date)
-      ]
+      if main_meal_2.nil?
+        Offering.new(menu: main_menu_1, date: date)
+      else
+        main_menu_2 = Menu.new(name: "Menü 2", meals: [soup_meal, main_meal_2, desert_meal].compact)
+        [
+          Offering.new(menu: main_menu_1, date: date),
+          Offering.new(menu: main_menu_2, date: date)
+        ]
+      end
+
     end.flatten
 
   end
