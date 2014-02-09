@@ -6,7 +6,7 @@ class Order
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  attr_accessor :id, :day, :offering, :customer, :note
+  attr_accessor :id, :day, :offerings, :customer, :note
   attr_reader :state
 
   def initialize(attributes={})
@@ -17,7 +17,7 @@ class Order
   end
 
   def menu
-    offering.menu
+    offerings.first.menu
   end
 
   def deliver!
@@ -33,11 +33,15 @@ class Order
   end
 
   def offering_id
-    offering && offering.id
+    offerings && offerings.first.id
+  end
+
+  def offering
+    offerings.first
   end
 
   def date
-    offering.date
+    offerings.first.date
   end
 
   def delivered?

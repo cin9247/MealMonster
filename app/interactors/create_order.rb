@@ -8,9 +8,9 @@ module Interactor
     register_boundary :offering_gateway, -> { OfferingMapper.new }
 
     def run
-      offering = offering_gateway.find(request.offering_id)
+      offerings = offering_gateway.find(request.offering_ids)
       customer = customer_gateway.find(request.customer_id)
-      order = Order.new customer: customer, offering: offering, note: request.note
+      order = Order.new customer: customer, offerings: offerings, note: request.note
 
       if order.valid?
         order_gateway.save order

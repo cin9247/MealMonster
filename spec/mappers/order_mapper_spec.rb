@@ -7,9 +7,9 @@ describe OrderMapper do
   let(:offering_2) { create_offering(Date.new(2013, 10, 7), "Menu #2", [meal_1.id]) }
   let(:customer) { create_customer "Hans" }
   let(:other_customer) { create_customer "Peter" }
-  let(:order_1) { Order.new offering: offering_1, customer: customer }
-  let(:order_2) { Order.new offering: offering_2, customer: customer }
-  let(:order_3) { Order.new offering: offering_2, customer: other_customer }
+  let(:order_1) { Order.new offerings: [offering_1], customer: customer }
+  let(:order_2) { Order.new offerings: [offering_2], customer: customer }
+  let(:order_3) { Order.new offerings: [offering_2], customer: other_customer }
 
   describe "#fetch" do
     before do
@@ -33,6 +33,19 @@ describe OrderMapper do
 
     it "sets the day" do
       expect(result.first.date).to eq Date.new(2013, 10, 6)
+    end
+  end
+
+  describe "order has many offerings" do
+    it "saves links to the offerings" do
+      subject.save Order.new(offerings: [offering_1, offering_2], customer: customer)
+
+      result = subject.fetch
+      expect(result.size).to eq 1
+
+      expect(result.first.offerings.size).to eq 2
+      expect(result.first.offerings.first.id).to eq offering_1.id
+      expect(result.first.offerings.last.id).to eq offering_2.id
     end
   end
 

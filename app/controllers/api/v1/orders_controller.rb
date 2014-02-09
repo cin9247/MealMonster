@@ -3,7 +3,7 @@ class Api::V1::OrdersController < Api::V1::ApiController
 
   def create
     if valid_request? params
-      request = OpenStruct.new(customer_id: params[:customer_id].to_i, offering_id: params[:offering_id].to_i, note: params[:note])
+      request = OpenStruct.new(customer_id: params[:customer_id].to_i, offering_ids: [params[:offering_id].to_i], note: params[:note])
       @order = InteractorFactory.execute(:create_order, request, current_user).object
 
       respond_with @order, status: 201
