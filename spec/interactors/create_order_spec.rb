@@ -14,12 +14,9 @@ describe Interactor::CreateOrder do
     subject.order_gateway = order_gateway
     subject.customer_gateway = customer_gateway
     subject.offering_gateway = offering_gateway
-    subject.order_source = order_source
   end
 
   context "given valid request" do
-    let(:order_source) { ->(args) { OpenStruct.new(args.merge(:valid? => true)) }}
-
     before do
       customer_gateway.update OpenStruct.new id: 23, name: "Peter"
       offering_gateway.update OpenStruct.new id: 14

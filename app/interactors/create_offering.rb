@@ -1,16 +1,16 @@
 require_relative "./base"
+require_relative "../models/offering"
 
 module Interactor
   class CreateOffering < Base
     register_boundary :offering_gateway, -> { OfferingMapper.new }
     register_boundary :meal_gateway, -> { MealMapper.new }
     register_boundary :price_class_gateway, -> { PriceClassMapper.new }
-    register_boundary :offering_source, -> { Offering.public_method(:new) }
 
     def run
       meals = request.meal_ids.map { |id| meal_gateway.find(id) }
       price_class = price_class_gateway.find request.price_class_id
-      offering = offering_source.call(date: request.date, menu: OpenStruct.new(meals: meals, name: request.name), price_class: price_class)
+      offering = Offering.new(date: request.date, menu: OpenStruct.new(meals: meals, name: request.name), price_class: price_class)
 
       if offering.valid?
         offering_gateway.save offering

@@ -1,14 +1,14 @@
 require_relative "./base"
+require_relative "../models/address"
 
 module Interactor
   class UpdateAddressForCustomer < Base
     register_boundary :customer_gateway, -> { CustomerMapper.new }
-    register_boundary :address_source,  -> { Address.public_method(:new) }
 
     def run
       customer = customer_gateway.find request.customer_id
 
-      customer.address ||= address_source.call
+      customer.address ||= Address.new
 
       customer.address.street_name = request.street_name
       customer.address.street_number = request.street_number

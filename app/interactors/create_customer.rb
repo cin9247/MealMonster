@@ -1,12 +1,12 @@
 require_relative "./base"
+require_relative "../models/customer"
 
 module Interactor
   class CreateCustomer < Base
     register_boundary :customer_gateway, -> { CustomerMapper.new }
-    register_boundary :customer_source,  -> { Customer.public_method(:new) }
 
     def run
-      customer = customer_source.call forename: request.forename, surname: request.surname, prefix: request.prefix, telephone_number: request.telephone_number
+      customer = Customer.new forename: request.forename, surname: request.surname, prefix: request.prefix, telephone_number: request.telephone_number
 
       if customer.valid?
         customer_gateway.save customer

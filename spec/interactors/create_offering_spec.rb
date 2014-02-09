@@ -5,12 +5,10 @@ describe Interactor::CreateOffering do
   let(:offering_gateway) { dummy_gateway }
   let(:meal_gateway) { dummy_gateway }
   let(:price_class_gateway) { dummy_gateway }
-  let(:offering_source) { ->(args) { OpenStruct.new(args.merge(valid?: true)) } }
 
   before do
     subject.offering_gateway = offering_gateway
     subject.meal_gateway = meal_gateway
-    subject.offering_source = offering_source
     subject.price_class_gateway = price_class_gateway
 
     meal_gateway.update double(:meal, id: 2)

@@ -1,12 +1,12 @@
 require_relative "./base"
+require_relative "../models/meal"
 
 module Interactor
   class CreateMeal < Base
     register_boundary :meal_gateway, -> { MealMapper.new }
-    register_boundary :meal_source,  -> { Meal.public_method(:new) }
 
     def run
-      meal = meal_source.call name: request.name, kilojoules: request.kilojoules, bread_units: request.bread_units
+      meal = Meal.new name: request.name, kilojoules: request.kilojoules, bread_units: request.bread_units
       if meal.valid?
         meal_gateway.save meal
         OpenStruct.new status: :successfully_created, object: meal

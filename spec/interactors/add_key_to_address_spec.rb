@@ -14,7 +14,6 @@ describe Interactor::AddKeyToAddress do
 
   before do
     subject.address_gateway = address_gateway
-    subject.key_source = ->(args) { OpenStruct.new(args) }
   end
 
   let(:address_id) { address_gateway.save address }

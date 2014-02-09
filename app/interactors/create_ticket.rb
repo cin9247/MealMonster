@@ -1,14 +1,14 @@
 require_relative "./base"
+require_relative "../models/ticket"
 
 module Interactor
   class CreateTicket < Base
     register_boundary :ticket_gateway,    -> { TicketMapper.new }
     register_boundary :customer_gateway,  -> { CustomerMapper.new }
-    register_boundary :ticket_source,     -> { Ticket.public_method(:new) }
 
     def run
       customer = customer_gateway.find request.customer_id
-      ticket = ticket_source.call title: request.title, body: request.body, customer: customer
+      ticket = Ticket.new title: request.title, body: request.body, customer: customer
 
       if ticket.valid?
         ticket_gateway.save ticket
