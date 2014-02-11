@@ -31,7 +31,7 @@ describe OrderMapper do
       expect(result.first.menu.meals.map(&:name).sort).to eq ["Hack", "Karotte"]
     end
 
-    it "sets the day" do
+    it "sets the date" do
       expect(result.first.date).to eq Date.new(2013, 10, 6)
     end
   end

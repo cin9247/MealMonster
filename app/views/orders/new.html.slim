@@ -6,9 +6,10 @@ h1= "Bestellung für #{l @date}"
     p
       = f.label :customer_id, "Kunde"
       = f.select :customer_id, @customers.map { |c| [c.full_name, c.id] }
-    p
-      = f.label :offering_id, "Menu"
-      = f.select :offering_id, @offerings.map { |o| ["#{o.menu.name} (#{meal_list o.menu})", o.id] }
+    - 3.times do |i|
+      p
+        = label_tag "offering-#{i}", "Menü #{i + 1}"
+        = select_tag "order[offering_id][]", options_for_select([["(Kein Angebot)", nil]] + @offerings.map { |o| ["#{o.menu.name} (#{meal_list o.menu})", o.id] }), id: "offering-#{i}"
     p
       = f.hidden_field :date, value: @date.iso8601
     p

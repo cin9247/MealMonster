@@ -10,7 +10,7 @@ module Interactor
     def run
       offerings = offering_gateway.find(request.offering_ids)
       customer = customer_gateway.find(request.customer_id)
-      order = Order.new customer: customer, offerings: offerings, note: request.note
+      order = Order.new customer: customer, offerings: offerings, note: request.note, date: offerings.first.date
 
       if order.valid?
         order_gateway.save order

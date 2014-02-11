@@ -19,8 +19,8 @@ describe Interactor::CreateOrder do
   context "given valid request" do
     before do
       customer_gateway.update OpenStruct.new id: 23, name: "Peter"
-      offering_gateway.update OpenStruct.new id: 14
-      offering_gateway.update OpenStruct.new id: 15
+      offering_gateway.update OpenStruct.new id: 14, date: Date.new(2013, 9, 1)
+      offering_gateway.update OpenStruct.new id: 15, date: Date.new(2013, 9, 1)
     end
 
     let!(:response) { subject.run }
@@ -32,6 +32,7 @@ describe Interactor::CreateOrder do
       expect(order_gateway.all.first.offerings.first.id).to eq 14
       expect(order_gateway.all.first.offerings.last.id).to eq 15
       expect(order_gateway.all.first.note).to eq "Mit Eis, bitte!"
+      expect(order_gateway.all.first.date).to eq Date.new(2013, 9, 1)
     end
 
     it "returns successfully created" do

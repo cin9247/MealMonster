@@ -42,7 +42,7 @@ class OrderMapper < BaseMapper
       offerings = OfferingMapper.new.find(offering_ids)
 
       Order.new(
-        day: Day.new(date: order[:date]),
+        date: order[:date],
         offerings: offerings,
         customer: customer,
         note: order[:note],
