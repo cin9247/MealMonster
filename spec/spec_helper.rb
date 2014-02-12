@@ -157,7 +157,11 @@ end
 
 def login_as_admin_basic_auth
   create_admin "admin", "admin"
-  basic_authorize "admin", "admin"
+  login_with_api "admin", "admin"
+end
+
+def login_with_api(user, password)
+  basic_authorize user, password
 end
 
 def login_as_admin_web
