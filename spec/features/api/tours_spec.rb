@@ -72,6 +72,7 @@ describe "/api/tours" do
         expect(tour["stations"].first["order"]["delivered"]).to eq false
         expect(tour["stations"].first["order"]["loaded"]).to eq false
         expect(tour["stations"].first["order"]["id"]).to eq @order.id
+        expect(tour["stations"].first["order"]["offerings"].first["name"]).to eq "Menü 1"
       end
     end
 

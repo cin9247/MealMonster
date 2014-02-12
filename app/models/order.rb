@@ -1,4 +1,5 @@
 require "active_model"
+require_relative "./money"
 
 class Order
   extend ActiveModel::Naming
@@ -6,7 +7,7 @@ class Order
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  attr_accessor :id, :day, :offering, :customer, :note
+  attr_accessor :id, :day, :offerings, :customer, :note, :date
   attr_reader :state
 
   def initialize(attributes={})
@@ -14,10 +15,6 @@ class Order
     attributes.each do |key, value|
       public_send "#{key}=", value
     end
-  end
-
-  def menu
-    offering.menu
   end
 
   def deliver!
@@ -32,14 +29,6 @@ class Order
     customer && customer.id
   end
 
-  def offering_id
-    offering && offering.id
-  end
-
-  def date
-    offering.date
-  end
-
   def delivered?
     @state == "delivered"
   end
@@ -52,5 +41,9 @@ class Order
 
   def persisted?
     !id.nil?
+  end
+
+  def price
+    offerings.reduce(Money.zero) { |sum, of| sum + of.price }
   end
 end

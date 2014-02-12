@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    request = OpenStruct.new(customer_id: params[:order][:customer_id], offering_id: params[:order][:offering_id])
+    request = OpenStruct.new(customer_id: params[:order][:customer_id].to_i, offering_ids: params[:order][:offering_id].reject(&:blank?).map(&:to_i), date: Date.parse(params[:order][:date]))
     interact_with :create_order, request
 
     redirect_to orders_path

@@ -23,7 +23,11 @@ module DummyGateway
       end
 
       def find(id)
-        items.find { |i| i.id == id }
+        if id.is_a? Array
+          id.map { |id| find(id) }
+        else
+          items.find { |i| i.id == id }
+        end
       end
 
       def method_missing(method, *args, &block)

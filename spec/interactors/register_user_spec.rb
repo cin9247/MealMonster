@@ -5,14 +5,12 @@ describe Interactor::RegisterUser do
   let(:name) { "hans" }
   let(:password) { "secret123" }
   let(:user_gateway) { dummy_gateway }
-  let(:user_source) { ->(args) { OpenStruct.new(args) } }
 
   let(:request) { OpenStruct.new(name: name, password: password) }
   subject { Interactor::RegisterUser.new(request) }
 
   before do
     subject.user_gateway = user_gateway
-    subject.user_source = user_source
   end
 
   it "creates a new user" do

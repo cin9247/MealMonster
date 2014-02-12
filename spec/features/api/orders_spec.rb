@@ -26,11 +26,10 @@ describe "/api/offerings" do
       end
 
       it "creates the order" do
-        expect(OrderMapper.new.fetch.size).to eq 1
-      end
-
-      it "returns a representation of the created order" do
-        expect(result["menu"]["meals"][1]["name"]).to eq "Pudding"
+        orders = OrderMapper.new.fetch
+        expect(orders.size).to eq 1
+        expect(orders.first.date).to eq Date.new(2013, 10, 3)
+        expect(orders.first.offerings.first.name).to eq "Menu #1"
       end
 
       it "returns the note" do

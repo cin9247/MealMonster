@@ -1,16 +1,16 @@
 require_relative "./base"
+require_relative "../models/order"
 
 module Interactor
   class CreateOrder < Base
     register_boundary :order_gateway,    -> { OrderMapper.new }
     register_boundary :customer_gateway, -> { CustomerMapper.new }
     register_boundary :offering_gateway, -> { OfferingMapper.new }
-    register_boundary :order_source,     -> { Order.public_method(:new) }
 
     def run
-      offering = offering_gateway.find(request.offering_id)
+      offerings = offering_gateway.find(request.offering_ids)
       customer = customer_gateway.find(request.customer_id)
-      order = order_source.call customer: customer, offering: offering, note: request.note
+      order = Order.new customer: customer, offerings: offerings, note: request.note, date: request.date
 
       if order.valid?
         order_gateway.save order

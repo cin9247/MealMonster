@@ -43,8 +43,8 @@ describe "orders" do
           expect(page).to have_content "Peter"
           expect(page).to_not have_content "Johanna"
 
-          expect(page).to have_content "Spaghetti"
-          expect(page).to have_content "Braten"
+          expect(page).to have_content "Veggie-Menu"
+          expect(page).to have_content "Für Pfundskerle"
         end
 
         within(".day", text: "06.10.2013") do
@@ -52,8 +52,8 @@ describe "orders" do
           expect(page).to_not have_content "Peter"
           expect(page).to have_content "Johanna"
 
-          expect(page).to_not have_content "Spaghetti"
-          expect(page).to have_content "Braten"
+          expect(page).to_not have_content "Veggie-Menu"
+          expect(page).to have_content "Für Pfundskerle"
         end
       end
     end
@@ -70,16 +70,25 @@ describe "orders" do
       visit new_order_path(:date => "2013-10-05")
 
       select "Max Mustermann", from: "Kunde"
-      select "Veggie-Menu", from: "Menu"
+      select "Veggie-Menu", from: "Menü 1"
+      select "Für Pfundskerle", from: "Menü 2"
 
       click_on "Bestellung erstellen"
     end
 
+    it "redirects to orders_path" do
+      expect(current_path).to eq orders_path
+    end
+
     it "should have created the order" do
       orders = OrderMapper.new.fetch
+      order = orders.first
+
       expect(orders.length).to eq 1
-      expect(orders.first.date).to eq Date.new(2013, 10, 5)
-      expect(orders.first.menu.name).to eq "Veggie-Menu"
+      expect(orders.first.offerings.length).to eq 2
+      expect(order.date).to eq Date.new(2013, 10, 5)
+      expect(order.offerings.first.menu.name).to eq "Veggie-Menu"
+      expect(order.offerings.last.menu.name).to eq "Für Pfundskerle"
     end
   end
 end

@@ -19,7 +19,7 @@
                     i.fi-home.delivered>
                   = s.customer.full_name
                 small<
-                  = s.order.offering.menu.name
+                  = menu_list(s.order)
 
 div.pagination.pagination-centered
   ul

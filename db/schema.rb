@@ -7,12 +7,12 @@ Sequel.migration do
       column :postal_code, "text", :null=>false
       column :town, "text", :null=>false
     end
-
+    
     create_table(:catchment_areas) do
       primary_key :id
       column :name, "text", :null=>false
     end
-
+    
     create_table(:customers) do
       primary_key :id
       column :forename, "text"
@@ -22,80 +22,86 @@ Sequel.migration do
       column :catchment_area_id, "integer"
       column :telephone_number, "text"
     end
-
+    
     create_table(:customers_tours) do
       primary_key :id
       column :customer_id, "integer", :null=>false
       column :tour_id, "integer", :null=>false
       column :position, "integer", :null=>false
     end
-
+    
     create_table(:keys) do
       primary_key :id
       column :name, "text", :null=>false
       column :address_id, "integer", :null=>false
     end
-
+    
     create_table(:meals) do
       primary_key :id
       column :name, "text", :null=>false
       column :bread_units, "double precision"
       column :kilojoules, "integer"
     end
-
+    
     create_table(:meals_menus) do
       primary_key :id
       column :menu_id, "integer", :null=>false
       column :meal_id, "integer", :null=>false
       column :position, "integer", :null=>false
     end
-
+    
     create_table(:menus) do
       primary_key :id
       column :name, "text"
     end
-
+    
     create_table(:offerings) do
       primary_key :id
       column :date, "date", :null=>false
       column :menu_id, "integer", :null=>false
       column :price_class_id, "integer", :null=>false
     end
-
+    
+    create_table(:order_items) do
+      primary_key :id
+      column :order_id, "integer", :null=>false
+      column :offering_id, "integer", :null=>false
+      column :position, "integer", :null=>false
+    end
+    
     create_table(:orders) do
       primary_key :id
-      column :offering_id, "integer", :null=>false
       column :customer_id, "integer", :null=>false
       column :date, "date", :null=>false
       column :note, "text"
       column :state, "text", :default=>"ordered", :null=>false
     end
-
+    
     create_table(:price_classes) do
       primary_key :id
       column :name, "text", :null=>false
       column :amount, "integer", :null=>false
     end
-
+    
     create_table(:schema_migrations) do
       column :filename, "text", :null=>false
-
+      
       primary_key [:filename]
     end
-
+    
     create_table(:tickets) do
       primary_key :id
       column :title, "text", :null=>false
       column :body, "text", :null=>false
       column :customer_id, "integer", :null=>false
     end
-
+    
     create_table(:tours) do
       primary_key :id
       column :name, "text", :null=>false
       column :driver_id, "integer"
     end
-
+    
     create_table(:users) do
       primary_key :id
       column :name, "text", :null=>false
@@ -135,5 +141,7 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140205100144_add_telephone_number_to_customers.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140206155138_create_tickets.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140206222410_add_customer_id_to_tickets.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140209011158_create_order_items.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140209011658_remove_offering_id_from_orders.rb')"
   end
 end

@@ -6,7 +6,7 @@ def create_customer(name)
 end
 
 def create_order(customer_id, offering_id)
-  request = OpenStruct.new(customer_id: customer_id, offering_id: offering_id)
+  request = OpenStruct.new(customer_id: customer_id, offering_ids: [offering_id])
   Interactor::CreateOrder.new(request).run.object
 end
 

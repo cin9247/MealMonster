@@ -1,9 +1,17 @@
 class OrderMapper < BaseMapper
   def save(record)
-    raise "order.offering must've been already saved" unless record.offering.id
+    raise "order.offering must've been already saved" unless record.offerings.all?(&:id)
     raise "order.customer must've been already saved" unless record.customer.id
 
-    super
+    id = nil
+    DB.transaction do
+      id = super
+      record.offerings.each_with_index do |offering, i|
+        DB[:order_items].insert(order_id: id, offering_id: offering.id, position: i)
+      end
+    end
+
+    id
   end
 
   def find_by_date(date)
@@ -23,7 +31,6 @@ class OrderMapper < BaseMapper
       {
         date: order.date,
         customer_id: order.customer.id,
-        offering_id: order.offering.id,
         note: order.note,
         state: order.state
       }
@@ -31,11 +38,12 @@ class OrderMapper < BaseMapper
 
     def object_from_hash(order)
       customer = CustomerMapper.new.send :convert_to_object_and_set_id, order.customer
-      offering = OfferingMapper.new.send :convert_to_object_and_set_id, order.offering
+      offering_ids = DB[:order_items].where(order_id: order.id).select(:offering_id).map { |o| o[:offering_id] }
+      offerings = OfferingMapper.new.find(offering_ids)
 
       Order.new(
-        day: Day.new(date: order[:date]),
-        offering: offering,
+        date: order[:date],
+        offerings: offerings,
         customer: customer,
         note: order[:note],
         state: order[:state]
