@@ -27,11 +27,11 @@ div.row.dashboard
     p Für heute wurden bestellt:
     ul
       - i = 0
-      - @orders.group_by(&:offering_id).each do |offering_id, orders|
+      - @orders.map(&:offerings).flatten.group_by(&:id).each do |offering_id, offerings|
         li
-          strong=> orders.size
+          strong=> offerings.size
           | mal
-          strong<= "#{orders.first.menu.name}"
+          strong<= "#{offerings.first.name}"
 
     p
       | Es existieren
