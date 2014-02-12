@@ -118,10 +118,10 @@ describe "tours" do
       within ".day", text: "Mittwoch, der 29.01.2014" do
         expect(all("li.tour").size).to eq 3
         within ".station", text: "Maria Mustermann" do
-          expect(page).to have_content "Beliefert"
+          expect(page).to have_css("i.delivered")
         end
         within ".station", text: "Peter Mustermann" do
-          expect(page).to have_content "Beladen"
+          expect(page).to have_css("i.loaded")
         end
       end
     end

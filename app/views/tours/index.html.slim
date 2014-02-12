@@ -13,9 +13,11 @@
             - tour.stations.each do |s|
               li.station
                 div
+                  - if s.order.loaded?
+                    i.fi-download.loaded>
+                  - elsif s.order.delivered?
+                    i.fi-home.delivered>
                   = s.customer.full_name
-                  small<= "Beliefert" if s.order.delivered?
-                  small<= "Beladen" if s.order.loaded?
                 small<
                   = s.order.offering.menu.name
 
