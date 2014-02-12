@@ -43,8 +43,8 @@ describe "orders" do
           expect(page).to have_content "Peter"
           expect(page).to_not have_content "Johanna"
 
-          expect(page).to have_content "Spaghetti"
-          expect(page).to have_content "Braten"
+          expect(page).to have_content "Veggie-Menu"
+          expect(page).to have_content "Für Pfundskerle"
         end
 
         within(".day", text: "06.10.2013") do
@@ -52,8 +52,8 @@ describe "orders" do
           expect(page).to_not have_content "Peter"
           expect(page).to have_content "Johanna"
 
-          expect(page).to_not have_content "Spaghetti"
-          expect(page).to have_content "Braten"
+          expect(page).to_not have_content "Veggie-Menu"
+          expect(page).to have_content "Für Pfundskerle"
         end
       end
     end

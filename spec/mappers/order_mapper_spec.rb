@@ -3,8 +3,10 @@ require "spec_helper"
 describe OrderMapper do
   let(:meal_1) { create_meal "Hack" }
   let(:meal_2) { create_meal "Karotte" }
-  let(:offering_1) { create_offering(Date.new(2013, 10, 6), "Menu #1", [meal_1.id, meal_2.id]) }
-  let(:offering_2) { create_offering(Date.new(2013, 10, 7), "Menu #2", [meal_1.id]) }
+  let(:date_1) { Date.new(2013, 10, 6) }
+  let(:date_2) { Date.new(2013, 10, 7) }
+  let(:offering_1) { create_offering(date_1, "Menu #1", [meal_1.id, meal_2.id]) }
+  let(:offering_2) { create_offering(date_2, "Menu #2", [meal_1.id]) }
   let(:customer) { create_customer "Hans" }
   let(:other_customer) { create_customer "Peter" }
   let(:order_1) { Order.new offerings: [offering_1], customer: customer }
@@ -17,22 +19,23 @@ describe OrderMapper do
     end
 
     let(:result) { subject.fetch }
+    let(:first_order) { result.first }
 
     it "fetches all offerings" do
       expect(result.size).to eq 1
     end
 
     it "fetches the menu for the offering" do
-      expect(result.first.menu.name).to eq "Menu #1"
+      expect(first_order.offerings.first.name).to eq "Menu #1"
     end
 
-    it "fetches each meal for the offered menu" do
-      expect(result.first.menu.meals.size).to eq 2
-      expect(result.first.menu.meals.map(&:name).sort).to eq ["Hack", "Karotte"]
+    it "fetches each offering for the offered menu" do
+      expect(first_order.offerings.first.menu.meals.size).to eq 2
+      expect(first_order.offerings.first.menu.meals.map(&:name).sort).to eq ["Hack", "Karotte"]
     end
 
     it "sets the date" do
-      expect(result.first.date).to eq Date.new(2013, 10, 6)
+      expect(first_order.date).to eq Date.new(2013, 10, 6)
     end
   end
 

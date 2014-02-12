@@ -6,6 +6,6 @@ ul.days
         - orders.each do |order|
           li.order
             strong => order.customer.full_name
-            = meal_list order.menu
+            = menu_list order
 
 = link_to "Neue Bestellung aufgeben", new_order_path

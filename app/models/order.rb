@@ -16,10 +16,6 @@ class Order
     end
   end
 
-  def menu
-    offering.try(:menu)
-  end
-
   def deliver!
     @state = "delivered"
   end
