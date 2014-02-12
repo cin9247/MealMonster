@@ -17,7 +17,7 @@
                   small<= "Beliefert" if s.order.delivered?
                   small<= "Beladen" if s.order.loaded?
                 small<
-                  = s.order.offering.menu.name
+                  = menu_list(s.order)
 
 div.pagination.pagination-centered
   ul

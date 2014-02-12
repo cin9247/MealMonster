@@ -12,8 +12,8 @@ child(@tour) do
     end
     child :order, object_root: false do
       attributes :id
-      child :offering do
-        attributes :id
+      child :offerings, object_root: false do
+        attributes :id, :name
       end
       attributes :delivered
       attributes :loaded

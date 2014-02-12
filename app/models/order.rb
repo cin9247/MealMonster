@@ -1,4 +1,5 @@
 require "active_model"
+require_relative "./money"
 
 class Order
   extend ActiveModel::Naming
@@ -28,18 +29,6 @@ class Order
     customer && customer.id
   end
 
-  def offering_id
-    offerings && offerings.first.id
-  end
-
-  def offering
-    offerings.first
-  end
-
-  def date
-    @date || offering.try(:date)
-  end
-
   def delivered?
     @state == "delivered"
   end
@@ -52,5 +41,9 @@ class Order
 
   def persisted?
     !id.nil?
+  end
+
+  def price
+    offerings.reduce(Money.zero) { |sum, of| sum + of.price }
   end
 end

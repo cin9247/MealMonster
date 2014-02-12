@@ -9,9 +9,9 @@ describe OrderMapper do
   let(:offering_2) { create_offering(date_2, "Menu #2", [meal_1.id]) }
   let(:customer) { create_customer "Hans" }
   let(:other_customer) { create_customer "Peter" }
-  let(:order_1) { Order.new offerings: [offering_1], customer: customer }
-  let(:order_2) { Order.new offerings: [offering_2], customer: customer }
-  let(:order_3) { Order.new offerings: [offering_2], customer: other_customer }
+  let(:order_1) { Order.new date: date_1, offerings: [offering_1], customer: customer }
+  let(:order_2) { Order.new date: date_2, offerings: [offering_2], customer: customer }
+  let(:order_3) { Order.new date: date_2, offerings: [offering_2], customer: other_customer }
 
   describe "#fetch" do
     before do
@@ -41,7 +41,7 @@ describe OrderMapper do
 
   describe "order has many offerings" do
     it "saves links to the offerings" do
-      subject.save Order.new(offerings: [offering_1, offering_2], customer: customer)
+      subject.save Order.new(date: Date.new(2014, 1, 1), offerings: [offering_1, offering_2], customer: customer)
 
       result = subject.fetch
       expect(result.size).to eq 1

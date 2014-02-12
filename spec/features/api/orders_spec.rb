@@ -29,10 +29,6 @@ describe "/api/offerings" do
         expect(OrderMapper.new.fetch.size).to eq 1
       end
 
-      it "returns a representation of the created order" do
-        expect(result["menu"]["meals"][1]["name"]).to eq "Pudding"
-      end
-
       it "returns the note" do
         expect(result["note"]).to eq note
       end

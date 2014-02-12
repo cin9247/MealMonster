@@ -29,4 +29,8 @@ class Money
     return false unless other.is_a? Money
     other.amount == self.amount && other.currency == self.currency
   end
+
+  def self.zero
+    self.new 0, "EUR"
+  end
 end
