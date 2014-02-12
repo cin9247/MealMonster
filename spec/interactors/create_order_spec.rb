@@ -6,7 +6,7 @@ describe Interactor::CreateOrder do
   let(:offering_gateway) { dummy_gateway }
   let(:order_gateway) { dummy_gateway }
 
-  let(:request) { OpenStruct.new(customer_id: 23, offering_ids: [14, 15], note: "Mit Eis, bitte!") }
+  let(:request) { OpenStruct.new(customer_id: 23, offering_ids: [14, 15], date: Date.new(2013, 9, 1), note: "Mit Eis, bitte!") }
 
   subject { Interactor::CreateOrder.new(request) }
 
