@@ -20,13 +20,26 @@ class OfferingMapper < BaseMapper
     end
   end
 
+  def fetch_all_time_offerings
+    schema_class.where(:date => nil).map do |o|
+      convert_to_object_and_set_id o
+    end
+  end
+
   def hash_from_object(object)
     ## TODO don't depend on price_class
-    {
-      date: object.date,
-      menu_id: object.menu.id,
-      price_class_id: object.price_class.id
-    }
+    if object.is_a? AllTimeOffering
+      {
+        menu_id: object.menu.id,
+        price_class_id: object.price_class.id
+      }
+    else
+      {
+        date: object.date,
+        menu_id: object.menu.id,
+        price_class_id: object.price_class.id
+      }
+    end
   end
 
   def object_from_hash(hash)
@@ -35,13 +48,16 @@ class OfferingMapper < BaseMapper
     end
     menu = MenuMapper.new.send(:convert_to_object_and_set_id, hash.menu)
     menu.meals = meals
-    day = Day.new(date: hash[:date])
 
     price_class = PriceClassMapper.new.find(hash[:price_class_id])
-
-    Offering.new(day: day,
-                 menu: menu,
-                 price_class: price_class)
+    if hash[:date]
+      day = Day.new(date: hash[:date])
+      Offering.new(day: day,
+                   menu: menu,
+                   price_class: price_class)
+    else
+      AllTimeOffering.new(menu: menu, price_class: price_class)
+    end
   end
 
   private

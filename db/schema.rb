@@ -9,14 +9,14 @@ Sequel.migration do
       column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:52.563588000+0000"), :null=>false
       column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:52.563616000+0000"), :null=>false
     end
-    
+
     create_table(:catchment_areas) do
       primary_key :id
       column :name, "text", :null=>false
       column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.138293000+0000"), :null=>false
       column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.138356000+0000"), :null=>false
     end
-    
+
     create_table(:customers) do
       primary_key :id
       column :forename, "text"
@@ -31,7 +31,7 @@ Sequel.migration do
       column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.177188000+0000"), :null=>false
       column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.177216000+0000"), :null=>false
     end
-    
+
     create_table(:customers_tours) do
       primary_key :id
       column :customer_id, "integer", :null=>false
@@ -40,7 +40,7 @@ Sequel.migration do
       column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.210856000+0000"), :null=>false
       column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.210927000+0000"), :null=>false
     end
-    
+
     create_table(:keys) do
       primary_key :id
       column :name, "text", :null=>false
@@ -48,7 +48,7 @@ Sequel.migration do
       column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.219035000+0000"), :null=>false
       column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.219062000+0000"), :null=>false
     end
-    
+
     create_table(:meals) do
       primary_key :id
       column :name, "text", :null=>false
@@ -57,7 +57,7 @@ Sequel.migration do
       column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.226002000+0000"), :null=>false
       column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.226037000+0000"), :null=>false
     end
-    
+
     create_table(:meals_menus) do
       primary_key :id
       column :menu_id, "integer", :null=>false
@@ -66,23 +66,23 @@ Sequel.migration do
       column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.250885000+0000"), :null=>false
       column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.250921000+0000"), :null=>false
     end
-    
+
     create_table(:menus) do
       primary_key :id
       column :name, "text"
       column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.255747000+0000"), :null=>false
       column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.255777000+0000"), :null=>false
     end
-    
+
     create_table(:offerings) do
       primary_key :id
-      column :date, "date", :null=>false
+      column :date, "date"
       column :menu_id, "integer", :null=>false
       column :price_class_id, "integer", :null=>false
       column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.292504000+0000"), :null=>false
       column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.292533000+0000"), :null=>false
     end
-    
+
     create_table(:order_items) do
       primary_key :id
       column :order_id, "integer", :null=>false
@@ -91,7 +91,7 @@ Sequel.migration do
       column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.296686000+0000"), :null=>false
       column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.296719000+0000"), :null=>false
     end
-    
+
     create_table(:orders) do
       primary_key :id
       column :customer_id, "integer", :null=>false
@@ -101,7 +101,7 @@ Sequel.migration do
       column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.301485000+0000"), :null=>false
       column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.301514000+0000"), :null=>false
     end
-    
+
     create_table(:price_classes) do
       primary_key :id
       column :name, "text", :null=>false
@@ -109,13 +109,13 @@ Sequel.migration do
       column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.308910000+0000"), :null=>false
       column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.308938000+0000"), :null=>false
     end
-    
+
     create_table(:schema_migrations) do
       column :filename, "text", :null=>false
-      
+
       primary_key [:filename]
     end
-    
+
     create_table(:tickets) do
       primary_key :id
       column :title, "text", :null=>false
@@ -126,7 +126,7 @@ Sequel.migration do
       column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.317214000+0000"), :null=>false
       column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.317314000+0000"), :null=>false
     end
-    
+
     create_table(:tours) do
       primary_key :id
       column :name, "text", :null=>false
@@ -134,7 +134,7 @@ Sequel.migration do
       column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.338771000+0000"), :null=>false
       column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.338810000+0000"), :null=>false
     end
-    
+
     create_table(:users) do
       primary_key :id
       column :name, "text", :null=>false
@@ -184,5 +184,6 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140217132948_add_date_of_birth_to_customers.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140217142119_add_email_to_customers.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140217232059_add_created_at_and_updated_at_to_all_tables.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140213124023_make_date_nil_column_in_offerings.rb')"
   end
 end

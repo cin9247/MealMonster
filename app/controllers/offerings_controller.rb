@@ -12,6 +12,21 @@ class OfferingsController < ApplicationController
     end
   end
 
+  def new_other
+    @price_classes = PriceClassMapper.new.fetch
+    @offering = AllTimeOffering.new
+  end
+
+  def create_other
+    request = OpenStruct.new(name: params[:all_time_offering][:name], price_class_id: params[:all_time_offering][:price_class_id].to_i)
+    interact_with :create_all_time_offering, request
+    redirect_to other_offerings_path, notice: "Angebot erfolgreich erstellt."
+  end
+
+  def other
+    @offerings = OfferingMapper.new.fetch_all_time_offerings
+  end
+
   def new
     range = parse_dates_or_default_to_next_week
 

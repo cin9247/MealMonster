@@ -83,8 +83,8 @@ def close_ticket(ticket_id)
   Interactor::CloseTicket.new(request).run.object
 end
 
-def create_price_class(name="Preisklasse 1")
-  pc = PriceClass.new(name: name, price: Money.new(2031, 'EUR'))
+def create_price_class(name="Preisklasse 1", price=Money.new(2031, 'EUR'))
+  pc = PriceClass.new(name: name, price: price)
   PriceClassMapper.new.save pc
   pc
 end
@@ -96,6 +96,12 @@ def create_offering(date, name="Menu", meal_ids=nil)
   price_class = create_price_class
   request = OpenStruct.new(name: name, date: date, meal_ids: meal_ids, price_class_id: price_class.id)
   Interactor::CreateOffering.new(request).run.object
+end
+
+def create_all_time_offering(name="Menu", price)
+  price_class = create_price_class("Preisklasse 1", price)
+  request = OpenStruct.new(name: name, price_class_id: price_class.id)
+  Interactor::CreateAllTimeOffering.new(request).run.object
 end
 
 def create_driver(name)

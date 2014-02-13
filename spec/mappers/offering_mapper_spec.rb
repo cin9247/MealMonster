@@ -42,6 +42,16 @@ describe OfferingMapper do
         expect(subject.fetch.first.price_class.name).to eq "Preisklasse 1"
       end
     end
+
+    context "given an AllTimeOffering" do
+      it "saves and retrieves it as it is" do
+        offering = AllTimeOffering.new(menu: Menu.new(name: "Abendessen"), price_class: PriceClass.new(name: "muh", id: 4))
+        subject.save offering
+
+        expect(subject.fetch.first.menu.name).to eq "Abendessen"
+        expect(subject.fetch.first).to be_a AllTimeOffering
+      end
+    end
   end
 
   describe "#fetch_by_date" do
@@ -89,6 +99,21 @@ describe OfferingMapper do
       expect(ids).to include offering_1.id
       expect(ids).to include offering_2.id
       expect(ids).to include offering_3.id
+    end
+  end
+
+  describe "#fetch_all_time_offerings" do
+    let(:all_time) { AllTimeOffering.new(menu: Menu.new(name: "Mich gibt's immer"), price_class: PriceClass.new(name: "muh", id: 2)) }
+    let(:one_time) { Offering.new(menu: Menu.new(name: "Mich gibt's nicht immer"), price_class: PriceClass.new(name: "muh", id: 2), date: Date.today) }
+
+    before do
+      subject.save all_time
+      subject.save one_time
+    end
+
+    it "only returns all time offerings" do
+      expect(subject.fetch_all_time_offerings.size).to eq 1
+      expect(subject.fetch_all_time_offerings.first.name).to eq "Mich gibt's immer"
     end
   end
 end
