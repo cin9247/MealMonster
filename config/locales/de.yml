@@ -221,6 +221,7 @@ de:
         surname: Nachname
         telephone_number: Telefonnummer
         catchment_area_id: Einzugsgebiet
+        note: Bemerkung
       meal:
         name: Name
         bread_units: Broteinheiten

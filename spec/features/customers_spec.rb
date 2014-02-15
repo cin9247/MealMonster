@@ -38,6 +38,7 @@ describe "customers" do
       fill_in "Nachname", with: "Mustermann"
       fill_in "Telefonnummer", with: "0174/257 12 42"
       fill_in "Stadt", with: "Karslruhe"
+      fill_in "Bemerkung", with: "Kann nicht selbststaendig Tuer oeffnen."
 
       select "Else-Heydlauf-Stiftung", from: "Einzugsgebiet"
 
@@ -52,6 +53,7 @@ describe "customers" do
       expect(customers.first.address.town).to eq "Karslruhe"
       expect(customers.first.prefix).to eq "Herr"
       expect(customers.first.catchment_area.name).to eq "Else-Heydlauf-Stiftung"
+      expect(customers.first.note).to eq "Kann nicht selbststaendig Tuer oeffnen."
     end
   end
 
@@ -65,6 +67,7 @@ describe "customers" do
       fill_in "Vorname", with: "Max"
       fill_in "Stadt", with: "Berlin"
       fill_in "Telefonnummer", with: "28"
+      fill_in "Bemerkung", with: "Bringt mir alles ans Bett!"
 
       select "Krankenhaus", from: "Einzugsgebiet"
 
@@ -79,18 +82,20 @@ describe "customers" do
       expect(page).to have_content("Max Mustermann")
       expect(page).to have_content("Berlin")
       expect(page).to have_content("Krankenhaus")
+      expect(page).to have_content("Bringt mir alles ans Bett!")
     end
   end
 
   describe "displaying a single customer" do
     before do
-      customer = create_customer("Peter", "Mustermann")
+      customer = create_customer("Peter", "Mustermann", "Bla.")
 
       visit customer_path(customer)
     end
 
     it "displays the name of the customer" do
       expect(page).to have_content "Peter Mustermann"
+      expect(page).to have_content "Bla."
     end
   end
 end

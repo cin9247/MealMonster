@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe CustomerMapper do
-  let(:customer) { Customer.new forename: "Max", surname: "Mustermann", telephone_number: "179" }
+  let(:customer) { Customer.new forename: "Max", surname: "Mustermann", telephone_number: "179", note: "Notiz" }
 
   before do
     customer.address = Address.new(town: "Karlsruhe", postal_code: "76131")
@@ -13,6 +13,7 @@ describe CustomerMapper do
       expect(subject.fetch.size).to eq 1
       expect(subject.fetch.first.forename).to eq "Max"
       expect(subject.fetch.first.telephone_number).to eq "179"
+      expect(subject.fetch.first.note).to eq "Notiz"
     end
 
     it "saves the associated address" do

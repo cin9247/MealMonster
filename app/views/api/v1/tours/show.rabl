@@ -5,7 +5,7 @@ child(@tour) do
   child({@stations => :stations}, {object_root: false}) do
     child :customer do
       attributes :id
-      attributes :forename, :surname, :prefix
+      attributes :forename, :surname, :prefix, :note
       child :address do
         attributes :town, :postal_code, :street_number, :street_name
       end

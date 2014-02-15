@@ -21,6 +21,7 @@ Sequel.migration do
       column :prefix, "text"
       column :catchment_area_id, "integer"
       column :telephone_number, "text"
+      column :note, "text"
     end
     
     create_table(:customers_tours) do
@@ -134,14 +135,15 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140119121741_add_roles_to_users.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140119224408_add_price_class_id_to_offering.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140123095956_add_customer_id_to_user.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140123131815_add_driver_id_to_tour.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140129151213_create_catchment_areas.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140129152023_add_catchment_area_id_to_customers.rb')"
-    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140123131815_add_driver_id_to_tour.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140203221429_create_price_classes.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140205100144_add_telephone_number_to_customers.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140206155138_create_tickets.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140206222410_add_customer_id_to_tickets.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140209011158_create_order_items.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140209011658_remove_offering_id_from_orders.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140215220545_add_note_to_customers.rb')"
   end
 end

@@ -11,6 +11,7 @@ module Interactor
       customer.surname          = request.surname
       customer.prefix           = request.prefix
       customer.telephone_number = request.telephone_number
+      customer.note = request.note
 
       customer_gateway.update customer
 

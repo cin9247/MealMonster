@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe "/api/tours" do
-  let(:customer_ids) { [create_customer_with_town("Max", "Mustermann", "Karlsruhe").id, create_customer_with_town("Else", "Schmidt", "Stuttgart").id] }
+  let(:customer_ids) { [create_customer_with_town("Max", "Mustermann", "Karlsruhe", "Kann nichts.").id, create_customer_with_town("Else", "Schmidt", "Stuttgart").id] }
   let(:driver) { create_driver("Max Speed") }
 
   before do
@@ -69,6 +69,7 @@ describe "/api/tours" do
         expect(tour["stations"].size).to eq 1
         expect(tour["stations"].first["customer"]["forename"]).to eq "Max"
         expect(tour["stations"].first["customer"]["address"]["town"]).to eq "Karlsruhe"
+        expect(tour["stations"].first["customer"]["note"]).to eq "Kann nichts."
         expect(tour["stations"].first["order"]["delivered"]).to eq false
         expect(tour["stations"].first["order"]["loaded"]).to eq false
         expect(tour["stations"].first["order"]["id"]).to eq @order.id

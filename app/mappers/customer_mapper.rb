@@ -27,7 +27,8 @@ class CustomerMapper < BaseMapper
         prefix:   object.prefix,
         address_id: address_id,
         catchment_area_id: catchment_area_id,
-        telephone_number: object.telephone_number
+        telephone_number: object.telephone_number,
+        note: object.note
       }
     end
 
@@ -41,7 +42,8 @@ class CustomerMapper < BaseMapper
                    prefix:   hash[:prefix],
                    telephone_number: hash[:telephone_number],
                    address: address,
-                   catchment_area: catchment_area)
+                   catchment_area: catchment_area,
+                   note: hash[:note])
     end
 
     def schema_class

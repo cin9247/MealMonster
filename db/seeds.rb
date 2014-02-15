@@ -6,7 +6,7 @@ def create_customer(name)
 end
 
 def create_order(customer_id, offering_id)
-  request = OpenStruct.new(customer_id: customer_id, offering_ids: [offering_id])
+  request = OpenStruct.new(customer_id: customer_id, offering_ids: [offering_id], date: Date.today)
   Interactor::CreateOrder.new(request).run.object
 end
 
@@ -22,7 +22,9 @@ def create_customer_with_address_and_key(name, street_name, street_number, posta
 end
 
 def create_offering(name, date, meal_ids)
-  request = OpenStruct.new(name: name, date: date, meal_ids: meal_ids, price_class_id: 1)
+  price_class = PriceClass.new(name: "Preisklasse", price: Money.new(200, "EUR"))
+  PriceClassMapper.new.save price_class
+  request = OpenStruct.new(name: name, date: date, meal_ids: meal_ids, price_class_id: price_class.id)
   Interactor::CreateOffering.new(request).run.object
 end
 

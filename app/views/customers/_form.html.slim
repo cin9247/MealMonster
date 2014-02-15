@@ -29,4 +29,7 @@
       = af.label :town
       = af.text_field :town, value: @customer.address.try(:town)
   p
+    = f.label :note
+    = f.text_area :note
+  p
     = f.submit

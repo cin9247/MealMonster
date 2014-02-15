@@ -55,13 +55,13 @@ def create_meal(name="Schweineschnitzel", kilojoules=1000, bread_units=2.1)
   Interactor::CreateMeal.new(request).run.object
 end
 
-def create_customer(forename="Max", surname="Mustermann")
-  request = OpenStruct.new(forename: forename, surname: surname)
+def create_customer(forename="Max", surname="Mustermann", note="Ich bin einsam.")
+  request = OpenStruct.new(forename: forename, surname: surname, note: note)
   Interactor::CreateCustomer.new(request).run.object
 end
 
-def create_customer_with_town(forename, surname, town)
-  c = create_customer(forename, surname)
+def create_customer_with_town(forename, surname, town, note="Einsam")
+  c = create_customer(forename, surname, note)
   request = OpenStruct.new(customer_id: c.id, street_name: "", street_number: "", postal_code: "12345", town: town)
   Interactor::AddAddressToCustomer.new(request).run
   ## TODO this can be solved by using an identity map

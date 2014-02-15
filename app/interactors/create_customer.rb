@@ -6,7 +6,7 @@ module Interactor
     register_boundary :customer_gateway, -> { CustomerMapper.new }
 
     def run
-      customer = Customer.new forename: request.forename, surname: request.surname, prefix: request.prefix, telephone_number: request.telephone_number
+      customer = Customer.new forename: request.forename, surname: request.surname, prefix: request.prefix, telephone_number: request.telephone_number, note: request.note
 
       if customer.valid?
         customer_gateway.save customer
