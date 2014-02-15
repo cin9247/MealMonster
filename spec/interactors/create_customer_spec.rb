@@ -6,9 +6,6 @@ describe Interactor::CreateCustomer do
 
   let(:subject) { Interactor::CreateCustomer.new(request) }
 
-  let(:krankenhaus) { OpenStruct.new(id: 1, name: "Krankenhaus") }
-  let(:altenheim) { OpenStruct.new(id: 2, name: "Altenheim") }
-
   before do
     subject.customer_gateway = customer_gateway
   end
