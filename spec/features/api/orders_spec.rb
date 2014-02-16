@@ -97,10 +97,10 @@ describe "/api/offerings" do
       end
     end
 
-    describe "PUT /note" do
+    describe "POST /note" do
       before do
         login_as_admin_basic_auth
-        put "/api/v1/orders/#{order.id}/note", note: "Der Kerl war nicht da!"
+        post "/api/v1/orders/#{order.id}/note", note: "Der Kerl war nicht da!"
       end
 
       it "returns status 204 No Content" do
