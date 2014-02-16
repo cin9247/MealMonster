@@ -37,6 +37,7 @@ CareEAR::Application.routes.draw do
       resources :orders do
         put :deliver, on: :member
         put :load, on: :member
+        put :note, on: :member
       end
       resources :tours do
         resources :keys

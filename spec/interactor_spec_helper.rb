@@ -29,6 +29,7 @@ module DummyGateway
           items.find { |i| i.id == id }
         end
       end
+      alias_method :non_whiny_find, :find
 
       def method_missing(method, *args, &block)
         if method.to_s =~ /^find_by_(.+)$/

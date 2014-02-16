@@ -23,6 +23,13 @@ class Api::V1::OrdersController < Api::V1::ApiController
     head :no_content
   end
 
+  def note
+    request = request_from_id
+    request.note = params[:note]
+    interact_with :create_ticket_for_order, request
+    head :no_content
+  end
+
   private
     def valid_request?(params)
       require_param :offering_id
