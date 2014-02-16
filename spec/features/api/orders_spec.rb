@@ -96,5 +96,23 @@ describe "/api/offerings" do
         expect(order["delivered"]).to eq false
       end
     end
+
+    describe "PUT /note" do
+      before do
+        login_as_admin_basic_auth
+        put "/api/v1/orders/#{order.id}/note", note: "Der Kerl war nicht da!"
+      end
+
+      it "returns status 204 No Content" do
+        expect(last_response.status).to eq 204
+      end
+
+      it "creates a new ticket for the order" do
+        tickets = TicketMapper.new.fetch
+        expect(tickets.size).to eq 1
+        expect(tickets.first.title).to include "Max Mustermann"
+        expect(tickets.first.body).to eq "Der Kerl war nicht da!"
+      end
+    end
   end
 end
