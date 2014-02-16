@@ -1,5 +1,5 @@
 require_relative "./base"
-require_relative "../models/ticket"
+require_relative "../models/order_ticket"
 
 module Interactor
   class CreateTicketForOrder < Base
@@ -7,7 +7,7 @@ module Interactor
     register_boundary :order_gateway, -> { OrderMapper.new }
     def run
       order = order_gateway.find request.order_id
-      ticket_gateway.save Ticket.new(title: order.customer.full_name, body: request.note, order: order, customer: order.customer)
+      ticket_gateway.save OrderTicket.new(body: request.note, order: order, customer: order.customer)
     end
   end
 end
