@@ -1,7 +1,14 @@
 require "spec_helper"
 
 describe "/api/tours" do
-  let(:customer_ids) { [create_customer_with_town("Max", "Mustermann", "Karlsruhe", "Kann nichts.").id, create_customer_with_town("Else", "Schmidt", "Stuttgart").id] }
+  def create_customer_temp(forename, surname, town, note="", telephone_number="")
+    customer = create_customer_with_town(forename, surname, town, note)
+    customer.telephone_number = telephone_number
+    CustomerMapper.new.update customer
+    customer
+  end
+
+  let(:customer_ids) { [create_customer_temp("Max", "Mustermann", "Karlsruhe", "Kann nichts.", "0170 33 44 55").id, create_customer_temp("Else", "Schmidt", "Stuttgart").id] }
   let(:driver) { create_driver("Max Speed") }
 
   before do
@@ -70,6 +77,7 @@ describe "/api/tours" do
         expect(tour["stations"].first["customer"]["forename"]).to eq "Max"
         expect(tour["stations"].first["customer"]["address"]["town"]).to eq "Karlsruhe"
         expect(tour["stations"].first["customer"]["note"]).to eq "Kann nichts."
+        expect(tour["stations"].first["customer"]["telephone_number"]).to eq "0170 33 44 55"
         expect(tour["stations"].first["order"]["delivered"]).to eq false
         expect(tour["stations"].first["order"]["loaded"]).to eq false
         expect(tour["stations"].first["order"]["id"]).to eq @order.id
