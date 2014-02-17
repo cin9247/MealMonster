@@ -15,6 +15,10 @@ table.tickets
         td.title= ticket.title
         td.customer= ticket.customer.full_name
         td.created-at= "16.1.2014"
-        td.status= (ticket.status == :open ? "offen" : "geschlossen")
+        td.status
+          - if ticket.open?
+            span.label.success.round Offen
+          - else
+            span.label.alert.round Geschlossen
 
 = link_to "Neues Ticket erstellen", new_ticket_path

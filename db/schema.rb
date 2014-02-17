@@ -96,6 +96,7 @@ Sequel.migration do
       column :body, "text", :null=>false
       column :customer_id, "integer", :null=>false
       column :order_id, "integer"
+      column :status, "text", :null=>false
     end
     
     create_table(:tours) do
@@ -147,5 +148,6 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140209011658_remove_offering_id_from_orders.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140215220545_add_note_to_customers.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140216153040_add_order_id_to_ticket.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140217103823_add_status_to_ticket.rb')"
   end
 end

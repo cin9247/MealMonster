@@ -13,3 +13,5 @@ ul.vcard
       =< link_to "##{@ticket.order.id}", order_path(@ticket.order)
 
 p.body= @ticket.body
+- if @ticket.open?
+  = link_to "Ticket schließen", close_ticket_path(@ticket), method: :post, class: "button"
