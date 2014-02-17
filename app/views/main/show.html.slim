@@ -35,6 +35,6 @@ div.row.dashboard
 
     p
       | Es existieren
-      strong<>= TicketMapper.new.fetch.size
+      strong<>= TicketMapper.new.fetch.select{ |t| t.open? }.size
       = link_to "unbeantwortete Tickets", tickets_path
       | .
