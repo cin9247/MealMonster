@@ -88,7 +88,7 @@ end
 
 c_1 = create_customer_with_address_and_key "Max Mustermann", "Rudolfstraße", "26", "76131", "Karlsruhe", "Schlüssel 1"
 c_2 = create_customer_with_address_and_key "Peter Henkel", "Rudolfstraße", "3", "76131", "Karlsruhe", "Schlüssel 2"
-c_3 = create_customer_with_address_and_key "Lemon Jello", "Wendtstraße", "7", "76185", "Karlsurhe", "Schlüssel 3"
+c_3 = create_customer_with_address_and_key "Lemon Jello", "Wendtstraße", "7", "76185", "Karlsruhe", "Schlüssel 3"
 c_4 = create_customer_with_address_and_key "John Lennon", "Schubertstraße", "5", "76147", "Karlsruhe", "Schlüssel 4"
 
 request = OpenStruct.new(from: today, to: today)
