@@ -54,7 +54,7 @@ class CustomersController < ApplicationController
 
   private
     def customer_params
-      params.require(:customer).permit(:forename, :surname, :prefix, :telephone_number, :catchment_area_id, :note)
+      params.require(:customer).permit(:forename, :surname, :prefix, :telephone_number, :catchment_area_id, :note, :date_of_birth)
     end
 
     def address_params
@@ -62,7 +62,9 @@ class CustomersController < ApplicationController
     end
 
     def customer_request(customer_id=nil)
-      OpenStruct.new(customer_id: customer_id, forename: customer_params[:forename], surname: customer_params[:surname], prefix: customer_params[:prefix], telephone_number: customer_params[:telephone_number], note: customer_params[:note])
+      date_of_birth = parse_date customer_params[:date_of_birth]
+
+      OpenStruct.new(customer_id: customer_id, forename: customer_params[:forename], surname: customer_params[:surname], prefix: customer_params[:prefix], telephone_number: customer_params[:telephone_number], note: customer_params[:note], date_of_birth: date_of_birth)
     end
 
     def address_request(customer_id)
@@ -75,5 +77,11 @@ class CustomersController < ApplicationController
 
     def fetch_catchment_areas
       @catchment_areas = CatchmentAreaMapper.new.fetch
+    end
+
+    def parse_date date_as_string
+      Date.parse date_as_string
+    rescue ArgumentError
+      return nil
     end
 end

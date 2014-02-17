@@ -39,6 +39,7 @@ describe "customers" do
       fill_in "Telefonnummer", with: "0174/257 12 42"
       fill_in "Stadt", with: "Karslruhe"
       fill_in "Bemerkung", with: "Kann nicht selbststaendig Tuer oeffnen."
+      fill_in "Geburtsdatum", with: "20.10.1937"
 
       select "Else-Heydlauf-Stiftung", from: "Einzugsgebiet"
 
@@ -54,6 +55,7 @@ describe "customers" do
       expect(customers.first.prefix).to eq "Herr"
       expect(customers.first.catchment_area.name).to eq "Else-Heydlauf-Stiftung"
       expect(customers.first.note).to eq "Kann nicht selbststaendig Tuer oeffnen."
+      expect(customers.first.date_of_birth).to eq Date.new(1937, 10, 20)
     end
   end
 

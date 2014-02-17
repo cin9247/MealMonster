@@ -30,4 +30,9 @@ class CustomerPresenter < SimpleDelegator
     return "(Keines)" unless catchment_area
     catchment_area.name
   end
+
+  def date_of_birth
+    return "" unless __getobj__.date_of_birth
+    __getobj__.date_of_birth.strftime("%-d.%-m.%Y")
+  end
 end

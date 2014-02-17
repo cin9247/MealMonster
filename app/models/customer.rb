@@ -6,7 +6,7 @@ class Customer
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  attr_accessor :id, :organization, :telephone_number, :prefix, :forename, :surname, :address, :catchment_area, :note
+  attr_accessor :id, :organization, :telephone_number, :prefix, :forename, :surname, :address, :catchment_area, :note, :date_of_birth
 
   def initialize(attributes={})
     attributes.each do |key, value|

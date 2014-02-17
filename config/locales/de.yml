@@ -222,6 +222,7 @@ de:
         telephone_number: Telefonnummer
         catchment_area_id: Einzugsgebiet
         note: Bemerkung
+        date_of_birth: Geburtsdatum
       meal:
         name: Name
         bread_units: Broteinheiten

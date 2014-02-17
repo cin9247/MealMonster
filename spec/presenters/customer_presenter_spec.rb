@@ -51,4 +51,26 @@ describe CustomerPresenter do
       end
     end
   end
+
+  describe "#date_of_birth" do
+    before do
+      customer.date_of_birth = date_of_birth
+    end
+
+    context "given no date of birth" do
+      let(:date_of_birth) { nil }
+
+      it "returns ''" do
+        expect(subject.date_of_birth).to eq ""
+      end
+    end
+
+    context "given valid date" do
+      let(:date_of_birth) { Date.new(1983, 10, 2) }
+
+      it "returns '2.10.1983'" do
+        expect(subject.date_of_birth).to eq "2.10.1983"
+      end
+    end
+  end
 end
