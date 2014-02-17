@@ -14,6 +14,9 @@ child(@tour) do
       attributes :id
       child :offerings, object_root: false do
         attributes :id, :name
+        child :meals, object_root: false do
+          attributes :id, :name
+        end
       end
       attributes :delivered
       attributes :loaded
