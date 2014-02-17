@@ -4,15 +4,36 @@ require "interactor_spec_helper"
 describe TicketMapper do
   describe "#save" do
     context "given ticket" do
-      it "saves the ticket and its attributes" do
-        customer = Customer.new(forename: "Max")
+      let(:customer) { Customer.new(forename: "Max") }
+      let(:ticket) { Ticket.new(title: "Titel", body: "Content", customer: customer) }
+
+      before do
         CustomerMapper.new.save customer
-        subject.save Ticket.new(title: "Titel", body: "Content", customer: customer)
+      end
+
+      it "saves the ticket and its attributes" do
+        subject.save ticket
         result = TicketMapper.new.fetch.first
         expect(result.is_a?(Ticket)).to eq true
         expect(result.title).to eq "Titel"
         expect(result.body).to eq "Content"
         expect(result.customer.forename).to eq "Max"
+      end
+
+      context "given open ticket" do
+        it "retrieves an open ticket" do
+          ticket.reopen!
+          subject.save ticket
+          result = subject.fetch.first
+          expect(result.open?).to be_true
+        end
+
+        it "retrieves a closed ticket" do
+          ticket.close!
+          subject.save ticket
+          result = subject.fetch.first
+          expect(result.closed?).to be_true
+        end
       end
     end
 

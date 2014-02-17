@@ -12,10 +12,23 @@ class Ticket
     attributes.each do |key, value|
       public_send "#{key}=", value
     end
+    @status = :open
   end
 
-  def status
-    :open
+  def closed?
+    @status == :closed
+  end
+
+  def open?
+    @status == :open
+  end
+
+  def close!
+    @status = :closed
+  end
+
+  def reopen!
+    @status = :open
   end
 
   def customer_id

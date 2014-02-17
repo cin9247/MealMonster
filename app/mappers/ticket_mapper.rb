@@ -10,14 +10,15 @@ class TicketMapper < BaseMapper
         title: ticket.title,
         body:  ticket.body,
         customer_id: ticket.customer.id,
-        order_id: ticket.respond_to?(:order) ? ticket.order.id : nil
+        order_id: ticket.respond_to?(:order) ? ticket.order.id : nil,
+        status: ticket.open? ? "open" : "closed"
       }
     end
 
     def object_from_hash(hash)
       customer = @customer_mapper.non_whiny_find(hash[:customer_id])
 
-      if hash[:order_id]
+      result = if hash[:order_id]
         order = @order_mapper.find(hash[:order_id])
 
         OrderTicket.new(
@@ -33,6 +34,12 @@ class TicketMapper < BaseMapper
           customer: customer
         )
       end
+
+      if hash[:status] == "closed"
+        result.close!
+      end
+
+      result
     end
 
     def schema_class

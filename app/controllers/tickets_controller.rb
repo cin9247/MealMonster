@@ -19,6 +19,16 @@ class TicketsController < ApplicationController
     redirect_to tickets_path
   end
 
+  def close
+    interact_with :close_ticket, OpenStruct.new(ticket_id: params[:id].to_i)
+    redirect_to tickets_path
+  end
+
+  def reopen
+    interact_with :reopen_ticket, OpenStruct.new(ticket_id: params[:id].to_i)
+    redirect_to tickets_path
+  end
+
   private
     def ticket_params
       params.require(:ticket).permit(:title, :body, :customer_id)
