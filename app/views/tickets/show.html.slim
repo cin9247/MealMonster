@@ -14,4 +14,6 @@ ul.vcard
 
 p.body= @ticket.body
 - if @ticket.open?
-  = link_to "Ticket schließen", close_ticket_path(@ticket), method: :post, class: "button"
+  = link_to "Ticket schließen", close_ticket_path(@ticket), method: :post, class: "button alert"
+- if @ticket.closed?
+  = link_to "Ticket wieder öffnen", reopen_ticket_path(@ticket), method: :post, class: "button success"

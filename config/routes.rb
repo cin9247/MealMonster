@@ -20,6 +20,7 @@ CareEAR::Application.routes.draw do
   resource :sessions
   resources :tickets do
     post :close, on: :member
+    post :reopen, on: :member
   end
   resources :users do
     get :link, on: :member

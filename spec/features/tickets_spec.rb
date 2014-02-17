@@ -72,4 +72,23 @@ describe "tickets" do
       expect(current_path).to eq tickets_path
     end
   end
+
+  describe "reopening tickets" do
+    before do
+      login_as_admin_web
+      ticket = create_ticket("Unclosed Ticket", "Some body", customer_1.id)
+      close_ticket ticket.id
+      visit ticket_path(ticket)
+
+      click_on "Ticket wieder öffnen"
+    end
+
+    it "closes the ticket" do
+      expect(TicketMapper.new.fetch.first.open?).to eq true
+    end
+
+    it "redirects to tickets path" do
+      expect(current_path).to eq tickets_path
+    end
+  end
 end

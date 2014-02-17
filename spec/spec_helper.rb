@@ -78,6 +78,11 @@ def create_ticket(title, body, customer_id)
   Interactor::CreateTicket.new(request).run.object
 end
 
+def close_ticket(ticket_id)
+  request = OpenStruct.new(ticket_id: ticket_id)
+  Interactor::CloseTicket.new(request).run.object
+end
+
 def create_price_class(name="Preisklasse 1")
   pc = PriceClass.new(name: name, price: Money.new(2031, 'EUR'))
   PriceClassMapper.new.save pc
