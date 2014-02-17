@@ -13,6 +13,7 @@ module Interactor
       customer.telephone_number = request.telephone_number
       customer.note             = request.note
       customer.date_of_birth    = request.date_of_birth
+      customer.email            = request.email
 
       customer_gateway.update customer
 

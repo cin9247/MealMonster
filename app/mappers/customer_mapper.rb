@@ -29,7 +29,8 @@ class CustomerMapper < BaseMapper
         catchment_area_id: catchment_area_id,
         telephone_number: object.telephone_number,
         note: object.note,
-        date_of_birth: object.date_of_birth
+        date_of_birth: object.date_of_birth,
+        email: object.email
       }
     end
 
@@ -45,7 +46,8 @@ class CustomerMapper < BaseMapper
                    address: address,
                    catchment_area: catchment_area,
                    note: hash[:note],
-                   date_of_birth: hash[:date_of_birth]
+                   date_of_birth: hash[:date_of_birth],
+                   email: hash[:email]
                   )
     end
 

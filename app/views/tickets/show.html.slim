@@ -5,8 +5,10 @@ ul.vcard
   li.street-address= "#{@ticket.customer.address.try(:street_name)} #{@ticket.customer.address.try(:street_number)}"
   li.locality= "#{@ticket.customer.address.try(:postal_code)} #{@ticket.customer.address.try(:town)}"
   li.telephone= @ticket.customer.telephone_number
-  li.email
-    a href="#" email
+  - if @ticket.customer.email
+    li.email
+      a href="mailto:#{@ticket.customer.email}"
+        = @ticket.customer.email
 
 - if @ticket.respond_to? :order
   p

@@ -23,6 +23,7 @@ Sequel.migration do
       column :telephone_number, "text"
       column :note, "text"
       column :date_of_birth, "date"
+      column :email, "text"
     end
     
     create_table(:customers_tours) do
@@ -151,5 +152,6 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140216153040_add_order_id_to_ticket.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140217103823_add_status_to_ticket.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140217132948_add_date_of_birth_to_customers.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140217142119_add_email_to_customers.rb')"
   end
 end

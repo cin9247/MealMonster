@@ -15,6 +15,9 @@
     = f.label :date_of_birth
     = f.text_field :date_of_birth
   p
+    = f.label :email
+    = f.text_field :email
+  p
     = f.label :catchment_area_id
     = f.select :catchment_area_id, @catchment_areas.map { |c| [c.name, c.id] }
 

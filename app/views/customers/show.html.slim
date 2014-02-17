@@ -13,6 +13,10 @@ dl
   dd= @customer.town
   dt Geburtsdatum
   dd= @customer.date_of_birth
+  dt E-Mail
+  dd
+    a href="mailto:#{@customer.email}"
+      = @customer.email
   dt Telefonnummer
   dd= @customer.telephone_number
   dt Einzugsgebiet

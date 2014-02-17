@@ -223,6 +223,7 @@ de:
         catchment_area_id: Einzugsgebiet
         note: Bemerkung
         date_of_birth: Geburtsdatum
+        email: E-Mail
       meal:
         name: Name
         bread_units: Broteinheiten
