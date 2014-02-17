@@ -7,7 +7,7 @@ class Offering
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  attr_accessor :id, :menu, :day, :price_class
+  attr_accessor :id, :menu, :day, :price_class, :created_at, :updated_at
 
   def initialize(attributes={})
     attributes.each do |key, value|

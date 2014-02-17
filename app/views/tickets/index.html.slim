@@ -14,7 +14,7 @@ table.tickets
         td.id= link_to "##{ticket.id}", ticket_path(ticket)
         td.title= ticket.title
         td.customer= ticket.customer.full_name
-        td.created-at= "16.1.2014"
+        td.created-at=l ticket.created_at
         td.status
           - if ticket.open?
             span.label.success.round Offen

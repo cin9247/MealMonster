@@ -1,6 +1,6 @@
 require "spec_helper"
 
-class Foo < Struct.new(:name)
+class Foo < Struct.new(:name, :created_at, :updated_at)
   attr_accessor :id
 
   def persisted?
@@ -31,10 +31,15 @@ class FooMapper < BaseMapper
 end
 
 describe FooMapper do
+  let(:current_date) { DateTime.new(2014, 2, 2, 14, 32, 20, '+2') }
+  let(:current_date_utc) { DateTime.new(2014, 2, 2, 12, 32, 20) }
+
   before do
     DB.create_table :foos do
       primary_key :id
       String :name
+      DateTime :created_at
+      DateTime :updated_at
     end
   end
 
@@ -52,7 +57,7 @@ describe FooMapper do
     let(:foo) { Foo.new("Peter") }
 
     before do
-      subject.save(foo)
+      subject.save(foo, current_date)
     end
 
     it "adds the record to the database" do
@@ -61,6 +66,16 @@ describe FooMapper do
 
     it "sets the id of the record" do
       expect(foo.id).to_not be_nil
+    end
+
+    it "sets created_at and updated_at to the current time" do
+      expect(foo.created_at).to eq current_date_utc
+      expect(foo.updated_at).to eq current_date_utc
+    end
+
+    it "saves the created_at and updated_at to the database" do
+      expect(subject.fetch.first.created_at).to eq current_date_utc
+      expect(subject.fetch.first.updated_at).to eq current_date_utc
     end
 
     it "does not allow saving an object twice" do
@@ -75,10 +90,10 @@ describe FooMapper do
     let(:foo_old) { Foo.new("Agate") }
 
     before do
-      subject.save foo
+      subject.save foo, current_date
       subject.save foo_old
       foo.name = "Dieter"
-      subject.update foo
+      subject.update foo, DateTime.new(2014, 1, 1)
     end
 
     it "sets the name to Dieter" do
@@ -87,6 +102,10 @@ describe FooMapper do
 
     it "doesn't change any other record" do
       expect(subject.find(foo_old.id).name).to eq "Agate"
+    end
+
+    it "sets updated_at to the current date" do
+      expect(subject.find(foo.id).updated_at).to eq Date.new(2014, 1, 1)
     end
 
     it "raises error when record hasn't been saved yet" do

@@ -2,7 +2,7 @@ class Link
   extend ActiveModel::Naming
   include ActiveModel::Conversion
 
-  attr_accessor :user
+  attr_accessor :user, :created_at, :updated_at
 
   def initialize(user)
     @user = user

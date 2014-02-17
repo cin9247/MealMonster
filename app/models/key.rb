@@ -1,5 +1,5 @@
 class Key
-  attr_accessor :id, :name, :address
+  attr_accessor :id, :name, :address, :created_at, :updated_at
 
   def initialize(attributes={})
     attributes.each do |key, value|

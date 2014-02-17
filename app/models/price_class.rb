@@ -2,7 +2,7 @@ class PriceClass
   extend ActiveModel::Naming
   extend ActiveModel::Translation
   include ActiveModel::Conversion
-  attr_accessor :id, :name, :price
+  attr_accessor :id, :name, :price, :created_at, :updated_at
 
   def initialize(attributes={})
     attributes.each do |key, value|

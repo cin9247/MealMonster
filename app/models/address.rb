@@ -1,5 +1,5 @@
 class Address
-  attr_accessor :id, :street_name, :street_number, :postal_code, :town
+  attr_accessor :id, :street_name, :street_number, :postal_code, :town, :created_at, :updated_at
   attr_writer :keys
 
   def initialize(attributes={})

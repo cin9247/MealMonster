@@ -16,6 +16,8 @@ Dir[File.expand_path('../../app/policies/*', __FILE__)].each do |f|
   require f
 end
 
+Sequel.datetime_class = DateTime
+
 module CareEAR
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

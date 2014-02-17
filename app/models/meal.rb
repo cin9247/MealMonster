@@ -6,7 +6,7 @@ class Meal
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  attr_accessor :id, :name, :kitchen, :bread_units, :kilojoules
+  attr_accessor :id, :name, :kitchen, :bread_units, :kilojoules, :created_at, :updated_at
 
   def initialize(attributes = {})
     self.attributes = attributes

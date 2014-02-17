@@ -1,17 +1,24 @@
 class BaseMapper
   class RecordNotFound < StandardError; end
 
-  def save(record)
+  def save(record, now=DateTime.now)
     raise "Can't be saved again. Try #update instead" if record.id
 
-    record.id = schema_class.new(hash_from_object(record)).save[:id]
+    record.created_at = now.utc
+    record.updated_at = now.utc
+    o = {
+      created_at: record.created_at,
+      updated_at: record.updated_at
+    }
+    record.id = schema_class.new(hash_from_object(record).merge(o)).save[:id]
   end
 
-  def update(record)
+  def update(record, now=DateTime.now)
     raise "Can't update non-existing record. Try #save instead" unless record.id
 
+    record.updated_at = now.utc
     schema_class.where(id: record.id)
-                .update(hash_from_object(record))
+                .update(hash_from_object(record).merge(updated_at: record.updated_at))
   end
 
   def fetch
@@ -66,6 +73,8 @@ class BaseMapper
 
     def convert_to_object_and_set_id(hash)
       object_from_hash(hash).tap do |o|
+        o.created_at = hash[:created_at]
+        o.updated_at = hash[:updated_at]
         o.id = hash[:id]
       end
     end

@@ -7,7 +7,7 @@ class Order
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  attr_accessor :id, :day, :offerings, :customer, :note, :date
+  attr_accessor :id, :day, :offerings, :customer, :note, :date, :created_at, :updated_at
   attr_reader :state
 
   def initialize(attributes={})

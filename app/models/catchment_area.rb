@@ -2,7 +2,7 @@ class CatchmentArea
   extend ActiveModel::Naming
   extend ActiveModel::Translation
   include ActiveModel::Conversion
-  attr_accessor :id, :name
+  attr_accessor :id, :name, :created_at, :updated_at
 
   def initialize(attributes={})
     attributes.each do |key, value|

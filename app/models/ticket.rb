@@ -6,7 +6,7 @@ class Ticket
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  attr_accessor :id, :title, :body, :customer
+  attr_accessor :id, :title, :body, :customer, :created_at, :updated_at
 
   def initialize(attributes={})
     attributes.each do |key, value|
