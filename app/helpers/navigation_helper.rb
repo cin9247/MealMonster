@@ -3,7 +3,7 @@ require "ostruct"
 module NavigationHelper
   def navigation_items
     [
-      OpenStruct.new(title: "Dashboard", url: root_path, active: controller?("main")),
+      OpenStruct.new(title: "Startseite", url: root_path, active: controller?("main")),
       OpenStruct.new(title: "Kunden", url: customers_path, active: controller?("customers")),
       OpenStruct.new(title: "Angebotene Menus", url: offerings_path, active: controller?("offerings")),
       OpenStruct.new(title: "Gerichte", url: meals_path, active: controller?("meals")),
