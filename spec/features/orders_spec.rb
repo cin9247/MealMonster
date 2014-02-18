@@ -70,8 +70,8 @@ describe "orders" do
       visit new_order_path(:date => "2013-10-05")
 
       select "Max Mustermann", from: "Kunde"
-      select "Veggie-Menu", from: "Menü 1"
-      select "Für Pfundskerle", from: "Menü 2"
+      select "Veggie-Menu", from: "Bestellung 1"
+      select "Für Pfundskerle", from: "Bestellung 2"
 
       click_on "Bestellung erstellen"
     end
