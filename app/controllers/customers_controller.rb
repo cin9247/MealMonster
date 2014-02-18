@@ -40,10 +40,10 @@ class CustomersController < ApplicationController
         interact_with :set_catchment_area_for_customer, catchment_area_request(customer.id)
       end
 
-      redirect_to customers_path, notice: "Customer successfully created"
+      redirect_to customers_path, notice: "Kunde erfolgreich erstellt."
     else
       @customer = response.object
-      flash[:error] = "There was an error submitting your request"
+      flash[:error] = "Es gab einen Fehler beim Erstellen des Kunden."
       render :new
     end
   end

@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       redirect_to root_path, notice: "Sie haben sich erfolgreich eingeloggt"
     else
       flash.now[:error] = "Falcher Benutzername oder falsches Passwort."
-      render :new, notice: "muh"
+      render :new
     end
   end
 
