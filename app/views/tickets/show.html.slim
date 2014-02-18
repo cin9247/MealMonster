@@ -1,5 +1,5 @@
 h1.ticket-title= @ticket.title
-h6.subheader.ticket-subtitle= "Erstellt am #{l @ticket.created_at.in_time_zone}"
+h6.subheader.ticket-subtitle= "Erstellt am #{long_time @ticket.created_at}"
 
 ul.vcard
   li.fn= @ticket.customer.full_name
@@ -13,10 +13,10 @@ ul.vcard
 
 - if @ticket.respond_to? :order
   p
-    h6
+    h6.ticket-order-header
       | Bezüglich Bestellung
       =< link_to "##{@ticket.order.id}", order_path(@ticket.order)
-    h6.subheader.ticket-order-subtitle= "Bestellt am #{l @ticket.order.created_at.in_time_zone}"
+    h6.subheader.ticket-order-subtitle= "Bestellt am #{long_time @ticket.order.created_at}"
 
 p.panel.body= @ticket.body
 - if @ticket.open?
