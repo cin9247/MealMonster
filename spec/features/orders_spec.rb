@@ -78,6 +78,7 @@ describe "orders" do
 
     it "redirects to orders_path" do
       expect(current_path).to eq orders_path
+      expect(page).to have_content "5.10.2013"
     end
 
     it "should have created the order" do

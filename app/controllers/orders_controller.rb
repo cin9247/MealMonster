@@ -20,13 +20,21 @@ class OrdersController < ApplicationController
   end
 
   def create
+    if params[:orders].blank?
+      redirect_to orders_path
+      return
+    end
+
     params[:orders].each do |index, order_params|
       request = request_from_order_params order_params
       request.customer_id = params[:customer_id].to_i
       interact_with :create_order, request
     end
+    date = params[:orders].map { |index, params| params[:date] }.first
 
-    redirect_to orders_path
+    from = Date.parse(date).beginning_of_week
+    to = Date.parse(date).end_of_week
+    redirect_to orders_path(from: from, to: to), notice: "Bestellungen erfolgreich erstellt."
   end
 
   private
