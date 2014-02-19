@@ -4,6 +4,8 @@ class OrdersController < ApplicationController
     @orders = range.to_a.map do |date|
       OrderMapper.new.find_by_date date
     end.flatten
+    @first_day = range.to_a.first
+    @last_day = range.to_a.last
   end
 
   def new

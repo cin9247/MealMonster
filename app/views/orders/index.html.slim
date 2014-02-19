@@ -1,3 +1,8 @@
+div.pagination.pagination-centered
+  ul
+    li = link_to "Vorherige Woche", orders_path(from: @first_day - 7.days, to: @last_day - 7.days)
+    li = link_to "Nächste Woche", orders_path(from: @first_day + 7.days, to: @last_day + 7.days)
+
 ul.days
   - @orders.group_by{ |o| o.date }.each do |date, orders|
     li.day
