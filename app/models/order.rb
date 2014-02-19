@@ -5,7 +5,6 @@ class Order
   extend ActiveModel::Naming
   extend ActiveModel::Translation
   include ActiveModel::Conversion
-  include ActiveModel::Validations
 
   attr_accessor :id, :day, :offerings, :customer, :note, :date, :created_at, :updated_at
   attr_reader :state
@@ -45,5 +44,9 @@ class Order
 
   def price
     offerings.reduce(Money.zero) { |sum, of| sum + of.price }
+  end
+
+  def valid?
+    offerings.size > 0
   end
 end

@@ -1,6 +1,22 @@
 require_relative "../../app/models/order"
 
 describe Order do
+  describe "#valid?" do
+    context "given no offerings" do
+      it "is not valid" do
+        subject.offerings = []
+        expect(subject.valid?).to eq false
+      end
+    end
+
+    context "given one offering" do
+      it "is valid" do
+        subject.offerings = [double]
+        expect(subject.valid?).to eq true
+      end
+    end
+  end
+
   describe "#deliver!" do
     it "sets the state to delivered" do
       subject.deliver!

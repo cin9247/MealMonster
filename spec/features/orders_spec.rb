@@ -67,13 +67,13 @@ describe "orders" do
     end
 
     before do
-      visit new_order_path(:date => "2013-10-05")
+      visit new_order_path(:from => "2013-10-05", to: "2013-10-05")
 
       select "Max Mustermann", from: "Kunde"
       select "Veggie-Menu", from: "Bestellung 1"
       select "Für Pfundskerle", from: "Bestellung 2"
 
-      click_on "Bestellung erstellen"
+      click_on "Bestellungen aufgeben"
     end
 
     it "redirects to orders_path" do

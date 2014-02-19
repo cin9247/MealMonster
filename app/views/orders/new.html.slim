@@ -1,25 +1,28 @@
-h1= "Bestellung für #{l @date}"
+= form_tag orders_path, method: :post do
+  p
+    = label_tag :customer_id, "Kunde"
+    = select_tag :customer_id, options_for_select(@customers.map { |c| [c.full_name, c.id] })
 
-- if @offerings.present?
+  - @days.each_with_index do |day, j|
+    h1.title= "Bestellung für #{l day.date}"
 
-  = form_for @order do |f|
-    p
-      = f.label :customer_id, "Kunde"
-      = f.select :customer_id, @customers.map { |c| [c.full_name, c.id] }
-    - 3.times do |i|
-      p
-        = label_tag "offering-#{i}", "Bestellung #{i + 1}"
-        = select_tag "order[offering_id][]", options_for_select([["(Keine Bestellung)", nil]] + @offerings.map { |o| ["#{o.menu.name} (#{meal_list o.menu})", o.id] }), id: "offering-#{i}"
-    p
-      = f.hidden_field :date, value: @date.iso8601
-    p
-      = f.submit
-- else
-  div.panel
-    | Für den heutigen Tag liegen keine Angebote vor, die bestellt werden können.
-    =< link_to "Erstellen Sie neue Angebote!", new_offering_path(from: @date, to: @date)
+    - if day.offerings.present?
+
+        - 3.times do |i|
+          p
+            - id = "orders_#{j}-offerings-#{i}"
+            = label_tag id, "Bestellung #{i + 1}"
+            = select_tag "orders[#{j}][offering_id][]", options_for_select([["(Keine Bestellung)", nil]] + day.offerings.map { |o| ["#{o.menu.name} (#{meal_list o.menu})", o.id] }), id: id
+        p
+          = hidden_field_tag "orders[#{j}][date]", value: day.date.iso8601
+    - else
+      div.panel
+        | Für den heutigen Tag liegen keine Angebote vor, die bestellt werden können.
+        =< link_to "Erstellen Sie neue Angebote!", new_offering_path(from: day.date, to: day.date)
+  p
+    = submit_tag "Bestellungen aufgeben"
 
 div.pagination.pagination-centered
   ul
-    li= link_to "Vorheriger Tag", new_order_path(date: previous_day)
-    li= link_to "Nächster Tag", new_order_path(date: next_day)
+    li = link_to "Vorherige Woche", new_order_path(from: @days.first.date - 7.days, to: @days.last.date - 7.days)
+    li = link_to "Nächste Woche", new_order_path(from: @days.first.date + 7.days, to: @days.last.date + 7.days)
