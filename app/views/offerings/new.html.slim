@@ -22,16 +22,6 @@ div.row#new-offering
 
   div.large-5.columns
     div.panel.radius.meals-panel
-      dl.sub-nav.filter
-        dt Filter:
-        dd.active
-          a href="#" Alle
-        dd
-          a href="#" Vorspeise
-        dd
-          a href="#" Hauptgericht
-        dd
-          a href="#" Nachtisch
       ul.meals
         - @meals.each do |meal|
           li.meal data-meal-id="#{meal.id}" data-meal-name="#{meal.name}"
