@@ -81,7 +81,8 @@ EditableHeader = React.createClass
 
   removeTour: (event) ->
     event.preventDefault()
-    @props.removeTour()
+    if confirm("Wollen Sie die Tour \"#{@props.content}\" wirklich löschen?")
+      @props.removeTour()
 
   render: ->
     inner = if !@state.editing
