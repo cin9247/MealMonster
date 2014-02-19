@@ -1,6 +1,9 @@
 class OrdersController < ApplicationController
   def index
-    @orders = OrderMapper.new.fetch
+    range = parse_dates_or_default_to_this_week
+    @orders = range.to_a.map do |date|
+      OrderMapper.new.find_by_date date
+    end.flatten
   end
 
   def new

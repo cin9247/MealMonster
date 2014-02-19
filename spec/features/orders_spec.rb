@@ -30,7 +30,7 @@ describe "orders" do
         create_order(customers[1].id, offering_2.id)
         create_order(customers[2].id, offering_3.id)
 
-        visit orders_path(:date => "2013-10-05")
+        visit orders_path(:from => "2013-10-05", :to => "2013-10-06")
       end
 
       it "shows the current date" do
