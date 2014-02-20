@@ -9,10 +9,10 @@ table.order-overview
       th Menü
       th Anzahl
   tbody
-    - @tour.stations.map(&:order).map(&:offerings).flatten.group_by(&:id).each do |id, offerings|
+    - @menu_summary.each do |menu|
       tr
-        td= offerings.first.name
-        td= offerings.size
+        td= menu.name
+        td= menu.count
 
 ol.stations
   - @tour.stations.each do |s|

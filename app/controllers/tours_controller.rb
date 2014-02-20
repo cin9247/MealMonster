@@ -16,6 +16,9 @@ class ToursController < ApplicationController
     date = Date.parse(params[:date])
     request = OpenStruct.new(tour_id: params[:id].to_i, date: date)
     @tour = interact_with(:list_stations, request).object
+    @menu_summary = @tour.stations.map { |s| s.order.offerings }.flatten.group_by(&:id).map do |id, offerings|
+      OpenStruct.new(name: offerings.first.name, count: offerings.size)
+    end
   end
 
   def manage
