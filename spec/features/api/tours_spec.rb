@@ -59,9 +59,7 @@ describe "/api/tours" do
       meal = create_meal "Schweineschnitzel"
       offering_id = create_offering(Date.new(2013, 10, 4), "Menü 1", [meal.id]).id
       @order = create_order(customer_ids.first, offering_id)
-    end
 
-    before do
       get "/api/v1/tours/#{tour_id}?date=#{date}"
     end
 

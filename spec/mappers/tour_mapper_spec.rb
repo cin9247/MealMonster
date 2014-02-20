@@ -31,6 +31,26 @@ describe TourMapper do
     end
   end
 
+  describe "#update" do
+    before do
+      subject.save tour
+      tour.name = "Neue Tour"
+      subject.update tour
+    end
+
+    it "changes the name" do
+      expect(subject.fetch.first.name).to eq "Neue Tour"
+    end
+
+    it "doesn't create a new record" do
+      expect(subject.fetch.size).to eq 1
+    end
+
+    it "still has the same customers" do
+      expect(subject.fetch.first.customers.map(&:id)).to eq [customer_1.id, customer_2.id]
+    end
+  end
+
   describe "ordering of customers" do
     it "orders the customer properly" do
       tour_id = subject.save Tour.new(name: "Tour", customers: [])

@@ -10,6 +10,7 @@ class TourMapper < BaseMapper
   def update(record)
     super record
 
+    remove_customer_mappings record
     create_customers_mapping record
 
     record.id
@@ -39,6 +40,10 @@ class TourMapper < BaseMapper
   private
     def schema_class
       Schema::Tour
+    end
+
+    def remove_customer_mappings(record)
+      Schema::CustomersTour.where(tour_id: record.id).delete
     end
 
     def create_customers_mapping(record)

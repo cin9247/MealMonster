@@ -27,7 +27,7 @@ describe "tours" do
 
   describe "manage tours", js: true do
     it "shows all customers in the table and tours" do
-      within("table.customers") do
+      within(".customers") do
         expect(page).to have_content "Peter Mustermann"
         expect(page).to have_content "Dieter Heinzelmann"
       end
@@ -39,11 +39,11 @@ describe "tours" do
 
     describe "adding of customers to tour" do
       it "adds customers to tours" do
-        within("table.customers") do
+        within(".customers") do
           find("tr", text: "Peter Mustermann").click_on "#1"
         end
 
-        within("table.customers") do
+        within(".customers") do
           find("tr", text: "Dieter Heinzelmann").click_on "#3"
         end
 
