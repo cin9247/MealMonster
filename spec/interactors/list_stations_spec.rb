@@ -9,8 +9,8 @@ describe Interactor::ListStations do
   let(:customer_1) { double(:customer, id: 1) }
   let(:customer_2) { double(:customer, id: 2) }
   let(:customer_3) { double(:customer, id: 3) }
-  let(:order_1) { OpenStruct.new id: 1, customer: customer_1, date: date }
-  let(:order_2) { OpenStruct.new id: 2, customer: customer_2, date: Date.new(2013, 10, 6) }
+  let(:order_1) { OpenStruct.new id: 1, customer: customer_2, date: date }
+  let(:order_2) { OpenStruct.new id: 2, customer: customer_1, date: Date.new(2013, 10, 6) }
   let(:order_3) { OpenStruct.new id: 3, customer: customer_3, date: date }
 
   before do
@@ -31,7 +31,7 @@ describe Interactor::ListStations do
 
   it "returns a list of stations for that day" do
     expect(result.object.length).to eq 1
-    expect(result.object.first.customer).to eq customer_1
+    expect(result.object.first.customer).to eq customer_2
     expect(result.object.first.order).to eq order_1
   end
 end
