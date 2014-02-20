@@ -15,6 +15,13 @@
 
   .customers {
     margin-top: -1.5em;
+    margin-bottom: 1em;
+    max-height: 200px;
+    overflow: scroll;
+    table {
+      margin-bottom: 0;
+      width: 100%;
+    }
   }
 }
 

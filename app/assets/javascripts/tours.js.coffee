@@ -18,8 +18,6 @@ CustomerRow = React.createClass
 
 CustomerTable = React.createClass
   render: ->
-    if @props.customers.length == 0
-      return React.DOM.div(className: "panel callout", "Alle Kunden wurden erfolgreich zugeordnet.")
     headers = [React.DOM.td(null, 'Name'), React.DOM.td(null, 'Adresse'), React.DOM.td(null, "Zu Tour hinzufügen")]
 
     customerRows = @props.customers.map (c) =>
@@ -27,7 +25,7 @@ CustomerTable = React.createClass
     tableHead = React.DOM.thead(null, React.DOM.tr(null, headers))
     tableBody = React.DOM.tbody(null, customerRows)
 
-    React.DOM.table(className: "customers", [tableHead, tableBody])
+    React.DOM.table(null, [tableHead, tableBody])
 
 SearchBox = React.createClass
   onChange: (event) ->
@@ -57,12 +55,16 @@ SearchableCustomerBox = React.createClass
     @setState(customers: filteredCustomers)
 
   render: ->
-    React.DOM.div(className: "row customer-search-box",
-      React.DOM.div(className: "large-4 small-12 columns",
-        SearchBox(onSearch: @filterCustomers)
+    React.DOM.div(className: "customer-search-box",
+      React.DOM.div(className: "row",
+        React.DOM.div(className: "large-4 small-12 columns",
+          SearchBox(onSearch: @filterCustomers)
+        )
       )
-      React.DOM.div(className: "large-12 small-12 columns",
-        CustomerTable({customers: @state.customers || @props.customers, addToTourHandler: @props.addToTourHandler, tourCount: @props.tourCount})
+      React.DOM.div(className: "row",
+        React.DOM.div(className: "customers large-9 small-12 columns",
+          CustomerTable({customers: @state.customers || @props.customers, addToTourHandler: @props.addToTourHandler, tourCount: @props.tourCount})
+        )
       )
     )
 
