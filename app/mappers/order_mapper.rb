@@ -20,6 +20,12 @@ class OrderMapper < BaseMapper
     end
   end
 
+  def find_by_month(month)
+    schema_class.where(date: month.to_date_range.to_range).order(:date).map do |o|
+      convert_to_object_and_set_id o
+    end
+  end
+
   def find_by_customer_id(customer_id)
     schema_class.where(customer_id: customer_id).map do |o|
       convert_to_object_and_set_id o

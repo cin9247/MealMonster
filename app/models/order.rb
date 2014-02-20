@@ -49,4 +49,8 @@ class Order
   def valid?
     offerings.size > 0
   end
+
+  def offerings
+    @offerings ||= []
+  end
 end

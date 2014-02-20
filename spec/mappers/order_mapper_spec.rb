@@ -1,4 +1,5 @@
 require "spec_helper"
+require "month"
 
 describe OrderMapper do
   let(:meal_1) { create_meal "Hack" }
@@ -62,6 +63,21 @@ describe OrderMapper do
       result = subject.find_by_date Date.new(2013, 10, 7)
       expect(result.size).to eq 1
       expect(result.first.customer.forename).to eq "Hans"
+    end
+  end
+
+  describe "#find_by_month" do
+    before do
+      subject.save Order.new(date: Date.new(2014, 10, 24), customer: customer)
+      subject.save Order.new(date: Date.new(2014, 11, 1), customer: customer)
+      subject.save Order.new(date: Date.new(2014, 10, 12), customer: customer)
+    end
+
+    it "returns only the orders for that month" do
+      result = subject.find_by_month Month.new(10, 2014)
+      expect(result.size).to eq 2
+      expect(result.first.date).to eq Date.new(2014, 10, 12)
+      expect(result.last.date).to eq Date.new(2014, 10, 24)
     end
   end
 
