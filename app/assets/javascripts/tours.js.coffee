@@ -29,6 +29,43 @@ CustomerTable = React.createClass
 
     React.DOM.table(className: "customers", [tableHead, tableBody])
 
+SearchBox = React.createClass
+  onChange: (event) ->
+    @props.onSearch event.target.value
+
+  render: ->
+    React.DOM.form(null,
+      React.DOM.div(className: "row collapse", [
+        React.DOM.div(className: "small-3 large-2 columns",
+          React.DOM.span(className: "prefix", React.DOM.i(className: "fi-magnifying-glass"))
+        )
+        React.DOM.div(className: "small-9 large-10 columns",
+          React.DOM.input(type: "text", placeholder: "Kunden filtern...", onChange: @onChange)
+        )]
+      )
+    )
+
+SearchableCustomerBox = React.createClass
+  getInitialState: ->
+    {}
+
+  filterCustomers: (searchText) ->
+    filteredCustomers = @props.customers.filter (customer) ->
+      regex = new RegExp searchText, "i"
+      !!regex.test(customer.full_name)
+
+    @setState(customers: filteredCustomers)
+
+  render: ->
+    React.DOM.div(className: "row customer-search-box",
+      React.DOM.div(className: "large-4 small-12 columns",
+        SearchBox(onSearch: @filterCustomers)
+      )
+      React.DOM.div(className: "large-12 small-12 columns",
+        CustomerTable({customers: @state.customers || @props.customers, addToTourHandler: @props.addToTourHandler, tourCount: @props.tourCount})
+      )
+    )
+
 CustomerInTour = React.createClass
   handleRemove: (event) ->
     event.preventDefault()
@@ -247,7 +284,7 @@ ManageTourWidget = React.createClass
 
   render: ->
     React.DOM.div(null, [
-      CustomerTable({customers: @state.customers, addToTourHandler: @addToTourHandler, tourCount: @state.tours.length})
+      SearchableCustomerBox({customers: @state.customers, addToTourHandler: @addToTourHandler, tourCount: @state.tours.length})
 
       React.DOM.div(className: "row", [
         React.DOM.div({className: "columns large-3"}, [
