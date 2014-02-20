@@ -12,6 +12,12 @@ class ToursController < ApplicationController
     end
   end
 
+  def show
+    date = Date.parse(params[:date])
+    request = OpenStruct.new(tour_id: params[:id].to_i, date: date)
+    @tour = interact_with(:list_stations, request).object
+  end
+
   def manage
     @customers = customers_to_hash CustomerMapper.new.fetch
 

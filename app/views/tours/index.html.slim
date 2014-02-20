@@ -8,6 +8,7 @@
       - day.tours.each do |tour|
         li.tour
           h3= tour.name
+          = link_to "Einzelansicht", tour_path(tour, date: day.date), class: "tour-detail-link"
           h6.subheader.driver= "Fahrer: #{tour.driver.try(:name)}"
           ol.stations
             - tour.stations.each do |s|

@@ -3,7 +3,7 @@ require "spec_helper"
 describe "tours" do
   let!(:customer_1) { create_customer "Peter", "Mustermann" }
   let!(:customer_2) { create_customer "Dieter", "Heinzelmann" }
-  let!(:customer_3) { create_customer "Maria", "Mustermann" }
+  let!(:customer_3) { create_customer "Maria", "Meyer" }
 
   before do
     login_as_admin_web
@@ -33,7 +33,7 @@ describe "tours" do
       end
 
       within(".tours") do
-        expect(page).to have_content "Maria Mustermann"
+        expect(page).to have_content "Maria Meyer"
       end
     end
 
@@ -59,13 +59,13 @@ describe "tours" do
     describe "removing of customers" do
       it "let's users remove customers from tours" do
         within ".tours" do
-          find(".station", text: "Maria Mustermann").find(".remove").click# "Löschen"
+          find(".station", text: "Maria Meyer").find(".remove").click# "Löschen"
         end
 
         save_and_reload
 
         within ".tours" do
-          expect(page).to_not have_content "Maria Mustermann"
+          expect(page).to_not have_content "Maria Meyer"
         end
       end
     end
@@ -117,7 +117,7 @@ describe "tours" do
     it "displays tags for delivered and loaded" do
       within ".day", text: "Mittwoch, der 29.01.2014" do
         expect(all("li.tour").size).to eq 3
-        within ".station", text: "Maria Mustermann" do
+        within ".station", text: "Maria Meyer" do
           expect(page).to have_css("i.delivered")
         end
         within ".station", text: "Peter Mustermann" do
@@ -125,5 +125,49 @@ describe "tours" do
         end
       end
     end
+  end
+
+  describe "tour details" do
+    let(:date) { Date.new(2015, 1, 29) }
+
+    before do
+      offering_1 = create_offering(date, "Spaghetti")
+      offering_2 = create_offering(date, "Rabenfutter")
+
+      tour = create_tour "Schnelle Tour", [customer_1.id, customer_2.id, customer_3.id]
+
+      create_order(customer_1.id, offering_1.id)
+      create_order(customer_2.id, offering_1.id, offering_2.id)
+
+      visit tour_path(tour, date: date)
+    end
+
+    it "displays the tour name" do
+      expect(page).to have_css("h1", text: "Schnelle Tour")
+    end
+
+    it "displays the current date" do
+      expect(page).to have_content "29.01.2015"
+    end
+
+    it "lists all customers which have ordered for today" do
+      within(".stations") do
+        expect(page).to have_content customer_1.surname
+        expect(page).to have_content customer_2.surname
+        expect(page).to_not have_content customer_3.surname
+      end
+    end
+
+    it  "contains an overview of all ordered offerings" do
+      within ".order-overview" do
+        within "tr", text: "Spaghetti" do
+          expect(page).to have_content "2"
+        end
+        within "tr", text: "Rabenfutter" do
+          expect(page).to have_content "1"
+        end
+      end
+    end
+
   end
 end

@@ -124,9 +124,9 @@ def add_key_for_customer(customer, name)
   Interactor::AddKeyToAddress.new(request).run
 end
 
-def create_order(customer_id, offering_id)
-  date = OfferingMapper.new.find(offering_id).date
-  request = OpenStruct.new(customer_id: customer_id, offering_ids: [offering_id], date: date)
+def create_order(customer_id, *offering_ids)
+  date = OfferingMapper.new.find(offering_ids.first).date
+  request = OpenStruct.new(customer_id: customer_id, offering_ids: offering_ids, date: date)
   Interactor::CreateOrder.new(request).run.object
 end
 

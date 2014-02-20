@@ -25,13 +25,19 @@
   }
 }
 
+li.station {
+  list-style-type: decimal;
+}
+
 .tour {
-  li.station {
-    list-style-type: decimal;
-  }
   .driver-select {
     margin-top: -1.5em;
     margin-bottom: 2em;
+  }
+  .tour-detail-link {
+    display: block;
+    margin-top: -1em;
+    margin-bottom: 1em;
   }
 }
 

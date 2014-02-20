@@ -15,7 +15,7 @@ module Interactor
         end
       end.flatten
 
-      muh = OpenStruct.new(date: request.date, stations: stations, name: tour.name)
+      muh = OpenStruct.new(date: request.date, stations: stations, name: tour.name, driver: tour.driver)
 
       OpenStruct.new object: muh
     end

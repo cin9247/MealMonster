@@ -21,4 +21,8 @@ class Tour
   def eject_driver!
     self.driver = nil
   end
+
+  def persisted?
+    !id.nil?
+  end
 end

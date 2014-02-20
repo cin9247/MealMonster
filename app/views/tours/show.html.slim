@@ -1,0 +1,23 @@
+h1= @tour.name
+
+h4.subheader= l @tour.date
+h5.subheader= "Fahrer: #{@tour.driver.try(:name)}"
+
+table.order-overview
+  thead
+    tr
+      th Menü
+      th Anzahl
+  tbody
+    - @tour.stations.map(&:order).map(&:offerings).flatten.group_by(&:id).each do |id, offerings|
+      tr
+        td= offerings.first.name
+        td= offerings.size
+
+ol.stations
+  - @tour.stations.each do |s|
+    li.station
+      h6= s.customer.full_name
+      p
+        = menu_list s.order
+
