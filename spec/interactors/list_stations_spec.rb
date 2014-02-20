@@ -30,8 +30,16 @@ describe Interactor::ListStations do
   let(:result) { subject.run }
 
   it "returns a list of stations for that day" do
-    expect(result.object.length).to eq 1
-    expect(result.object.first.customer).to eq customer_2
-    expect(result.object.first.order).to eq order_1
+    expect(result.object.stations.length).to eq 1
+    expect(result.object.stations.first.customer).to eq customer_2
+    expect(result.object.stations.first.order).to eq order_1
+  end
+
+  it "returns the name of the tour" do
+    expect(result.object.name).to eq "Tour"
+  end
+
+  it "returns the date" do
+    expect(result.object.date).to eq date
   end
 end

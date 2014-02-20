@@ -8,12 +8,14 @@ module Interactor
     def run
       tour = tour_gateway.find request.tour_id
       orders_for_that_day = order_gateway.find_by_date(request.date)
-      muh = tour.customers.map do |c|
+      stations = tour.customers.map do |c|
         orders_for_that_customer = orders_for_that_day.select { |o| o.customer.id == c.id }
         orders_for_that_customer.map do |o|
           OpenStruct.new customer: c, order: o
         end
       end.flatten
+
+      muh = OpenStruct.new(date: request.date, stations: stations, name: tour.name)
 
       OpenStruct.new object: muh
     end
