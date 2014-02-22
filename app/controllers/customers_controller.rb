@@ -5,6 +5,15 @@ class CustomersController < ApplicationController
 
   def index
     @customers = wrap CustomerMapper.new.fetch
+    @customer_json = @customers.map do |c|
+      {
+        id: c.id,
+        forename: c.forename,
+        surname: c.surname,
+        short_address: c.short_address,
+        catchment_area_name: c.catchment_area_name
+      }
+    end
   end
 
   def new
