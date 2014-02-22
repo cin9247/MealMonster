@@ -39,4 +39,28 @@ describe "other offerings not bound to date" do
       expect(page).to have_content "Angebot erfolgreich erstellt."
     end
   end
+
+  describe "editing an offering" do
+    before do
+      create_all_time_offering("Abendessen", Money.new(245))
+
+      login_as_admin_web
+      visit all_time_offerings_path
+
+      within "tr", text: "Abendessen" do
+        click_on "Editieren"
+      end
+
+      fill_in "Name", with: "Abendessen 2"
+      click_on "Angebot aktualisieren"
+    end
+
+    it "redirects to the list of offerings" do
+      expect(current_path).to eq all_time_offerings_path
+    end
+
+    it "has updated the offering" do
+      expect(page).to have_content "Abendessen 2"
+    end
+  end
 end

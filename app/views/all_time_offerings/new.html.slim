@@ -1,11 +1,3 @@
 h1 Neues Angebot
 
-= form_for @offering do |f|
-  p
-    = f.label :name
-    = f.text_field :name
-  p
-    = f.label :price_class_id, "Preisklasse"
-    = f.select :price_class_id, @price_classes.map { |p| [p.name_and_price, p.id] }
-  p
-    = f.submit "Angebot erstellen"
+= render "form"

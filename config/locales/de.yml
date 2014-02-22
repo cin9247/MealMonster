@@ -209,6 +209,7 @@ de:
       menu: Menu
       meal: Gericht
       offering: Angebot
+      all_time_offering: Angebot
       customer: Kunde
       order: Bestellung
       price_class: Preisklasse
