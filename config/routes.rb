@@ -11,11 +11,10 @@ CareEAR::Application.routes.draw do
   resources :catchment_areas
   resources :meals
   resources :offerings do
-    get :other, on: :collection
-    get :new_other, on: :collection
     get :new_import, on: :collection
     post :import, on: :collection
   end
+  resources :all_time_offerings
   post :all_time_offerings, to: "offerings#create_other"
   resources :tours do
     get :manage, on: :member

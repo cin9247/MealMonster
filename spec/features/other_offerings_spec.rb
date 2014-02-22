@@ -5,7 +5,7 @@ describe "other offerings not bound to date" do
     before do
       login_as_admin_web
       create_all_time_offering("Abendessen", Money.new(220, "EUR"))
-      visit other_offerings_path
+      visit all_time_offerings_path
     end
 
     it "lists the offering" do
@@ -19,7 +19,7 @@ describe "other offerings not bound to date" do
       create_price_class "Preisklasse 1"
 
       login_as_admin_web
-      visit new_other_offerings_path
+      visit new_all_time_offering_path
 
       fill_in "Name", with: "Abendessen"
       select "Preisklasse 1", from: "Preisklasse"
@@ -28,7 +28,7 @@ describe "other offerings not bound to date" do
     end
 
     it "redirects to the offerings path" do
-      expect(current_path).to eq other_offerings_path
+      expect(current_path).to eq all_time_offerings_path
     end
 
     it "has created the offering" do

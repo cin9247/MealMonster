@@ -1,4 +1,4 @@
-= link_to "Neues Angebot erstellen", new_other_offerings_path
+= link_to "Neues Angebot erstellen", new_all_time_offering_path
 
 h1 Angebote
 
@@ -13,4 +13,4 @@ table.offerings style="min-width: 100%"
       tr
         td= offering.name
         td= offering.price
-        td Bla
+        td= link_to "Editieren", edit_all_time_offering_path(offering)
