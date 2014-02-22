@@ -6,7 +6,6 @@ div.row.dashboard
     h3 Kundenmanagement
     ul
       li= link_to "Neuen Kunden anlegen", new_customer_path
-      li= link_to_if false, "Kundenabrechnung", root_path
       li= link_to "Bestellung aufgeben", new_order_path
       li= link_to "Bestellübersicht", orders_path
 

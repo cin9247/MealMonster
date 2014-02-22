@@ -1,4 +1,14 @@
-h1= "Rechnung für #{@customer.full_name}"
+.row
+  .columns.large-2.large-offset-3
+    = link_to "Vorheriger Monat", customer_invoices_path(@invoice.customer, month: @previous_month), class: "button"
+  .columns.large-2
+    = link_to "Aktueller Monat", customer_invoices_path(@invoice.customer, month: Date.today), class: "button"
+  .columns.large-2.end
+    = link_to "Nächster Monat", customer_invoices_path(@invoice.customer, month: @next_month), class: "button"
+
+
+h1= "Rechnung für #{@invoice.customer.full_name}"
+h2.subheader= "Monat #{@invoice.month.month}/#{@invoice.month.year}"
 
 table
   thead
@@ -8,15 +18,16 @@ table
       th Stückzahl
       th Preis
   tbody
-    - @orders.each do |o|
+    - @invoice.line_items.each do |line|
       tr
-        td= o.date
-        td= menu_list(o)
-        td 1
-        td= o.price
+        td=l line.date
+        td= line.name
+        td style="text-align: center"
+          = line.count
+        td= line.price
   tfooter
     tr
-      td
-      td
-      td= @orders.size
-      td= @orders.map(&:price).sum(Money.new)
+      th
+      th
+      th= @invoice.total_count
+      th= @invoice.total_price

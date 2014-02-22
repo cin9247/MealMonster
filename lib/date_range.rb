@@ -14,7 +14,11 @@ class DateRange
   end
 
   def to_a
-    (@from..@to).to_a
+    to_range.to_a
+  end
+
+  def to_range
+    @from..@to
   end
 
   def self.parse(from, to)

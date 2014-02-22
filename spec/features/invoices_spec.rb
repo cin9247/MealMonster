@@ -17,7 +17,7 @@ describe "invoices" do
       create_order(customer.id, offering_2.id)
       create_order(customer.id, offering_4.id)
 
-      visit customer_invoices_path(customer)
+      visit customer_invoices_path(customer, month: "2013-2-2")
     end
 
     it "displays the ordered offerings" do
