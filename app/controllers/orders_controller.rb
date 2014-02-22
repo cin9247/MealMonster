@@ -11,8 +11,10 @@ class OrdersController < ApplicationController
   def new
     range = parse_dates_or_default_to_this_week
     params[:date] ||= Date.today.iso8601
+    all_offerings = OfferingMapper.new.fetch_all_time_offerings
     @days = range.to_a.map do |date|
       offerings = OfferingMapper.new.fetch_by_date(date)
+      offerings += all_offerings
       order = Order.new
       OpenStruct.new(date: date, offerings: offerings, order: order)
     end

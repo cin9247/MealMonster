@@ -18,6 +18,7 @@ describe "orders" do
   let!(:offering_1) { create_offering(date, "Veggie-Menu", [meal_1].map(&:id)) }
   let!(:offering_2) { create_offering(date, "Für Pfundskerle", [meal_2].map(&:id)) }
   let!(:offering_3) { create_offering(another_date, "Für Pfundskerle", [meal_2].map(&:id)) }
+  let!(:offering_4) { create_all_time_offering("Abendessen", Money.new(12, 'EUR')) }
 
   describe "displaying orders" do
     describe "by day" do
@@ -72,6 +73,7 @@ describe "orders" do
       select "Mustermann, Max", from: "Kunde"
       select "Veggie-Menu", from: "Bestellung 1"
       select "Für Pfundskerle", from: "Bestellung 2"
+      select "Abendessen", from: "Bestellung 3"
 
       click_on "Bestellungen aufgeben"
     end
@@ -86,10 +88,11 @@ describe "orders" do
       order = orders.first
 
       expect(orders.length).to eq 1
-      expect(orders.first.offerings.length).to eq 2
+      expect(orders.first.offerings.length).to eq 3
       expect(order.date).to eq Date.new(2013, 10, 5)
-      expect(order.offerings.first.menu.name).to eq "Veggie-Menu"
-      expect(order.offerings.last.menu.name).to eq "Für Pfundskerle"
+      expect(order.offerings[0].menu.name).to eq "Veggie-Menu"
+      expect(order.offerings[1].menu.name).to eq "Für Pfundskerle"
+      expect(order.offerings[2].menu.name).to eq "Abendessen"
     end
   end
 end
