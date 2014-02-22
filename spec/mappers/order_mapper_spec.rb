@@ -66,15 +66,16 @@ describe OrderMapper do
     end
   end
 
-  describe "#find_by_month" do
+  describe "#find_by_month_and_customer_id" do
     before do
       subject.save Order.new(date: Date.new(2014, 10, 24), customer: customer)
       subject.save Order.new(date: Date.new(2014, 11, 1), customer: customer)
       subject.save Order.new(date: Date.new(2014, 10, 12), customer: customer)
+      subject.save Order.new(date: Date.new(2014, 10, 8), customer: other_customer)
     end
 
     it "returns only the orders for that month" do
-      result = subject.find_by_month Month.new(10, 2014)
+      result = subject.find_by_month_and_customer_id Month.new(10, 2014), customer.id
       expect(result.size).to eq 2
       expect(result.first.date).to eq Date.new(2014, 10, 12)
       expect(result.last.date).to eq Date.new(2014, 10, 24)

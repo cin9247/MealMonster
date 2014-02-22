@@ -1,4 +1,5 @@
-h1= "Rechnung für #{@customer.full_name}"
+h1= "Rechnung für #{@invoice.customer.full_name}"
+h2.subheader= "Monat #{@invoice.month.month}/#{@invoice.month.year}"
 
 table
   thead
@@ -8,15 +9,16 @@ table
       th Stückzahl
       th Preis
   tbody
-    - @orders.each do |o|
+    - @invoice.line_items.each do |line|
       tr
-        td= o.date
-        td= menu_list(o)
-        td 1
-        td= o.price
+        td=l line.date
+        td= line.name
+        td style="text-align: center"
+          = line.count
+        td= line.price
   tfooter
     tr
-      td
-      td
-      td= @orders.size
-      td= @orders.map(&:price).sum(Money.new)
+      th
+      th
+      th= @invoice.total_count
+      th= @invoice.total_price

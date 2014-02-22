@@ -6,13 +6,18 @@ describe Interactor::CreateInvoice do
   let(:month) { OpenStruct.new(month: 11, year: 2014) }
   let(:some_date) { Date.new(2014, 11, 2) }
   let(:some_other_date) { Date.new(2014, 11, 5) }
-  let(:request) { OpenStruct.new(month: month) }
+  let(:request) { OpenStruct.new(month: month, customer_id: customer_id) }
   let(:result) { subject.run.object }
   let(:order_gateway) { double(:order_gateway) }
+  let(:customer_gateway) { double(:customer_gateway) }
+  let(:customer_id) { 3 }
+  let(:customer) { double(:customer) }
 
   before do
-    expect(order_gateway).to receive(:find_by_month).with(month).and_return(orders)
+    expect(order_gateway).to receive(:find_by_month_and_customer_id).with(month, customer_id).and_return(orders)
     subject.order_gateway = order_gateway
+    expect(customer_gateway).to receive(:find).with(customer_id).and_return(customer)
+    subject.customer_gateway = customer_gateway
   end
 
   context "given no orders" do
@@ -20,6 +25,10 @@ describe Interactor::CreateInvoice do
 
     it "returns an invoice for the requested month" do
       expect(result.month).to eq month
+    end
+
+    it "returns the customer" do
+      expect(result.customer).to eq customer
     end
 
     it "returns 0 order lines" do
@@ -83,6 +92,10 @@ describe Interactor::CreateInvoice do
       expect(result.line_items[1].price).to eq 14
       expect(result.line_items[2].price).to eq 18
       expect(result.line_items[3].price).to eq 23
+    end
+
+    it "returns the counts" do
+      expect(result.line_items.map(&:count)).to eq [1]*4
     end
 
     it "contains the name of the offering" do
