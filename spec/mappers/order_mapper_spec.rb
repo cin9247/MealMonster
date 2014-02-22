@@ -75,7 +75,7 @@ describe OrderMapper do
     end
 
     it "returns only the orders for that month" do
-      result = subject.find_by_month_and_customer_id Month.new(10, 2014), customer.id
+      result = subject.find_by_month_and_customer_id Month.new(2014, 10), customer.id
       expect(result.size).to eq 2
       expect(result.first.date).to eq Date.new(2014, 10, 12)
       expect(result.last.date).to eq Date.new(2014, 10, 24)
