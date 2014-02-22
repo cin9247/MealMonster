@@ -18,7 +18,7 @@ describe "authorization" do
       end
 
       it "redirects to the homepage" do
-        expect(page).to have_content "Dashboard"
+        expect(page).to have_content "Startseite"
       end
 
       it "shows a success message" do
