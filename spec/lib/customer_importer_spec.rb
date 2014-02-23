@@ -4,7 +4,8 @@ require "customer_importer"
 describe CustomerImporter do
   describe "#import" do
     let(:customers_gateway) { dummy_gateway }
-    subject { CustomerImporter.new("spec/fixtures/customers.csv", customers_gateway) }
+    let(:tour_gateway) { dummy_gateway }
+    subject { CustomerImporter.new("spec/fixtures/customers.csv", customers_gateway, tour_gateway) }
 
     before do
       subject.import!
@@ -33,6 +34,15 @@ describe CustomerImporter do
 
     it "still keeps a decent state of the street name if someone messed up" do
       expect(customers_gateway.fetch.last.address.street_name).to eq "Waiblingerstr.64"
+    end
+
+    it "creates the tours" do
+      tours = tour_gateway.fetch
+      expect(tours.size).to eq 6
+      customers_for_6W = tours.find { |t| t.name == "6W" }.customers
+      expect(customers_for_6W.size).to eq 2
+      expect(customers_for_6W.first.forename).to eq "Hildegard"
+      expect(customers_for_6W.last.forename).to eq "Annemarie"
     end
   end
 end

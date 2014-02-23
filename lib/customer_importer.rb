@@ -1,11 +1,13 @@
 require "csv"
 require_relative "../app/models/customer"
 require_relative "../app/models/address"
+require_relative "../app/models/tour"
 
 class CustomerImporter
-  def initialize(filename, customer_gateway)
+  def initialize(filename, customer_gateway, tour_gateway)
     @filename = filename
     @customer_gateway = customer_gateway
+    @tour_gateway = tour_gateway
   end
 
   def import!
@@ -32,7 +34,16 @@ class CustomerImporter
         telephone_number: line["Telefon"],
         address: address
       }
-      @customer_gateway.save Customer.new(attributes)
+      customer = Customer.new(attributes)
+      @customer_gateway.save customer
+
+      add_tour line["TourWochentags"], customer, line["ReihenfolgeAnfahrt"].to_i
+      add_tour line["TourSonnFeiertag"], customer, line["ReihenfolgeAnfahrtSonn"].to_i
+    end
+
+    tours.each do |name, customers|
+      customers = customers.sort_by { |c| c[:position] }
+      @tour_gateway.save Tour.new(name: name, customers: customers.map { |c| c[:customer] })
     end
   end
 
@@ -43,6 +54,14 @@ class CustomerImporter
       else
         [street_name]
       end
+    end
+
+    def add_tour(name, customer, position)
+      tours[name] << {customer: customer, position: position}
+    end
+
+    def tours
+      @tours ||= Hash.new { |h, key| h[key] = [] }
     end
 
 end
