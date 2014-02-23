@@ -18,6 +18,10 @@ class Customer
     "#{forename} #{surname}"
   end
 
+  def full_name_reversed
+    "#{surname}, #{forename}"
+  end
+
   def persisted?
     !id.nil?
   end

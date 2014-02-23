@@ -1,7 +1,7 @@
 = form_tag orders_path, method: :post do
   p
     = label_tag :customer_id, "Kunde"
-    = select_tag :customer_id, options_for_select(@customers.map { |c| [c.full_name, c.id] })
+    = select_tag :customer_id, options_for_select(@customers.map { |c| [c.full_name_reversed, c.id] })
 
   - @days.each_with_index do |day, j|
     h1.title= "Bestellung für #{l day.date}"
