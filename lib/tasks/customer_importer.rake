@@ -3,6 +3,7 @@ require "customer_importer"
 namespace :customers do
   task :import => :environment do
     DB[:customers].delete
+    DB[:addresses].delete
     DB[:tours].delete
     DB[:customers_tours].delete
     DB[:catchment_areas].delete
