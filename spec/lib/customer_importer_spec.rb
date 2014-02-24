@@ -5,7 +5,8 @@ describe CustomerImporter do
   describe "#import" do
     let(:customers_gateway) { dummy_gateway }
     let(:tour_gateway) { dummy_gateway }
-    subject { CustomerImporter.new("spec/fixtures/customers.csv", customers_gateway, tour_gateway) }
+    let(:catchment_area_gateway) { dummy_gateway }
+    subject { CustomerImporter.new("spec/fixtures/customers.csv", customers_gateway, tour_gateway, catchment_area_gateway) }
 
     before do
       subject.import!
@@ -43,6 +44,11 @@ describe CustomerImporter do
       expect(customers_for_6W.size).to eq 2
       expect(customers_for_6W.first.forename).to eq "Hildegard"
       expect(customers_for_6W.last.forename).to eq "Annemarie"
+    end
+
+    it "assigns customers to catchment areas" do
+      expect(customers_gateway.fetch.first.catchment_area.name).to eq "MM-HAK"
+      expect(customers_gateway.fetch.last.catchment_area.name).to eq "MM-KWH"
     end
   end
 end
