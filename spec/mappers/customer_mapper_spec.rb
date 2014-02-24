@@ -24,6 +24,12 @@ describe CustomerMapper do
       expect(subject.fetch.first.address.town).to eq "Karlsruhe"
     end
 
+    it "retrieves the associated address when using find" do
+      subject.save customer
+
+      expect(subject.find(customer.id).address.town).to eq "Karlsruhe"
+    end
+
     it "only updates the address if the customer shares the address" do
       subject.save customer
 
