@@ -12,7 +12,7 @@ class CustomerMapper < BaseMapper
   end
 
   def fetch
-    schema_class.eager(:address => :keys).order(Sequel.function(:lower, :surname)).all.map do |c|
+    schema_class.eager(:address => :keys).eager(:catchment_area).order(Sequel.function(:lower, :surname)).all.map do |c|
       convert_to_object_and_set_id c
     end
   end
@@ -37,7 +37,7 @@ class CustomerMapper < BaseMapper
     def object_from_hash(hash)
       address = hash.address ? AddressMapper.new.send(:convert_to_object_and_set_id, hash.address) : nil
 
-      catchment_area = CatchmentAreaMapper.new.non_whiny_find(hash[:catchment_area_id])
+      catchment_area = hash.catchment_area ? CatchmentAreaMapper.new.send(:convert_to_object_and_set_id, hash.catchment_area) : nil
 
       Customer.new(forename: hash[:forename],
                    surname:  hash[:surname],
