@@ -15,6 +15,9 @@
 //= require jquery_ujs
 //= require foundation
 //= require react-0.8.0
+//= require_self
 //= require_tree .
 
 $(document).foundation();
+
+window.CareEAR = {};
