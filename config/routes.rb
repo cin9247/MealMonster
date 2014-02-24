@@ -3,6 +3,8 @@ CareEAR::Application.routes.draw do
 
   resource :admins
   resources :customers do
+    get :import_form, on: :collection
+    post :import, on: :collection
     resources :invoices
   end
   resources :price_classes

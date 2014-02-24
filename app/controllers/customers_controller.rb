@@ -1,3 +1,5 @@
+require "customer_importer"
+
 class CustomersController < ApplicationController
   before_filter :fetch_catchment_areas, only: [:new, :edit]
 
@@ -50,6 +52,20 @@ class CustomersController < ApplicationController
 
   def show
     @customer = wrap CustomerMapper.new.find(params[:id].to_i)
+  end
+
+  def import
+    DB[:customers].delete
+    DB[:addresses].delete
+    DB[:tours].delete
+    DB[:customers_tours].delete
+    DB[:catchment_areas].delete
+
+    filename = params[:file].path
+
+    CustomerImporter.new(filename, CustomerMapper.new, TourMapper.new, CatchmentAreaMapper.new).import!
+
+    redirect_to customers_path
   end
 
   private

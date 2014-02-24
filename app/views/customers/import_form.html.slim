@@ -1,0 +1,8 @@
+h1 Kunden importieren
+
+= form_tag import_customers_path, multipart: true do
+  p
+    = label_tag :file, "Kundendaten"
+    = file_field_tag :file
+  p
+    = submit_tag "Importieren"
