@@ -15,6 +15,7 @@ CareEAR::Application.routes.draw do
     post :import, on: :collection
   end
   resources :tours do
+    get :manage, on: :member
     get :manage, on: :collection
   end
   put "tours", to: "tours#update"

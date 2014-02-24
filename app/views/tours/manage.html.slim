@@ -1,1 +1,8 @@
+= link_to "Neue Tour erstellen", new_tour_path, class: "button"
+=< link_to "Tour löschen", tour_path(params[:id]), method: :delete, data: {confirm: "Wollen Sie diese Tour wirklich löschen?"}, class: "button alert"
+
+ul.tour-list
+  - @all_tours.each do |t|
+    li= link_to t[:name], manage_tour_path(t[:id])
+
 div#manage-tours data-drivers="#{ActiveSupport::JSON.encode(@drivers)}" data-customers="#{ActiveSupport::JSON.encode(@customers)}" data-tours="#{ActiveSupport::JSON.encode(@tours)}"

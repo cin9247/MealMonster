@@ -77,19 +77,12 @@ EditableHeader = React.createClass
     event.preventDefault()
     @props.updateContent(event.target.value)
 
-  removeTour: (event) ->
-    event.preventDefault()
-    if confirm("Wollen Sie die Tour \"#{@props.content}\" wirklich löschen?")
-      @props.removeTour()
-
   render: ->
     inner = if !@state.editing
       [
         React.DOM.h3(className: "header", onDoubleClick: @changeEditState, @props.content),
         React.DOM.div(className: "inplace-edit",
           React.DOM.a(href: "#", onClick: @changeEditState, "Name editieren")
-          SPACE()
-          React.DOM.a(href: "#", onClick: @removeTour, "Tour löschen")
         )
       ]
     else
@@ -122,7 +115,6 @@ TourWidget = React.createClass
     selectedValue = if @props.tour.driver then @props.tour.driver.id else NO_DRIVER
 
     React.DOM.li({className: "tour"}, [
-      React.DOM.h5(className: "subheader", "Tour ##{@props.tourIndex + 1}"),
       EditableHeader({content: @props.tour.name, updateContent: @props.updateName, removeTour: @props.removeTour})
       React.DOM.div(className: "driver-select", [
         React.DOM.label({htmlFor: "tour-#{@props.tour.id}"}, "Fahrer")
@@ -255,7 +247,6 @@ ManageTourWidget = React.createClass
       ])
 
       ToursWidget({updateName: @updateName, tours: @state.tours, removeTour: @removeTour, removeCustomerFromTour: @removeCustomerFromTour, drivers: @props.drivers, setDriver: @setDriver, removeDriver: @removeDriver, moveUp: @moveUp, moveDown: @moveDown})
-      React.DOM.button({className: "tiny secondary", onClick: @addTour, href: "/tours/new"}, "Neue Tour erstellen")
     ])
 
 $ ->
