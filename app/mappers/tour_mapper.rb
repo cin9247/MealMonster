@@ -27,6 +27,21 @@ class TourMapper < BaseMapper
     }
   end
 
+  def find_sparse(id)
+    result = schema_class[id]
+    raise RecordNotFound.new unless result
+    Tour.new(name: result[:name])
+  end
+
+  def fetch_sparse
+    schema_class.all.map do |d|
+      Tour.new.tap do |t|
+        t.id = d[:id]
+        t.name = d[:name]
+      end
+    end
+  end
+
   def object_from_hash(hash)
     ## TODO use database!
     customer_ids = Schema::CustomersTour.where(tour_id: hash[:id]).order(:position).map(&:customer_id)
