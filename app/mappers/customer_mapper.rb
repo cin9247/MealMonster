@@ -12,7 +12,7 @@ class CustomerMapper < BaseMapper
   end
 
   def fetch
-    schema_class.eager(:address).order(Sequel.function(:lower, :surname)).all.map do |c|
+    schema_class.eager(:address => :keys).order(Sequel.function(:lower, :surname)).all.map do |c|
       convert_to_object_and_set_id c
     end
   end

@@ -22,9 +22,10 @@ class AddressMapper < BaseMapper
     end
 
     def object_from_hash(hash)
-      keys = DB[:keys].filter(address_id: hash[:id]).map do |key|
-        KeyMapper.new.send :convert_to_object_and_set_id, key
+      keys = (hash[:keys] || []).map do |k|
+        KeyMapper.new.send :convert_to_object_and_set_id, k
       end
+
       Address.new(town: hash[:town],
                   postal_code: hash[:postal_code],
                   street_name: hash[:street_name],
