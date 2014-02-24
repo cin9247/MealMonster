@@ -22,7 +22,7 @@ class AddressMapper < BaseMapper
     end
 
     def object_from_hash(hash)
-      keys = (hash[:keys] || []).map do |k|
+      keys = (hash.keys || []).map do |k|
         KeyMapper.new.send :convert_to_object_and_set_id, k
       end
 
