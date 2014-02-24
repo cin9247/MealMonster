@@ -32,6 +32,20 @@ class OrderMapper < BaseMapper
     end
   end
 
+
+
+  def fetch_by_date_and_tour(date, tour_id)
+    DB["SELECT orders.*, customers.forename, customers.surname FROM orders, customers_tours, customers WHERE orders.date = ? AND customers_tours.tour_id = ? AND customers_tours.customer_id = orders.customer_id AND customers.id = orders.customer_id", date, tour_id].map do |o|
+      a = Address.new(town: o[:town], postal_code: o[:postal_code], street_number: o[:street_number], street_name: o[:street_name])
+      c = Customer.new(forename: o[:forename], surname: o[:surname], address: a)
+      offering_ids = DB[:order_items].where(order_id: o[:id]).select(:offering_id).map { |o| o[:offering_id] }
+      offerings = OfferingMapper.new.find(offering_ids)
+      # TODO fix me
+
+      Order.new customer: c, offerings: offerings, date: o[:date], note: o[:note], state: o[:state]
+    end
+  end
+
   private
     def hash_from_object(order)
       {
@@ -43,8 +57,12 @@ class OrderMapper < BaseMapper
     end
 
     def object_from_hash(order)
-      customer = CustomerMapper.new.send :convert_to_object_and_set_id, order.customer
-      offering_ids = DB[:order_items].where(order_id: order.id).select(:offering_id).map { |o| o[:offering_id] }
+      if order.respond_to? :customer
+        customer = CustomerMapper.new.send :convert_to_object_and_set_id, order.customer
+      else
+        customer = CustomerMapper.new.find order[:customer_id]
+      end
+      offering_ids = DB[:order_items].where(order_id: order[:id]).select(:offering_id).map { |o| o[:offering_id] }
       offerings = OfferingMapper.new.find(offering_ids)
 
       Order.new(
