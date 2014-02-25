@@ -16,21 +16,23 @@ class OfferingsController < ApplicationController
     range = parse_dates_or_default_to_next_week
 
     @price_classes = PriceClassMapper.new.fetch
-    @meals = MealMapper.new.fetch
-    @days = range.to_a
+    @dates = range.to_a
   end
 
   def create
-    params[:offerings].each do |date, value|
-      value[:menus].each do |menu_position, value|
-        meal_ids = (value[:meal_ids] || []).map(&:to_i)
-        price_class_id = value[:price_class_id].to_i
+    params[:date].each do |index, date|
+      next if params[:name][index].blank?
+      date = Date.parse(date)
 
-        if meal_ids.present?
-          request = OpenStruct.new(name: value[:name], date: date, meal_ids: meal_ids, price_class_id: price_class_id)
-          interact_with :create_offering, request
+      meal_ids = params[:meal][index].map do |index, meal_name|
+        if meal_name.present?
+          request = OpenStruct.new(name: meal_name, kilojoules: 2, bread_units: 4)
+          interact_with(:create_meal, request).object.id
         end
-      end
+      end.compact
+
+      request = OpenStruct.new(meal_ids: meal_ids, name: params[:name][index], date: date, price_class_id: params[:price_class_id].to_i)
+      interact_with :create_offering, request
     end
 
     redirect_to offerings_path
