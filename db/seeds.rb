@@ -73,7 +73,7 @@ erdbeer_quark = create_meal("Erdbeerquark", 752, 1.5)
 bananen_quark = create_meal("Bananenquark", 740, 1.6)
 obst_salat    = create_meal("Obstsalat", 331, 0.2)
 
-today = Date.new(2013, 11, 11)
+today = Date.today
 
 (today..(today + 2.days)).each do |d|
   create_offering("Menü #1", d, [rote_beete.id, würstchen.id, bananen_quark.id])
