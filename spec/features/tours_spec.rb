@@ -8,21 +8,19 @@ describe "tours" do
   before do
     login_as_admin_web
 
-    create_tour "Tour #1", []
-    create_tour "Tour #2", [customer_3.id, customer_1.id]
-    create_tour "Tour #3", []
+    @tour = create_tour "Tour #1", [customer_3.id, customer_1.id]
 
     create_driver "Max Speed"
     create_driver "Ludwig Limit"
 
-    visit manage_tours_path
+    visit manage_tour_path(@tour.id)
   end
 
   def save_and_reload
     find("button", text: "Speichern").click
     find("div.alert-box", text: "Erfolgreich gespeichert")
 
-    visit manage_tours_path
+    visit manage_tour_path(@tour.id)
   end
 
   describe "manage tours", js: true do
@@ -38,21 +36,16 @@ describe "tours" do
     end
 
     describe "adding of customers to tour" do
-      it "adds customers to tours" do
+      it "adds customers to the tour" do
         within(".customers") do
           find("tr", text: "Peter Mustermann").click_on "#1"
-        end
-
-        within(".customers") do
-          find("tr", text: "Dieter Heinzelmann").click_on "#3"
         end
 
         save_and_reload
 
         tours = page.all(".tours > li")
 
-        expect(tours.first).to have_content "Peter Mustermann"
-        expect(tours.last).to have_content "Dieter Heinzelmann"
+        expect(tours.last).to have_content "Peter Mustermann"
       end
     end
 
@@ -66,22 +59,6 @@ describe "tours" do
 
         within ".tours" do
           expect(page).to_not have_content "Maria Meyer"
-        end
-      end
-    end
-
-    describe "removing tours" do
-      it "let's users remove tours" do
-        all("li.tour")[2].click_on "Tour löschen"
-
-        save_and_reload
-
-        expect(all("li.tour").length).to eq 2
-
-        within ".tours" do
-          expect(page).to have_content "Tour #1"
-          expect(page).to have_content "Tour #2"
-          expect(page).to_not have_content "Tour #3"
         end
       end
     end
@@ -108,6 +85,9 @@ describe "tours" do
     let(:peters_order) { create_order(customer_1.id, offering.id) }
 
     before do
+      create_tour "Tour #2", []
+      create_tour "Tour #3", []
+
       deliver_order(marias_order.id)
       load_order(peters_order.id)
 

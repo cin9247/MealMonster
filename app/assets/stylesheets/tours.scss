@@ -29,6 +29,14 @@ li.station {
   list-style-type: decimal;
 }
 
+.tour-list {
+  text-align: center;
+  li {
+    display: inline-block;
+    margin-right: 1em;
+  }
+}
+
 .tour {
   .driver-select {
     margin-top: -1.5em;

@@ -21,12 +21,41 @@ class ToursController < ApplicationController
     end
   end
 
+  def new
+    @tour = Tour.new
+  end
+
+  def destroy
+    name = DB[:tours].where(id: params[:id].to_i).first[:name]
+    DB[:tours].where(id: params[:id].to_i).delete
+    redirect_to manage_tours_path, notice: "Tour #{name} erfolgreich gelöscht."
+  end
+
+  def create
+    if params[:tour][:name].blank?
+      @tour = Tour.new
+      flash.now[:error] = "Sie müssen einen Namen vergeben."
+      render :new
+      return
+    end
+    request = OpenStruct.new(name: params[:tour][:name], customer_ids: [])
+    tour = interact_with(:create_tour, request).object
+    redirect_to manage_tour_path(tour.id)
+  end
+
   def manage
+    if params[:id].blank?
+      tour = DB[:tours].first
+      redirect_to manage_tour_path(tour[:id])
+      return
+    end
+
     @customers = customers_to_hash CustomerMapper.new.fetch
 
     @drivers = UserMapper.new.fetch.select { |u| u.has_role? :driver }
 
-    @tours = Interactor::ListTours.new(nil).run.object.map do |t|
+    @all_tours = DB[:tours].all
+    @tours = [TourMapper.new.find(params[:id].to_i)].map do |t|
       customers = customers_to_hash t.customers
       driver_hash = if t.driver
         {
@@ -49,9 +78,8 @@ class ToursController < ApplicationController
   def update
     params_tours = params[:tours] ? params[:tours].values : []
     committed_tour_ids = params_tours.map { |p| p[:id] }.reject { |id| id.blank? }.compact
-    TourMapper.new.only_keep_ids(committed_tour_ids)
 
-    DB[:customers_tours].delete
+    DB[:customers_tours].where(:tour_id => params[:id].to_i).delete
 
     (params_tours).each do |tour|
       customers = (tour[:customers] || []).map do |position, customer|
