@@ -2,11 +2,11 @@ class ToursController < ApplicationController
   def index
     range = parse_dates_or_default_to_this_week
     @days = range.to_a.map do |date|
-      tours = interact_with(:list_tours, OpenStruct.new(date: date)).object
-      tours.each do |t|
-        request = OpenStruct.new(tour_id: t.id, date: date)
-        stations = interact_with(:list_stations, request).object.stations
-        t.stations = stations
+      tour_ids = DB[:tours].all.map { |t| t[:id] }
+      tours = tour_ids.map do |t_id|
+        request = OpenStruct.new(tour_id: t_id, date: date)
+        response = interact_with(:list_stations, request).object
+        OpenStruct.new(name: response.name, stations: response.stations, driver: response.driver)
       end
       OpenStruct.new tours: tours, date: date
     end
