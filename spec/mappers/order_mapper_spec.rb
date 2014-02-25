@@ -82,6 +82,30 @@ describe OrderMapper do
     end
   end
 
+  describe "#fetch_by_date_and_tour" do
+    before do
+      tour = Tour.new(customers: [customer, other_customer], name: "muh")
+      @tour_id = TourMapper.new.save tour
+      customer_3 = create_customer "Max", "Bla"
+      tour_2 = Tour.new(customers: [customer_3], name: "muh")
+      TourMapper.new.save tour_2
+      order = Order.new(date: Date.new(2014, 2, 27), offerings: [offering_1], customer: customer)
+      subject.save order
+      order = Order.new(date: Date.new(2014, 2, 27), offerings: [offering_1], customer: other_customer)
+      subject.save order
+      order = Order.new(date: Date.new(2014, 2, 27), offerings: [offering_1], customer: customer_3)
+      subject.save order
+    end
+
+    it "returns shit" do
+      result = subject.fetch_by_date_and_tour Date.new(2014, 2, 27), @tour_id
+      expect(result.size).to eq 2
+      expect(result.first.customer.forename).to eq customer.forename
+      expect(result.last.customer.forename).to eq other_customer.forename
+      expect(result.first.offerings.first.name).to eq "Menu #1"
+    end
+  end
+
   describe "#find_by_customer_id" do
     before do
       subject.save order_1
