@@ -47,7 +47,7 @@ class OfferingsController < ApplicationController
         end
       end.compact
 
-      request = OpenStruct.new(meal_ids: meal_ids, name: params[:name][index], date: date, price_class_id: params[:price_class_id].to_i)
+      request = OpenStruct.new(meal_ids: meal_ids, name: params[:name][index], date: date, price_class_id: params[:price_class_id][index].to_i)
       interact_with :create_offering, request
     end
 

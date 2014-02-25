@@ -49,6 +49,7 @@ describe "offerings" do
 
       within("li", text: "02.02.2014") do
         fill_in "Name", with: "Vollkost"
+        select "Preisklasse 1", from: "Preisklasse"
         fill_in "Vorspeise", with: "Suppe"
         fill_in "Hauptgericht", with: "Schweinebraten"
         fill_in "Nachtisch", with: "Eis"
@@ -70,6 +71,7 @@ describe "offerings" do
       expect(offerings.size).to eq 2
       expect(offerings.first.name).to eq "Vollkost"
       expect(offerings.first.date).to eq Date.new(2014, 2, 2)
+      expect(offerings.first.price_class_id).to eq price_class.id
       expect(offerings.first.menu.meals[0].name).to eq "Suppe"
       expect(offerings.first.menu.meals[1].name).to eq "Schweinebraten"
       expect(offerings.first.menu.meals[2].name).to eq "Eis"
