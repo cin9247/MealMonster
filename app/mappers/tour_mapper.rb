@@ -16,6 +16,13 @@ class TourMapper < BaseMapper
     record.id
   end
 
+  def find_sparse(id)
+    t = DB[:tours].where(id: id).first
+    driver = UserMapper.new.non_whiny_find t[:driver_id]
+
+    Tour.new(id: t[:id], created_at: t[:created_at], updated_at: t[:updated_at], name: t[:name], customers: [], driver: driver)
+  end
+
   def only_keep_ids(ids)
     DB[:tours].where(:id => ids).invert.delete
   end

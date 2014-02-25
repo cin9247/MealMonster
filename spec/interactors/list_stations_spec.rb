@@ -15,10 +15,13 @@ describe Interactor::ListStations do
   before do
     customers = [customer_1, customer_2]
 
-    tour_gateway.update OpenStruct.new id: tour_id, name: "Tour", customers: customers
+    tour = OpenStruct.new id: tour_id, name: "Tour", customers: customers
+
+    tour_gateway.update tour
     subject.tour_gateway = tour_gateway
     subject.order_gateway = order_gateway
     expect(order_gateway).to receive(:fetch_by_date_and_tour).with(date, tour_id).and_return [order_1, order_2]
+    expect(tour_gateway).to receive(:find_sparse).with(tour_id).and_return tour
   end
 
   let(:request) { OpenStruct.new(tour_id: tour_id, date: date) }

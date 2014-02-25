@@ -6,7 +6,7 @@ module Interactor
     register_boundary :order_gateway, -> { OrderMapper.new }
 
     def run
-      tour = tour_gateway.find request.tour_id
+      tour = tour_gateway.find_sparse request.tour_id
       stations = order_gateway.fetch_by_date_and_tour(request.date, tour.id).map do |o|
         OpenStruct.new customer: o.customer, order: o
       end
