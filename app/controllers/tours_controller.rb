@@ -81,7 +81,7 @@ class ToursController < ApplicationController
 
     DB[:customers_tours].where(:tour_id => params[:id].to_i).delete
 
-    (params_tours).each do |tour|
+    params_tours.each do |tour|
       customers = (tour[:customers] || []).map do |position, customer|
         CustomerMapper.new.find(customer[:id].to_i)
       end
