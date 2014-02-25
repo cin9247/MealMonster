@@ -19,6 +19,22 @@ class OfferingsController < ApplicationController
     @dates = range.to_a
   end
 
+  def edit
+    @offering = OfferingMapper.new.find params[:id].to_i
+    @price_classes = PriceClassMapper.new.fetch
+  end
+
+  def update
+    @offering = OfferingMapper.new.find params[:id].to_i
+    price_class = PriceClassMapper.new.find params[:offering][:price_class_id].to_i
+    @offering.price_class = price_class
+    @offering.menu.name = params[:offering][:name]
+
+    OfferingMapper.new.update @offering
+
+    redirect_to offerings_path
+  end
+
   def create
     params[:date].each do |index, date|
       next if params[:name][index].blank?

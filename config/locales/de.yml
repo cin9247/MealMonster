@@ -224,6 +224,8 @@ de:
         note: Bemerkung
         date_of_birth: Geburtsdatum
         email: E-Mail
+      offering:
+        price_class_id: Preisklasse
       meal:
         name: Name
         bread_units: Broteinheiten

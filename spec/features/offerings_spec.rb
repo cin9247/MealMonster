@@ -4,7 +4,8 @@ describe "offerings" do
   let!(:hackbraten)  { create_meal "Hackbraten" }
   let!(:spaghetti)   { create_meal "Spaghetti" }
   let!(:nusskuchen)  { create_meal "Nusskuchen" }
-  let!(:price_class) { create_price_class("Preisklasse 4") }
+  let!(:price_class) { create_price_class("Preisklasse 1", Money.new(200, 'EUR')) }
+  let!(:price_class_2) { create_price_class("Preisklasse 2", Money.new(300, 'EUR')) }
 
   before do
     login_as_admin_web
@@ -76,6 +77,27 @@ describe "offerings" do
       expect(offerings.last.name).to eq "Spaghetti"
       expect(offerings.last.date).to eq Date.new(2014, 2, 3)
       expect(offerings.last.meals.size).to eq 0
+    end
+  end
+
+  describe "editing an offering" do
+    before do
+      offering = create_offering_with_price_class(Date.new(2013, 5, 6), "Menü #1", [hackbraten, spaghetti].map(&:id), price_class.id)
+      visit edit_offering_path(offering)
+
+      fill_in "Name", with: "Neuer Name"
+      select "Preisklasse 2", from: "Preisklasse"
+
+      click_on "Angebot aktualisieren"
+    end
+
+    xit "redirects to offerings page" do
+      expect(current_path).to eq offerings_path
+    end
+
+    it "updates the price class" do
+      expect(OfferingMapper.new.fetch.first.price_class.name).to eq "Preisklasse 2"
+      expect(OfferingMapper.new.fetch.first.name).to eq "Neuer Name"
     end
   end
 

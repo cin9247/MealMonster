@@ -12,7 +12,10 @@ ol.days
         ol.menus class="small-block-grid-#{@offerings[date].size}"
           - @offerings[date].each_with_index do |offering, i|
             li.menu
-              h3 = offering.menu.name
+              h3
+                = offering.menu.name
+                small
+                  =< link_to "Editieren", edit_offering_path(offering)
               ol.meals
                 - offering.meals.each do |meal|
                   li = meal.name

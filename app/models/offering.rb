@@ -39,4 +39,8 @@ class Offering
   def price
     price_class.price
   end
+
+  def price_class_id
+    price_class.id
+  end
 end

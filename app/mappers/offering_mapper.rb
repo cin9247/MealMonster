@@ -8,6 +8,12 @@ class OfferingMapper < BaseMapper
     super
   end
 
+  def update(offering)
+    MenuMapper.new.update offering.menu
+
+    super
+  end
+
   def fetch_by_date(date)
     schema_class.eager(:menu => :meals).where(date: date).all.map do |o|
       convert_to_object_and_set_id o
