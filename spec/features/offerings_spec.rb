@@ -4,7 +4,8 @@ describe "offerings" do
   let!(:hackbraten)  { create_meal "Hackbraten" }
   let!(:spaghetti)   { create_meal "Spaghetti" }
   let!(:nusskuchen)  { create_meal "Nusskuchen" }
-  let!(:price_class) { create_price_class("Preisklasse 4") }
+  let!(:price_class) { create_price_class("Preisklasse 1", Money.new(200, 'EUR')) }
+  let!(:price_class_2) { create_price_class("Preisklasse 2", Money.new(300, 'EUR')) }
 
   before do
     login_as_admin_web
@@ -42,43 +43,61 @@ describe "offerings" do
     end
   end
 
-  describe "creating a menu", js: true do
-    it "" do
-      visit new_offering_path(from: "2013-10-12", to: "2013-10-12")
+  describe "offering creation" do
+    before do
+      visit new_offering_path(from: Date.new(2014, 2, 2), to: Date.new(2014, 2, 4))
 
-      first_menu = all("li.menu")[0]
-      second_menu = all("li.menu")[1]
-
-      spaghetti = find("ul.meals li", text: "Spaghetti")
-      hackbraten = find("ul.meals li", text: "Hackbraten")
-
-      spaghetti.drag_to first_menu
-      hackbraten.drag_to second_menu
-
-      within(first_menu) do
-        fill_in "Name", with: "Feinkost-Menü"
-        select "Preisklasse 4", from: "Preisklasse"
-        expect(page).to have_content "Spaghetti"
+      within("li", text: "02.02.2014") do
+        fill_in "Name", with: "Vollkost"
+        fill_in "Vorspeise", with: "Suppe"
+        fill_in "Hauptgericht", with: "Schweinebraten"
+        fill_in "Nachtisch", with: "Eis"
       end
 
-      within(second_menu) do
-        fill_in "Name", with: "Magerkost-Menü"
-        select "Preisklasse 4", from: "Preisklasse"
-        expect(page).to have_content "Hackbraten"
+      within("li", text: "03.02.2014") do
+        fill_in "Name", with: "Spaghetti"
       end
 
-      click_on "Submit"
+      click_on "Angebote erstellen"
+    end
 
-      visit offerings_path(from: "2013-10-12", to: "2013-10-12")
+    xit "redirects to the created offerings and shows a notice" do
+      expect(current_path).to eq offerings_path
+    end
 
-      within(".day", text: "12.10.2013") do
-        within("li", text: "Feinkost-Menü") do
-          expect(page).to have_content "Spaghetti"
-        end
-        within("li", text: "Magerkost-Menü") do
-          expect(page).to have_content "Hackbraten"
-        end
-      end
+    it "saves the offering" do
+      offerings = OfferingMapper.new.fetch
+      expect(offerings.size).to eq 2
+      expect(offerings.first.name).to eq "Vollkost"
+      expect(offerings.first.date).to eq Date.new(2014, 2, 2)
+      expect(offerings.first.menu.meals[0].name).to eq "Suppe"
+      expect(offerings.first.menu.meals[1].name).to eq "Schweinebraten"
+      expect(offerings.first.menu.meals[2].name).to eq "Eis"
+
+      expect(offerings.last.name).to eq "Spaghetti"
+      expect(offerings.last.date).to eq Date.new(2014, 2, 3)
+      expect(offerings.last.meals.size).to eq 0
+    end
+  end
+
+  describe "editing an offering" do
+    before do
+      offering = create_offering_with_price_class(Date.new(2013, 5, 6), "Menü #1", [hackbraten, spaghetti].map(&:id), price_class.id)
+      visit edit_offering_path(offering)
+
+      fill_in "Name", with: "Neuer Name"
+      select "Preisklasse 2", from: "Preisklasse"
+
+      click_on "Angebot aktualisieren"
+    end
+
+    xit "redirects to offerings page" do
+      expect(current_path).to eq offerings_path
+    end
+
+    it "updates the price class" do
+      expect(OfferingMapper.new.fetch.first.price_class.name).to eq "Preisklasse 2"
+      expect(OfferingMapper.new.fetch.first.name).to eq "Neuer Name"
     end
   end
 
