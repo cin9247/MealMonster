@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe "me" do
   before do
-    @customer = create_customer "Peter", "Mustermann"
+    @customer = create_customer_with_town "Peter", "Mustermann", "Stuttgart"
     create_user "another-user", "pw", :admin
     @user = create_user "peter", "pw", :customer
 
@@ -30,6 +30,10 @@ describe "me" do
     it "returns the connected customer" do
       expect(user_json["customer"]["id"]).to eq @customer.id
       expect(user_json["customer"]["forename"]).to eq "Peter"
+    end
+
+    it "returns the address" do
+      expect(user_json["customer"]["address"]["town"]).to eq "Stuttgart"
     end
   end
 
