@@ -45,6 +45,9 @@ CareEAR::Application.routes.draw do
         put :load, on: :member
         post :note, on: :member
       end
+      resources :customers do
+        resources :orders
+      end
       resources :tours do
         resources :keys
       end
