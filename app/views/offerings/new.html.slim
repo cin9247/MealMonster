@@ -1,5 +1,10 @@
 = link_to "Angebotsübersicht", offerings_path
 
+div.pagination.pagination-centered
+  ul
+    li = link_to "Vorherige Woche", new_offering_path(from: @dates.first - 7.days, to: @dates.last - 7.days)
+    li = link_to "Nächste Woche", new_offering_path(from: @dates.first + 7.days, to: @dates.last + 7.days)
+
 = form_tag offerings_path(from: @dates.first.iso8601, to: @dates.last.iso8601)
 
   ul
