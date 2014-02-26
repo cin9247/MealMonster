@@ -33,7 +33,7 @@ class OrderMapper < BaseMapper
   end
 
   def find_by_customer_id_and_date_range(customer_id, date_range)
-    schema_class.where(customer_id: customer_id).where{(date >= date_range.from) & (date <= date_range.to)}.all.map do |o|
+    schema_class.where(customer_id: customer_id).where{(date >= date_range.from) & (date <= date_range.to)}.order(:date).all.map do |o|
       convert_to_object_and_set_id o
     end
   end

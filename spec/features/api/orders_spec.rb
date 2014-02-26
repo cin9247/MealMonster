@@ -119,8 +119,8 @@ describe "/api/orders" do
 
   describe "list of orders" do
     before do
-      @o_1 = create_offering Date.new(2014, 2, 3), "M1"
-      @o_2 = create_offering Date.new(2014, 2, 4), "M2"
+      @o_1 = create_offering Date.new(2014, 2, 4), "M1"
+      @o_2 = create_offering Date.new(2014, 2, 3), "M2"
       @o_3 = create_offering Date.new(2014, 2, 5), "M3"
 
       @order_1 = create_order customer.id, @o_1.id
@@ -138,15 +138,15 @@ describe "/api/orders" do
     it "returns the orders for this customer" do
       orders = json_response["orders"]
       expect(orders.size).to eq 2
-      expect(orders.map { |o| o["id"] }).to eq [@order_1.id, @order_2.id]
-      expect(orders.map { |o| o["date"] }).to eq [@order_1.date.iso8601, @order_2.date.iso8601]
+      expect(orders.map { |o| o["id"] }).to eq [@order_2.id, @order_1.id]
+      expect(orders.map { |o| o["date"] }).to eq [@order_2.date.iso8601, @order_1.date.iso8601]
 
-      expect(orders.first["offerings"].first["id"]).to eq @o_1.id
-      expect(orders.last["offerings"].first["id"]).to eq @o_2.id
+      expect(orders.first["offerings"].first["id"]).to eq @o_2.id
+      expect(orders.last["offerings"].first["id"]).to eq @o_1.id
 
-      expect(orders.first["offerings"].first["name"]).to eq "M1"
+      expect(orders.first["offerings"].first["name"]).to eq "M2"
 
-      expect(orders.first["offerings"].first["meals"].first["name"]).to eq @order_1.offerings.first.menu.meals.first.name
+      expect(orders.first["offerings"].first["meals"].first["name"]).to eq @order_2.offerings.first.menu.meals.first.name
     end
   end
 end
