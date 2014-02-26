@@ -1,3 +1,5 @@
+require "date_range"
+
 class Api::V1::OrdersController < Api::V1::ApiController
   respond_to :json
 
@@ -11,6 +13,12 @@ class Api::V1::OrdersController < Api::V1::ApiController
     else
       render json: {errors: errors.map { |e| {message: e} }}, status: 400
     end
+  end
+
+  def index
+    from = Date.parse params[:from]
+    to = Date.parse params[:to]
+    @orders = OrderMapper.new.find_by_customer_id_and_date_range params[:customer_id], DateRange.new(from, to)
   end
 
   def deliver

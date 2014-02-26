@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "/api/offerings" do
+describe "/api/orders" do
   let(:spaghetti) { create_meal "Spaghetti" }
   let(:pudding) { create_meal "Pudding", 412 }
   let(:quark) { create_meal "Quark", 500, 2.1 }
@@ -114,6 +114,39 @@ describe "/api/offerings" do
         expect(tickets.first.body).to eq "Der Kerl war nicht da!"
         expect(tickets.first.order.id).to eq order.id
       end
+    end
+  end
+
+  describe "list of orders" do
+    before do
+      @o_1 = create_offering Date.new(2014, 2, 3), "M1"
+      @o_2 = create_offering Date.new(2014, 2, 4), "M2"
+      @o_3 = create_offering Date.new(2014, 2, 5), "M3"
+
+      @order_1 = create_order customer.id, @o_1.id
+      @order_2 = create_order customer.id, @o_2.id
+      @order_3 = create_order customer.id, @o_3.id
+
+      login_as_admin_basic_auth
+      get "/api/v1/customers/#{customer.id}/orders/", from: Date.new(2014, 2, 2), to: Date.new(2014, 2, 4)
+    end
+
+    it "returns 200 OK" do
+      expect(last_response.status).to eq 200
+    end
+
+    it "returns the orders for this customer" do
+      orders = json_response["orders"]
+      expect(orders.size).to eq 2
+      expect(orders.map { |o| o["id"] }).to eq [@order_1.id, @order_2.id]
+      expect(orders.map { |o| o["date"] }).to eq [@order_1.date.iso8601, @order_2.date.iso8601]
+
+      expect(orders.first["offerings"].first["id"]).to eq @o_1.id
+      expect(orders.last["offerings"].first["id"]).to eq @o_2.id
+
+      expect(orders.first["offerings"].first["name"]).to eq "M1"
+
+      expect(orders.first["offerings"].first["meals"].first["name"]).to eq @order_1.offerings.first.menu.meals.first.name
     end
   end
 end
