@@ -1,5 +1,7 @@
 h1 Kunden
 
+= link_to "Neuen Kunden anlegen", new_customer_path, class: "button"
+
 div#customers data-customers="#{ActiveSupport::JSON.encode(@customer_json)}"
 
   table.customers.large-12.small-6
@@ -26,5 +28,3 @@ div#customers data-customers="#{ActiveSupport::JSON.encode(@customer_json)}"
             => link_to "Details", customer_path(customer)
             => link_to "Editieren", edit_customer_path(customer)
             = link_to "Abrechnung", customer_invoices_path(customer)
-
-  = link_to "Neuen Kunden anlegen", new_customer_path
