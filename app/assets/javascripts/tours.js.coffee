@@ -6,14 +6,14 @@ CustomerRow = React.createClass
     event.preventDefault()
 
   render: ->
-    links = [0...@props.tourCount].map (i) =>
-      React.DOM.a({href: "#", onClick: @handleClick.bind(null, i)}, "##{i + 1} ")
-
     customer = @props.customer
+
     React.DOM.tr(null, [
       React.DOM.td(null, customer.full_name),
       React.DOM.td(null, customer.short_address),
-      React.DOM.td(null, links)
+      React.DOM.td(null,
+        React.DOM.a({href: "#", onClick: @handleClick.bind(null, 0)}, "Hinzufügen")
+      )
     ])
 
 CustomerTable = React.createClass

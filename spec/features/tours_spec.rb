@@ -38,7 +38,7 @@ describe "tours" do
     describe "adding of customers to tour" do
       it "adds customers to the tour" do
         within(".customers") do
-          find("tr", text: "Peter Mustermann").click_on "#1"
+          find("tr", text: "Peter Mustermann").click_on "Hinzufügen"
         end
 
         save_and_reload
