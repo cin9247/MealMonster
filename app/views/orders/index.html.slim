@@ -1,3 +1,5 @@
+= link_to "Neue Bestellung aufgeben", new_order_path, class: "button"
+
 div.pagination.pagination-centered
   ul
     li = link_to "Vorherige Woche", orders_path(from: @first_day - 7.days, to: @last_day - 7.days)
@@ -12,5 +14,3 @@ ul.days
           li.order
             strong => order.customer.full_name
             = menu_list order
-
-= link_to "Neue Bestellung aufgeben", new_order_path
