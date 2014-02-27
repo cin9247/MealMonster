@@ -19,7 +19,9 @@ CareEAR::Application.routes.draw do
     get :manage, on: :collection
   end
   put "tours", to: "tours#update"
-  resources :orders
+  resources :orders do
+    post :cancel, on: :member
+  end
   resource :sessions
   resources :tickets do
     post :close, on: :member

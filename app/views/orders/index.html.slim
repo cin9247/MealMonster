@@ -9,8 +9,15 @@ ul.days
   - @orders.group_by{ |o| o.date }.each do |date, orders|
     li.day
       h2 = l date, format: '%A, der %d.%m.%Y'
-      ul.orders
-        - orders.each do |order|
-          li.order
-            strong => order.customer.full_name
-            = menu_list order
+      table.orders
+        thead
+          tr
+            th Name
+            th Bestellung
+            th Aktionen
+        tbody
+          - orders.each do |order|
+            tr.order
+              td = order.customer.full_name
+              td = menu_list order
+              td = link_to "Stornieren", cancel_order_path(order), data: {confirm: "Wollen sie diese Bestellung wirklich stornieren?"}
