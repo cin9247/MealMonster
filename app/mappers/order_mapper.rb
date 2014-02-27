@@ -15,31 +15,23 @@ class OrderMapper < BaseMapper
   end
 
   def find_by_date(date)
-    schema_class.where(date: date).map do |o|
+    schema_class.where(date: date).where(canceled: false).map do |o|
       convert_to_object_and_set_id o
     end
   end
 
   def find_by_month_and_customer_id(month, customer_id)
-    schema_class.where(date: month.to_date_range.to_range).where(customer_id: customer_id).order(:date).map do |o|
-      convert_to_object_and_set_id o
-    end
-  end
-
-  def find_by_customer_id(customer_id)
-    schema_class.where(customer_id: customer_id).map do |o|
-      convert_to_object_and_set_id o
-    end
+    find_by_customer_id_and_date_range(customer_id, month.to_date_range)
   end
 
   def find_by_customer_id_and_date_range(customer_id, date_range)
-    schema_class.where(customer_id: customer_id).where{(date >= date_range.from) & (date <= date_range.to)}.order(:date).all.map do |o|
+    schema_class.where(customer_id: customer_id).where{(date >= date_range.from) & (date <= date_range.to)}.where(canceled: false).order(:date).all.map do |o|
       convert_to_object_and_set_id o
     end
   end
 
   def fetch_by_date_and_tour(date, tour_id)
-    DB["SELECT orders.*, customers.id AS customers_id, customers.forename, customers.surname, customers.address_id, customers.telephone_number, customers.note AS customer_note FROM orders, customers_tours, customers WHERE orders.date = ? AND customers_tours.tour_id = ? AND customers_tours.customer_id = orders.customer_id AND customers.id = orders.customer_id", date, tour_id].map do |o|
+    DB["SELECT orders.*, customers.id AS customers_id, customers.forename, customers.surname, customers.address_id, customers.telephone_number, customers.note AS customer_note FROM orders, customers_tours, customers WHERE orders.canceled = false AND orders.date = ? AND customers_tours.tour_id = ? AND customers_tours.customer_id = orders.customer_id AND customers.id = orders.customer_id", date, tour_id].map do |o|
       a = AddressMapper.new.non_whiny_find(o[:address_id])
       c = Customer.new(id: o[:customer_id], forename: o[:forename], surname: o[:surname], address: a, note: o[:customer_note], telephone_number: o[:telephone_number])
       offering_ids = DB[:order_items].where(order_id: o[:id]).select(:offering_id).map { |o| o[:offering_id] }
@@ -56,7 +48,8 @@ class OrderMapper < BaseMapper
         date: order.date,
         customer_id: order.customer.id,
         note: order.note,
-        state: order.state
+        state: order.state,
+        canceled: order.canceled?
       }
     end
 
@@ -65,13 +58,15 @@ class OrderMapper < BaseMapper
       offering_ids = DB[:order_items].where(order_id: order.id).select(:offering_id).map { |o| o[:offering_id] }
       offerings = OfferingMapper.new.find(offering_ids)
 
-      Order.new(
+      result = Order.new(
         date: order[:date],
         offerings: offerings,
         customer: customer,
         note: order[:note],
         state: order[:state]
       )
+      result.cancel! if order[:canceled]
+      result
     end
 
     def schema_class

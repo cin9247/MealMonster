@@ -66,7 +66,7 @@ describe OrderMapper do
     end
   end
 
-  describe "#find_by_month_and_customer_id" do
+  describe "#find_by_customer_id_and_date_range" do
     before do
       subject.save Order.new(date: Date.new(2014, 10, 24), customer: customer)
       subject.save Order.new(date: Date.new(2014, 11, 1), customer: customer)
@@ -74,8 +74,8 @@ describe OrderMapper do
       subject.save Order.new(date: Date.new(2014, 10, 8), customer: other_customer)
     end
 
-    it "returns only the orders for that month" do
-      result = subject.find_by_month_and_customer_id Month.new(2014, 10), customer.id
+    it "returns only the orders for that date range" do
+      result = subject.find_by_customer_id_and_date_range customer.id, DateRange.new(Date.new(2014, 10, 12), Date.new(2014, 10, 24))
       expect(result.size).to eq 2
       expect(result.first.date).to eq Date.new(2014, 10, 12)
       expect(result.last.date).to eq Date.new(2014, 10, 24)
@@ -106,18 +106,16 @@ describe OrderMapper do
     end
   end
 
-  describe "#find_by_customer_id" do
+  describe "cancelation state" do
     before do
+      order_1.cancel!
       subject.save order_1
       subject.save order_2
-      subject.save order_3
     end
 
-    let(:result) { subject.find_by_customer_id(customer.id) }
-
-    it "b" do
-      expect(result.size).to eq 2
-      expect(result.map(&:customer).map(&:forename)).to eq ["Hans", "Hans"]
+    it "knows which orders are canceled" do
+      expect(subject.fetch.first.canceled?).to eq true
+      expect(subject.fetch.last.canceled?).to eq false
     end
   end
 end

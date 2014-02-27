@@ -21,4 +21,4 @@ ul.days
             tr.order
               td = order.customer.full_name
               td = menu_list order
-              td = link_to "Stornieren", cancel_order_path(order), data: {confirm: "Wollen sie diese Bestellung wirklich stornieren?"}
+              td = link_to "Stornieren", cancel_form_order_path(order)

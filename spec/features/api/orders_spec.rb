@@ -110,7 +110,7 @@ describe "/api/orders" do
       it "creates a new ticket for the order" do
         tickets = TicketMapper.new.fetch
         expect(tickets.size).to eq 1
-        expect(tickets.first.title).to include "Max Mustermann"
+        expect(tickets.first.title).to include "Fahrer-Bemerkung"
         expect(tickets.first.body).to eq "Der Kerl war nicht da!"
         expect(tickets.first.order.id).to eq order.id
       end

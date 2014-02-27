@@ -37,6 +37,20 @@ describe Order do
     it "is not delivered" do
       expect(subject.delivered?).to eq false
     end
+
+    it "is not canceled" do
+      expect(subject.canceled?).to eq false
+    end
+  end
+
+  describe "#cancel!" do
+    before do
+      subject.cancel!
+    end
+
+    it "is canceled afterwards" do
+      expect(subject.canceled?).to eq true
+    end
   end
 
   describe "#price" do

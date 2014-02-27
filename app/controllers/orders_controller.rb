@@ -43,6 +43,16 @@ class OrdersController < ApplicationController
     redirect_to orders_path(from: from, to: to), notice: "Bestellungen erfolgreich erstellt."
   end
 
+  def cancel_form
+    @order = OrderMapper.new.find params[:id].to_i
+  end
+
+  def cancel
+    request = OpenStruct.new order_id: params[:id].to_i, reason: params[:reason]
+    interact_with :cancel_order, request
+    redirect_to orders_path, notice: "Bestellung erfolgreich storiniert."
+  end
+
   private
     def request_from_order_params order_params
       OpenStruct.new(offering_ids: (order_params[:offering_id] || []).reject(&:blank?).map(&:to_i), date: Date.parse(order_params[:date]))

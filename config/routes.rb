@@ -21,6 +21,7 @@ CareEAR::Application.routes.draw do
   put "tours", to: "tours#update"
   resources :orders do
     get :by_catchment_area, on: :collection
+    get :cancel_form, on: :member
     post :cancel, on: :member
   end
   resource :sessions
