@@ -1,28 +1,28 @@
 = link_to "Touren verwalten", manage_tours_path, class: "button"
 
-- @days.each do |day|
-  div.day
-    h2 = l day.date, format: '%A, der %d.%m.%Y'
-
-    ul.tours.large-block-grid-3.small-block-grid-3
-      - day.tours.each do |tour|
-        li.tour
-          h3= tour.name
-          = link_to "Einzelansicht", tour_path(tour, date: day.date), class: "tour-detail-link"
-          h6.subheader.driver= "Fahrer: #{tour.driver.try(:name)}"
-          ol.stations
-            - tour.stations.each do |s|
-              li.station
-                div
-                  - if s.order.loaded?
-                    i.fi-download.loaded>
-                  - elsif s.order.delivered?
-                    i.fi-home.delivered>
-                  = s.customer.full_name
-                small<
-                  = menu_list(s.order)
-
 div.pagination.pagination-centered
   ul
-    li = link_to "Vorherige Woche", tours_path(from: @days.first.date - 7.days, to: @days.last.date - 7.days)
-    li = link_to "Nächste Woche", tours_path(from: @days.first.date + 7.days, to: @days.last.date + 7.days)
+    li = link_to "Vorheriger Tag", tours_path(date: @day.date - 1.days)
+    li = link_to "Nächster Tag", tours_path(date: @day.date + 1.days)
+
+div.day
+  h2 = l @day.date, format: '%A, der %d.%m.%Y'
+
+  ul.tours.large-block-grid-3.small-block-grid-3
+    - @day.tours.each do |tour|
+      li.tour
+        h3= tour.name
+        = link_to "Einzelansicht", tour_path(tour.id, date: @day.date), class: "tour-detail-link"
+        h6.subheader.driver= "Fahrer: #{tour.driver.try(:name)}"
+        ol.stations
+          - tour.stations.each do |s|
+            li.station
+              div
+                - if s.order.loaded?
+                  i.fi-download.loaded>
+                - elsif s.order.delivered?
+                  i.fi-home.delivered>
+                = s.customer.full_name
+              small<
+                = menu_list(s.order)
+

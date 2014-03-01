@@ -91,7 +91,7 @@ describe "tours" do
       deliver_order(marias_order.id)
       load_order(peters_order.id)
 
-      visit tours_path(from: Date.new(2014, 1, 29), to: Date.new(2014, 2, 3))
+      visit tours_path date: Date.new(2014, 1, 29)
     end
 
     it "displays tags for delivered and loaded" do
