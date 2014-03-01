@@ -6,17 +6,17 @@ Sequel.migration do
       column :street_number, "text"
       column :postal_code, "text", :null=>false
       column :town, "text", :null=>false
-      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:52.563588000+0000"), :null=>false
-      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:52.563616000+0000"), :null=>false
+      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.240884000+0000"), :null=>false
+      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.240906000+0000"), :null=>false
     end
-    
+
     create_table(:catchment_areas) do
       primary_key :id
       column :name, "text", :null=>false
-      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.138293000+0000"), :null=>false
-      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.138356000+0000"), :null=>false
+      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.245871000+0000"), :null=>false
+      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.245899000+0000"), :null=>false
     end
-    
+
     create_table(:customers) do
       primary_key :id
       column :forename, "text"
@@ -28,94 +28,94 @@ Sequel.migration do
       column :note, "text"
       column :date_of_birth, "date"
       column :email, "text"
-      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.177188000+0000"), :null=>false
-      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.177216000+0000"), :null=>false
+      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.251565000+0000"), :null=>false
+      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.251599000+0000"), :null=>false
     end
-    
+
     create_table(:customers_tours) do
       primary_key :id
       column :customer_id, "integer", :null=>false
       column :tour_id, "integer", :null=>false
       column :position, "integer", :null=>false
-      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.210856000+0000"), :null=>false
-      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.210927000+0000"), :null=>false
+      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.257644000+0000"), :null=>false
+      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.257672000+0000"), :null=>false
     end
-    
+
     create_table(:keys) do
       primary_key :id
       column :name, "text", :null=>false
       column :address_id, "integer", :null=>false
-      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.219035000+0000"), :null=>false
-      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.219062000+0000"), :null=>false
+      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.261192000+0000"), :null=>false
+      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.261220000+0000"), :null=>false
     end
-    
+
     create_table(:meals) do
       primary_key :id
       column :name, "text", :null=>false
       column :bread_units, "double precision"
       column :kilojoules, "integer"
-      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.226002000+0000"), :null=>false
-      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.226037000+0000"), :null=>false
+      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.267086000+0000"), :null=>false
+      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.267113000+0000"), :null=>false
     end
-    
+
     create_table(:meals_menus) do
       primary_key :id
       column :menu_id, "integer", :null=>false
       column :meal_id, "integer", :null=>false
       column :position, "integer", :null=>false
-      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.250885000+0000"), :null=>false
-      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.250921000+0000"), :null=>false
+      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.272287000+0000"), :null=>false
+      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.272333000+0000"), :null=>false
     end
-    
+
     create_table(:menus) do
       primary_key :id
       column :name, "text"
-      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.255747000+0000"), :null=>false
-      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.255777000+0000"), :null=>false
+      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.275844000+0000"), :null=>false
+      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.275866000+0000"), :null=>false
     end
-    
+
     create_table(:offerings) do
       primary_key :id
       column :date, "date", :null=>false
       column :menu_id, "integer", :null=>false
       column :price_class_id, "integer", :null=>false
-      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.292504000+0000"), :null=>false
-      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.292533000+0000"), :null=>false
+      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.281216000+0000"), :null=>false
+      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.281243000+0000"), :null=>false
     end
-    
+
     create_table(:order_items) do
       primary_key :id
       column :order_id, "integer", :null=>false
       column :offering_id, "integer", :null=>false
       column :position, "integer", :null=>false
-      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.296686000+0000"), :null=>false
-      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.296719000+0000"), :null=>false
+      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.284645000+0000"), :null=>false
+      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.284667000+0000"), :null=>false
     end
-    
+
     create_table(:orders) do
       primary_key :id
       column :customer_id, "integer", :null=>false
       column :date, "date", :null=>false
       column :note, "text"
       column :state, "text", :default=>"ordered", :null=>false
-      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.301485000+0000"), :null=>false
-      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.301514000+0000"), :null=>false
+      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.287801000+0000"), :null=>false
+      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.287827000+0000"), :null=>false
     end
-    
+
     create_table(:price_classes) do
       primary_key :id
       column :name, "text", :null=>false
       column :amount, "integer", :null=>false
-      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.308910000+0000"), :null=>false
-      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.308938000+0000"), :null=>false
+      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.294208000+0000"), :null=>false
+      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.294236000+0000"), :null=>false
     end
-    
+
     create_table(:schema_migrations) do
       column :filename, "text", :null=>false
-      
+
       primary_key [:filename]
     end
-    
+
     create_table(:tickets) do
       primary_key :id
       column :title, "text", :null=>false
@@ -123,26 +123,26 @@ Sequel.migration do
       column :customer_id, "integer", :null=>false
       column :order_id, "integer"
       column :status, "text", :null=>false
-      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.317214000+0000"), :null=>false
-      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.317314000+0000"), :null=>false
+      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.299872000+0000"), :null=>false
+      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.299904000+0000"), :null=>false
     end
-    
+
     create_table(:tours) do
       primary_key :id
       column :name, "text", :null=>false
       column :driver_id, "integer"
-      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.338771000+0000"), :null=>false
-      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.338810000+0000"), :null=>false
+      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.329517000+0000"), :null=>false
+      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.329545000+0000"), :null=>false
     end
-    
+
     create_table(:users) do
       primary_key :id
       column :name, "text", :null=>false
       column :password_digest, "text", :null=>false
       column :roles, "text", :null=>false
       column :customer_id, "integer"
-      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.447730000+0000"), :null=>false
-      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-17T23:29:53.447764000+0000"), :null=>false
+      column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.335418000+0000"), :null=>false
+      column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.335450000+0000"), :null=>false
     end
   end
 end

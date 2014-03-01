@@ -63,6 +63,24 @@ describe TourMapper do
     end
   end
 
+  describe "#find_sparse" do
+    it "returns the driver and the name of the tour" do
+      tour.driver = driver
+      subject.save tour
+      t = subject.find_sparse(tour.id)
+      expect(t.name).to eq tour.name
+      expect(t.driver.name).to eq tour.driver.name
+    end
+
+    it "does not blow up when no driver given" do
+      tour.driver = nil
+      subject.save tour
+      t = subject.find_sparse(tour.id)
+      expect(t.name).to eq tour.name
+      expect(t.driver).to eq nil
+    end
+  end
+
   describe "#only_keep_ids" do
     let(:tour_1) { Tour.new name: "Tour #1" }
     let(:tour_2) { Tour.new name: "Tour #2" }

@@ -28,6 +28,14 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def parse_date_or_default_to_today
+      if params[:date]
+        Date.parse params[:date]
+      else
+        Date.today
+      end
+    end
+
     def parse_dates_or_default_to_this_week
       if params[:from] && params[:to]
         DateRange.parse(params[:from], params[:to])

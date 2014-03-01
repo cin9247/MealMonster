@@ -1,22 +1,28 @@
 class ToursController < ApplicationController
   def index
-    range = parse_dates_or_default_to_this_week
-    @days = range.to_a.map do |date|
-      tours = interact_with(:list_tours, OpenStruct.new(date: date)).object
-      tours.each do |t|
-        request = OpenStruct.new(tour_id: t.id, date: date)
-        stations = interact_with(:list_stations, request).object.stations
-        t.stations = stations
-      end
-      OpenStruct.new tours: tours, date: date
+    date = parse_date_or_default_to_today
+    # TODO: add ListTours which return the driver and the tour names
+    tours = DB[:tours].all.map do |t|
+      tour_id = t[:id]
+      tour_name = t[:name]
+      driver = UserMapper.new.non_whiny_find t[:driver_id]
+      request = OpenStruct.new(tour_id: tour_id, date: date)
+      response = interact_with(:list_stations, request).object
+      OpenStruct.new(name: tour_name, stations: response.stations, driver: driver, id: tour_id)
     end
+    @day = OpenStruct.new tours: tours, date: date
   end
 
   def show
     date = Date.parse(params[:date])
     request = OpenStruct.new(tour_id: params[:id].to_i, date: date)
-    @tour = interact_with(:list_stations, request).object
-    @menu_summary = @tour.stations.map { |s| s.order.offerings }.flatten.group_by(&:id).map do |id, offerings|
+    @date = date
+    tour = DB[:tours].where(id: request.tour_id).first
+    @tour_name = tour[:name]
+    @driver = UserMapper.new.non_whiny_find tour[:driver_id]
+    response = interact_with(:list_stations, request).object
+    @stations = response.stations
+    @menu_summary = response.stations.map { |s| s.order.offerings }.flatten.group_by(&:id).map do |id, offerings|
       OpenStruct.new(name: offerings.first.name, count: offerings.size)
     end
   end

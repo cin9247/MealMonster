@@ -38,6 +38,18 @@ class OrderMapper < BaseMapper
     end
   end
 
+  def fetch_by_date_and_tour(date, tour_id)
+    DB["SELECT orders.*, customers.id AS customers_id, customers.forename, customers.surname, customers.address_id, customers.telephone_number, customers.note AS customer_note FROM orders, customers_tours, customers WHERE orders.date = ? AND customers_tours.tour_id = ? AND customers_tours.customer_id = orders.customer_id AND customers.id = orders.customer_id", date, tour_id].map do |o|
+      a = AddressMapper.new.non_whiny_find(o[:address_id])
+      c = Customer.new(id: o[:customer_id], forename: o[:forename], surname: o[:surname], address: a, note: o[:customer_note], telephone_number: o[:telephone_number])
+      offering_ids = DB[:order_items].where(order_id: o[:id]).select(:offering_id).map { |o| o[:offering_id] }
+      offerings = OfferingMapper.new.find(offering_ids)
+      # TODO fix me
+
+      Order.new customer: c, offerings: offerings, date: o[:date], note: o[:note], state: o[:state], id: o[:id]
+    end
+  end
+
   private
     def hash_from_object(order)
       {

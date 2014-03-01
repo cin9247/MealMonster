@@ -4,6 +4,12 @@ class TicketMapper < BaseMapper
     @customer_mapper = customer_mapper
   end
 
+  def fetch
+    schema_class.order(Sequel.desc(:status), Sequel.desc(:created_at)).map do |t|
+      convert_to_object_and_set_id t
+    end
+  end
+
   private
     def hash_from_object(ticket)
       {
