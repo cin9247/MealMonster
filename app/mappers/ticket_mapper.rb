@@ -5,7 +5,7 @@ class TicketMapper < BaseMapper
   end
 
   def fetch
-    schema_class.order(Sequel.desc(:created_at)).map do |t|
+    schema_class.order(Sequel.desc(:status), Sequel.desc(:created_at)).map do |t|
       convert_to_object_and_set_id t
     end
   end
