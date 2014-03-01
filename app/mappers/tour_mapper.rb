@@ -18,6 +18,7 @@ class TourMapper < BaseMapper
 
   def find_sparse(id)
     t = DB[:tours].where(id: id).first
+    raise RecordNotFound.new if t.nil?
     driver = UserMapper.new.non_whiny_find t[:driver_id]
 
     Tour.new(id: t[:id], created_at: t[:created_at], updated_at: t[:updated_at], name: t[:name], customers: [], driver: driver)

@@ -5,7 +5,7 @@ class Api::V1::ToursController < Api::V1::ApiController
 
   def show
     tour_id = params[:id].to_i
-    @tour = TourMapper.new.find tour_id
+    @tour = TourMapper.new.find_sparse tour_id
     request = OpenStruct.new(tour_id: tour_id, date: parsed_date)
     @stations = interact_with(:list_stations, request).object.stations
   end
