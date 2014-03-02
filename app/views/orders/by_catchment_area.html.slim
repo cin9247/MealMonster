@@ -1,0 +1,14 @@
+ul
+  - @orders.each do |area|
+    li
+      h2= area.name || "(Ohne Gebiet)"
+      table
+        thead
+          tr
+            th Anzahl
+            th Angebot
+        tbody
+          - area.orders.each do |offering_name, orders|
+            tr
+              td= orders.size
+              td= offering_name
