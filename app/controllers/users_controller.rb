@@ -12,10 +12,13 @@ class UsersController < ApplicationController
   def update
     user = UserMapper.new.find params[:id]
     user.name = params[:user][:name]
+    if params[:user][:password].present?
+      user.password = params[:user][:password]
+    end
     UserMapper.new.update user
     interact_with :set_role, OpenStruct.new(user_id: user.id, role: params[:user][:role])
 
-    redirect_to users_path
+    redirect_to users_path, notice: "Benutzer erfolgreich aktualisiert."
   end
 
   def index
