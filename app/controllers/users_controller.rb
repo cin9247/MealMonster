@@ -23,6 +23,9 @@ class UsersController < ApplicationController
 
   def index
     @users = UserMapper.new.fetch
+    if !current_user.has_role? :admin
+      @users = @users.select { |u| u.id == current_user.id }
+    end
   end
 
   def link
