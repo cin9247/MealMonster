@@ -37,21 +37,25 @@ class OfferingsController < ApplicationController
 
   def create
     params[:date].each do |index, date|
-      next if params[:name][index].blank?
       date = Date.parse(date)
 
-      meal_ids = params[:meal][index].map do |index, meal_name|
-        if meal_name.present?
-          request = OpenStruct.new(name: meal_name, kilojoules: 2, bread_units: 4)
-          interact_with(:create_meal, request).object.id
-        end
-      end.compact
+      [1, 2].each do |menu_index|
+        next if params[:"name_#{menu_index}"][index].blank?
 
-      request = OpenStruct.new(meal_ids: meal_ids, name: params[:name][index], date: date, price_class_id: params[:price_class_id][index].to_i)
-      interact_with :create_offering, request
+        meal_ids = params[:"meal_#{menu_index}"][index].map do |index, meal_name|
+          if meal_name.present?
+            request = OpenStruct.new(name: meal_name, kilojoules: 2, bread_units: 4)
+            interact_with(:create_meal, request).object.id
+          end
+        end.compact
+
+        request = OpenStruct.new(meal_ids: meal_ids, name: params[:"name_#{menu_index}"][index], date: date, price_class_id: params[:"price_class_id_#{menu_index}"][index].to_i)
+        interact_with :create_offering, request
+      end
     end
 
-    redirect_to offerings_path
+    dates = params[:date].map { |index, date| Date.parse(date) }
+    redirect_to offerings_path(from: dates.first, to: dates.last)
   end
 
   def new_import

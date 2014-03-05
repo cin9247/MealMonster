@@ -48,15 +48,27 @@ describe "offerings" do
       visit new_offering_path(from: Date.new(2014, 2, 2), to: Date.new(2014, 2, 4))
 
       within("li", text: "02.02.2014") do
-        fill_in "Name", with: "Vollkost"
-        select "Preisklasse 1", from: "Preisklasse"
-        fill_in "Vorspeise", with: "Suppe"
-        fill_in "Hauptgericht", with: "Schweinebraten"
-        fill_in "Nachtisch", with: "Eis"
+        within("div.columns", text: "Menü 1") do
+          fill_in "Name", with: "Vollkost"
+          select "Preisklasse 1", from: "Preisklasse"
+          fill_in "Vorspeise", with: "Suppe"
+          fill_in "Hauptgericht", with: "Schweinebraten"
+          fill_in "Nachtisch", with: "Eis"
+        end
+
+        within("div.columns", text: "Menü 2") do
+          fill_in "Name", with: "Veggie-Menu"
+          select "Preisklasse 1", from: "Preisklasse"
+          fill_in "Vorspeise", with: "Gans-Suppe"
+          fill_in "Hauptgericht", with: "Spaghetti"
+          fill_in "Nachtisch", with: "Pudding"
+        end
       end
 
       within("li", text: "03.02.2014") do
-        fill_in "Name", with: "Spaghetti"
+        within("div.columns", text: "Menü 1") do
+          fill_in "Name", with: "Spaghetti"
+        end
       end
 
       click_on "Angebote erstellen"
@@ -68,13 +80,19 @@ describe "offerings" do
 
     it "saves the offering" do
       offerings = OfferingMapper.new.fetch
-      expect(offerings.size).to eq 2
+      expect(offerings.size).to eq 3
       expect(offerings.first.name).to eq "Vollkost"
       expect(offerings.first.date).to eq Date.new(2014, 2, 2)
       expect(offerings.first.price_class_id).to eq price_class.id
       expect(offerings.first.menu.meals[0].name).to eq "Suppe"
       expect(offerings.first.menu.meals[1].name).to eq "Schweinebraten"
       expect(offerings.first.menu.meals[2].name).to eq "Eis"
+
+      expect(offerings[1].date).to eq Date.new(2014, 2, 2)
+      expect(offerings[1].price_class_id).to eq price_class.id
+      expect(offerings[1].menu.meals[0].name).to eq "Gans-Suppe"
+      expect(offerings[1].menu.meals[1].name).to eq "Spaghetti"
+      expect(offerings[1].menu.meals[2].name).to eq "Pudding"
 
       expect(offerings.last.name).to eq "Spaghetti"
       expect(offerings.last.date).to eq Date.new(2014, 2, 3)

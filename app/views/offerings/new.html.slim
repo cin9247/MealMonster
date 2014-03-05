@@ -11,21 +11,25 @@ div.pagination.pagination-centered
     - @dates.each_with_index do |date, i|
       li
         h1=l date
-        p
-          = label_tag "name[#{i}]", "Name"
-          = text_field_tag "name[#{i}]"
-        p
-          = label_tag "price_class_id[#{i}]", "Preisklasse"
-          = select_tag "price_class_id[#{i}]", options_for_select(@price_classes.map { |p| [p.name_and_price, p.id] })
-        p
-          = label_tag "meal[#{i}][0]", "Vorspeise"
-          = text_field_tag "meal[#{i}][0]"
-        p
-          = label_tag "meal[#{i}][1]", "Hauptgericht"
-          = text_field_tag "meal[#{i}][1]"
-        p
-          = label_tag "meal[#{i}][2]", "Nachtisch"
-          = text_field_tag "meal[#{i}][2]"
+        div.row
+          - [1, 2].each do |menu_index|
+            div.large-6.columns
+              h3= "Menü #{menu_index}"
+              p
+                = label_tag "name_#{menu_index}[#{i}]", "Name"
+                = text_field_tag "name_#{menu_index}[#{i}]"
+              p
+                = label_tag "price_class_id_#{menu_index}[#{i}]", "Preisklasse"
+                = select_tag "price_class_id_#{menu_index}[#{i}]", options_for_select(@price_classes.map { |p| [p.name_and_price, p.id] })
+              p
+                = label_tag "meal_#{menu_index}[#{i}][0]", "Vorspeise"
+                = text_field_tag "meal_#{menu_index}[#{i}][0]"
+              p
+                = label_tag "meal_#{menu_index}[#{i}][1]", "Hauptgericht"
+                = text_field_tag "meal_#{menu_index}[#{i}][1]"
+              p
+                = label_tag "meal_#{menu_index}[#{i}][2]", "Nachtisch"
+                = text_field_tag "meal_#{menu_index}[#{i}][2]"
         = hidden_field_tag "date[#{i}]", date.iso8601
 
   = submit_tag "Angebote erstellen"
