@@ -210,6 +210,7 @@ de:
       meal: Gericht
       offering: Angebot
       customer: Kunde
+      user: Benutzer
       order: Bestellung
       price_class: Preisklasse
       catchment_area: Einzugsgebiet
@@ -230,6 +231,10 @@ de:
         name: Name
         bread_units: Broteinheiten
         kilojoules: 'Kilojoule (kJ)'
+      user:
+        name: Name
+        password: Passwort
+        password_confirmation: Passwort-Bestätigung
       price_class:
         name: Name
         price: Preis in €
