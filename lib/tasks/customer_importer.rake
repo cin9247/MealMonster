@@ -1,5 +1,4 @@
 require "customer_importer"
-require_relative "../../spec/spec_helper"
 
 namespace :customers do
   task :import => :environment do
@@ -20,4 +19,24 @@ namespace :customers do
       Interactor::CreateOrder.new(request).run
     end
   end
+end
+
+def create_offering(date, name="Menu", meal_ids=nil)
+  meal_ids = meal_ids || (1..3).to_a.map do
+    create_meal.id
+  end
+  price_class = create_price_class
+  request = OpenStruct.new(name: name, date: date, meal_ids: meal_ids, price_class_id: price_class.id)
+  Interactor::CreateOffering.new(request).run.object
+end
+
+def create_meal(name="Schweineschnitzel", kilojoules=1002, bread_units=2.1)
+  request = OpenStruct.new(name: name, kilojoules: kilojoules, bread_units: bread_units)
+  Interactor::CreateMeal.new(request).run.object
+end
+
+def create_price_class(name="Preisklasse 1", price=Money.new(2031, 'EUR'))
+  pc = PriceClass.new(name: name, price: price)
+  PriceClassMapper.new.save pc
+  pc
 end
