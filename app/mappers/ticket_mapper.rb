@@ -1,4 +1,7 @@
 class TicketMapper < BaseMapper
+  OPEN_STATUS = "open"
+  CLOSED_STATUS = "closed"
+
   def initialize(order_mapper=OrderMapper.new, customer_mapper=CustomerMapper.new)
     @order_mapper = order_mapper
     @customer_mapper = customer_mapper
@@ -10,6 +13,18 @@ class TicketMapper < BaseMapper
     end
   end
 
+  def fetch_opened
+    schema_class.where(:status => OPEN_STATUS).order(Sequel.desc(:created_at)).map do |t|
+      convert_to_object_and_set_id t
+    end
+  end
+
+  def fetch_closed
+    schema_class.where(:status => CLOSED_STATUS).order(Sequel.desc(:created_at)).map do |t|
+      convert_to_object_and_set_id t
+    end
+  end
+
   private
     def hash_from_object(ticket)
       {
@@ -17,7 +32,7 @@ class TicketMapper < BaseMapper
         body:  ticket.body,
         customer_id: ticket.customer.id,
         order_id: ticket.respond_to?(:order) ? ticket.order.id : nil,
-        status: ticket.open? ? "open" : "closed"
+        status: ticket.open? ? OPEN_STATUS : CLOSED_STATUS
       }
     end
 
@@ -41,7 +56,7 @@ class TicketMapper < BaseMapper
         )
       end
 
-      if hash[:status] == "closed"
+      if hash[:status] == CLOSED_STATUS
         result.close!
       end
 

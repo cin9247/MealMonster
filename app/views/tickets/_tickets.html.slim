@@ -1,0 +1,21 @@
+table.tickets
+  thead
+    tr
+      th Nummer
+      th Titel
+      th Kunde
+      th Erstellt am
+      th Status
+  tbody
+    - tickets.each do |ticket|
+      tr
+        td.id= link_to "##{ticket.id}", ticket_path(ticket)
+        td.title= ticket.title
+        td.customer= ticket.customer.full_name
+        td.created-at=long_time ticket.created_at
+        td.status
+          - if ticket.open?
+            span.label.success.round Offen
+          - else
+            span.label.alert.round Geschlossen
+

@@ -14,7 +14,7 @@ describe "tickets" do
     end
 
     it "lists the tickets" do
-      within(".tickets") do
+      within(".tickets.opened") do
         expect(page).to have_css(".title", text: "Essen ist blöd")
         expect(page).to have_css(".title", text: "Hilfe!")
         expect(page).to have_css(".status", text: "Offen")
@@ -48,7 +48,7 @@ describe "tickets" do
     end
 
     it "has created the new ticket" do
-      within(".tickets") do
+      within(".tickets.opened") do
         expect(page).to have_content "Hans Mustermann"
         expect(page).to have_content "Problem"
       end

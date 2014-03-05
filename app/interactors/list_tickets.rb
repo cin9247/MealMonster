@@ -5,7 +5,9 @@ module Interactor
     register_boundary :ticket_gateway, -> { TicketMapper.new }
 
     def run
-      OpenStruct.new object: ticket_gateway.fetch
+      closed_tickets = ticket_gateway.fetch_closed
+      opened_tickets = ticket_gateway.fetch_opened
+      OpenStruct.new object: {opened: opened_tickets, closed: closed_tickets}
     end
   end
 end
