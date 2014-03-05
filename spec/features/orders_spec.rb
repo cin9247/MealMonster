@@ -59,6 +59,41 @@ describe "orders" do
     end
   end
 
+  describe "displaying orders grouped by catchment area" do
+    before do
+      c_1 = create_catchment_area("C1")
+      c_2 = create_catchment_area("C2")
+      c_3 = create_catchment_area("C3")
+
+      customer_1 = create_customer "Peter"
+      customer_2 = create_customer "Dieter"
+      customer_3 = create_customer "Hans"
+
+      set_catchment_area_of_customer customer_1.id, c_1.id
+      set_catchment_area_of_customer customer_2.id, c_1.id
+      set_catchment_area_of_customer customer_3.id, c_2.id
+
+      create_order customer_1.id, offering_1.id
+      create_order customer_2.id, offering_1.id
+      create_order customer_3.id, offering_1.id
+
+      visit by_catchment_area_orders_path(date: date)
+    end
+
+    it "lists all catchment areas with orders" do
+      expect(page).to have_css("h2", text: "C1")
+      expect(page).to have_css("h2", text: "C2")
+      expect(page).to_not have_content "C3"
+    end
+
+    it "groups the orders by offering for each catchment area" do
+      within("li", text: "C1") do
+        expect(page).to have_content "Veggie-Menu"
+        expect(page).to have_content "2"
+      end
+    end
+  end
+
   describe "creating order" do
     before do
       create_user "admin", "admin", "admin"

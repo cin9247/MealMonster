@@ -146,6 +146,13 @@ def create_catchment_area(name="Krankenhaus")
   c
 end
 
+def set_catchment_area_of_customer(customer_id, catchment_area_id)
+  customer = CustomerMapper.new.find customer_id
+  catchment_area = CatchmentAreaMapper.new.find catchment_area_id
+  customer.catchment_area = catchment_area
+  CustomerMapper.new.update customer
+end
+
 def deliver_order(order_id)
   request = OpenStruct.new(order_id: order_id)
   Interactor::Deliver.new(request).run

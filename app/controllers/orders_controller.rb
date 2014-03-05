@@ -8,6 +8,12 @@ class OrdersController < ApplicationController
     @last_day = range.to_a.last
   end
 
+  def by_catchment_area
+    date = parse_date_or_default_to_today
+    request = OpenStruct.new date: date
+    @orders = interact_with(:group_orders_by_catchment_area, request).object
+  end
+
   def new
     range = parse_dates_or_default_to_this_week
     params[:date] ||= Date.today.iso8601

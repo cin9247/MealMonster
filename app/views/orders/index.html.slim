@@ -9,6 +9,7 @@ ul.days
   - @orders.group_by{ |o| o.date }.each do |date, orders|
     li.day
       h2 = l date, format: '%A, der %d.%m.%Y'
+      = link_to "Gruppiert nach Einzugsgebieten", by_catchment_area_orders_path(date: date)
       table.orders
         thead
           tr
