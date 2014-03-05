@@ -11,8 +11,8 @@ table.users.large-12
         td= user.name
         td= user.roles.join(", ")
         td
-          => link_to "Editieren", edit_user_path(user, method: :delete)
-          => link_to "Löschen", user_path(user)
+          => link_to "Editieren", edit_user_path(user)
+          => link_to "Löschen", user_path(user), method: :delete, data: {confirm: "Wollen Sie den Benutzer #{user.name} wirklich löschen?"}
           - if user.has_role?(:customer)
             - if user.is_linked?
               = link_to "Verbindung mit #{user.customer.full_name} löschen", remove_link_user_path(user), method: :put
