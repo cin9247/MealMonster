@@ -78,7 +78,7 @@ describe "authorization" do
       visit "/register"
 
       fill_in "Name", with: "peter"
-      fill_in "Password", with: "secret"
+      fill_in "Passwort", with: "secret"
 
       click_on "Register"
     end
