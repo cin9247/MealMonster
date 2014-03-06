@@ -30,6 +30,8 @@ describe "/api/offerings" do
       it "returns all offerings for that day" do
         expect(result.length).to eq 2
         expect(result[0]["date"]).to eq "2013-10-03"
+        expect(result[0]["name"]).to eq "Menu #1"
+        expect(result[1]["name"]).to eq "Menu #2"
       end
 
       it "includes all meals" do
