@@ -100,6 +100,7 @@ Sequel.migration do
       column :state, "text", :default=>"ordered", :null=>false
       column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.287801000+0000"), :null=>false
       column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.287827000+0000"), :null=>false
+      column :canceled, "boolean", :default=>false, :null=>false
     end
 
     create_table(:price_classes) do
@@ -184,5 +185,6 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140217132948_add_date_of_birth_to_customers.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140217142119_add_email_to_customers.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140217232059_add_created_at_and_updated_at_to_all_tables.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140302142333_add_canceled_to_orders.rb')"
   end
 end

@@ -117,14 +117,45 @@ describe "orders" do
     end
 
     it "should have created the order" do
-      orders = OrderMapper.new.fetch
-      order = orders.first
+      visit orders_path(from: Date.new(2013, 10, 5), to: Date.new(2013, 10, 5))
+      expect(page).to have_content "Max Mustermann"
+      expect(page).to have_content "Veggie-Menu"
+      expect(page).to have_content "Für Pfundskerle"
+    end
+  end
 
-      expect(orders.length).to eq 1
-      expect(orders.first.offerings.length).to eq 2
-      expect(order.date).to eq Date.new(2013, 10, 5)
-      expect(order.offerings.first.menu.name).to eq "Veggie-Menu"
-      expect(order.offerings.last.menu.name).to eq "Für Pfundskerle"
+  describe "canceling orders" do
+    let(:date) { Date.new(2014, 2, 3) }
+
+    before do
+      customer = create_customer "Max", "Mustermann"
+      offering = create_offering date, "Menu 1"
+      order = create_order customer.id, offering.id
+      visit orders_path(from: date, to: date)
+
+      within("tr", text: "Max Mustermann") do
+        click_on "Stornieren"
+      end
+
+      fill_in "Grund für die Stornierung", with: "Vertippt."
+
+      click_on "Stornieren"
+    end
+
+    it "redirects to the orders path" do
+      expect(current_path).to eq orders_path
+      expect(page).to have_content "Bestellung erfolgreich storiniert"
+    end
+
+    it "doesn't display the order anymore" do
+      visit orders_path(from: date, to: date)
+      expect(page).to_not have_content "Max Mustermann"
+    end
+
+    it "creates a new ticket" do
+      visit tickets_path
+      expect(page).to have_content "Max Mustermann"
+      expect(page).to have_content "Stornierung"
     end
   end
 end

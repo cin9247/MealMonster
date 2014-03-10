@@ -23,7 +23,7 @@ describe Interactor::CreateTicketForOrder do
   end
 
   it "includes the customer's name in the title" do
-    expect(ticket_gateway.fetch.first.title).to include "Max Mann"
+    expect(ticket_gateway.fetch.first.title).to include "Fahrer-Bemerkung"
   end
 
   it "has the note as the body" do

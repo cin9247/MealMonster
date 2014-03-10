@@ -11,6 +11,7 @@ class Order
 
   def initialize(attributes={})
     @state = attributes.delete(:state) || "ordered"
+    @canceled = false
     attributes.each do |key, value|
       public_send "#{key}=", value
     end
@@ -37,6 +38,14 @@ class Order
     @state == "loaded"
   end
   alias_method :loaded, :loaded?
+
+  def canceled?
+    @canceled
+  end
+
+  def cancel!
+    @canceled = true
+  end
 
   def persisted?
     !id.nil?

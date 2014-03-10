@@ -48,7 +48,7 @@ describe TicketMapper do
         customer = OpenStruct.new(forename: "Max", full_name: "Max")
         customer_mapper.save customer
         order_mapper.save order
-        subject.save OrderTicket.new(body: "Content", customer: customer, order: order)
+        subject.save OrderTicket.new(title: "Title", body: "Content", customer: customer, order: order)
 
         result = subject.fetch.first
         expect(result.is_a?(OrderTicket)).to eq true
