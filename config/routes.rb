@@ -48,6 +48,7 @@ CareEAR::Application.routes.draw do
         put :deliver, on: :member
         put :load, on: :member
         post :note, on: :member
+        post :cancel, on: :member
       end
       resources :customers do
         resources :orders

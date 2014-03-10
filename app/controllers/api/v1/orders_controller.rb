@@ -38,6 +38,11 @@ class Api::V1::OrdersController < Api::V1::ApiController
     head :no_content
   end
 
+  def cancel
+    interact_with :cancel_order, request_from_id
+    head :created
+  end
+
   private
     def valid_request?(params)
       require_param :offering_id

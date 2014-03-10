@@ -6,7 +6,8 @@ describe "/api/orders" do
   let(:spaghetti) { create_meal "Spaghetti" }
   let(:pudding) { create_meal "Pudding", 412 }
   let(:quark) { create_meal "Quark", 500, 2.1 }
-  let(:offering) { create_offering(Date.new(2013, 10, 3), "Menu #1", [spaghetti, pudding].map(&:id)) }
+  let(:date) { Date.new(2013, 10, 3) }
+  let(:offering) { create_offering(date, "Menu #1", [spaghetti, pudding].map(&:id)) }
   let(:customer) { create_customer("Peter", "Mustermann") }
   let(:note) { "Could you guys please cook below 50°C?" }
 
@@ -147,6 +148,25 @@ describe "/api/orders" do
       expect(orders.first["offerings"].first["name"]).to eq "M2"
 
       expect(orders.first["offerings"].first["meals"].first["name"]).to eq @order_2.offerings.first.menu.meals.first.name
+    end
+  end
+
+  describe "POST /orders/:id/cancel" do
+    let(:customer) { create_customer }
+    let(:order) { create_order(customer.id, offering.id) }
+
+    before do
+      login_as_admin_basic_auth
+      post "/api/v1/orders/#{order.id}/cancel"
+    end
+
+    it "returns 201 Created" do
+      expect(last_response.status).to eq 201
+    end
+
+    it "removes the order from the API response" do
+      get "/api/v1/customers/#{customer.id}/orders/", from: date, to: date
+      expect(json_response["orders"]).to eq []
     end
   end
 end
