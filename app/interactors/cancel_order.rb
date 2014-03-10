@@ -13,7 +13,7 @@ module Interactor
 
       order_gateway.update order
 
-      ticket = OrderTicket.new(title: "Stornierung der Bestellung", body: "Diese Bestellung wurde storniert.\n\n#{request.reason}", order: order, customer: order.customer)
+      ticket = OrderTicket.new(title: "Stornierung der Bestellung", body: "Diese Bestellung wurde storniert.\n\nGrund: #{request.reason}", order: order, customer: order.customer)
       ticket_gateway.save ticket
     end
   end
