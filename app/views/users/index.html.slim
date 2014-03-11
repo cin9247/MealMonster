@@ -19,5 +19,5 @@ table.users.large-12
             - else
               = link_to "Mit Kunde verbinden", link_user_path(user)
 
-
-= link_to "Neuen Benutzer anlegen", new_user_path
+- if current_user.has_role? :admin
+  = link_to "Neuen Benutzer anlegen", new_user_path
