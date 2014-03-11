@@ -47,7 +47,7 @@ Bruchsalerstr.19 70376 Stuttgart";"Normalkost";;;;"C";"1";3.4.1999 00:00:00;;0;;
 40;"Frau";"Hermine";"Troché";"Grasiger Rain 37";;"70734";"Fellbach";;"523708";" Lindle. Schlüssel benützen";0;0;;0;326;0;"3W";180;"3S";100;"245412";"245412";;;"Henrichsen";"5282025";"Sonnenbühlstr. 31 70734 Fellbach";"Normalkost";;;"Fleisch passiert";"C";"1";7.5.2001 00:00:00;;0;"Fellbacher Bank";"60261329";"0027761002";1;;0;0;0;7;0
 41;"Frau";"Gertrud";"Schnaitmann";"Pfarrstr. 29/1";;"70734";"Fellbach";14.6.1913 00:00:00;"0";"Behälter u. Deckel öffnen!";0;0;"  ";0;;0;"2W";31;"5S";40;"245413";"245413";"Sohn";"Karl-Heinz";"Schnaitmann";"07151 603808 /527889";"Schulstr. 12 71384 Weinstadt";"Sonderkost";"Diabetes";;"alles schneiden,keinen Spinatu Bohnensup";"C";"1";21.5.2001 00:00:00;;0;;;;0;;0;0;0;7;0
 42;"Frau";"Emma";"Renz";"Cannstatter Str. 95/2";;"70734";"Fellbach";;"5782936";;0;0;"  ";0;;0;"6W";100;"2S";90;"245414";"245414";"Rolf Renz";;;;"Paffer Sturm Str.35 58158682 ";"Normalkost";;;"Viel Sauce";"C";"1";2.6.2001 00:00:00;;0;"Volksbank Waiblingen";"60290110";"0100793002";1;;0;0;0;7;0
-43;"Herr";"Ernst";"Volzer";"Friedrich List Str. 30";;"70734";"Fellbach";20.2.1941 00:00:00;"5781542";"kein Geflügel.";0;0;"  ";0;;0;"2W";115;"4S";55;"245415";"245415";;;;;"  ";"Normalkost";;;"kein Geflügel";"C";"1";3.7.2001 00:00:00;;1;;;;0;;0;0;0;7;0
+43;"Herr";"Ernst";"Volzer";"Friedrich List Str. 30";;"70734";"Fellbach";20.2.1941 00:00:00;"5781542";"kein Geflügel.";0;0;"  ";0;;0;"2W";115;"4S";55;"245415";"245415";;;;;"  ";"Normalkost";;;"große Portion, kein Geflügel";"C";"1";3.7.2001 00:00:00;;1;;;;0;;0;0;0;1;0
 44;"Frau";"Maria";"Berner";"Burgstr. 40";;"70734";"Fellbach";;"580900";" Wenn nicht da, E. vor die Türe stellen";0;0;;0;466;0;"1W";24;"1S";20;"245416";"245416";;"margarete";"berner";;"3464950  ";"Normalkost";;;;"C";"1";9.7.2001 00:00:00;;0;;;;0;;0;0;0;7;0
 45;"Frau";"Elise";"Mönch";"Wirtembergstr.67";;"70736";"Fellbach";;"515232";;0;0;"  ";0;;0;"3W";140;"3S";80;"245417";"245417";"Fr.Bucher";;"514762";;"  ";"Sonderkost";"Diabetes";;" Fleisch passieren";"C";"1";30.7.2001 00:00:00;;0;;;;0;;0;0;0;7;0
 46;"Herr";"Dagobert";"Schöbitz";"Pecserstrasse 6";;"70736";"Fellbach";;"513943";"Schlüssel benutzen";0;0;;0;;0;"3W";160;"3S";100;"245418";"245418";;"Roswitha";"Schaumann";"088663 9934";"Schloßstrasse 8 a  ";"Sonderkost";"Diabetes";;"Kein Dessert nur Obst / AE immer BUTTER";"C";"1";1.8.2001 00:00:00;;0;"Kreisparkasse Waiblingen";"60250010";"0002160065";1;;0;0;0;7;0
@@ -142,7 +142,7 @@ Bruchsalerstr.19 70376 Stuttgart";"Normalkost";;;;"C";"1";3.4.1999 00:00:00;;0;;
 134;"Frau";"Emilie";"Bürkle";"Brahms Str. 1";;"71394";"Kernen";;"07151/43766";;0;0;;0;;0;"5W";245;"5S";0;"245012";"245012";"Herrn";"A.";"Bürkle";"07151/43748";"Schafstr. 26
  71394 Kernen";"Normalkost";"-";;;"C";"1";21.5.2003 00:00:00;;0;"Kerner Volksbank";"60262693";"0051930005";1;;0;0;0;7;0
 135;"Herr";"Alois";"Sommer";"Waiblinger Str. 66";"2.OG";"70734";"Fellbach";;"0";;0;0;;0;;0;"6W";70;"2S";50;"245011";"245011";;;;;;"Normalkost";"-";;;"C";"1";20.5.2003 00:00:00;;0;;;;0;;0;0;0;7;0
-136;"Herr";"Johann";"Demantke";"Bengelstr. 2";;"70736";"Fellbach";6.3.1924 00:00:00;"0711/584308";;0;0;;0;;0;"2W";92;"1S";35;"245505";"245505";"Tochter";;"Herzog";"0711/6458846";;"Sonderkost";"Diabetes";;;"C";"1";20.5.2003 00:00:00;;1;;;;0;;0;0;0;7;0
+136;"Herr";"Johann";"Demantke";"Bengelstr. 2";;"70736";"Fellbach";6.3.1924 00:00:00;"0711/584308";;0;0;;0;;0;"2W";93;"1S";35;"245505";"245505";"Tochter";;"Herzog";"0711/6458846";;"Sonderkost";"Diabetes";;;"C";"1";20.5.2003 00:00:00;;1;;;;0;;0;0;0;7;0
 137;"Frau";"Gertrud";"Bromundt";"Herzstr. 2";"4.OG";"70736";"Fellbach";;"586014";;0;0;;0;;0;"2W";150;"4S";20;"245013";"245013";"Herrn";"Andreas";"Bromundt";"0160 4676360 o. 573093";;"Normalkost";"-";;;"C";"1";21.5.2003 00:00:00;;0;;;;0;;0;0;0;7;0
 138;"Frau";"Rosa";"Rozga";"Fellbacher Str. 40";"3.OG";"70736";"Fellbach";;"0";"Seniorenheim";0;0;;0;288;0;"3W";100;"3S";40;"245014";"245014";"Frau";;"Reiss";"581408";;"Normalkost";"-";;;"C";"1";23.5.2003 00:00:00;;0;;;;0;;0;0;0;7;0
 139;"Herr";"Rolf";"Lauer";"Orchideenweg 24";;"70736";"Fellbach";;"0";"RA: Lauer, Rolf";0;0;;1;;0;"0W";0;"0S";0;;;;;;;;"Normalkost";"-";;;"A";"1";;;0;;;;0;;0;0;0;7;0
@@ -470,14 +470,14 @@ b.B.  Behälter öffnen";0;0;;0;;0;"2W";82;"3S";30;"245188";"245188";"Herr";;"St
 454;"Herr";"Emil";"Off";"Rotkehlchenweg 11";;"70734";"Fellbach";;"5781642";;0;0;;0;;0;"2W";0;"5S";0;"245217";"245217";;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 455;"Frau";"Theresia";"Bürkle";"Jahnstr. 33";;"70736";"Fellbach";;"0";"wenn nicht öffnet,andere Klingel Bürkle läuten!";0;0;;0;;0;"4W";60;"4S";75;"245218";"245218";"Frau";;"Bürkle";"519660";;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 456;"Frau";"Elisabeth";"Köberle";"Rudersbergerstr. 23";;"70736";"Fellbach";;"513272";;0;0;;0;;0;"4W";0;"4S";0;"245219";"245219";;;;;;"Normalkost";"-";;"kein Salat dafür 2xDessert";"C";"1";;;0;;;;0;;0;0;0;7;0
-457;"Frau";"Elfriede";"Weidmann";"Wiesenstr. 79";;"71394";"Kernen";17.10.1926 00:00:00;;"HH 9. Stock";0;0;;0;;0;"4W";17;"4S";50;"245220";"245220";"Herr";"Werner";"Weidmann";"07151/43328";"neue Adr: Wiesenstraße 32";"Normalkost";"-";;"Kleine Portion !";"C";"1";;;1;;;;0;;0;0;0;7;0
+457;"Frau";"Elfriede";"Weidmann";"Wiesenstr. 79";;"71394";"Kernen";17.10.1926 00:00:00;;"HH 9. Stock";0;0;;0;;0;"4W";15;"5S";45;"245220";"245220";"Herr";"Werner";"Weidmann";"07151/43328";"neue Adr: Wiesenstraße 32";"Normalkost";"-";;"Kleine Portion !";"C";"1";;;1;;;;0;;0;0;0;7;0
 458;"Frau";"Katharina";"Hees";"Gartenstr. 14";;"70734";"Fellbach";;"0";"Rollstuhlfahrerin,dauert etwas bis Sie öffnet!";0;0;;0;;0;"1W";0;"1S";0;"245221";"245221";;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 459;"Frau";"Hedwig";"Blaschke";"Mozartstr. 17";;"70734";"Fellbach";;"0";;0;0;;0;;0;"2W";70;"1S";100;"245222";"245222";;;;;;"Normalkost";"-";;;"C";"1";14.11.2005 00:00:00;;0;;;;0;;0;0;0;7;0
 460;"Frau";"Else";"Kleinhans";"Rubensweg 1";;"70736";"Fellbach";;"583913";;0;0;;0;;0;"3W";52;"3S";52;"245223";"245223";;;;;;"Normalkost";"-";;"kein Dessert,kein Salat";"C";"1";;;0;;;;0;;0;0;0;7;0
 461;"Frau";"Gisela";"Paletscheck";"Wirtembergstr. 115";;"70736";"Fellbach";25.2.1940 00:00:00;"515893";;0;0;;0;;0;"4W";100;"4S";35;"245224";"245224";"Frau";;"Paletschek";"07195/61880";"Schwiegertochter";"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 462;"Frau";"Hedwig";"Hejda";"Friedrichstr. 28";"7. Stock";"71394";"Kernen";;"07151/43103";"Aufzug bis 6. Stock,dann 1 Treppe hochlaufen!";0;0;;0;;0;"5W";55;"5S";78;"245225";"245225";;;;;;"Normalkost";"-";;;"C";"1";;;0;"Landesbank Baden-Württemberg";"60050101";"7825005984";1;;0;0;0;7;0
 463;"Herr";"Karl";"Behounek";"Friedrichstr. 30";;"71394";"Kernen";20.5.1928 00:00:00;"07151/44345";"HH 7. Stock
-nicht klingeln";0;0;;0;;0;"4W";20;"5S";45;"245226";"245226";;;;;;"Normalkost";"-";;;"C";"1";;;1;"Kreissparkasse Waiblingen";"60250010";"0000180638";1;;0;0;0;7;0
+nicht klingeln";0;0;;0;;0;"4W";17;"5S";50;"245226";"245226";;;;;;"Normalkost";"-";;;"C";"1";;;1;"Kreissparkasse Waiblingen";"60250010";"0000180638";1;;0;0;0;7;0
 464;"Frau";"Ingeborg";"Kley-Krause";"August-Lämmle-Str.17";;"70734";"Fellbach";8.11.1922 00:00:00;"587978";"wenn nicht öffnet,bei Schmidt läuten!";0;0;;0;1169;0;"2W";15;"5S";20;"245227";"245227";"Frau";;"Zimmermann";"3973023 od.3450226";;"Normalkost";"-";;;"C";"1";;;1;"Commerzbank Fellbach";"60040071";"761074400";1;;0;0;0;7;0
 465;"Herr";"Paul";"Hoffmann";"Pecserstr.10";;"70736";"Fellbach";;"5770990";"wenn nicht da,im Haus läuten u. vor Türe stellen!";0;0;;0;;0;"4W";74;"4S";0;"245228";"245228";;;;;;"Normalkost";"-";;"kein grüner Salat,Nur Hauptgericht!";"C";"1";;;0;"Volksbank Rems e.G.";"60290110";"0312221002";1;;0;0;0;7;0
 466;"Frau";"Martha";"Fischer";"Charlottenstr. 45";;"70736";"Fellbach";;"0";"Schlüssel benutzen !";0;0;;0;;0;"4W";105;"4S";30;"245230";"245230";"Herr";;"Fischer";"0174/7987274";;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
@@ -517,7 +517,7 @@ nicht klingeln";0;0;;0;;0;"4W";20;"5S";45;"245226";"245226";;;;;;"Normalkost";"-
 500;"Herr";"Thorsten";"Volz";"Amselweg 1";;"71394";"Kernen";;"0";"Re. Ad. Fr. Christel Volz";0;0;;1;;0;"0W";0;"0S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 501;"Frau";"Longinia";"Heyduk";"Ulmenweg 20";;"70734";"Fellbach";;"0";;0;0;;0;;0;"1W";100;"1S";80;"245736";"245736";"Herr";;"Heyduk";"0160-1649280";;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 502;"Frau";"Karin";"Häfele";"Christofstr.48";;"70736";"Fellbach";;"580818";"Bei Häfele läuten,dann zu Fr. Leisring,dann wieder zurück,bis dahin hat Sie geöffnet.";0;0;;0;;0;"2W";112;"4S";60;"245737";"245737";;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
-503;"Herr";"Rudolf";"Wiener";"Eberhardstr.75";;"70736";"Fellbach";24.6.1927 00:00:00;"5781841";;0;0;;0;;0;"2W";120;"4S";60;"245738";"245738";;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+503;"Herr";"Rudolf";"Wiener";"Eberhardstr.75";;"70736";"Fellbach";24.6.1927 00:00:00;"5781841";;0;0;;0;;0;"2W";120;"4S";80;"245738";"245738";;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 504;"Herr";"Peter";"Ortner";"Täschenstr.18";;"70736";"Fellbach";;"586890";;0;0;;0;;0;"2W";84;"4S";30;"245739";"245739";;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 505;"Frau";"Barbara";"Schinagel";"Birkenstr.18";;"71394";"Kernen-Stetten";;"07151/46329";;0;0;;0;;0;"5W";15;"5S";65;"245740";"245740";;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 506;"Frau";"Christel";"Kagelmacher";"Stettener-Str.23";"EG,Zi.3";"70734";"Fellbach";;"0";;0;0;;0;;0;"6W";0;"6S";0;"130147";"130147";;;;;;"Normalkost";"-";;"Keine Linsen !!!";"C";"3";;;1;"BW-Bank Baden-Würtemberg";"60050101";"5513967";1;"Kagelmacher Christel";0;1;1;1;1
@@ -541,14 +541,14 @@ nicht klingeln";0;0;;0;;0;"4W";20;"5S";45;"245226";"245226";;;;;;"Normalkost";"-
 524;"Herr";"Ernst";"Miekautsch";"Grüntor Str. 10";;"71394";"Kernen-Stetten";12.2.1925 00:00:00;"07151/44782";;0;0;;0;;0;"5W";18;"5S";30;;;;;;;;"Normalkost";"-";;"viel Soße";"C";"1";;;0;;;;0;;0;0;0;7;0
 525;"Herr";"Walter";"Zimmermann";"Remser Str. 41";;"70736";"Fellbach-Oeffingen";;"511345";;0;0;;0;;0;"4W";47;"4S";68;;;"Frau";;"Zimmermann-Schmidt";"4568336";"Tochter.
 Fax : 0711/12895897";"Normalkost";"-";;;"C";"1";22.8.2010 00:00:00;;0;;;;0;;0;0;0;7;0
-526;"Herr";"Kurt";"Schlegel";"Auberlenstr.25";;"70736";"Fellbach";25.3.1928 00:00:00;"5770703";;0;0;;0;;0;"2W";36;"1S";49;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+526;"Herr";"Kurt";"Schlegel";"Auberlenstr.25";;"70736";"Fellbach";25.3.1928 00:00:00;"5770703";"dauert länger, bis Fam. Schlegel öffnet, bitte warten.";0;0;;0;;0;"2W";91;"4S";49;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 527;"Frau";"Elsa";"Kaiser";"Hauptstr. 62";;"70736";"Fellbach Öffingen";22.2.1920 00:00:00;"Sohn:0171/7530335";;0;0;;0;;0;"4W";31;"4S";70;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 528;"Frau";"Irmgard";"Kiewek";"Schlesierweg 11";;"71394";"Rommelshausen";24.4.1943 00:00:00;"43401";"Kunde kommt erst am Abend nach Hause, Essen bitte unten an der Treppe abstellen!!!";0;0;;0;;0;"5W";26;"5S";69;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 529;"Frau";"Maria";"Hamonn";"Maiklerstraße 65";;"70736";"Fellbach";;"0";;0;0;;0;;0;"2W";118;"4S";43;;;;;;;;"Normalkost";"-";;;"C";"1";31.8.2010 00:00:00;;0;;;;0;;0;0;0;7;0
 530;"Frau";"Edith";"Frey";"Wagnerstraße6";;"70734";"Fellbach";;"0711/584022";;0;0;;0;;0;"2W";0;"4S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 531;"Frau";"Regina";"Wirtz";"Rohrlandstraße 1";"Sohn 0170 / 1180586";"70736";"Fellbach";;"0711/586344";"lange warten";0;0;;0;;0;"1W";120;"1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 532;"Frau";"Margarete";"Munk";"Scillawaldstr. 26";;"70736";"Fellbach-Oeffingen";;"0711/519026";;0;0;;0;;0;"4W";0;"4S";0;;;"Tochter";;;"0711-3008230";;"Normalkost";"-";;"Kein Fisch und kein Spinat";"C";"1";;;0;;;;0;;0;0;0;7;0
-533;"Familie";"Sigfried";"Winter";"August-Brändle-Str. 30";;"70734";"Fellbach";30.11.1924 00:00:00;"0711-5783060";;0;0;;0;;0;"1W";70;"5S";25;;;;;;;;"Normalkost";"-";;"Fleisch passieren außer Geflügelfleisch";"C";"1";;;1;;;;0;;0;0;0;7;0
+533;"Familie";"Sigfried";"Winter";"August-Brändle-Str. 30";;"70734";"Fellbach";30.11.1924 00:00:00;"0711-5783060";;0;0;;0;;0;"1W";70;"5S";18;;;;;;;;"Normalkost";"-";;"Fleisch passieren außer Geflügelfleisch";"C";"1";;;1;;;;0;;0;0;0;7;0
 534;"Herr";"Herr";"Ehrmann";"Franz-Arnold-Strasse 27";;"70736";"Fellbach";28.6.1934 00:00:00;"0";;0;0;;0;;0;"4W";74;"4S";75;;;;;;;;"Normalkost";"-";;"keine Suppe";"C";"1";1.11.2010 00:00:00;;1;;;;0;;0;0;0;7;0
 535;"Frau";"Liselotte";"Neumaier";"Franz-Arnold-Str. 27";;"70736";"Fellbach";28.12.1922 00:00:00;"0711/512158";;0;0;;0;;0;"4W";72;"4S";33;;;"Sohn";"Peter";"Neumaier";"0711/8824725";"Stöckenbergweg 31                      Esslingen";"Normalkost";"-";;"keine Suppe, kleine Portion";"C";"1";;;1;;;;0;;0;0;0;7;0
 536;"Frau";"Frida";"Ballheimer";"Uhlandstr. 31";;"70736";"Fellbach";;"0";;0;0;;0;;0;"4W";90;"1S";0;;;"Frau";"Doris";"Mayer";"0711/ 514300";;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
@@ -832,7 +832,7 @@ Hohenheimer Str. 97
 810;"Frau";"Edeltraud";"Reichle";"Starenweg 4";"3. Stock";"71394";"Kernen";;"07151/45128";;0;0;;0;;0;"5W";0;"5S";0;"245643";"245643";;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 811;"Frau";"Erika";"Hofmann";"Hintere Str. 59";;"70734";"Fellbach";;"0";;0;0;;0;;0;"4W";102;"1S";102;"245644";"245644";;;;;;"Normalkost";"-";;"Nur Hauptgericht!";"C";"1";;;0;;;;0;;0;0;0;7;0
 812;"Frau";"Ilse";"Werner";"Neckarstr. 49";;"70736";"Fellbach";;"519422";"Schlüssel benutzen! Ans Bett bringen und Behälter öffnen !";0;0;;0;;0;"4W";72;"4S";42;"245645";"245645";"Frau";;"Lienhardt";"516869";;"Normalkost";"-";;"Nur Hauptgericht !";"C";"1";;;0;;;;0;;0;0;0;7;0
-813;"Herr";"Helmut";"Ahrend";"Friedrichstr. 30";"4. Stock";"71394";"Kernen";27.1.1924 00:00:00;"07151/44074";;0;0;;0;;0;"4W";15;"5S";55;"245646";"245646";;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+813;"Herr";"Helmut";"Ahrend";"Friedrichstr. 30";"4. Stock";"71394";"Kernen";27.1.1924 00:00:00;"07151/44074";;0;0;;0;;0;"4W";20;"5S";55;"245646";"245646";;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 814;"Herr";"Werner";"Klopfer";"Esslingerstr. 70";"4. Stock";"70736";"Fellbach";;"5782159";;0;0;;0;;0;"2W";69;"4S";56;"245647";"245647";;;;;;"Sonderkost";"Diabetes";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 815;"Frau";"Edith";"Mauch";"Esslinger Str. 18";;"70734";"Fellbach";;"0";"bei Nachbarn klingeln.
 Falls Problem Sozialstaion anrufen
@@ -840,7 +840,7 @@ Falls Problem Sozialstaion anrufen
 816;"Herr";"Josef";"Reitmaier";"Kelterstr.24/2";;"71394";"Kernen";;"07151/45992";;0;0;;0;;0;"5W";44;"5S";0;"245649";"245649";;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 817;"Frau";"Charlotte";"Blaser";"Hermann-Hesse-Str. 14";;"70734";"Fellbach";;"587071";"Schlüssel benutzen und Behälter öffnen!";0;0;;0;;0;"2W";10;"5S";25;"245650";"245650";"Herr";;"Blaser";"0755-12434od.0172-8928312";;"Sonderkost";"Diabetes";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 818;"Frau";"Herta";"Pietsch";"Waiblingerstr. 68";;"70734";"Fellbach";;"588606";"Eingang Audi- Mayer Austellungsraum!";0;0;;0;;0;"1W";67;"1S";53;"245651";"245651";;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
-819;"Frau";"Elisabeth";"Braun";"Fellbacher Str. 90";;"70736";"Fellbach";28.10.1917 00:00:00;"0711/513523";"dauert etwas bis Sie öffnet,nicht vor Türe stellen!";0;0;;0;953;0;"4W";35;"4S";20;"245652";"245652";;;;;;"Normalkost";"-";;"Nur Hauptgericht!";"C";"1";;;1;;;;0;;0;0;0;7;0
+819;"Frau";"Elisabeth";"Braun";"Fellbacher Str. 90";;"70736";"Fellbach";28.10.1917 00:00:00;"0711/513523";"dauert etwas bis Sie öffnet,nicht vor Türe stellen!";0;0;;0;953;0;"4W";35;"4S";40;"245652";"245652";;;;;;"Normalkost";"-";;"Nur Hauptgericht!";"C";"1";;;1;;;;0;;0;0;0;7;0
 820;"Herr";"Karl-Heinz";"Braun";"Weissacherstr. 25";;"71522";"Backnang";;"0";"Re. Ad. Elisabeth Braun";0;0;;1;;0;"0W";0;"0S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 821;"Frau";"Sonja";"Kizler";"Endersbacherstr. 1";;"70734";"Fellbach";;"589831";;0;0;;0;;0;"1W";0;"1S";0;"245653";"245653";;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 822;"Frau";"Anneliese";"Holzwarth";"Falkenstr. 16";;"71394";"Kernen";;"07151-41280";;0;0;;0;;0;"5W";49;"5S";0;"245654";"245654";;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
@@ -861,7 +861,7 @@ Falls Problem Sozialstaion anrufen
 836;"Frau";"Lieselotte von";"Wakennitz";"Schubertstr. 1";;"70734";"Fellbach";;"584258";;0;0;;0;;0;"1W";87;"1S";69;"245673";"245673";;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 837;"Frau";"Anneliese";"Keppler";"Pestalozzistr. 23";;"70736";"Fellbach";;"0";"Lieferung bei Raible, Franz abgeben !";0;0;;0;975;0;"2W";108;"4S";54;"245672";"245672";;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 838;"Frau";"Anneliese";"Keppler";"Bruckstr. 37";;"70734";"Fellbach";;"0";;0;0;;0;;0;"4W";0;"1S";54;"245733";"245733";;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
-839;"Herr";"Georg";"Friedrich";"Wernerstr. 44";;"70736";"Fellbach";8.11.1926 00:00:00;"0711/64580875";;0;0;;0;;0;"2W";90;"1S";75;"245671";"245671";;;;;;"Normalkost";"-";;"Bei AE bitte immer Obst u.3Brote bitte!";"C";"1";;;1;"Postbank Stuttgart";"60010070";"68217703";1;"Georg Friedrich";0;0;0;7;0
+839;"Herr";"Georg";"Friedrich";"Wernerstr. 44";;"70736";"Fellbach";8.11.1926 00:00:00;"0711/64580875";;0;0;;0;;0;"2W";90;"4S";60;"245671";"245671";;;;;;"Normalkost";"-";;"Bei AE bitte immer Obst u.3Brote bitte!";"C";"1";;;1;"Postbank Stuttgart";"60010070";"68217703";1;"Georg Friedrich";0;0;0;7;0
 840;"Herr";"Erwin";"Rieger";"Albert-Schweizer-Str. 6";"EG";"70734";"Fellbach";;"580709";"Wenn nicht öffnet,dann im Haus läuten!";0;0;;0;;0;"1W";142;"1S";109;"245670";"245670";"Herr";;"Groh";"0791/41127";;"Normalkost";"-";;"Bei MM2 immer Diät!";"C";"1";;;0;;;;0;;0;0;0;7;0
 841;;"LRA Rems-Murr";"/ Fr. Rode";"Alter Postplatz 10";;"71328";"Waiblingen";;"07151-501-1720";"Re. Ad. Frau Brem";0;0;;1;;0;"0W";0;"0S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 842;"Frau";"Doris";"Stöckl";"Cannstatter-Str.95/2";"EG";"70734";"Fellbach";;"587877";"Seniorenhaus";0;0;;0;;0;"4W";98;"5S";27;"245669";"245669";;;;;;"Normalkost";"-";;"Nur Hauptgericht!";"C";"1";;;0;;;;0;;0;0;0;7;0
@@ -895,13 +895,13 @@ Falls Problem Sozialstaion anrufen
 870;"Frau";"Ilse";"Bronner";"Stettener- Str. 23";"EG Zi. 6";"70734";"Fellbach";;"0";"MM u. AE in Küche stellen!";0;0;;0;1033;0;"6W";0;"6S";0;"130008";"130008";;;;;;"Normalkost";"-";;"Alles Passieren+AE, keine Suppe!";"C";"3";;;0;;;;0;;0;1;1;7;0
 871;"Frau";"Edith";"Steffan";"Stettener- Str. 25";"5. Stock, Zi. 501";"70734";"Fellbach";;"0";"MM. In Zimmer bringen! Schutzkleidung tragen!AE in Küche bringen!";0;0;;0;;0;"7W";0;"7S";0;"130076";"130076";;;;;;"Normalkost";"-";;"Alles klein schneiden,Ae bitte richten!";"C";"3";;;0;"Volksbank Rems";"60290110";"100641008";1;;0;0;1;7;0
 872;"Frau";"Anna";"Schwer";"Stettener- Str. 25";"5. Stock Zi. 506";"70734";"Fellbach";;"0";"MM u. AE in 5. Stock stellen!";0;0;;0;1051;0;"7W";0;"7S";0;"130070";"130070";;;;;;"Normalkost";"-";;;"C";"3";;;0;;;;0;;0;0;1;7;0
-873;"Frau";"Barbara";"Mendler";"Stettener- Str. 25";"2. Stock Zi. 208";"70734";"Fellbach";;"0";;0;0;;0;1052;0;"7W";0;"7S";0;"130049";"130049";;;;;;"Normalkost";"-";;"AE Passieren !";"C";"3";;;1;;;;0;;0;1;1;15;0
+873;"Frau";"Barbara";"Mendler";"Stettener- Str. 25";"2. Stock Zi. 208";"70734";"Fellbach";;"0";;0;0;;0;1052;0;"7W";0;"7S";0;"130049";"130049";;;;;;"Normalkost";"-";;"AE in BoxBrot ohne Rinde !";"C";"3";;;1;;;;0;;0;1;1;15;0
 874;"Frau";"Meta";"Mutschler";"Stettener- Str. 25";"3. Stock Zi. 305";"70734";"Fellbach";;"0";"AE in Küche bringen!";0;0;;0;1053;0;"7W";0;"7S";0;"130099";"130099";;;;;;"Normalkost";"-";;"AE bitte richten!";"C";"3";;;1;;;;0;;0;1;1;7;0
 875;"Frau";"Brunhilde";"Nonnengard";"Stettener-Str. 25";"1. Stock Zi. 106";"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;"130055";"130055";;;;;;"Sonderkost";"Diabetes";;"AE in Box HH-Küche!";"C";"3";;;1;;;;0;;0;1;1;1;0
 876;"Frau";"Gertrud";"Illmer";"Stettener- Str. 23";"EG Zi. 8";"70734";"Fellbach";;"0";;0;0;;0;1039;0;"6W";0;"6S";0;"130035";"130035";;;;;;"Sonderkost";"-";;"Mixkost-alles Passieren+AE, keine Suppe!";"C";"3";;;1;"BW- Bank";"60050101";"6560159";1;;0;1;1;1;0
 877;"Herr";"Eugen";"Kollmer";"Stettener-Str. 25";"4. Stock Zi. 401";"70734";"Fellbach";;"0";;0;0;;0;1049;0;"7W";0;"7S";0;"130040";"130040";;;;;;"Normalkost";"-";;"AE in Box in HH-Küche,nur Käse u. Quark!";"C";"3";;;1;"Gschwender-Bank";"61361975";"29405009";1;;0;1;1;1;0
 878;"Frau";"Ingeburg";"Irmscher";"Stettener- Str. 25";"7. Stock Zi. 705";"70734";"Fellbach";;"0";;0;0;;0;1050;0;"7W";0;"7S";0;"130036";"130036";;;;;;"Normalkost";"-";;"Fleisch u. Suppe passieren!AE Passieren!";"C";"3";;;1;"Kreissparkasse";"60250010";"2017479";1;;0;0;1;15;0
-879;"Frau";"Rosa";"Hänle";"Stettener- Str. 25";"4. Stock Zi. 402";"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;"130027";"130027";;;;;;"Normalkost";"-";;"AE in Box in HH-Küche!";"C";"3";;;1;"Dresdner Bank";"60080000";"0325864600";1;;0;1;1;15;1
+879;"Frau";"Rosa";"Hänle";"Stettener- Str. 25";"4. Stock Zi. 402";"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;"130027";"130027";;;;;;"Normalkost";"-";;"AE in BoX!";"C";"3";;;1;"Dresdner Bank";"60080000";"0325864600";1;;0;1;1;15;1
 880;"Frau";"Anny";"Hartl";"Stettener- Str. 25";"6. Stock Zi. 605";"70734";"Fellbach";;"0";;0;0;;0;1048;0;"7W";0;"7S";0;"130104";"130104";;;;;;"Sonderkost";"Diabetes";;"AE in Box in HH-Küche! MM Passieren!";"C";"3";;;1;"Fellbacher Bank";"60261329";"24927007";1;;0;0;1;1;0
 881;"Frau";"Margarete";"Hertle";"Stettener- Str. 25";"5.Stock,Zi.503";"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;"130029";"130029";;;;;;"Normalkost";"-";;"AE auf Tablett!Suppe auch Passiert!";"C";"3";;;1;"Fellbacher Bank";"60261329";"319007";1;;0;1;1;15;0
 882;"Frau";"Elisabeth";"Humbert";"Stettener- Str. 25";"1. Stock Zi. 105";"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;"130034";"130034";;;;;;"Mittags Mixkost";;;"AE auf Tablett!Mixkost";"C";"3";;;1;"Kreissparkasse";"60250010";"2035365";1;;0;1;1;1;0
@@ -1052,15 +1052,15 @@ Adresse: ManfredAlbrecht@t-online.de";0;0;;0;;0;"4W";12;"4S";0;"245680";"245680"
 1225;"Frau";"Eleftheria";"Gkanai / Andreadou";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";"EG Flachbau";0;0;;0;;0;"EHS-3W";110;"EHS-3S";110;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
 1226;"Frau";"Rosemarie";"Binder-Breitenbücher";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";"3 OG Flachbau";0;0;;0;;0;"EHS-3W";50;"EHS-3S";50;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
 1227;"Frau";"0";"Buchwald";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";;0;0;;0;;0;"EHS-3W";30;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
-1228;"Frau";"Gisela";"Dörner";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";"keine Suppe. 5. OG Hochbau";0;0;;0;;0;"EHS-3W";85;"EHS-3S";85;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
+1228;"Frau";"Gisela";"Dörner";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";"keine Suppe. 5. OG Hochbau";0;0;;0;;0;"EHS-3W";85;"EHS-3S";85;;;;;;;;"Normalkost";"-";;"keine Suppe, dafür Joghurt oder Obst.";"C";"1";;;1;;;;0;;0;0;0;8;0
 1229;"Frau";"0";"Drüppel";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";;0;0;;0;;0;"EHS-3W";240;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
 1230;"Frau";"0";"Eßlinger";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";"keine Suppe. Zwischenbau";0;0;;0;;0;"EHS-3W";40;"EHS-3S";40;;;;;;;;"Normalkost";"-";;"keine Suppe";"C";"1";;;1;;;;0;;0;0;0;8;0
 1231;"Frau";"Eleonore";"Fiechtner";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";;0;0;;0;;0;"EHS-3W";50;"EHS-3S";0;;;;;;;;"Normalkost";"-";;"keine Suppe";"C";"1";;;1;;;;0;;0;0;0;8;0
 1232;"Frau";"Anna";"Filker";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";"2. OG Hochbau";0;0;;0;;0;"EHS-3W";105;"EHS-3S";105;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
 1233;"Herr";"Hugo";"Führer";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";"3 OG. Hochbau";0;0;;0;;0;"EHS-3W";20;"EHS-3S";20;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
-1234;"Herr";"Hans-Peter";"Grözinger";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";"EG Flachbau";0;0;;0;;0;"EHS-3W";115;"EHS-3S";115;;;;;;;;"Normalkost";"-";;"keine Suppe";"C";"1";;;1;;;;0;;0;0;0;8;0
+1234;"Herr";"Hans-Peter";"Grözinger";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";"EG Flachbau";0;0;;0;;0;"EHS-3W";115;"EHS-3S";115;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
 1235;"Frau";"Josefa";"Gutowski";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";"5 OG Hochbau";0;0;;0;;0;"EHS-3W";35;"EHS-3S";35;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
-1236;;"0";"Hein";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";;0;0;;0;;0;"EHS-3W";90;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
+1236;;"Helmtrud";"Hein";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";;0;0;;0;;0;"EHS-3W";90;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
 1237;"Herr";"Johannes";"Henze";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";"EG Flachbau";0;0;;0;;0;"EHS-3W";75;"EHS-3S";75;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
 1238;;"0";"Jung";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";;0;0;;0;;0;"EHS-3W";100;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
 1239;"Frau";"Irma";"Leno";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";;0;0;;0;;0;"EHS-3W";55;"EHS-3S";55;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
@@ -1080,23 +1080,23 @@ Adresse: ManfredAlbrecht@t-online.de";0;0;;0;;0;"4W";12;"4S";0;"245680";"245680"
 1253;"Frau";"Charlotte";"Kubach";"Pliensäckerstr. 8";;"70435";"Stuttgart";;"0711/871969";;0;0;;0;;0;"EHS-3W";320;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;8;0
 1254;"Frau";"0";"0";"0";;"0";"0";;"0";;0;0;;0;;0;"1W";0;"1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;;0
 1255;"Frau";"Dora";"Niederer";"Mönchsbergstr. 71";;"70435";"Stuttgart";;"0711/879252";;0;0;;0;;0;"EHS-1W";150;"EHS-1S";150;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
-1256;"Herr";"Manfred";"Stähr";"Mönchsbergstr. 97";;"70435";"Stuttgart";28.4.1929 00:00:00;"0711/8702250";;0;0;;0;;0;"EHS-1W";65;"EHS-1S";65;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1256;"Frau";"Christine";"Stähr";"Mönchsbergstr. 97";;"70435";"Stuttgart";28.4.1929 00:00:00;"0711/8702250";;0;0;;0;;0;"EHS-4W";45;"EHS-4S";45;;;;;;;;"Normalkost";"-";;"statt Obst, Joghurt geben";"C";"1";;;1;;;;0;;0;0;0;6;0
 1257;"Frau";"Ruth";"Bross";"Mönchsbergstr. 103";;"70435";"Stuttgart";30.12.1927 00:00:00;"0711/873908";;0;0;;0;;0;"EHS-1W";130;"EHS-1S";130;;;;;;;;"Normalkost";"-";;"Fleisch passieren";"C";"1";;;0;;;;0;;0;0;0;6;0
 1258;"Frau";"Monika";"Dronka";"Rotweg 70";;"70435";"Stuttgart";19.4.1919 00:00:00;"0711/3806869";;0;0;;0;;0;"EHS-1W";120;"EHS-1S";120;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
 1259;"Frau";"Ingeborg";"Korin";"Tapachstr. 75e";;"70437";"Stuttgart";22.6.1925 00:00:00;"0711/846603";;0;0;;0;;0;"EHS-1W";60;"EHS-1S";60;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1260;"Frau";"Ilse";"Korndörfer";"Tapachstr. 75d";;"70437";"Stuttgart";12.10.1915 00:00:00;"0711/844807";;0;0;;0;;0;"EHS-1W";100;"EHS-1S";100;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
 1261;"Frau";"Gertrud";"Ullmann";"Erlacher Str. 28";;"70437";"Stuttgart";;"0711/843027";;0;0;;0;;0;"EHS-1W";60;"EHS-1S";60;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
-1262;"Frau";"Ingeborg";"Peter";"Erlacher Str. 30";;"70435";"Stuttgart";13.6.1926 00:00:00;"0711/846878";"kein Schweinefleisch";0;0;;0;;0;"EHS-1W";45;"EHS-1S";45;;;;;;;;"Normalkost";"-";;"kein Schweinefleisch";"C";"1";;;1;;;;0;;0;0;0;6;0
+1262;"Frau";"Ingeborg";"Peter";"Erlacher Str. 30";;"70435";"Stuttgart";13.6.1926 00:00:00;"0711/846878";"kein Schweinefleisch";0;0;;0;;0;"EHS-1W";30;"EHS-1S";30;;;;;;;;"Normalkost";"-";;"kein Schweinefleisch";"C";"1";;;1;;;;0;;0;0;0;6;0
 1263;"Herr Dr.";"Heinz";"Lautenschläger";"Oedheimerstr. 16";;"70437";"Stuttgart";4.12.1927 00:00:00;"0711/846730";;0;0;;0;;0;"EHS-1W";40;"EHS-1S";40;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1264;"Frau";"0";"König";"Horrheimerstr. 8";;"70437";"Stuttgart";;"0711/8401976";;0;0;;0;;0;"EHS-1W";60;"EHS-1S";60;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
-1265;"Frau";"Ilse";"Vorthmann";"Adalbert-Stifter-Str. 14";;"70437";"Stuttgart";15.2.1923 00:00:00;"0711/844392";;0;0;;0;;0;"EHS-1W";30;"EHS-1S";30;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1265;"Frau";"Ilse";"Vorthmann";"Adalbert-Stifter-Str. 14";;"70437";"Stuttgart";15.2.1923 00:00:00;"0711/844392";;0;0;;0;;0;"EHS-1W";15;"EHS-1S";15;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1266;"Frau";"Maria";"Randak";"Wallensteinstr. 19a";;"70437";"Stuttgart";;"0711/842278";;0;0;;0;;0;"EHS-1W";30;"EHS-1S";30;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
 1267;"Frau";"Anna";"Herzig";"Wallensteinstr. 29";;"70437";"Stuttgart";8.10.1920 00:00:00;"Tochter 0711/843064";;0;0;;0;;0;"EHS-1W";20;"EHS-1S";20;;;;;;;;"Normalkost";"-";;"keine Suppe, kein Dessert";"C";"1";;;0;;;;0;;0;0;0;6;0
 1268;"Frau";"Theresia";"Wick";"Zanderweg 1";;"70378";"Stuttgart";;"0711/843352";;0;0;;0;;0;"EHS-1W";10;"EHS-1S";10;;;;;;;;"Normalkost";"-";;"kein Fisch";"C";"1";;;0;;;;0;;0;0;0;6;0
 1269;"Frau";"Margot";"Lorenz";"Sturmfeder Str. 1";;"70437";"Stuttgart";20.2.1935 00:00:00;"0711/842355";"zu paniertem Fisch o. Fleisch keine Soße";0;0;;0;;0;"EHS-2W";65;"EHS-2S";65;;;;;"Sohn: 0163/5814901";;;"Normalkost";"-";;"zu paniertem keine Soße";"C";"1";;;1;;;;0;;0;0;0;6;0
 1270;"Herr";"Günther";"Strutz";"Achardweg 14";;"70435";"Stuttgart";21.1.1937 00:00:00;"0711/8264367";;0;0;;0;;0;"EHS-2W";120;"EHS-2S";120;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
 1271;"Herr";"0";"Bolkart";"Wollinstr.";;"70439";"Stuttgart";;"0711/822233";;0;0;;0;;0;"EHS-2W";140;"EHS-2S";140;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
-1272;"Familie";"Helmut";"Schlotterbeck";"Schnürleweg 7";;"70435";"Stuttgart";28.3.1923 00:00:00;"0711/8261604";;0;0;;0;;0;"EHS-2W";85;"EHS-2S";85;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1272;"Familie";"Helmut";"Schlotterbeck";"Schnürleweg 7";;"70435";"Stuttgart";28.3.1923 00:00:00;"0711/8261604";;0;0;;0;;0;"EHS-2W";70;"EHS-2S";70;;;;;;;;"Normalkost";"-";;"Eintopfschale";"C";"1";;;1;;;;0;;0;0;0;6;0
 1273;"Herr";"0";"Fries";"Langobarden Str. 45";;"70435";"Stuttgart";;"0711/8701745";;0;0;;0;;0;"EHS-2W";110;"EHS-2S";110;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
 1274;"Herr";"Karl";"Gimbel";"Straßburger Str. 42";;"70435";"Stuttgart";;"0711/8264336";;0;0;;0;;0;"EHS-2W";95;"EHS-2S";95;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
 1275;"Frau";"Maria";"Barreis";"Schwabbacher Str. 15";;"70435";"Stutgart";1.11.1919 00:00:00;"0711/879957";;0;0;;0;;0;"EHS-2W";70;"EHS-2S";70;;;;;;;;"Sonderkost";"-";;"nur Schonkost";"C";"1";;;0;;;;0;;0;0;0;6;0
@@ -1106,7 +1106,7 @@ Adresse: ManfredAlbrecht@t-online.de";0;0;;0;;0;"4W";12;"4S";0;"245680";"245680"
 1279;"Herr";"Ida";"Ritter";"Eschenauer Str- 49";;"70435";"Stuttgart";23.4.1915 00:00:00;"0711/871275";;0;0;;0;;0;"EHS-3W";135;"EHS-3S";135;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
 1280;"Frau";"Johanna";"Hartmann";"Eschenauerstr. 35";;"70435";"Stuttgart";20.9.1925 00:00:00;"0711/874756";"2. Stock";0;0;;0;;0;"EHS-3W";140;"EHS-3S";140;;;;;;;;"Normalkost";"-";;"Brei Suppe Dessert";"C";"1";;;1;;;;0;;0;0;0;8;0
 1281;"Frau";"Joseph";"Ott";"Haldenrain Str. 75";;"70435";"Stuttgart";;"0711/846959";;0;0;;0;;0;"EHS-2W";20;"EHS-2S";20;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
-1282;"Frau";"Berta";"Vögler";"Sontheimer Str. 6";;"70375";"Stuttgart";1.1.1930 00:00:00;"0711/8401344";;0;0;;0;;0;"EHS-2W";28;"EHS-2S";28;;;;;;;;"Normalkost";"-";;"kleine Portion";"C";"1";;;1;;;;0;;0;0;0;6;0
+1282;"Frau";"Berta";"Vögler";"Sontheimer Str. 6";;"70375";"Stuttgart";1.1.1930 00:00:00;"0711/8401344";;0;0;;0;;0;"EHS-0W";5;"EHS-0S";5;;;;;;;;"Normalkost";"-";;"kleine Portion";"C";"1";;;1;;;;0;;0;0;0;6;0
 1283;"Frau";"Käthe";"Slavik";"Horrheimer Str. 24";;"70437";"Stuttgart";;"0711/842884";;0;0;;0;;0;"EHS-1W";50;"EHS-1S";50;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
 1284;"Frau";"Emma";"Dieterich";"Bartensteiner Str. 5";;"70435";"Stuttgart";;"0711/879166";;0;0;;0;;0;"EHS-1W";160;"EHS-1S";160;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
 1285;"Frau";"Berthe";"Sonnenwald";"Kornwestheimer Str. 86";;"70439";"Stuttgart";4.4.1925 00:00:00;"0711/801790";;0;0;;0;;0;"EHS-2W";80;"EHS-2S";80;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
@@ -1114,7 +1114,7 @@ Adresse: ManfredAlbrecht@t-online.de";0;0;;0;;0;"4W";12;"4S";0;"245680";"245680"
 1288;"Herr";"Peter";"Ochs";"Unterländerstr. 50";;"70435";"Stuttgart";;"0";;0;0;;0;;0;"EHS-0W";30;"EHS-0S";30;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1289;"Frau";"Gerda";"Abweser";"Steinheimerstr. 1B";;"70435";"Stuttgart";10.2.1928 00:00:00;"0711/";;0;0;;0;;0;"EHS-0W";45;"EHS-0S";45;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1290;"Frau";"Erna";"Pfeiffer";"Fürfelder Str. 8";;"70435";"Stuttgart";8.10.1924 00:00:00;"0711/841134";;0;0;;0;;0;"4W";0;"4S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
-1291;"Herr";"Gerhardt";"Stein";"Marbacher Str. 9";;"70435";"Stuttgart";31.3.1926 00:00:00;"0";;0;0;;0;;0;"EHS-0W";30;"EHS-0S";30;;;;;;;;"Normalkost";"-";;"passierte Kost";"C";"1";;;1;;;;0;;0;0;0;6;0
+1291;"Herr";"Gerhardt";"Stein";"Marbacher Str. 9";;"70435";"Stuttgart";31.3.1926 00:00:00;"0";"Fleisch pürrieren.";0;0;;0;;0;"EHS-0W";30;"EHS-0S";30;;;;;;;;"Normalkost";"-";;"passierte Kost";"C";"1";;;1;;;;0;;0;0;0;6;0
 1292;"Frau";"Roswitha";"Spreiter";"Fleiner Str. 86";;"70437";"Stuttgart";27.9.1949 00:00:00;"0711/840662";;0;0;;0;;0;"EHS-0W";50;"EHS-0S";50;;;;;;;;"Normalkost";"-";;"keine Nudeln, kein Reis";"C";"1";;;1;;;;0;;0;0;0;6;0
 1293;"Herr";"Gerhard";"Freymann";"Olnhausen Str. 32";;"70437";"Stuttgart";6.12.1937 00:00:00;"0";;0;0;;0;;0;"EHS-0W";20;"EHS-0S";20;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
 1294;"Frau";"0";"Kiehl";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";;0;0;;0;;0;"EHS-3W";110;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
@@ -1127,7 +1127,7 @@ Adresse: ManfredAlbrecht@t-online.de";0;0;;0;;0;"4W";12;"4S";0;"245680";"245680"
 1303;"Herr";"Knut";"Groetzner";"Schwabbacherstr. 15";;"70437";"Stuttgart";1.7.1929 00:00:00;"0711/ 879905";;0;0;;0;;0;"EHS-2W";80;"EHS-2S";80;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
 1306;"Frau";"Martha";"Eisenmenger";"Stettener-Str.23";"1.Stock,Zi.102";"70734";"Fellbach";;"0";;0;0;;0;;0;"6W";0;"6S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;1;1;1
 1307;"Frau";"Else";"Hayer";"Stettener-Str.23";"EG,Zi.1";"70734";"Fellbach";;"0";;0;0;;0;;0;"6W";0;"6S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;1;1;0
-1308;"Herr";"Josef";"Schenk";"Stettener-Str.23";"1.Stock,Zi.116";"70734";"Fellbach";;"0";;0;0;;0;;0;"6W";0;"6S";0;;;;;;;;"Normalkost";"-";;"AE im Saal!";"C";"3";;;1;;;;0;;0;1;1;1;0
+1308;"Herr";"Josef";"Schenk";"Stettener-Str.23";"1.Stock,Zi.116";"70734";"Fellbach";;"0";;0;0;;0;;0;"6W";0;"6S";0;;;;;;;;"Normalkost";"-";;"AE in Box!Kartoffeln o. Püree !keine Nud";"C";"3";;;1;;;;0;;0;1;1;1;0
 1309;"Frau";"Elli";"Himmel";"Stettener-Str.25";"1.Stock,Zi.109";"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Sonderkost";"Diabetes";;"Bitte kleine Portion!";"C";"3";;;1;;;;0;;0;0;1;1;0
 1310;"Herr";"Alexander";"Rink";"HH";;"-";"Zivi";;"0";;1;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;1;0;0;1;0
 1311;"Frau";"Theresia";"Dörre";"Stettener-Str.25";"2.Sock,Zi.206";"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;1;15;1
@@ -1142,7 +1142,7 @@ Adresse: ManfredAlbrecht@t-online.de";0;0;;0;;0;"4W";12;"4S";0;"245680";"245680"
 1321;"Frau";"Martha";"Klein";"Stettener-Str.23";"EG,Zi.5";"70734";"Fellbach";;"0";;0;0;;0;;0;"6W";0;"6S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;1;1;1
 1322;"Herr";"Rolf";"Höhn";"Stettener-Str.25";"5.Stock,Zi.507";"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;1;15;0
 1323;;"0";"Bender";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";"Zwischenbau";0;0;;0;;0;"EHS-3W";45;"EHS-3S";45;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
-1324;"Herr";"Rudolf";"Schäfer";"Sachsenstr. 24";;"70435";"Stuttgart";11.7.1926 00:00:00;"0711/2482654";"hört schlecht. Bitte Schlüssel benutzen.";0;0;;0;;0;"EHS-2W";75;"EHS-2S";75;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1324;"Herr";"Rudolf";"Schäfer";"Sachsenstr. 24";;"70435";"Stuttgart";11.7.1926 00:00:00;"0711/2482654";"hört schlecht. Bitte Schlüssel benutzen.";0;0;;0;;0;"EHS-2W";82;"EHS-2S";82;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1325;"Herr";"Helmut";"Duffner";"Albrecht-Dürerweg 12";;"70736";"Fellbach";;"0";;0;0;;0;;0;"2W";93;"1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 1327;"Frau";"Anneliese";"Gollnisch";"Hermann-Lönsweg 2";;"70736";"Fellbach";;"0";;0;0;;0;;0;"2W";0;"1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 1328;"Herr";"Helmut";"Lieb";"Schubertstr. 58";;"71394";"Rommelshausen";;"07151/43217";;0;0;;0;;0;"5W";66;"1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
@@ -1159,7 +1159,7 @@ Adresse: ManfredAlbrecht@t-online.de";0;0;;0;;0;"4W";12;"4S";0;"245680";"245680"
 1341;"Herr";"Helmut";"Fiechtner";"Colmarer Str. 11";;"70435";"Stuttgart";5.6.1924 00:00:00;"0711/872198";;0;0;;0;;0;"EHS-2W";15;"EHS-2S";15;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
 1342;"Frau";"Alwine";"Husser";"Langobardenstr. 13";;"70435";"Stuttgart";;"0711/8702741";"Bitte länger klingeln und warten. Sollte Sie nicht öffnen, beim Nachbar klingeln";0;0;;0;;0;"EHS-2W";109;"EHS-2S";109;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
 1343;"Frau";"Edith";"Göckle";"Mönchsbergstr. 109 EG";;"70435";"Stuttgart";;"0711/547289";;0;0;;0;;0;"EHS-1W";131;"EHS-1S";131;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
-1344;"Frau";"Dorothea";"Petri";"Wallensteinstr. 37 A";;"70437";"Stuttgart";25.5.1922 00:00:00;"0711/842744";;0;0;;0;;0;"EHS-1W";32;"EHS-1S";32;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1344;"Frau";"Dorothea";"Petri";"Wallensteinstr. 37 A";;"70437";"Stuttgart";25.5.1922 00:00:00;"0711/842744";;0;0;;0;;0;"EHS-1W";20;"EHS-1S";20;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1345;"Frau";"Erika";"Merz";"Stettener-Str.25";"3.Stock,Zi.303";"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;"AE auf Tablett!";"C";"3";;;1;;;;0;;0;1;1;15;1
 1346;"Herr";"Johann";"Schöll";"Stettener-Str.25";"4.Stock,Zi.406";"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;"AE in Box!";"C";"3";;;1;;;;0;;0;1;1;15;0
 1347;"Herr";"Curt";"Mohr";"Stettener-Str.25";"7.Stock,Zi.706";"70734";"Fellbach";;"0";;0;0;;0;;0;"6W";0;"6S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;1;1;0
@@ -1181,7 +1181,7 @@ Adresse: ManfredAlbrecht@t-online.de";0;0;;0;;0;"4W";12;"4S";0;"245680";"245680"
 1363;"Frau";"Hilda";"Böhm";"Fellbacherstr. 81";;"71394";"Kernen-Rommelshausen";20.10.1928 00:00:00;"07151/41212";;0;0;;0;;0;"5W";10;"5S";20;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1365;"Herr";"Albert";"Rieger";"Wirtemberg Str. 108";;"70736";"Fellbach";;"0";"dauert etwas bis geöffnet wird.
 Box auf den Tisch stellen und öffnen.";0;0;;0;;0;"4W";82;"4S";52;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
-1366;"Frau";"Johanna";"Eckhardt";"Spielberger Str. 11";"Fax: 8494014";"70435";"Stuttgart";3.10.1921 00:00:00;"R-B-K : 879753";"sieht schlecht, bitte Behälter öffnen";0;0;;0;;0;"EHS-2W";70;"EHS-2S";70;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1366;"Frau";"Johanna";"Eckhardt";"Spielberger Str. 11";"Fax: 8494014";"70435";"Stuttgart";3.10.1921 00:00:00;"R-B-K : 879753";"sieht schlecht, bitte Behälter öffnen";0;0;;0;;0;"EHS-3/1W";15;"EHS3/1S";15;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
 1367;"Frau";"Gertrud";"Rogalski";"Haldenrainstr. 141";;;"Stuttgart";;"0";;0;0;;0;;0;"1W";0;"1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;;0
 1368;"Frau";"Gertrud";"Rogalski";"Haldenrainstr. 141";;"70437";"Stuttgart";21.7.1924 00:00:00;"Fax: 8494014";;0;0;;0;;0;"EHS-2W";31;"EHS-2S";31;;;;;"Tochter";"0711/534166";;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1369;"Frau";"Terhas";"Mebrathu";"HH";;"-";"Mitarbeiter";;"0";;1;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;0;5;0
@@ -1196,7 +1196,7 @@ Box auf den Tisch stellen und öffnen.";0;0;;0;;0;"4W";82;"4S";52;;;;;;;;"Normal
 1378;"Frau";"Waltraude";"Tittel";"Schwabbacher Str. 15";;"70437";"Stuttgart";19.8.1927 00:00:00;"0711/8790076";"mehr Beilagen";0;0;;0;;0;"EHS-2W";25;"EHS-2S";25;;;;;;;;"Normalkost";"-";;"Mehr Beilagen";"C";"1";;;1;;;;0;;0;0;0;6;0
 1380;"Frau";"Ingrid";"Schepe";"Hindenburg Str. 5";;"70736";"Fellbach";;"-";;0;0;;0;;0;"4W";20;"4S";57;;;"Bekannter";;;"Fax: 0711/20698690 Geschäft";;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 1381;"Frau";"Margarete";"Schulz";"Marbacherstr. 9";;"70437";"Stittgart";;"0711/8402771";;0;0;;0;;0;"EHS-0W";0;"EHS-0S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
-1382;"Frau";"Ruth";"Hertel";"Horrheimerstr. 30";;"70435";"Stuttgart";11.3.1922 00:00:00;"0711/844705";;0;0;;0;;0;"EHS-1W";55;"EHS-1S";55;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1382;"Frau";"Ruth";"Hertel";"Horrheimerstr. 30";;"70435";"Stuttgart";11.3.1922 00:00:00;"0711/844705";;0;0;;0;;0;"EHS-1W";40;"EHS-1S";40;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1383;"Frau";"Gisela";"Reinecke";"Tappachstr. 95    E11";;"70437";"Stuttgart";;"0711/8401171";;0;0;;0;;0;"EHS-1W";0;"EHS-1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
 1384;"Frau";"Anna";"Quapil";"Suttnerstr. 15";;"70437";"Stuttgart";25.2.1929 00:00:00;"0711/847018";;0;0;;0;;0;"EHS-1W";0;"EHS-1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
 1385;"Frau";"Annemarie";"Schiller";"Mozartstr. 36";;"71394";"Kernen-Rommelshausen";15.9.1925 00:00:00;"0160/8000705";;0;0;;0;;0;"5W";67;"5S";35;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
@@ -1209,7 +1209,7 @@ Box auf den Tisch stellen und öffnen.";0;0;;0;;0;"4W";82;"4S";52;;;;;;;;"Normal
 1392;"Frau";"Magdalena";"Menches";"Esslinger Str. 70";;"70736";"Fellbach";;"0711/584898";;0;0;;0;;0;"4W";108;"4S";87;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 1393;"Herr";"Rudolf";"Seibold";"Kappelbergstr. 24";;"70734";"Fellbach";3.8.1925 00:00:00;"-";"Das Haus ist zwischen der Nr. 20 und Nr. 22 Im Hinterhof";0;0;;0;;0;"1W";37;"1S";39;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 1394;"Herr";"August";"Renz";"Mozartstr. 38";;"71394";"Kernen";2.3.1922 00:00:00;"-";;0;0;;0;;0;"5W";0;"5S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
-1395;"Herr";"Albert";"Uhl";"Jakob-Gauermann-Str. 2";;"70736";"Fellbach-Oeffingen";6.10.1922 00:00:00;"-";;0;0;;0;;0;"4W";23;"4S";48;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+1395;"Herr";"Albert";"Uhl";"Jakob-Gauermann-Str. 2";;"70736";"Fellbach-Oeffingen";6.10.1922 00:00:00;"-";;0;0;;0;;0;"4W";23;"4S";20;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1396;"Herr";"Hans";"Schutz";"Philosophenweg 6";;"70736";"Fellbach";8.7.1926 00:00:00;"0711/586027";;0;0;;0;;0;"1W";109;"1S";86;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 1397;"Frau";"Anna";"Fixl";"Waiblinger Str. 48";;"70734";"Fellbach";6.5.1928 00:00:00;"0711/584041";"Dauert länger bis Sie öffnet.  Bitte alle Behälter öffnen.";0;0;;0;;0;"1W";73;"1S";55;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1398;"Frau";"Lotte";"Bölke";"In den Hochwiesen 37";;"70439";"Stuttgart";13.11.1927 00:00:00;"0711/825489";"kein Paprika";0;0;;0;;0;"EHS-2W";75;"EHS-2S";75;;;"Frau";;"Pulvermüller";"0711/825371";;"Normalkost";"-";;"Kein Paprika";"C";"1";;;1;;;;0;;0;0;0;6;0
@@ -1231,21 +1231,21 @@ Box auf den Tisch stellen und öffnen.";0;0;;0;;0;"4W";82;"4S";52;;;;;;;;"Normal
 1414;"Frau";"-";"Kubach";"Pliensäckerstr. 8";;"70437";"Stuttgart";;"0711/871969";;0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;"Keine Pute und kein Fisch";"C";"1";;;0;;;;0;;0;0;0;6;0
 1415;"Familie";"Manfred und Helga";"Knoblauch";"Falkenstr. 4";;"71394";"Kernen-Rommelshausen";;"07151/43267";;0;0;;0;;0;"5W";0;"5S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 1416;"Frau";"Margot";"Pekarek";"Auricher Str. 36";;"70437";"Stuttgart";;"-";;0;0;;0;;0;"EHS-2W";0;"EHS-2S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
-1417;"Herr";"Günter";"Göttler";"Spitalstr. 4";;"70435";"Stuttgart";2.9.1934 00:00:00;"0711/825520";"Bitte Schlüssel benutzen.";0;0;;0;;0;"EHS-2W";50;"EHS-2S";50;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
-1418;"Frau";"Gertrud";"Heinz";"Mönchsbergstr. 99";;"70435";"Stuttgart";;"-";"keine Suppe";0;0;;0;;0;"EHS-1W";70;"EHS-1S";70;;;;;;;;"Normalkost";"-";;"keine Suppe";"C";"1";;;1;;;;0;;0;0;0;6;0
+1417;"Herr";"Günter";"Göttler";"Spitalstr. 4";;"70435";"Stuttgart";2.9.1934 00:00:00;"0711/825520";"Bitte Schlüssel benutzen.";0;0;;0;;0;"EHS-2W";60;"EHS-2S";60;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1418;"Frau";"Gertrud";"Heinz";"Mönchsbergstr. 99";;"70435";"Stuttgart";;"-";"keine Suppe";0;0;;0;;0;"EHS-4W";50;"EHS-4S";50;;;;;;;;"Normalkost";"-";;"keine Suppe, dafür Joghurt oder Obst.";"C";"1";;;1;;;;0;;0;0;0;6;0
 1419;"Frau";"Angela";"Franieck";"Bretzfelder Str. 34";;"70437";"Stuttgart";22.8.1922 00:00:00;"-";;0;0;;0;;0;"EHS-0W";0;"EHS-0S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
-1420;"Herr";"Heinz";"Kaiser";"Marbacherstr. 10c";;"70435";"Stuttgart";;"0711/873767";"keine Suppe";0;0;;0;;0;"EHS-2W";40;"EHS-2S";40;;;;;;;;"Normalkost";"-";;"keine Suppe";"C";"1";;;1;;;;0;;0;0;0;6;0
-1421;"Familie";"-";"Albrecht";"Schwabbacher Str. 15";;"70435";"Stuttgart";;"0711/872553";;0;0;;0;;0;"EHS-2W";35;"EHS-2S";35;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1420;"Herr";"Heinz";"Kaiser";"Marbacherstr. 10c";;"70435";"Stuttgart";;"0711/873767";"keine Suppe, dafür Joghurt oder Obst";0;0;;0;;0;"EHS-2W";15;"EHS-2S";15;;;;;;;;"Normalkost";"-";;"keine Suppe, dafür Joghurt oder Obst";"C";"1";;;1;;;;0;;0;0;0;6;0
+1421;"Familie";"-";"Albrecht";"Schwabbacher Str. 15";;"70435";"Stuttgart";;"0711/872553";;0;0;;0;;0;"EHS-2W";5;"EHS-2S";5;;;;;;;;"Normalkost";"-";;"keine Suppe";"C";"1";;;1;;;;0;;0;0;0;6;0
 1422;"Frau";"Liselotte";"Brand";"Schozacher Str. 12";;"70437";"Stuttgart";;"0711/845363";"Sollte Fr. Brand nicht zuhause sein, bitte bei der Nachbarin Fr. Schmidt klingeln.";0;0;;0;;0;"EHS-2W";20;"EHS-2S";20;;;;;"Walter(Schwiegersohn";"0160/7811768";;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1423;;"-";"Matthaei";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";;0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";"Keine Süßspeisen";"Vegetarisch Fisch erlaubt,";"C";"1";;;1;;;;0;;0;0;0;8;0
 1424;"Frau";"Helene";"Schraysshuen";"Kornwestheimer Str. 77";;"70439";"Stuttgart";;"-";;0;0;;0;;0;"EHS-2W";0;"EHS-2S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
 1425;"Herr";"Wolfgang";"Hey";;;;;;;;0;0;;0;;0;"1W";0;"1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;;0
 1426;"Herr";"Wolfgang";"Heydhausen";"Stettener-Str 25";;"70734";"Fellbach";;"1.Stock,Zi.102";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;1;1;15;1
 1427;"Herr";"Leopold";"Veith";"Haldenrainstr. 75";;"70435";"Stuttgart";;"0711/847541";"Bitte läuten und warten und nicht vor die Tür stellen.";0;0;;0;;0;"EHS-2W";10;"EHS-2S";10;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
-1428;"Frau";"Kurt";"Schmidt";"Sersheimer Str. 10";;"70437";"Stuttgart";;"-";;0;0;;0;;0;"EHS-1W";29;"EHS-1S";29;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1428;"Frau";"Kurt";"Schmidt";"Sersheimer Str. 10";;"70437";"Stuttgart";;"-";;0;0;;0;;0;"EHS-1W";5;"EHS-1S";5;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1429;"Herr";"Alois";"Meindl";"Berlichinger Str. 8";;"70437";"Stuttgart-Zazenhausen";;"0711/634085";;0;0;;0;;0;"EHS-2W";0;"EHS-2S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
-1430;"Herr";"Willy";"Buchner";"Marbacher Str. 9";;"70435";"Stuttgart";13.8.1935 00:00:00;"0711/844320";;0;0;;0;;0;"EHS-0W";15;"EHS-0S";15;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
-1431;"Frau";"Ingeborg";"Bauer";"Boltwarstr. 21";;"70435";"Stuttgart";;"-";"Bitte Schlüssel benutzen.";0;0;;0;;0;"EHS-2W";45;"EHS-2S";45;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1430;"Herr";"Willy";"Buchner";"Marbacher Str. 9";;"70435";"Stuttgart";13.8.1935 00:00:00;"0711/844320";"Schlüssel benutzen. Box öffnen und Geschirrdeckel entfernen. Essen schneiden.";0;0;;0;;0;"EHS-2W";10;"EHS-2S";10;;;;;;;;"Normalkost";"-";"kein Reis,kein Gemüse mehr Soße";"Fleisch schneiden";"C";"1";;;1;;;;0;;0;0;0;6;0
+1431;"Frau";"Ingeborg";"Bauer";"Boltwarstr. 21";;"70435";"Stuttgart";;"-";"Bitte Schlüssel benutzen. Keine Bohnen, Linsen.";0;0;;0;;0;"EHS-2W";30;"EHS-2S";30;;;;;;;;"Normalkost";"-";;"keine Bohnen u.Linsen Fleisch schneiden";"C";"1";;;1;;;;0;;0;0;0;6;0
 1432;"Frau";"-";"Heilmann";"Talheimer Str. 8";;"70437";"Stuttgart";;"-";;0;0;;0;;0;"EHS-1W";0;"EHS-1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1433;"Herr";"Werner";"Dwoiakowski";"Settener-Str.23";"Zi.407,4.Stock";"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;1;1;0
 1434;"Frau";"Irma";"Hohl";"Stettener-Str 25";;"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;1;15;1
@@ -1257,7 +1257,7 @@ Box auf den Tisch stellen und öffnen.";0;0;;0;;0;"4W";82;"4S";52;;;;;;;;"Normal
 1440;"Frau";"Maria";"Steinbrecher";"Gartenstr.92";;"70734";"Fellbach";;"0";;0;0;;0;;0;"0W";0;"0S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;0;1;1
 1441;"Frau";"Maria";"Wagner";"Urbanstr. 17";;"70734";"Fellbach";;"0711/573094";;0;0;;0;;0;"1W";13;"1S";32;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 1442;"Frau";"Maria";"Steinbrecher";"Gartenstr. 92";;"70734";"Fellbach";19.3.1928 00:00:00;"0711/34245632";;0;0;;0;;0;"1W";12;"5S";0;;;"Sohn";;"Steinbrecher";"0711/5203448";;"Normalkost";"-";;"große Portion";"C";"1";;;1;;;;0;;0;0;0;7;0
-1443;"Frau";"Elisabeth";"Seibold";"Horrheimer Str, 30";;"70437";"Stuttgart";;"0711/847216";"keine Suppe, dafür Obst";0;0;;0;;0;"EHS-1W";50;"EHS-1S";50;;;"Neffe";;;"0711/5779312";;"Normalkost";"-";;"keine Suppe, dafür Obst";"C";"1";;;1;;;;0;;0;0;0;6;0
+1443;"Frau";"Elisabeth";"Seibold";"Horrheimer Str, 30";;"70437";"Stuttgart";;"0711/847216";"keine Suppe, dafür Obst";0;0;;0;;0;"EHS-1W";35;"EHS-1S";35;;;"Neffe";;;"0711/5779312";;"Normalkost";"-";;"keine Suppe, dafür Obst";"C";"1";;;1;;;;0;;0;0;0;6;0
 1444;"Herr";"-";"Baumann";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";;0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
 1445;"Frau";"Eleonore";"Stephan";"Bahnhofstr. 10";"7. Stock";"70734";"Fellbach";20.10.1928 00:00:00;"0711/589846";;0;0;;0;;0;"1W";84;"1S";59;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1446;"Frau";"Magdolsa";"Sudajevic";"Marbacherstr. 9";;"70437";"Stuttgart";22.7.1941 00:00:00;;;0;0;;0;;0;"EHS-0W";25;"EHS-0S";25;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
@@ -1391,8 +1391,8 @@ Box auf den Tisch stellen und öffnen.";0;0;;0;;0;"4W";82;"4S";52;;;;;;;;"Normal
 1578;"Frau";"Marga";"Frisch";"Tappachstr. 81 b";;"70437";"Stuttgart";9.2.1920 00:00:00;"0711/844979";;0;0;;0;;0;"EHS-1W";80;"EHS-1S";80;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1579;"Frau";"Margot";"Reiser";"Mönchsbergstr. 102";;"70435";"Stuttgart";;"0711/874201";;0;0;;0;;0;"1W";0;"1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
 1580;"Frau";"Margarete";"Hombach";"Sontheimer Str. 13";;"70437";"Stuttgart";14.8.1921 00:00:00;"-";;0;0;;0;;0;"EHS-2W";0;"EHS-2S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
-1581;"Frau";"Erika";"Pfisterer";"Emhildstr. 4";;"70437";"Stuttgart";15.1.1935 00:00:00;"0711/843197";;0;0;;0;;0;"EHS-2W";60;"EHS-2S";60;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
-1582;;"Gerhard";"Schauer";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";"5 OG Hochbau";0;0;;0;;0;"EHS-3W";95;"EHS-3S";95;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
+1581;"Frau";"Erika";"Pfisterer";"Emhildstr. 4";;"70437";"Stuttgart";15.1.1935 00:00:00;"0711/843197";;0;0;;0;;0;"EHS-2W";35;"EHS-2S";35;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1582;;"Gerhard";"Schauer";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";"5 OG Hochbau";0;0;;0;;0;"EHS-3W";95;"EHS-3S";95;;;;;;;;"Normalkost";"-";;"große Portion";"C";"1";;;1;;;;0;;0;0;0;8;0
 1583;"Herr";"-";"Rössle";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";;0;0;;0;;0;"EHS-3W";90;"EHS-3S";90;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
 1584;"Frau";"Doris";"Bletzinger";"Wetzlarer Str. 25";;"70376";"Stuttgart";;"-";;0;0;;0;;0;"EHS-1W";80;"EHS-1S";80;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
 1585;"Frau";"Ellen";"Reitzig";"Olnhauser Str. 32";;"70435";"Stuttgart";19.1.1930 00:00:00;"0711/841997";"alle Behälter öffnen.";0;0;;0;;0;"EHS-1W";5;"EHS-1S";5;;;"Frau";;"Fuchs";"0711/842472";;"Normalkost";"Diabetes";;"keine Suppe, Fleisch klein schneiden";"C";"1";;;1;;;;0;;0;0;0;6;0
@@ -1400,10 +1400,10 @@ Box auf den Tisch stellen und öffnen.";0;0;;0;;0;"4W";82;"4S";52;;;;;;;;"Normal
 1587;"Frau";"Guiseppa";"Scrofani";"HH";;"-";"Mitarbeiter";;"0";;1;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;0;;0
 1588;"Frau";"Guiseppa";"Scrofani";"HH";;"_";"Mitarbeiter";;"0";;1;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;0;5;0
 1589;"Frau";"Katharina";"Brenner";"Eschenauer Str. 15";;"70437";"Stuttgart";;"0711/872705";"Bitte Box öffnen. Keine Suppe";0;0;;0;;0;"EHS-3W";130;"EHS-3S";130;;;"Sohn";"Harry";"Brenner";"07141/43603";;"Normalkost";"-";;"keine Suppe";"C";"1";;;1;;;;0;;0;0;0;8;0
-1590;"Frau";"Christa";"Langner";"Mönchsbergstr. 101";"12";"70435";"Stuttgart";31.1.1923 00:00:00;"-";"sollte Sie nicht öffnen, bitte bei Elsässer klingeln und vor die Wohnungstür stellen. Keine Suppe";0;0;;0;;0;"EHS-1W";95;"EHS-1S";95;;;;;;;;"Normalkost";"-";;"Ohne Suppe";"C";"1";;;1;;;;0;;0;0;0;6;0
+1590;"Frau";"Christa";"Langner";"Mönchsbergstr. 101";"12";"70435";"Stuttgart";31.1.1923 00:00:00;"0711/8065872";"sollte Sie nicht öffnen, bitte bei Elsässer klingeln und vor die Wohnungstür stellen. Keine Suppe";0;0;;0;;0;"EHS-4W";55;"EHS-4S";55;;;;;;;;"Normalkost";"-";;"keine Suppe,Obst Joghurt halbe Portion";"C";"1";;;1;;;;0;;0;0;0;6;0
 1591;"Frau";"Petra";"Lieb";"Schubertstr. 58";;"71394";"Kernen-Rommelshausen";20.6.1968 00:00:00;"07151/45760";;0;0;;0;;0;"5W";66;"5S";83;;;"Ehemann";;;"0711/93929087";;"Normalkost";"-";;"Keine Suppe";"C";"1";;;0;;;;0;;0;0;0;7;0
 1592;"Frau";"Else";"Glog";"Friedrichstr. 30";"3";"71394";"Kernen-Rommelshausen";28.4.1921 00:00:00;"-";;0;0;;0;;0;"5W";55;"5S";78;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
-1593;"Frau";"Liselotte";"Großkreutz";"Balthasar-Neumann-Str. 37";;"70437";"Stuttgart";18.1.1934 00:00:00;"0711/842912";;0;0;;0;;0;"EHS-1W";35;"EHS-1S";35;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1593;"Frau";"Liselotte";"Großkreutz";"Balthasar-Neumann-Str. 37";;"70437";"Stuttgart";18.1.1934 00:00:00;"0711/842912";;0;0;;0;;0;"EHS-1W";10;"EHS-1S";10;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1594;"Frau";"Else";"Fässler";"Kafkaweg 2";;"70437";"Stuttgart";22.7.1927 00:00:00;"0711/842928";;0;0;;0;;0;"EHS-1W";31;"EHS-1S";31;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;1;0;0;6;0
 1595;"Frau";".";"Igler";"Wallensteinstr. 25";;"70437";"Stuttgart-Freiberg";;"845869";;0;0;;0;;0;"EHS-1W";0;"EHS-1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";13.3.2012 00:00:00;;1;;;;0;;0;0;0;;0
 1596;"Frau";".";"Igler";"Wallensteinstr.";;"70437";"Stuttgart-Freiberg";;"845869";;0;0;;0;;0;"EHS-1W";0;"EHS-1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";13.3.2012 00:00:00;;1;;;;0;;0;0;0;;0
@@ -1411,34 +1411,34 @@ Box auf den Tisch stellen und öffnen.";0;0;;0;;0;"4W";82;"4S";52;;;;;;;;"Normal
 1598;"Frau";"Emma";"Idler";"Wallensteinstr. 25";;"70437";"Stuttgart";;"0711/845869";"Mehr Beilagen und mehr Suppe
 am Samstag eine große Schüssel und eine
 kleine Schüssel Eintopf";0;0;;0;;0;"EHS-1W";32;"EHS-1S";32;;;"Tochter";;;"0711/591351";;"Normalkost";"-";;"mehr Beilagen Sa Eintopf gr und kl";"C";"1";;;1;;;;0;;0;0;0;6;0
-1599;"Frau";"-";"Häfele";"Christofstr. 48";;"70736";"Fellbach";6.1.1952 00:00:00;"0711/580818";;0;0;;0;;0;"2W";95;"4S";160;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+1599;"Frau";"Karin";"Häfele";"Christofstr. 48";;"70736";"Fellbach";6.1.1952 00:00:00;"0711/580818";;0;0;;0;;0;"2W";95;"4S";160;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1600;"Frau";"Magdalena";"Pfeiffer";"Fleinerstr. 40";;"70437";"Stuttgart";18.10.1920 00:00:00;"0711/842139";;0;0;;0;;0;"EHS-0W";0;"EHS-0S";0;;;;;;;;"Normalkost";"-";;;"C";"1";17.3.2012 00:00:00;;1;;;;0;;0;0;0;6;0
 1601;"Frau";"Frau";"Lipp";"Rotweg 74";;"70437";"Stuttgart";22.1.1928 00:00:00;"0711845427";;0;0;;0;;0;"EHS-2W";0;"EHS-2S";0;;;;;;;;"Normalkost";"-";;;"C";"1";18.3.2012 00:00:00;;1;;;;0;;0;0;0;6;0
 1602;"Frau";"Christel";"Nienhold";"Wallensteinstr. 29";;"70437";"Stuttgart";18.10.1930 00:00:00;"0711/8401250";;0;0;;0;;0;"EHS-1W";33;"EHS-1S";33;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1603;"Frau";"Doris";"Bletzinger";"Wetzlarerstr. 25";;"70376";"Stuttgart";;"-";;0;0;;0;;0;"EHS-1W";77;"EHS-1S";77;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1604;"Frau";"Ingeborg";"von Gerlach";"Wetzlarerstr. 25";"4. Stock";"70376";"Stuttgart";12.6.1936 00:00:00;"0711/545357";;0;0;;0;;0;"EHS-1W";78;"EHS-1S";78;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1605;"Herr";"Bruno";"Kleemann";"Schrozberger Str. 26";;"70435";"Zuffenhausen";15.8.1921 00:00:00;"0711/871299";"hört und sieht schlecht. Länger klingeln.";0;0;;0;;0;"1W";0;"1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;;0
-1606;"Herr";"Bruno";"Kleemann";"Schrozberger Str. 26";;"70435";"Zuffenahusen";15.8.1921 00:00:00;"0711/871299";"hört und sieht schlecht. Länger klingeln.";0;0;;0;;0;"EHS-2W";77;"EHS-2S";77;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1606;"Herr";"Bruno";"Kleemann";"Schrozberger Str. 26";;"70435";"Stuttgart";15.8.1921 00:00:00;"0711/871299";"hört und sieht schlecht. Länger klingeln.";0;0;;0;;0;"EHS-4W";70;"EHS-4S";70;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1607;"Frau";"Gertrud";"Schölkopf";"Mönchsbergstr. 85";;"70435";"Stuttgart";1.3.1930 00:00:00;"0711/81479133";;0;0;;0;;0;"EHS-1W";81;"EHS-1S";81;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1608;"Frau";"Anna";"Ritter";"Züttlingerstr. 54";;"70435";"Stuttgart";26.9.1933 00:00:00;"0711/845675";;0;0;;0;;0;"EHS-1W";44;"EHS-1S";44;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1609;"Frau";"Berta";"Andritzky";"Stettener-Str.23";"ATH-Zi.112";"70734";"Fellbach";;"0";;0;0;;0;;0;"6W";0;"6S";0;;;;;;;;"Normalkost";"-";;"AE in Box,Fleisch passieren!";"C";"3";;;1;;;;0;;0;1;1;1;1
-1610;"Herr";"Ralph";"Zäpfel";"Teckstraße 5";;"70736";"Fellbach";;"0711/46906620";;0;0;;0;;0;"4W";30;"4S";20;;;;;;;;"Normalkost";"-";;;"C";"1";10.4.2012 00:00:00;;1;;;;0;;0;0;0;7;0
+1610;"Herr";"Ralph";"Zäpfel";"Teckstraße 5";;"70736";"Fellbach";;"0711/46906620";;0;0;;0;;0;"4W";32;"4S";30;;;;;;;;"Normalkost";"-";;;"C";"1";10.4.2012 00:00:00;;1;;;;0;;0;0;0;7;0
 1611;"Herr";"Erich";"Bauer";"Rosensteinstraße 26";;"70736";"Fellbach-Schmiden";;"0711/514856";;0;0;;0;;0;"4W";65;"4S";45;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 1612;"Herr";"Rolf";"Schäfer";"Maicklerstr. 29";;"70736";"Fellbach";11.11.1930 00:00:00;"0711/589371";"Behälter auf dem Couchtisch abstellen und öffnen. Schlüssel benutzen.";0;0;;0;;0;"2W";97;"4S";150;;;"Tochter";;"Marschner";"07151/563485";;"Normalkost";"Essen klein schneiden";;"kein Reis und Fisch und herzhaft würzen.";"C";"1";;;1;;;;0;;0;0;0;7;0
 1613;"Frau";"Ursula";"Degebrodt";"Marbacherstr. 9";;"70435";"Stuttgart";7.2.1924 00:00:00;"0711/54065869";;0;0;;0;;0;"EHS-0W";5;"EHS-0S";5;;;;;;;;"Normalkost";"-";;"passiertes Fleisch";"C";"1";;;1;;;;0;;0;0;0;6;0
-1614;"Frau";"Lilli";"Bartholomäi";"Freiligrathstr. 5";;"70736";"Fellbach";;"0711/513780";"länger klingeln, hört schlecht";0;0;;0;;0;"4W";70;"4S";20;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+1614;"Frau";"Lilli";"Bartholomäi";"Freiligrathstr. 5";;"70736";"Fellbach";;"0711/513780";"länger klingeln, hört schlecht";0;0;;0;;0;"4W";33;"4S";10;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1615;"Frau";"Emilie";"Kilian";"Gartenstr. 21";;"70734";"Fellbach";17.9.1929 00:00:00;"0711/589294";;0;0;;0;;0;"1W";17;"1S";15;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1616;"Frau";"-";"-";;;;;;;;0;0;;0;;0;"1W";0;"1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;;0
 1617;"Frau";"Helene";"Niewygoda";"Finkenweg 46";;"70736";"Fellbach-Schmiden";1.7.1924 00:00:00;"0711/514177";"keine Suppe, Obst: nur Bananen oder Kiwi";0;0;;0;;0;"4W";25;"4S";40;;;;;;;;"Normalkost";"-";;"keine Suppe";"C";"1";;;1;;;;0;;0;0;0;7;0
 1618;"Herr";"Günter";"Sauerberg";"Tapachstr. 75c";;"70437";"Stuttgart";11.12.1925 00:00:00;"0711/684730";;0;0;;0;;0;"EHS-1W";75;"EHS-1S";75;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1619;"Frau";"Elisabeth";"Wörner";"Wielandstr. 15";;"71394";"Kernen-Stetten";8.3.1926 00:00:00;"07151/42982";;0;0;;0;;0;"4W";10;"5S";40;;;"Sohn";;;"07151/48482";;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1620;"Frau";"-";"von Nissen";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";"Zwischenbau";0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
-1621;"Frau";"Lisbeth";"Wurst";"Rappenberg 20";;"70435";"Stuttgart";11.9.1921 00:00:00;"-";"Bitte bei Fr. Möbus läuten und bei Wurst vor die Tür stellen. Kleine Portion.";0;0;;0;;0;"EHS-1W";75;"EHS-1S";75;;;"Schwester";;"Möbus";"0711/8702727";;"Normalkost";"-";;"kleinere Portion";"C";"1";;;1;;;;0;;0;0;0;6;0
+1621;"Frau";"Lisbeth";"Wurst";"Rappenberg 20";;"70435";"Stuttgart";11.9.1921 00:00:00;"-";"Bitte bei Fr. Möbus läuten und bei Wurst vor die Tür stellen. Kleine Portion.";0;0;;0;;0;"EHS-1W";83;"EHS-1S";83;;;"Schwester";;"Möbus";"0711/8702727";;"Normalkost";"-";;"kleinere Portion";"C";"1";;;1;;;;0;;0;0;0;6;0
 1622;"Frau";"Anna";"Schmidgall";"Stettener-Str.25";;"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;"AE in Box";"C";"3";;;1;;;;0;;0;1;1;15;1
 1623;"Frau";"Roswitha";"Spiess";"Goldammerweg 8";;"70734";"Fellbach";9.6.1928 00:00:00;"0711/582274";;0;0;;0;;0;"2W";27;"4S";40;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1624;"Frau";"-";"Spiess";;;;;;;;0;0;;0;;0;"1W";0;"1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;;0
 1625;"Frau";"-";"Spiess";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";;0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;8;0
-1626;"Frau";"-";"Pfander";"Im Keiferle 8";;"70734";"Fellbach";;"0711/574585";;0;0;;0;;0;"1W";12;"1S";5;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+1626;"Frau";"Dorothea";"Pfander";"Im Keiferle 8";;"70734";"Fellbach";;"0711/574585";;0;0;;0;;0;"1W";7;"5S";7;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1627;"Frau";"Renate";"Schmid";"Markelsheimer Str. 73";;"70435";"Stuttgart";13.5.1945 00:00:00;"0711/874648";"Fleisch klein schneiden. Deckel öffnen.    Schlüssel benutzen. Kein Dessert.";0;0;;0;;0;"EHS-0W";55;"EHS-0S";55;;;;;;;;"Normalkost";"-";;"Fleisch klein schneiden kein Dessert";"C";"1";;;1;;;;0;;0;0;0;6;0
 1628;"Frau";"Elsa";"Habig";"Markelsheimer Str. 71";"5. OG";"70435";"Stuttgart";21.2.1927 00:00:00;"0711/874548";"morgens 1 Kanne Kaffee";0;0;;0;;0;"EHS-0W";0;"EHS-0S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1629;"Frau";"Ilse";"Bürkle";"Stettener-Str.25";;"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;"AE in Box!";"C";"3";;;1;;;;0;;0;0;1;15;0
@@ -1454,9 +1454,9 @@ kleine Schüssel Eintopf";0;0;;0;;0;"EHS-1W";32;"EHS-1S";32;;;"Tochter";;;"0711/
 1639;"Frau";"Christine";"Zeller";"Stettener str. 25";"6 Stock Zi.609";"70734";"Fellbach";;;;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Mixkost";"-";;"AE im Saal!";"C";"3";;;1;;;;0;;0;1;1;15;1
 1640;"Herr";"-";"Bräutigam";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"-";"2. OG Flachbau   kein frisches Obst";0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
 1641;"Frau";"Berta";"Joos";"Kelterweg 25";;"70734";"Fellbach";11.3.1926 00:00:00;"0711/583890";"Doppelhaus: Eingang auf der Rückseite";0;0;;0;;0;"1W";25;"1S";27;;;"Sohn";"Ernst";"Knauß";"0711/574893";"Fax: 0711/51097235";"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
-1642;"Frau";"Martha";"Volz";"Auricher Str. 52";;"70437";"Stuttgart";;"0711/8491211";;0;0;;0;;0;"EHS-2W";32;"EHS-2S";32;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1642;"Frau";"Martha";"Volz";"Auricher Str. 52";;"70437";"Stuttgart";;"0711/8491211";;0;0;;0;;0;"EHS-1W";4;"EHS-1S";4;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1643;;"-";"Fuchs";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"-";;0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
-1644;"Herr";"Rainer";"Munz";"Fleiner Str. 5";;"70437";"Stuttgart";21.10.1941 00:00:00;"0711/843641";;0;0;;0;;0;"EHS-2W";25;"EHS-2S";25;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1644;"Herr";"Rainer";"Munz";"Fleiner Str. 5";;"70437";"Stuttgart";21.10.1941 00:00:00;"0711/843641";;0;0;;0;;0;"EHS-2W";10;"EHS-2S";10;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1645;"Frau";"Christine";"Zeller";"Stettener-Str.25";"6.Stock,Zi.609";"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;1;1;1;1
 1646;"Herr";"Herbert";"Laske";"Fleinerstr. 14";;"70437";"Stuttgart";8.3.1925 00:00:00;"0711/847008";"ist Diabetiker. Reichliches Frühstück.Mittagessen halbe Portion.";0;0;;0;;0;"EHS-0W";0;"EHS-0S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1647;"Herr";"Franz";"Unger";"Hintere Str. 29";"3. Stock";"70734";"Fellbach";23.3.1917 00:00:00;"-";"Schlüssel benutzen, Box vor die Tür stellen.";0;0;;0;;0;"1W";89;"1S";62;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
@@ -1469,23 +1469,23 @@ kleine Schüssel Eintopf";0;0;;0;;0;"EHS-1W";32;"EHS-1S";32;;;"Tochter";;;"0711/
 1654;"Frau";"Ida";"Zabold";"Stettener-Str.25";;"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;1;15;1
 1655;"Familie";"Sylvan";"Meiser";"Fasanenweg 22";;"70734";"Fellbach";18.8.1943 00:00:00;"-";;0;0;;0;;0;"2W";10;"5S";30;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1656;"Frau";"Klara";"Duffner";"Albrecht-Dürrer-Weg 12";;"70736";"Fellbach";8.3.1922 00:00:00;"-";;0;0;;0;;0;"2W";98;"4S";155;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
-1657;"Frau";"Gertrud";"Wagner";"Künzelsauer Str. 21";;"70435";"Stuttgart";21.2.1929 00:00:00;"0711/875447";"Box öffnen und fragen, ob man die restlichen Behälter öffnen soll. Frau Wagner ist fast blind";0;0;;0;;0;"EHS-1W";0;"EHS-1S";0;;;;;;;;"Normalkost";"-";;"keine Suppe";"C";"1";;;1;;;;0;;0;0;0;6;0
+1657;"Frau";"Gertrud";"Wagner";"Künzelsauer Str. 21";;"70435";"Stuttgart";21.2.1929 00:00:00;"0711/875447";"Box öffnen und fragen, ob man die restlichen Behälter öffnen soll. Frau Wagner ist fast blind";0;0;;0;;0;"EHS-4W";75;"EHS-4S";75;;;"Sohn";"Dieter";"Wagner";"0711/50444426";"Handy: 071719979981";"Normalkost";"-";;"keine Suppe";"C";"1";;;1;;;;0;;0;0;0;6;0
 1658;"Frau";"Ruth";"Seibold";"Stettener-Str.25";"4.Stock,Zi.409";"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;"AE im Saal!";"C";"3";;;1;;;;0;;0;1;1;15;1
-1659;"Frau";"Marie";"Simon";"Ulmenweg 21";;"70734";"Fellbach";22.6.1925 00:00:00;"5782640";;0;0;;0;;0;"1W";93;"1S";50;;;;;;;;"Normalkost";"-";;;"C";"1";1.9.2012 00:00:00;;1;;;;0;;0;0;0;7;0
+1659;"Frau";"Marie";"Simon";"Ulmenweg 21";;"70734";"Fellbach";22.6.1925 00:00:00;"5782640";;0;0;;0;;0;"1W";93;"1S";50;;;;;;;;"Normalkost";"-";;"keine Suppe";"C";"1";1.9.2012 00:00:00;;1;;;;0;;0;0;0;7;0
 1660;"Frau";".";"Heger";"Ludwigsburger Strasse 2";;"70736";"Fellbach-Oeffingen";;"0711/513372";;0;0;;0;;0;"4W";0;"4S";0;;;;;;;;"Normalkost";"-";;;"C";"1";29.8.2012 00:00:00;;1;;;;0;;0;0;0;7;0
 1661;"Frau";"Hilde";"Hermann";"Fleinerstr.3";;"70437";"Stuttgart Zuffenhausen";12.1.1924 00:00:00;"847824";"Keine Suppe";0;0;;0;;0;"EHS-2W";16;"EHS-2S";16;;;;;;;;"Normalkost";"-";;"keine Suppe";"C";"1";;;1;;;;0;;0;0;0;6;0
 1662;"Frau";"Hanne";"Bäumler";"Mönchsbergstraße 89";;"70435";"Stuttgart Zuffenhausen";1.3.1940 00:00:00;"873087";;0;0;;0;;0;"EHS-1W";93;"EHS-1S";93;;;;;;;;"Normalkost";"-";;;"C";"1";31.8.2012 00:00:00;;1;;;;0;;0;0;0;6;0
 1663;"Herr";"Dieter";"Schuster";"Stettener-Str.23";;"70734";"Fellbach";;"0";;0;0;;0;;0;"6W";0;"6S";0;;;;;;;;"Normalkost";"-";;"AE in Box!";"C";"3";;;1;;;;0;;0;1;1;1;1
 1664;"Herr";"-";"Biegel";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";"2 OG Hochbau";0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
 1665;"Frau";"Luise- Marie";"Feige";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";"EG Hochbau";0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
-1666;"Herr";"Manfred";"Seidel";"Zazenhäuser Str. 14";;"70435";"Stuttgart";14.4.1945 00:00:00;"8107616";"Telefonnr. ist von Nachbarin! Lieferung zwischen 12 und 12:30 Uhr. Anstatt Nudeln und Spätzle, Kartoffelpüree.";0;0;;0;;0;"EHS-2W";55;"EHS-2S";55;;;"Frau";"Tochter 8107616";"Eucker";"8107616";"Nachbarin";"Normalkost bis 12.00Uhr";"-";;"kein Reis, Nudeln Pürree als Ersatz";"C";"1";;;1;;;;0;;0;0;0;6;0
+1666;"Herr";"Manfred";"Seidel";"Zazenhäuser Str. 14";;"70435";"Stuttgart";14.4.1945 00:00:00;"8107616";"Telefonnr. ist von Nachbarin! Lieferung zwischen 12 und 12:30 Uhr. Anstatt Nudeln und Spätzle, Kartoffelpüree.";0;0;;0;;0;"EHS-2W";45;"EHS-2S";45;;;"Frau";"Tochter 8107616";"Eucker";"8107616";"Nachbarin";"Normalkost bis 12.00Uhr";"-";;"kein Reis, Nudeln Pürree als Ersatz";"C";"1";;;1;;;;0;;0;0;0;6;0
 1667;"Frau";"Lutzie";"Strate";"Im Hetzen 3";;"70734";"Fellbach";27.3.1923 00:00:00;;"kein Paprika sowie Paprikagewürz, Sellerie und Haselnüsse. Allergie";0;0;;0;;0;"1W";10;"1S";10;;;"Tochter";;"Strade";"06864/7760";;"Normalkost";"keine Haselnüsse";;"kein Paprikagewürz, Paprika, Sellerie";"C";"1";;;1;;;;0;;0;0;0;7;0
 1668;"Frau";"Hanna";"Roller";"Adalbert-Stifter-Str. 70";;"70437";"Freiberg";23.7.1931 00:00:00;"0711/842157";;0;0;;0;;0;"EHS-1W";25;"EHS-1S";25;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1669;"Frau";"Elfriede";"Schumm";"Rotweg 54";;"70437";"Stuttgart-Rot";;"0711/8401884";"Klingeln und vor der Tür warten, braucht etwas bis sie öffnet.";0;0;;0;;0;"EHS-0W";15;"EHS-0S";15;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
-1670;"Herr";"Walter";"Funk";"Tappachstraße 55";;"70435";"Stuttgart";16.10.2012 00:00:00;"0711/8701133";;0;0;;0;;0;"EHS-1W";57;"EHS-1S";57;;;;;;;;"Normalkost";"-";;;"C";"1";16.10.2012 00:00:00;;1;;;;0;;0;0;0;6;0
+1670;"Herr";"Walter";"Funk";"Tappachstraße 55";;"70435";"Stuttgart";16.10.2012 00:00:00;"0711/8701133";;0;0;;0;;0;"EHS-1W";50;"EHS-1S";50;;;;;;;;"Normalkost";"-";;"mehr Beilagen";"C";"1";16.10.2012 00:00:00;;1;;;;0;;0;0;0;6;0
 1677;"Frau";"Barbara";"Schinagel";"Birkenstr. 18";;"71394";"Kernen";;"07151/46329";;0;0;;0;;0;"5W";8;"5S";8;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1678;"Frau";"Manuela";"Meilicke";"Offenauer Str. 16";;"70437";"Stuttgart";18.12.1946 00:00:00;"0711/8001777";"Box öffnen.";0;0;;0;;0;"EHS-1W";40;"EHS-1S";40;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
-1679;"Frau";"Anna";"Koch";"Rotweg 54";;"70437";"Stuttgart";5.3.1920 00:00:00;"0711/840917";"Essen erst um 11:30 Uhr liefern.";0;0;;0;;0;"EHS-2W";29;"EHS-2S";29;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1679;"Frau";"Anna";"Koch";"Rotweg 54";;"70437";"Stuttgart";5.3.1920 00:00:00;"0711/840917";"Essen erst um 11:30 Uhr liefern. Keine Suppe.";0;0;;0;;0;"EHS-4W";15;"EHS-4S";15;;;;;;;;"Normalkost";"-";;"keine Suppe, dafür Joghurt oder Obst.";"C";"1";;;1;;;;0;;0;0;0;6;0
 1680;"Frau";"Roswita";"Slevoigt";"Stettener-Str.25";;"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;1;15;1
 1681;"Frau";"-";"Borchert";"Jägerhofallee 15";"EG Hochbau";"71638";"Ludwigsburg";;"07141/923614";;0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
 1682;"Frau";"Theresa";"Peters";"Stettener-Str.23";;"70734";"Fellbach";;"0";;0;0;;0;;0;"6W";0;"6S";0;;;;;;;;"Normalkost";"-";;"AE im Saal!!";"C";"3";;;1;;;;0;;0;1;1;1;1
@@ -1499,7 +1499,7 @@ kleine Schüssel Eintopf";0;0;;0;;0;"EHS-1W";32;"EHS-1S";32;;;"Tochter";;;"0711/
 1690;"Herr";"Erich";"Panni";"Meißnerstr. 44";;"70736";"Fellbach";15.2.1950 00:00:00;"0711/5170118";;0;0;;0;;0;"4W";0;"4S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1691;"Frau";"Edith";"Bivi-Thüler";"Stettener-Str.23";;"70734";"Fellbach";;"0";;0;0;;0;;0;"6W";0;"6S";0;;;;;;;;"Sonderkost";"Diaet-";;"AE izum Mittag.Kein Fisch,nichts Süsses!";"C";"3";;;1;;;;0;;0;1;1;1;0
 1692;"Frau";"Irmgard";"Jagomast";"Stettener-Str.25";"Zi.404,4.Stock";"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;1;15;1
-1693;"Frau";"-";"Kuhl";"Jägerhofallee";;"71638";"Ludwigsburg";;"07141/926314";;0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
+1693;"Frau";"-";"Kuhl";"Jägerhofallee";;"71638";"Ludwigsburg";;"07141/926314";"3. Stock Hochbau";0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
 1694;"Frau";"Margot";"Stumpp";"Gartenstr. 84";;"70734";"Fellbach";;"0711/586822";;0;0;;0;;0;"1W";0;"1S";0;;;;;;;;"Normalkost";"-";;"keine Suppe";"C";"1";;;1;;;;0;;0;0;0;7;0
 1695;"Frau";"Marie";"Müller";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";"Zwischenbau";0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
 1696;"Frau";"Ines";"Brodny";"HH";;"-";"Mitarbeiter";;"0";;1;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;0;15;0
@@ -1507,15 +1507,15 @@ kleine Schüssel Eintopf";0;0;;0;;0;"EHS-1W";32;"EHS-1S";32;;;"Tochter";;;"0711/
 1698;"Frau";"Irmgard";"Jagomast";"Srettener-Str.25";"Zi.404, 4.Stock";"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;1;15;1
 1699;"Frau";"Emma";"Fürst";"Stettener-Str.25";;"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;1;15;1
 1700;"Herr";"Franz";"Wittmann";"Am Rappenberg 64";;"70435";"Stuttgart";;"0711/871533";;0;0;;0;;0;"EHS-1W";80;"EHS-1S";80;;;;;;;;"Normalkost";"-";;;"C";"1";5.1.2013 00:00:00;;1;;;;0;;0;0;0;6;0
-1701;"Frau";"Erna";"Trettner";"Fellbacher Str. 91";;"70736";"Fellbach";26.5.2016 00:00:00;"0711/513837";;0;0;;0;;0;"4W";40;"4S";15;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
-1702;"Frau";"Elisabeth";"Rasskopf";"Oedheimerstr. 8";;"70437";"Stuttgart";9.12.1919 00:00:00;"6599844";"fall Sie nicht öffnet, im EG rechts vom Eingang ans Fenster klopfen.";0;0;;0;;0;"EHS-0W";50;"EHS-0S";50;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1701;"Frau";"Erna";"Trettner";"Fellbacher Str. 91";;"70736";"Fellbach";26.5.1916 00:00:00;"0711/513837";;0;0;;0;;0;"4W";40;"4S";15;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+1702;"Frau";"Elisabeth";"Rasskopf";"Oedheimerstr. 8";;"70437";"Stuttgart";9.12.1919 00:00:00;"6599844";"fall Sie nicht öffnet, im EG rechts vom Eingang ans Fenster klopfen. Keine Suppe.";0;0;;0;;0;"EHS-0W";50;"EHS-0S";50;;;;;;;;"Normalkost";"-";;"keine saueren Speisen, keine Suppe";"C";"1";;;1;;;;0;;0;0;0;6;0
 1703;"Frau";"-";"Rasskopf";"Oedheimer Str. 8";;"70437";"Stuttgart";;;;0;0;;0;;0;"EHS-1W";0;"EHS-1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;6;0
 1704;"Frau";"Ilsedore";"Simon";"Albert-Moser-Str. 26/1";;"71394";"Kernen";19.3.1927 00:00:00;"07151/44766";"Um zum Haus zu gelangen, muss man Außentreppen hoch laufen.";0;0;;0;;0;"5W";15;"5S";27;;;;;;;;"Normalkost";"-";;;"C";"1";;;0;;;;0;;0;0;0;7;0
 1705;;"-";"Scannapieco";"Gundelsheimerstr. 61";;"70437";"Stuttgart";3.3.1931 00:00:00;"0711/46976764";;0;0;;0;;0;"EHS-1W";0;"EHS-1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1706;"Herr";"Volker";"Kaiser";"Marie-Curie-Str.6";;"70736";"Fellbach";25.6.1967 00:00:00;"0711/584692";"Fax 584695, Mail info@reifenkaiser.com     Samstags am Werkstatttor klopfen.";0;0;;0;;0;"2W";119;"4S";103;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1707;"Herr";"Heinz";"Kippferling";"August-Brändle-Str. 42";;"70734";"Fellbach";;"0711/5782848";;0;0;;0;;0;"1W";0;"1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
-1708;"Frau";"Eva";"Weiß";"Lindberghstr. 19";;"70736";"Fellbach";;"-";"Fr. Weiss sagen, was es zu Essen gibt, da Sie blind ist.";0;0;;0;;0;"4W";45;"4S";12;;;"Tochter";;"Fleischmann";"0162/6279309";;"Normalkost";"-";;"Keine Suppe, Essen klein schneiden";"C";"1";;;1;;;;0;;0;0;0;7;0
-1709;"Frau";"Frieda";"Sessel";"Horrheimer Str. 29";;"70437";"Stuttgart";;"0711/846182";;0;0;;0;;0;"EHS-1W";47;"EHS-1S";47;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1708;"Frau";"Eva";"Weiß";"Lindberghstr. 19";;"70736";"Fellbach";;"-";"Fr. Weiss sagen, was es zu Essen gibt, da Sie blind ist.";0;0;;0;;0;"4W";45;"4S";50;;;"Tochter";;"Fleischmann";"0162/6279309";;"Normalkost";"-";;"Keine Suppe, Essen klein schneiden";"C";"1";;;1;;;;0;;0;0;0;7;0
+1709;"Frau";"Frieda";"Sessel";"Horrheimer Str. 29";;"70437";"Stuttgart";;"0711/846182";;0;0;;0;;0;"EHS-1W";30;"EHS-1S";30;;;;;;;;"Normalkost";"-";;"keine Suppe, dafür Obst";"C";"1";;;1;;;;0;;0;0;0;6;0
 1710;"Frau";"Roma";"Mokonen";"HH";;"-";"Mitarbeiter";;"0";;1;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;0;5;0
 1711;"Frau";"Katarina";"Flister";"HH";;"-";"Mitarbeiter";;"0";;1;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;0;5;0
 1712;"Frau";"Lucia";"Rothe";"Elsa-Brändström-Weg 6";;"70736";"Fellbach";;"0711/513874";;0;0;;0;;0;"4W";15;"4S";15;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
@@ -1536,63 +1536,126 @@ kleine Schüssel Eintopf";0;0;;0;;0;"EHS-1W";32;"EHS-1S";32;;;"Tochter";;;"0711/
 1727;"Herr";"Erwin";"Selzle";"Kleinfeldstr. 26";"2. Stock";"70734";"Fellbach";24.2.1928 00:00:00;"0711/580869";;0;0;;0;;0;"2W";15;"5S";15;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1728;"Frau";"Martha";"Wössner";"Seitenstraße 3";;"71394";"Kernen-Stetten";28.7.1923 00:00:00;"-";;0;0;;0;;0;"5W";16;"5S";55;;;"Tochter";;"Kurka";"07151/45181";;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1729;"Frau";"Elfriede";"Schaaf";"Stammheimer Str. 144";;"70439";"Stuttgart";5.6.1932 00:00:00;"0711/8263709";"Box öffnen. Hilfe beim Bestellzettel geben.";0;0;;0;;0;"EHS-2W";0;"EHS-2S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
-1730;"Frau";"Stefanie";"Tost";"Friedrich-List-Str. 33";;"70736";"Fellbach";;"0711/352449";;0;0;;0;;0;"2W";116;"4S";50;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
-1731;"Frau";"Ilse";"John";"Jägerhofallee 15";"1. Stock Flachbau";"71638";"Ludwigsburg";;"07141/923614";"keine Suppe";0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;"Keine Suppe";"C";"1";;;1;;;;0;;0;0;0;8;0
+1730;"Frau";"Stefanie";"Tost";"Friedrich-List-Str. 33";;"70736";"Fellbach";;"0711/352449";;0;0;;0;;0;"2W";116;"4S";70;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+1731;"Frau";"Ilse";"John";"Jägerhofallee 15";"1. Stock Flachbau";"71638";"Ludwigsburg";;"07141/923614";"keine Suppe";0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;"Keine Suppe, dafür Joghurt oder Obst.";"C";"1";;;1;;;;0;;0;0;0;8;0
 1732;"Herr";"Peter";"Schwarz";"Rembrandtweg 1";;"70734";"Fellbach";13.2.1946 00:00:00;"0711/34249100";"Bei Lee klingeln.";0;0;;0;;0;"2W";118;"4S";129;;;"Schwester";;"Patinos";"0711/537062";;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1733;"Frau";"Hildegard";"Hartmann";"Rotweg 74";;"70437";"Stuttgart";11.4.1933 00:00:00;"0711/741495";;0;0;;0;;0;"EHS-0W";40;"EHS-0S";40;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
-1734;"Herr";"Wolfgang";"Janouschek";"Fleiner Str. 7";;"70437";"Stuttgart";;"0711/847559";"Box öffnen.";0;0;;0;;0;"EHS-2W";27;"EHS-2S";27;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1734;"Herr";"Wolfgang";"Janouschek";"Fleiner Str. 7";;"70437";"Stuttgart";;"0711/847559";"Box öffnen.";0;0;;0;;0;"EHS-4W";5;"EHS-4S";5;;;;;;;;"Normalkost";"-";;"Box öffnen";"C";"1";;;1;;;;0;;0;0;0;6;0
 1735;"Frau";"Nadine";"Kaiser";"HH";;"-";"Mitarbeiter";;"0";;1;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;0;5;0
 1736;"Frau";"Berta";"Kettenring";"Ulmenweg 21";;"70734";"Fellbach";26.7.1922 00:00:00;"0711/587286";;0;0;;0;;0;"1W";91;"1S";64;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1737;"Herr";"Werner";"Weber";"Marbacherstr. 9";;"70437";"Stuttgart";;"-";;0;0;;0;;0;"EHS-0W";10;"EHS-0S";10;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1738;"Frau";"Brunhilde";"Lammerich";"Mönchsbergstr. 109";"4. OG";"70435";"Stuttgart";28.8.1919 00:00:00;"0711/876615";;0;0;;0;;0;"EHS-1W";0;"EHS-1S";0;;;"Neffe";"Gottfried";"Weiss";"07247/6051";;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1739;"Frau";"Maria";"Kafadari";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";"EG Hochbau";0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
 1740;"Frau";"Margit";"Aldinger";"Burgstr. 28/2";;"70734";"Fellbach";23.3.1956 00:00:00;"0711/586038";;0;0;;0;;0;"1W";20;"1S";26;;;"Betreuer";"Fam";"Büttner";"0711/586218";"Fax: 0711/5782212";"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
-1741;"Herr";"Hermann";"Reiger";"Mönchsberstr. 89";"8.Stock";"70435";"Stuttgart";;"0711/875401";"Irgendwo im Haus klingeln und Hr. Reiger das Essen vor die Wohnungstür stellen.";0;0;;0;;0;"EHS-1W";59;"EHS-1S";59;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1741;"Herr";"Hermann";"Reiger";"Mönchsberstr. 89";"8.Stock";"70435";"Stuttgart";;"0711/875401";"Irgendwo im Haus klingeln und Hr. Reiger das Essen vor die Wohnungstür stellen.";0;0;;0;;0;"EHS-4W";30;"EHS-4S";30;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1742;"Frau";"Consilia";"Refruga-Bernunco";"HH";;"-";"Mitarbeiter";;"0";;1;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;0;5;0
 1743;"Frau";"Ulrike";"Schindler";"HH";;"-";"Mitarbeiter";;"0";;0;0;;1;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;0;5;0
 1744;"Frau";"Alwine";"Egert";"Stettener-Str.25";;"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;1;0;15;0
 1745;"Frau";"Renate";"Seidel";"Keplerstr. 5";;"70734";"Fellbach";;"0711/579380";;0;0;;0;;0;"1W";92;"1S";40;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1746;"Frau";"Anna";"Stuber";"Kappelbergstraße13/1";;"70734";"Fellbach";22.7.1931 00:00:00;"0711/582703";;0;0;;0;;0;"1W";24;"1S";28;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
-1747;"Frau";"Susanne";"Walz";"Rappenberg 29";;"70435";"Stuttgart";6.10.1920 00:00:00;"0711/876992";;0;0;;0;;0;"EHS-1W";80;"EHS-1S";80;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1747;"Frau";"Susanne";"Walz";"Rappenberg 29";;"70435";"Stuttgart";6.10.1920 00:00:00;"0711/876992";;0;0;;0;;0;"EHS-4W";65;"EHS-4S";65;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1748;"Frau";"Eugenie";"Reinhardt";"Mönchsbergstr. 97";"1. Stock";"70435";"Stuttgart";6.5.1936 00:00:00;"0711/873547";"Keine Himbeeren, keine Bananen., auch nicht im Joghurt";0;0;;0;;0;"EHS-1W";67;"EHS-1S";67;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1749;"Frau";"Maria";"Krömer";"Schozacher Str. 40";;"70437";"Stuttgart";;"876204";;0;0;;0;;0;"EHS-2W";0;"EHS-2S";0;;;;;;;;"Normalkost";"-";;;"C";"1";19.5.2013 00:00:00;;1;;;;0;;0;0;0;6;0
 1750;"Frau";"Ingeborg";"Limbach";"Gerhart-Hauptmann-Str. 28";;"70734";"Fellbach";17.4.1939 00:00:00;"0711/579695";;0;0;;0;;0;"1W";94;"1S";67;;;;;;;;"Normalkost";"-";;"Kein Geflügel !";"C";"1";;;1;;;;0;;0;0;0;7;0
-1751;"Herr";"Willy";"Hubel";"James-F.Byrnes-Str. 12";"3. Stock";"70376";"Stuttgart";15.11.1926 00:00:00;"-";;0;0;;0;;0;"EHS-1W";59;"EHS-1S";59;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1751;"Herr";"Willy";"Hubel";"James-F.Byrnes-Str. 12";"3. Stock";"70376";"Stuttgart";15.11.1926 00:00:00;"0711/843503";;0;0;;0;;0;"EHS-1W";60;"EHS-1S";60;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1752;"Frau";"Lore";"Heinser";"Beinsteinerstr. 35";;"71394";"Kernen";23.8.1931 00:00:00;"-";;0;0;;0;;0;"5W";66;"5S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1753;"Frau";"Rosa";"Salzer";"Haldenrainstr. 75";;"70435";"Stuttgart";;"0711/845945";;0;0;;0;;0;"EHS-2W";0;"EHS-2S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1754;"Frau";"Hildegard";"Ringwald";"Jägerstraße. 23";;"71394";"Kernen-Rommelshausen";21.10.1926 00:00:00;"07151/44603";;0;0;;0;;0;"5W";0;"5S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
-1755;"Frau";"Alwine";"Egert";"Stettener-Str.25";;"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;1;15;0
+1755;"Frau";"Alwine";"Egert";"Stettener-Str.25";;"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;",";"-";;"AE in Box,Bauernbrot!";"C";"3";;;1;;;;0;;0;0;1;15;0
 1756;"Frau";"Elfriede";"Geyer";"Stettener-Str.25";;"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;1;15;1
 1757;"Herr";"Eduard";"Maier";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";;0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
 1758;"Frau";".";"Käser";"Balthasar-Neumann-Strasse 37";;"70437";"Stuttgart-Freiberg";;"844343";"3. Stock";0;0;;0;;0;"EHS-1W";36;"EHS-1S";36;;;;;;;;"Normalkost";"-";;;"C";"1";11.6.2013 00:00:00;;1;;;;0;;0;0;0;6;0
 1759;"Frau";"Vassiliki";"Coucouvis";"Wüstenroter Weg 9";;"70437";"Stuttgart";18.3.1938 00:00:00;"-";"Schlüssel benutzen.";0;0;;0;;0;"EHS-2W";0;"EHS-2S";0;;;;;"Schwiegertochter";"07141/6854298";;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1760;"Frau";"Anneliese";"Hallbauer";"Stettener-Str.25";;"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;1;15;1
-1761;"Frau";"Gisela";"Reinecke";"Tapachstr. 95 e";;"70437";"Stuttgart";;"0711/8401171";;0;0;;0;;0;"EHS-1W";58;"EHS-1S";58;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1761;"Frau";"Gisela";"Reinecke";"Tapachstr. 95 e";;"70437";"Stuttgart";;"0711/8401171";;0;0;;0;;0;"EHS-1W";55;"EHS-1S";55;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1762;"Frau";"Tamara";"Boetz";"Auricher Str. 36";;"70437";"Stuttgart";;"0711/8401263";;0;0;;0;;0;"EHS-2W";33;"EHS-2S";33;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
-1763;"Frau";"Inge";"Osel";"Franklinstr. 42";;"70435";"Stuttgart";29.4.1931 00:00:00;"0711/9827993";;0;0;;0;;0;"EHS-2W";0;"EHS-2S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
-1764;"Familie";"Hermann";"Bruck";"Erlacher Str. 45";;"70437";"Stuttgart";;"0711/841789";;0;0;;0;;0;"EHS-1W";44;"EHS-1S";44;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1763;"Frau";"Inge";"Osel";"Franklinstr. 42";;"70435";"Stuttgart";29.4.1931 00:00:00;"0711/9827993";;0;0;;0;;0;"EHS-2W";95;"EHS-2S";95;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1764;"Familie";"Hermann";"Bruck";"Erlacher Str. 45";;"70437";"Stuttgart";;"0711/841789";;0;0;;0;;0;"EHS-1W";25;"EHS-1S";25;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1765;"Frau";"Ingeborg";"Guy";"Max-Brod-Weg 12";;"70437";"Stuttgart";20.5.1934 00:00:00;"0711/845636";;0;0;;0;;0;"EHS-1W";31;"EHS-1S";31;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1766;"Frau";"Anna";"Lussmann";"Oedheimer Str. 3";;"70437";"Stuttgart";;"0711/8407773";"Klingeln und warten, braucht länger.";0;0;;0;;0;"EHS-1W";0;"EHS-1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
-1767;"Herr";"Rudolf";"Gebauer";"Züttlingerstr. 20";;"70437";"Stuttgart";29.9.1926 00:00:00;"-";;0;0;;0;;0;"EHS-0W";0;"EHS-0S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
-1768;"Herr";"Heinz";"Urbanetz";"Wallensteinstr. 17 b";;"70437";"Stuttgart";;"0711/846450";;0;0;;0;;0;"EHS-1W";0;"EHS-1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
-1769;"Frau";"Klara";"Lademann";"Fleiner Str. 66";;"70437";"Stuttgart";25.3.1935 00:00:00;"-";;0;0;;0;;0;"EHS-2W";32;"EHS-2S";32;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
-1770;"Frau";"Hildegard";"Melchert";"Prevorsterstr. 17";;"70437";"Stuttgart";11.9.1926 00:00:00;"0711/8403228";;1;0;;0;;0;"EHS-2W";35;"EHS-2S";35;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
-1771;"Familie";"Gebhard";"Wolf";"Lämmlerstr. 1";;"70734";"Fellbach";23.9.1926 00:00:00;"0711/587801";;0;0;;0;;0;"1W";78;"1S";33;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+1767;"Herr";"Rudolf";"Gebauer";"Züttlingerstr. 20";;"70437";"Stuttgart";29.9.1926 00:00:00;"-";;0;0;;0;;0;"EHS-0W";5;"EHS-0S";5;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1768;"Herr";"Heinz";"Urbanetz";"Wallensteinstr. 17 b";;"70437";"Stuttgart";;"0711/846450";;0;0;;0;;0;"EHS-1W";21;"EHS-1S";21;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1769;"Frau";"Klara";"Lademann";"Fleiner Str. 66";;"70437";"Stuttgart";25.3.1935 00:00:00;"0711/81070500";;0;0;;0;;0;"EHS-2W";32;"EHS-2S";32;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1770;"Frau";"Hildegard";"Melchert";"Prevorsterstr. 17";;"70437";"Stuttgart";11.9.1926 00:00:00;"0711/8403228";;1;0;;0;;0;"EHS-4W";20;"EHS-4S";20;;;;;;;;"Normalkost";"-";;"keine Suppe, dafür Joghurt oder Obst.";"C";"1";;;1;;;;0;;0;0;0;6;0
+1771;"Familie";"Gebhard";"Wolf";"Lämmlerstr. 1";;"70734";"Fellbach";23.9.1926 00:00:00;"0711/587801";;0;0;;0;;0;"1W";78;"1S";47;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1772;"Herr";"Franz";"Neubauer";"Neuensteiner Str. 23";;"70435";"Stuttgart";18.9.1929 00:00:00;"0711/871796";;0;0;;0;;0;"EHS-0W";0;"EHS-0S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
-1773;"Herr";"Josef";"Schönleber";"Haldenrainstr. 115";;"70437";"Stuttgart";27.8.1924 00:00:00;"0711/8401074";;0;0;;0;;0;"EHS-2W";0;"EHS-2S";0;;;"Tochter";;"Privat:07141/2392261";"Geschäft: 84832425";;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1773;"Herr";"Josef";"Schönleber";"Haldenrainstr. 115";;"70437";"Stuttgart";27.8.1924 00:00:00;"0711/8401074";;0;0;;0;;0;"EHS-4W";25;"EHS-4S";25;;;"Tochter";;"Privat:07141/2392261";"Geschäft: 84832425";;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1774;"Frau";"-";"Kussmaul";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"-";"Flachbau";0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
 1775;"Herr";"Karl";"Fabbro";"Im Keiferle 27";;"70734";"Fellbach";;"0711/582926";;0;0;;0;;0;"1W";0;"1S";25;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
 1776;"Frau";"Irmgard";"Grees";"Blankensteiner Str. 12";;"70437";"Stuttgart";;"-";;0;0;;0;;0;"EHS-0W";0;"EHS-0S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
-1777;"Frau";"Gertrud";"Waiblinger";"Wetzlarerstr. 25";;"70376";"Stuttgart";16.3.1937 00:00:00;"0711/547929";;0;0;;0;;0;"EHS-1W";55;"EHS-1S";55;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
-1778;"Frau";"Gretel";"Weber";"Roßwager Str. 3";;"70437";"Stuttgart";;"0711/841271";;0;0;;0;;0;"EHS-2W";0;"EHS-2S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1777;"Frau";"Gertrud";"Waiblinger";"Wetzlarerstr. 25";;"70376";"Stuttgart";16.3.1937 00:00:00;"0711/547929";"Box öffnen.";0;0;;0;;0;"EHS-4W";65;"EHS-1S";65;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1778;"Frau";"Gretel";"Weber";"Roßwager Str. 3";;"70437";"Stuttgart";;"0711/841271";;0;0;;0;;0;"EHS-4W";23;"EHS-4S";23;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1779;"Frau";"Ingrid";"Schepe";"Hindenburgstr. 5";;"70736";"Fellbach";;"0711/512329";"Fleisch klein schneiden. Box öffnen.";0;0;;0;;0;"4W";21;"4S";46;;;;;;;;"Normalkost";"-";;"Fleisch klein schneiden.";"C";"1";;;1;;;;0;;0;0;0;7;0
 1780;"Frau";"Gertrud";"Staib";"Bruckstr. 4";;"70734";"Fellbach";29.11.1933 00:00:00;"0711/5789574";;0;0;;0;;0;"1W";77;"1S";32;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
-1781;"Frau";"Elfriede";"Maurer";"Auensteiner Str. 12";;"70435";"Stuttgart";;"-";;0;0;;0;;0;"EHS-2W";0;"EHS-2S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1781;"Frau";"Elfriede";"Maurer";"Auensteiner Str. 12";;"70435";"Stuttgart";;"-";;0;0;;0;;0;"EHS-2W";70;"EHS-2S";70;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1782;"Herr";"Günther";"Schmauter";"Stettener-Str.25";;"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;"AE Passieren !";"C";"3";;;1;;;;0;;0;1;1;15;0
-1783;"Herr";"Heinz";"Mollenkopf";"Sängerstr. 4";;"70736";"Fellbach";;"0711/34243535";;0;0;;0;;0;"1W";77;"1S";32;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
-1784;"Herr";"Heinrich";"Pospiech";"Rotweg 66";;"70437";"Stuttgart";20.12.1924 00:00:00;"0711/8491225";"länger klingeln, hören schlecht.";0;0;;0;;0;"EHS-2W";0;"EHS-2S";0;;;"Tochter";;"Bogat";"0711/94545857";;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1783;"Herr";"Heinz";"Mollenkopf";"Sängerstr. 4";;"70736";"Fellbach";;"0711/34243535";;0;0;;0;;0;"2W";92;"4S";33;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+1784;"Herr";"Heinrich";"Pospiech";"Rotweg 66";;"70437";"Stuttgart";20.12.1924 00:00:00;"0711/8491225";"länger klingeln, hören schlecht.";0;0;;0;;0;"EHS-4W";10;"EHS-4S";10;;;"Tochter";;"Bogat";"0711/94545857";;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
 1785;"Frau";"Anna";"Hanker";"Stettener-Str.25";;"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;"AE in Box";"C";"3";;;1;;;;0;;0;1;1;15;1
-1786;"Frau";"Lore";"Rapp";"Albrecht-Dürrer-Weg 22";;"70736";"Fellbach";10.12.1930 00:00:00;"0711/5782182";"Essensbestellung begrenzt, Tochter ist im Urlaub ( Tel.5781800/ Mobil 01718792170)";0;0;;0;;0;"2W";0;"4S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
-1787;"Herr";"Manfred";"Kipf";"Emhildstr.13";;"70437";"Stuttgart Zazenhausen";13.11.1928 00:00:00;"0711/845580";"Telefonnummer ist von der Tochter";0;0;;0;;0;"EHS-2W";0;"EHS-2S";0;;;"Frau";;"Kipf";"0711/ 845580";"Schwiegertochter";"Sonderkost";"Diabetes";;"keine blähenden Lebensmittel";"C";"1";;;1;;;;0;;0;0;0;6;0
-1788;"Familie";"Heinz";"Jäckh";"Schwaigernerstraße 4";;"70435";"Stuttgart Zuffenhausen";20.12.1933 00:00:00;"873462";;0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1786;"Frau";"Lore";"Rapp";"Albrecht-Dürrer-Weg 22";;"70736";"Fellbach";10.12.1930 00:00:00;"0711/5782182";"Essensbestellung begrenzt, Tochter ist im Urlaub ( Tel.5781800/ Mobil 01718792170)";0;0;;0;;0;"2W";118;"4S";52;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+1787;"Herr";"Manfred";"Kipf";"Emhildstr.13";;"70437";"Stuttgart Zazenhausen";13.11.1928 00:00:00;"0711/845970";;0;0;;0;;0;"EHS-2W";40;"EHS-2S";40;;;"Frau";;"Kipf";"0711/ 845580";"Schwiegertochter";"Sonderkost";"Diabetes";;"keine blähenden Lebensmittel";"C";"1";;;1;;;;0;;0;0;0;6;0
+1788;"Familie";"Heinz";"Jäckh";"Schwaigernerstraße 4";;"70435";"Stuttgart Zuffenhausen";20.12.1933 00:00:00;"873462";;0;0;;0;;0;"EHS-3/1W";10;"EHS3/1S";10;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
 1789;"Frau";"Mathilde";"Blocksdorf";"Mönchsbergstr.74";;"70435";"Stuttgart";26.6.1930 00:00:00;"874796";;0;0;;0;;0;"EHS-1W";82;"EHS-1S";82;;;"Herr";;"Blocksdorf";"12447862";"Sohn";"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1790;"Familie";"Karl";"Koch";"Rommelshauser Straße 40";;"70734";"Fellbach";8.5.1928 00:00:00;"5203949";;0;0;;0;;0;"4W";0;"4S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+1791;"Frau";"Monigue";"Ehleiter";"HH";;"_";"Mitarbeiter";;"0";;1;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;0;5;0
+1792;"Herr";"Rainer";"Bender";"Stettener-Str.23";;"70734";"Fellbach";;"0";;0;0;;0;;0;"6W";0;"6S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;1;1;0
+1793;"Herr";"Rolf";"Mangelsen";"Stettener-Str. 25";;"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;"AE in Box!";"C";"3";;;1;;;;0;;0;1;1;15;0
+1794;;"Svitlana";"Fischer";"Verwaltung";;;"Mitarbeiter";;"57541-46";;1;0;;0;;0;"1W";0;"1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;;1
+1795;"Frau";"Svitlana";"Fischer";"Verwaltung";;;"Mitarbeiter";;"0";;1;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;"MM in Box, in Küche lassen!";"C";"3";16.9.2013 00:00:00;;1;;;;0;;0;0;0;5;1
+1796;"Frau";"Svitlana";"Fischer";"Verwaltung";;"-";"Mitarbeiter";;"0";;1;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;"MM in Box,in Küche lassen!";"C";"3";;;1;;;;0;;0;0;0;5;0
+1797;"Frau";"-";"Mütschele";"Mönchsbergstr. 109";;"70435";"Stuttgart";;"0711/876626";;0;0;;0;;0;"EHS-4W";35;"EHS-4S";35;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1798;"Familie";"-";"Jansen-Bossert";"Am Rappenberg 61";;"70435";"Stuttgart";;"0711/874246";;0;0;;0;;0;"EHS-0W";0;"EHS-0S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1799;"Herr";"Jörg";"Vetter";"Verwaltung";;;"Mitarbeiter";;"0";;1;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;"MM in Box! In Küche lassen!";"C";"3";;;1;;;;0;;0;0;0;5;0
+1800;"Frau";"Ingrid";"Rehder";"Römmelesweg 28";;"71394";"Kernen-Stetten";21.12.1932 00:00:00;"-";;0;0;;0;;0;"4W";0;"4S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+1801;"Herr";"Fritz";"Gronbach";"Albert-Moser-Str. 40";;"71394";"Kernen";;"-";;0;0;;0;;0;"4W";22;"5S";47;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+1802;"Frau";"Anna";"Thim";"Gronauerstr. 9";;"70437";"Stuttgart";11.3.1925 00:00:00;"0711/8709760";;0;0;;0;;0;"EHS-0W";0;"EHS-0S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1803;"Frau";"Melanie";"Prigl";"HH";;"-";"Mitarbeiter";;"0";;1;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;0;15;0
+1804;"Frau";"Melanie";"Prigl";"HH";;"_";"Mitarbeiter";;"0";;1;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;0;5;0
+1805;"Frau";"Edith";"Lohrbeer";"Langenburgerstr. 60";;"70435";"Stuttgart";;"-";;0;0;;0;;0;"EHS-1W";95;"EHS-1S";95;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1806;"Frau";"Gudrun";"Wiedmann";"Darmstätter Str. 28";;"70376";"Stuttgart";;"-";"Sollte Sie nicht zuhause sein, bitte bei Kitan klingeln.";0;0;;0;;0;"EHS-1W";0;"EHS-1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1807;"Frau";"Ute";"Kachler";"August-Brändle-Str. 24";;"70734";"Fellbach";16.1.1944 00:00:00;"0711/583993";;0;0;;0;;0;"1W";72;"5S";19;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+1808;"Frau";"Gertrud";"Mätzler";"Bottwarstr. 18";;"70435";"Stuttgart";17.7.1928 00:00:00;"0711/874958";;0;0;;0;;0;"EHS-2W";25;"EHS-2S";25;;;"Tochter";;;"0711/8264372";;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1809;"Herr";"Norbert";"Dümmler";"Marbacher Str. 10F";;"70435";"Stuttgart";;"0711/8701743";;0;0;;0;;0;"EHS-2W";20;"EHS-2S";20;;;;;;;;"Normalkost";"-";;"mehr Soße und mehr Suppe";"C";"1";;;1;;;;0;;0;0;0;6;0
+1810;"Herr";"Kurt";"Schweickhardt";"Schozacher Str. 10";;"70437";"Stuttgart";20.5.1931 00:00:00;"0711/876687";;0;0;;0;;0;"EHS-3/1W";25;"EHS3/1S";25;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
+1811;"Frau";"Helena";"Rucky";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";;0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;"keine Milchprodukte";"C";"1";;;1;;;;0;;0;0;0;8;0
+1812;"Frau";"Anneliese";"Kress";"Bruckmannstr. 2";;"70736";"Fellbach";6.7.1921 00:00:00;"0711/519802";;0;0;;0;;0;"4W";30;"4S";20;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+1813;"Familie";"-";"Sontowsky";"Wollinstr, 23";;"70439";"Stuttgart";;"0711/822897";;0;0;;0;;0;"EHS-2W";65;"EHS-2S";65;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1814;"Frau";"Ruth";"Nägele";"Lauffener Str. 34";;"70435";"Stuttgart";;"0711/871577";"Bei Fr. Nägele bitte Leergut aus der Küche mitnehmen.";0;0;;0;;0;"EHS-3W";170;"EHS-3S";170;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
+1815;"Frau";"Bischof";"Vitamed 1";"Max-Brodt-Weg 12";;"70437";"Stuttgart";;"0711/8491673";"Sollte die Türe bei Vitamed nicht geöffnet werden, bitte anrufen unter: 8491673";0;0;;0;;0;"EHS-1W";18;"EHS-1S";18;;;"Kundin";"Erika";"Bischoff";"0711/8402257";"Mönchsfeldstr. 110";"Normalkost";"-";;"keine Suppe, dafür Obst zusätlich";"C";"1";;;1;;;;0;;0;0;0;6;0
+1816;"Frau";"Erika";"Kohlert";"Fleiner Str. 37";;"70437";"Stuttgart";14.10.1929 00:00:00;"0711/843044";;0;0;;0;;0;"EHS-2W";23;"EHS-2S";23;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1817;"Frau";"Tusnelde";"Schubert";"August-Brändle-Str. 33";"1. Stock";"70734";"Fellbach";;"0711/573120";;0;0;;0;;0;"1W";71;"5S";19;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+1818;"Frau";"Hannelore";"Sadowy";"Gartenstraße 81";;"70734";"Fellbach";19.10.1929 00:00:00;"-";"länger klingeln, ggf. beim Nachbar klingeln. Box öffnen.";0;0;;0;;0;"1W";0;"1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+1819;"Frau";"-";"Schmidt";"Jägerhofallee 15";"4. Stock";"71638";"Ludwigsburg";;"07141/923614";;0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
+1820;"Herr";"-";"Rübenach";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923674";;0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
+1821;"Herr";"Ernst";"Klehr";"Bauerweg 12";;"70435";"Stuttgart";19.10.1917 00:00:00;"0711/8261469";"hört schlecht, länger klingeln. Wenn nicht öffnet, vor die Tür stellen.";0;0;;0;;0;"EHS-2W";60;"EHS-2S";60;;;;;;;;"Normalkost";"-";;"kein Reis";"C";"1";;;1;;;;0;;0;0;0;6;0
+1822;"Frau";"Ute";"Kachler";"Stettener-Str 25";;"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;1;15;0
+1823;"Frau";"Mobiler Dienst";"Vita Med 2";"Max-Brodt-Weg 12";;;"Stuttgart";;;;0;0;;0;;0;"1W";0;"1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;;0
+1824;"Frau";"Viktoria";"Best";"Adalbert-Stifter-Str.6";"Parkplatz Nr. 13";"70437";"Stuttgart";;"0711/847011";;0;0;;0;;0;"EHS-1W";17;"EHS-1S";17;;;"Viktoria";"Best";"Adalbert-Stifter-Str. 6";"70437 Stgt  847011";;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1825;"Frau";"Anna";"Leu";"Erlacherstr. 14";;"70435";"Stuttgart";22.3.1927 00:00:00;"0711/844910";;0;0;;0;;0;"EHS-1W";45;"EHS-1S";45;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1826;;"-";"Weiglein";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923674";;0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
+1829;"Herr";"Mobiler Dienst";"Vitamed 3";"Max-Brod-Weg 12";;"70437";"Stuttgart";;"0711/8491673";"Sollte die Türe bei Vitamed nicht geöffnet werden, bitte anrufen unter 8491673";0;0;;0;;0;"EHS-1W";19;"EHS-1S";19;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1830;"Familie";"Helga u. Gilberto";"Piano";"Bönnigheimerstr. 60";;"70435";"Stuttgart";;"-";"Box öffnen. Kein Reis.";0;0;;0;;0;"EHS-3/1W";20;"EHS3/1S";20;;;"Tochter";"Martina";"Breitenstein";"0177/3476780";;"Normalkost";"-";;"kein Reis";"C";"1";;;1;;;;0;;0;0;0;8;0
+1831;"Frau";"Inge";"Illes";"Stettener-Str.25";;"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;1;;0
+1832;"Frau";"Inge";"Illes";"Stettener-Str. 25";;"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;1;15;0
+1833;"Frau";"Edith";"Tank";"Mönchsbergstr. 97";;"70435";"Stuttgart";2.9.1925 00:00:00;"0711/874515";;0;0;;0;;0;"EHS-0W";0;"EHS-0S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1834;"Frau";"-";"Fieback";"Jägerhofallee 15";;"71638";"Ludwigsburg";;"07141/923614";;0;0;;0;;0;"EHS-3W";0;"EHS-3S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
+1835;"Frau";"Schäfer";"Vitamed 4";"Max-Brodt-Weg 12";;"70437";"Stuttgart";18.9.1920 00:00:00;;;0;0;;0;;0;"EHS-1W";14;"EHS-1S";14;;;"Sohn";"Dietmar";"Schäfer";;"Schulstraße 33
+69436 Schönbronn";"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1836;"Frau";"Anni";"Marx";"Markelsheimer Str. 73";;"70435";"Stuttgart";;;"Box öffnen. Schlüssel benutzen. Bitte Essen kurz in die Mikrowelle stellen. Kein Reis.";0;0;;0;;0;"EHS-4W";60;"EHS-4S";60;;;;;;;"kein Reis";"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1837;"Frau";"Veronika";"Schneck";"HH";;"-";"Mitarbeiter";;"0";;1;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;0;5;0
+1838;"Frau";"-";"Wenzel";"Mönchsbergstr. 109";;"70435";"Stuttgart";;"-";;0;0;;0;;0;"EHS-4W";40;"EHS-4S";40;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1839;"Frau";"Irma";"Wörner";"Gartenstraße 81";;"70734";"Fellbach";;"0711/584286";;0;0;;0;;0;"1W";18;"1S";16;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+1840;"Familie";"Waldemar";"Konschak";"Ulmenweg. 19";"3.links";"70734";"Fellbach";;"0711/574422";"wenn Fam. Kontsak nicht zuhause ist, im Haus klingeln und vor die Wohnungstür stellen.";0;0;;0;;0;"1W";94;"1S";51;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+1841;"Frau";"Erna";"Poxleitner";"Eglosheimerstr. 17";;"70439";"Stuttgart";24.12.1928 00:00:00;"0711/803284";;0;0;;0;;0;"EHS-2W";55;"EHS-2S";55;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1842;"Frau";"Melanie";"Schormair";"HH";;"-";"Mitarbeiter";;"0";;1;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;0;5;0
+1843;"Frau";"Hannelore";"Dull";"Freiligrathstr. 14";;"70736";"Fellbach";20.9.1929 00:00:00;"0711/5180516";;0;0;;0;;0;"4W";37;"4S";42;;;"Sohn";;"Dull";"0160 8631406";;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
+1844;"Frau";"Hildegard";"Jordan";"Langobardenstr.42";;"70435";"Stuttgart";18.12.1933 00:00:00;"0711/50422669";;0;0;;0;;0;"EHS-2W";50;"EHS-2S";50;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1845;"Frau";"Anni";"Treutmann";"Bretzfelderstr. 11";;"70437";"Stuttgart";10.8.1921 00:00:00;"0711/55370553";"Bitte Box und alle übrigen Behälter öffnen.";0;0;;0;;0;"EHS-3/1W";5;"EHS3/1S";5;;;"Tochter";"0170 7556074";"Sohn";"07153 540646";;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;8;0
+1846;"Frau";"Ingeborg";"Schönberg";"Tappachstr. 95d";;"70437";"Stuttgart";;"-";;0;0;;0;;0;"EHS-1W";60;"EHS-1S";60;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1847;"Herr";"Maximillian";"Reiber";"Erlacher Str. 6";;"70437";"Stuttgart";;"0711/845075";;0;0;;0;;0;"EHS-1W";47;"EHS-1S";47;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1848;"Frau";"Katarina";"Brkljac";"HH";;"-";"Mitarbeiter";;"0";;1;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;0;5;0
+1849;"Frau";"Afifa";"Oualdli";"HH";;"-";"Mitarbeiter";;"0";;1;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;0;5;0
+1850;"Frau";"Ruth";"Syrbirius";"Schozacher Str. 40";;"70437";"Stuttgart";;"0711/876351";;0;0;;0;;0;"EHS-0W";0;"EHS-0S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;6;0
+1851;"Frau";"Elsa";"Ebert";"Stettener-Str 25";;"70734";"Fellbach";;"0";;0;0;;0;;0;"7W";0;"7S";0;;;;;;;;"Normalkost";"-";;;"C";"3";;;1;;;;0;;0;0;1;15;1
+1852;"Herr";"-";"Walz-Poggioli";"Gartenstraße. 92";;"70734";"Fellbach";;"-";;0;0;;0;;0;"1W";0;"1S";0;;;;;;;;"Sonderkost";"Diabetes";;"keine süßes Essen";"C";"1";;;1;;;;0;;0;0;0;7;0
+1853;"Frau";"Veronika";"Walz-Poggioli";"Gartenstraße. 92";;"70734";"Fellbach";;"0711/3003287";;0;0;;0;;0;"1W";0;"1S";0;;;;;;;;"Normalkost";"-";;;"C";"1";;;1;;;;0;;0;0;0;7;0
