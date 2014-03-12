@@ -10,7 +10,7 @@ describe "customers" do
     CatchmentAreaMapper.new.save CatchmentArea.new(name: "Krankenhaus")
   end
 
-  describe "listing customers" do
+  describe "listing customers", js: true do
     before do
       customer_1 = create_customer("Max", "Mustermann")
       create_customer_with_town("Heinz", "Rühmann", "München")
@@ -61,7 +61,7 @@ describe "customers" do
     end
   end
 
-  describe "editing customers" do
+  describe "editing customers", js: true do
     before do
       create_customer("Peter", "Mustermann")
 
