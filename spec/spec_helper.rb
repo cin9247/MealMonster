@@ -166,8 +166,8 @@ end
 def login_with(user, password)
   visit "/login"
 
-  fill_in "Username", with: user
-  fill_in "Password", with: password
+  fill_in "Benutzername", with: user
+  fill_in "Passwort", with: password
 
   click_on "Login"
 end

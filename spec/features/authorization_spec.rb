@@ -11,8 +11,8 @@ describe "authorization" do
       before do
         visit "/login"
 
-        fill_in "Username", with: "hans"
-        fill_in "Password", with: "secret"
+        fill_in "Benutzername", with: "hans"
+        fill_in "Passwort", with: "secret"
 
         click_on "Login"
       end
@@ -36,8 +36,8 @@ describe "authorization" do
       before do
         visit login_path
 
-        fill_in "Username", with: "hans"
-        fill_in "Password", with: "secret_wrong"
+        fill_in "Benutzername", with: "hans"
+        fill_in "Passwort", with: "secret_wrong"
 
         click_on "Login"
       end
@@ -55,8 +55,8 @@ describe "authorization" do
   describe "logout" do
     before do
       visit login_path
-      fill_in "Username", with: "hans"
-      fill_in "Password", with: "secret"
+      fill_in "Benutzername", with: "hans"
+      fill_in "Passwort", with: "secret"
 
       click_on "Login"
 

@@ -2,10 +2,10 @@ h1 Login
 
 = form_for :session, url: sessions_path do |f|
   p
-    = f.label :username
+    = f.label :username, "Benutzername"
     = f.text_field :username
   p
-    = f.label :password
+    = f.label :password, "Passwort"
     = f.password_field :password
   p
     = f.submit "Login"
