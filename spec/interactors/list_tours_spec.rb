@@ -23,7 +23,7 @@ describe Interactor::ListTours do
   let(:request) { OpenStruct.new(date: Date.new(2013, 10, 1)) }
   subject { Interactor::ListTours.new(request) }
 
-  let!(:response) { subject.run }
+  let(:response) { subject.run }
 
   it "returns all tours for that date" do
     tours = response.object

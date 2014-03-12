@@ -11,6 +11,10 @@ module DummyGateway
         all
       end
 
+      def fetch_sparse
+        all
+      end
+
       def save item
         items << item
         id = item.id = rand(10_000)
