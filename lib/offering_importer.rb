@@ -39,7 +39,7 @@ class OfferingImporter
       end
       soup_meal = rows.find { |r| r[:name] == "Tagessuppe" }
       desert_meal = rows.find { |r| r[:name] == "Dessert" }
-      main_meal_1 = rows.find { |r| r[:name] == "Hauptgricht 1" }
+      main_meal_1 = rows.find { |r| r[:name] == "Hauptgericht 1" }
       main_meal_2 = rows.find { |r| r[:name] == "Hauptgericht 2" }
 
       soup_meal, desert_meal, main_meal_1, main_meal_2 = [soup_meal, desert_meal, main_meal_1, main_meal_2].map do |meal|
