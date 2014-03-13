@@ -12,7 +12,9 @@ div.day
     - @day.tours.each do |tour|
       li.tour
         h3= tour.name
-        = link_to "Einzelansicht", tour_path(tour.id, date: @day.date), class: "tour-detail-link"
+        .tour-links
+          = link_to "Einzelansicht", tour_path(tour.id, date: @day.date), class: "tour-detail-link"
+          =< link_to "Verwalten", manage_tour_path(tour.id), class: "tour-manage-link"
         h6.subheader.driver= "Fahrer: #{tour.driver.try(:name)}"
         ol.stations
           - tour.stations.each do |s|
