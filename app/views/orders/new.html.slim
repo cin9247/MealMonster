@@ -3,22 +3,28 @@
     = label_tag :customer_id, "Kunde"
     = select_tag :customer_id, options_for_select(@customers.map { |c| [c.full_name_reversed, c.id] })
 
-  - @days.each_with_index do |day, j|
-    h1.title= "Bestellung für #{l day.date, format: '%A, den %d.%m.%Y'}"
+  - j = -1
+  - @days.each_slice(2) do |sliced_days|
+    div.row
+    - sliced_days.each do |day|
+      - j += 1
+      div.columns.large-6
+        h3.title= l day.date, format: '%A, der %d.%m.%Y'
 
-    - if day.offerings.present?
+        - if day.offerings.present?
 
-        - 3.times do |i|
-          p
-            - id = "orders_#{j}-offerings-#{i}"
-            = label_tag id, "Bestellung #{i + 1}"
-            = select_tag "orders[#{j}][offering_id][]", options_for_select([["(Keine Bestellung)", nil]] + day.offerings.map { |o| ["#{o.menu.name} (#{meal_list o.menu})", o.id] }), id: id
-        p
-          = hidden_field_tag "orders[#{j}][date]", day.date.iso8601
-    - else
-      div.panel
-        | Für den heutigen Tag liegen keine Angebote vor, die bestellt werden können.
-        =< link_to "Erstellen Sie neue Angebote!", new_offering_path(from: day.date, to: day.date)
+            - 3.times do |i|
+              p
+                - id = "orders_#{j}-offerings-#{i}"
+                = label_tag id, "Bestellung #{i + 1}"
+                = select_tag "orders[#{j}][offering_id][]", options_for_select([["(Keine Bestellung)", nil]] + day.offerings.map { |o| ["#{o.menu.name} (#{meal_list o.menu})", o.id] }), id: id
+            p
+              = hidden_field_tag "orders[#{j}][date]", day.date.iso8601
+        - else
+          div.panel
+            | Für den heutigen Tag liegen keine Angebote vor, die bestellt werden können.
+            =< link_to "Erstellen Sie neue Angebote!", new_offering_path(from: day.date, to: day.date)
+  div.row
   p
     = submit_tag "Bestellungen aufgeben"
 
