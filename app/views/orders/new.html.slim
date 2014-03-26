@@ -4,7 +4,7 @@
     = select_tag :customer_id, options_for_select(@customers.map { |c| [c.full_name_reversed, c.id] })
 
   - @days.each_with_index do |day, j|
-    h1.title= "Bestellung für #{l day.date}"
+    h1.title= "Bestellung für #{l day.date, format: '%A, den %d.%m.%Y'}"
 
     - if day.offerings.present?
 
