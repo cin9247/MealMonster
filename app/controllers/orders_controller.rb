@@ -40,7 +40,7 @@ class OrdersController < ApplicationController
 
     from = Date.parse(date).beginning_of_week
     to = Date.parse(date).end_of_week
-    redirect_to orders_path(from: from, to: to), notice: "Bestellungen erfolgreich erstellt."
+    redirect_to new_order_path(from: from, to: to), notice: "Bestellungen erfolgreich erstellt."
   end
 
   def cancel_form

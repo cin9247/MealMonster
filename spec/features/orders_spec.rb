@@ -112,7 +112,7 @@ describe "orders" do
     end
 
     it "redirects to orders_path" do
-      expect(current_path).to eq orders_path
+      expect(current_path).to eq new_order_path
       expect(page).to have_content "5.10.2013"
     end
 
