@@ -10,20 +10,20 @@ describe OrderMapper do
   let(:offering_2) { create_offering(date_2, "Menu #2", [meal_1.id]) }
   let(:customer) { create_customer "Hans" }
   let(:other_customer) { create_customer "Peter" }
-  let(:order_1) { Order.new date: date_1, offerings: [offering_1], customer: customer }
+  let(:order_1) { Order.new note: "some note", date: date_1, offerings: [offering_1], customer: customer }
   let(:order_2) { Order.new date: date_2, offerings: [offering_2], customer: customer }
   let(:order_3) { Order.new date: date_2, offerings: [offering_2], customer: other_customer }
 
-  describe "#fetch" do
+  describe "#save" do
     before do
       subject.save order_1
     end
 
-    let(:result) { subject.fetch }
-    let(:first_order) { result.first }
+    let(:result) { subject.find order_1.id }
+    let(:first_order) { result }
 
-    it "fetches all offerings" do
-      expect(result.size).to eq 1
+    it "saves the note" do
+      expect(first_order.note).to eq "some note"
     end
 
     it "fetches the menu for the offering" do
