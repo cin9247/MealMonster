@@ -24,6 +24,9 @@ div.pagination.pagination-centered
                 = label_tag id, "Bestellung #{i + 1}"
                 = select_tag "orders[#{j}][offering_id][]", options_for_select([["(Keine Bestellung)", nil]] + day.offerings.map { |o| ["#{o.menu.name} (#{meal_list o.menu})", o.id] }), id: id
             p
+              = label_tag "orders_#{j}_note", "Bemerkung"
+              = text_field_tag "orders[#{j}][note]"
+            p
               = hidden_field_tag "orders[#{j}][date]", day.date.iso8601
         - else
           div.panel

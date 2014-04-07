@@ -55,6 +55,6 @@ class OrdersController < ApplicationController
 
   private
     def request_from_order_params order_params
-      OpenStruct.new(offering_ids: (order_params[:offering_id] || []).reject(&:blank?).map(&:to_i), date: Date.parse(order_params[:date]))
+      OpenStruct.new(offering_ids: (order_params[:offering_id] || []).reject(&:blank?).map(&:to_i), note: order_params[:note], date: Date.parse(order_params[:date]))
     end
 end

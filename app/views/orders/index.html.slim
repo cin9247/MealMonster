@@ -15,10 +15,12 @@ ul.days
           tr
             th Name
             th Bestellung
+            th Bemerkung
             th Aktionen
         tbody
           - orders.each do |order|
             tr.order
               td = order.customer.full_name
               td = menu_list order
+              td = order.note
               td = link_to "Stornieren", cancel_form_order_path(order)

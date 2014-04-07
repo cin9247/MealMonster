@@ -108,6 +108,8 @@ describe "orders" do
       select "Veggie-Menu", from: "Bestellung 1"
       select "Für Pfundskerle", from: "Bestellung 2"
 
+      fill_in "Bemerkung", with: "Will keine Suppe"
+
       click_on "Bestellungen aufgeben"
     end
 
@@ -121,6 +123,11 @@ describe "orders" do
       expect(page).to have_content "Max Mustermann"
       expect(page).to have_content "Veggie-Menu"
       expect(page).to have_content "Für Pfundskerle"
+    end
+
+    it "creates the order with a note" do
+      visit orders_path(from: Date.new(2013, 10, 5), to: Date.new(2013, 10, 5))
+      expect(page).to have_content "Will keine Suppe"
     end
   end
 
