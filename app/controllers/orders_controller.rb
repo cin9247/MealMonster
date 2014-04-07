@@ -31,16 +31,20 @@ class OrdersController < ApplicationController
       return
     end
 
-    params[:orders].each do |index, order_params|
+    orders = params[:orders].map do |index, order_params|
       request = request_from_order_params order_params
       request.customer_id = params[:customer_id].to_i
-      interact_with :create_order, request
-    end
+      interact_with(:create_order, request).object
+    end.compact
     date = params[:orders].map { |index, params| params[:date] }.first
 
     from = Date.parse(date).beginning_of_week
     to = Date.parse(date).end_of_week
-    redirect_to new_order_path(from: from, to: to), notice: "Bestellungen erfolgreich erstellt."
+    if orders.empty?
+      redirect_to new_order_path(from: from, to: to), notice: "Keine Bestellungen aufgegeben."
+    else
+      redirect_to new_order_path(from: from, to: to), notice: "Bestellungen für #{orders.first.customer.full_name} erfolgreich aufgegeben."
+    end
   end
 
   def cancel_form
