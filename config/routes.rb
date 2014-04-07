@@ -22,7 +22,7 @@ CareEAR::Application.routes.draw do
   resources :orders do
     get :by_catchment_area, on: :collection
     get :cancel_form, on: :member
-    post :cancel, on: :member
+    put :cancel, on: :member
   end
   resource :sessions
   resources :tickets do

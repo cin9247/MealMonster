@@ -1,6 +1,6 @@
 h1 Stornierung der Bestellung von #{@order.customer.full_name}
 
-= form_tag cancel_order_path(params[:id]) do
+= form_tag cancel_order_path(params[:id]), method: :put do
   p
     = label_tag :reason, "Grund für die Stornierung"
     = text_field_tag :reason
