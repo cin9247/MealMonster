@@ -55,6 +55,9 @@ group :development, :test do
   gem 'launchy'
 end
 
+gem 'spring', group: :development
+gem 'spring-commands-rspec', group: :development
+
 group :production do
   gem 'newrelic_rpm'
   gem 'rails_12factor'
