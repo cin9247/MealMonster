@@ -23,6 +23,7 @@ class OrdersController < ApplicationController
       OpenStruct.new(date: date, offerings: offerings, order: order)
     end
     @customers = CustomerMapper.new.fetch
+    @catchment_areas = CatchmentAreaMapper.new.fetch
   end
 
   def create

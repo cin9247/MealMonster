@@ -3,10 +3,13 @@ div.pagination.pagination-centered
     li = link_to "Vorherige Woche", new_order_path(from: @days.first.date - 7.days, to: @days.last.date - 7.days)
     li = link_to "Nächste Woche", new_order_path(from: @days.first.date + 7.days, to: @days.last.date + 7.days)
 
-= form_tag orders_path, method: :post do
+= form_tag orders_path, method: :post, id: "new-order-form" do
+  p
+    = label_tag :catchment_area_id, "Nach Einzugsgebiet filtern"
+    = select_tag :catchment_area_id, options_for_select(@catchment_areas.map { |c| [c.name, c.id] }), prompt: "Alle"
   p
     = label_tag :customer_id, "Kunde"
-    = select_tag :customer_id, options_for_select(@customers.map { |c| [c.full_name_reversed, c.id] })
+    = select_tag :customer_id, options_for_select(@customers.map { |c| [c.full_name_reversed, c.id, {data: {catchment_area_id: c.catchment_area.try(:id)}}] })
 
   - j = -1
   - @days.each_slice(2) do |sliced_days|
