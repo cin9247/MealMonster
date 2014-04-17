@@ -145,6 +145,14 @@ describe "offerings" do
       expect(offerings[11].date).to eq Date.new(2014, 1, 19)
     end
 
+    it "doesn't overwrite the existing offerings" do
+      visit new_import_offerings_path
+      attach_file "Speiseplan", "spec/fixtures/speiseplan.csv"
+      click_on "Importieren"
+
+      expect(page).to have_content("Dieser Speiseplan ist schon importiert worden")
+    end
+
     xit "has created the nested meals in its correct order" do
       expect(offerings[0].menu.meals.map(&:name)).to eq ["Kräutercremesuppe", "Grillbratwurst auf Sauerkraut mit Kartoffelpüree", "Birnenkompott"]
       expect(offerings[1].menu.meals.map(&:name)).to eq ["Kräutercremesuppe", "Schlemmerfilet a la Bordelaise mit Kräuterauflage an Karottengemüse und Salzkartoffeln", "Birnenkompott"]

@@ -71,10 +71,13 @@ class OfferingsController < ApplicationController
     offerings = OfferingImporter.new(params[:file].path).import!
 
     dates = offerings.map(&:date).uniq
-    dates.each do |d|
-      offering_mapper.fetch_by_date(d).each do |o|
-        offering_mapper.delete o
-      end
+    do_offerings_exist = dates.map do |d|
+      offering_mapper.fetch_by_date d
+    end.any? { |array| !array.empty? }
+
+    if do_offerings_exist
+      redirect_to new_import_offerings_path, notice: "Dieser Speiseplan ist schon importiert worden."
+      return
     end
 
     offerings.each do |o|
