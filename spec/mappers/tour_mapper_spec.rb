@@ -81,22 +81,6 @@ describe TourMapper do
     end
   end
 
-  describe "#only_keep_ids" do
-    let(:tour_1) { Tour.new name: "Tour #1" }
-    let(:tour_2) { Tour.new name: "Tour #2" }
-
-    before do
-      subject.save tour_1
-      subject.save tour_2
-    end
-
-    it "removes all records not mentioned in the `ids array" do
-      subject.only_keep_ids([tour_2.id, 1523])
-      expect(subject.fetch.size).to eq 1
-      expect(subject.fetch.first.name).to eq "Tour #2"
-    end
-  end
-
   describe "loading of driver" do
     before do
       tour.driver = driver

@@ -32,10 +32,6 @@ class TourMapper < BaseMapper
     end
   end
 
-  def only_keep_ids(ids)
-    DB[:tours].where(:id => ids).invert.delete
-  end
-
   def hash_from_object(record)
     {
       name: record.name,
