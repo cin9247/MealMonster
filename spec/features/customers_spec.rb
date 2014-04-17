@@ -102,4 +102,55 @@ describe "customers" do
       expect(page).to have_content "Bla."
     end
   end
+
+  describe "trying to remove a customer", js: true do
+    before do
+      customer = setup_customer_and_dependencies
+      visit customers_path
+
+      within("tr", text: "Mustermann") do
+        click_on "Löschen"
+      end
+    end
+
+    it "displays the user's name" do
+      expect(page).to have_content "Peter Mustermann"
+    end
+
+    it "displays the tours the customer is in" do
+      expect(page).to have_content "EHS"
+      expect(page).to have_content "KWH"
+      expect(page).to have_content "TFG"
+      expect(page).to_not have_content "Other tour"
+    end
+  end
+
+  describe "removing a customer" do
+    before do
+      customer = setup_customer_and_dependencies
+      visit remove_customer_path(customer.id)
+      click_on "Kunde löschen"
+    end
+
+    it "doesn't show the customer in the customer list" do
+      visit orders_path
+      expect(page).to_not have_content "Peter"
+    end
+
+    it "doesn't show the customer in the orders select list" do
+      visit new_order_path
+      expect(page).to_not have_content "Peter"
+    end
+  end
+end
+
+def setup_customer_and_dependencies
+  customer = create_customer("Peter", "Mustermann")
+  %w(EHS KWH TFG).each do |name|
+    create_tour name, [customer.id]
+  end
+
+  create_tour "Other tour", [create_customer("Dieter", "Hans").id]
+
+  customer
 end

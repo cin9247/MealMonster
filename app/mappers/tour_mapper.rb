@@ -32,6 +32,12 @@ class TourMapper < BaseMapper
     end
   end
 
+  def fetch_sparse_with_customer_id(customer_id)
+    DB[:tours].join(:customers_tours, tour_id: :id).where('customers_tours.customer_id = ?', customer_id).map do |t|
+      Tour.new(id: t[:id], name: t[:name])
+    end
+  end
+
   def hash_from_object(record)
     {
       name: record.name,

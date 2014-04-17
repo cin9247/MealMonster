@@ -1,0 +1,9 @@
+h1= @dependencies.customer_name
+
+.panel
+  | Dieser Kunde ist den Touren
+  strong<>= @dependencies.tour_list.map(&:name).to_sentence
+  | zugeordnet. Wenn Sie ihn löschen, geht diese Zuordnung verloren. Außerdem kann nicht mehr für ihn bestellt werden.
+
+= form_tag customer_path(@dependencies.customer_id), method: :delete do
+  = submit_tag "Kunde löschen"

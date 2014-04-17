@@ -10,6 +10,9 @@ CustomerRow = React.createClass
   invoice_link: ->
     "/customers/#{@props.customer.id}/invoices"
 
+  remove_link: ->
+    "/customers/#{@props.customer.id}/remove"
+
   render: ->
     customer = @props.customer
 
@@ -19,6 +22,8 @@ CustomerRow = React.createClass
       React.DOM.a(href: @edit_link(), "Editieren")
       SPACE()
       React.DOM.a(href: @invoice_link(), "Abrechnung")
+      SPACE()
+      React.DOM.a(href: @remove_link(), "Löschen")
     ]
 
     React.DOM.tr(null, [

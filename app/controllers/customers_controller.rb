@@ -39,6 +39,15 @@ class CustomersController < ApplicationController
     redirect_to customers_path, notice: "Der Kunde wurde erfolgreich aktualisiert."
   end
 
+  def remove
+    @dependencies = interact_with(:list_customers_dependencies, OpenStruct.new(customer_id: params[:id].to_i)).object
+  end
+
+  def destroy
+    interact_with :remove_customer, OpenStruct.new(customer_id: params[:id].to_i)
+    redirect_to customers_path, notice: "Kunde wurde erfolgreich gelöscht."
+  end
+
   def create
     response = interact_with :create_customer, customer_request
 

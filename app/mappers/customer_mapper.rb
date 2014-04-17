@@ -11,8 +11,13 @@ class CustomerMapper < BaseMapper
     super(record)
   end
 
+  def delete(record)
+    schema_class[record.id].update(deleted_at: DateTime.now)
+    DB[:customers_tours].where(customer_id: record.id).delete
+  end
+
   def fetch
-    schema_class.eager(:address => :keys).eager(:catchment_area).order(Sequel.function(:lower, :surname)).all.map do |c|
+    schema_class.where(:deleted_at => nil).eager(:address => :keys).eager(:catchment_area).order(Sequel.function(:lower, :surname)).all.map do |c|
       convert_to_object_and_set_id c
     end
   end

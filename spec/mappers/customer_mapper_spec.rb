@@ -78,4 +78,24 @@ describe CustomerMapper do
       expect(subject.fetch.first.address.town).to eq "Dresden"
     end
   end
+
+  describe "#delete" do
+    let(:tour) { Tour.new name: "Tour #1", customers: [customer] }
+
+    before do
+      subject.save customer
+
+      TourMapper.new.save tour
+
+      subject.delete customer
+    end
+
+    it "removes the customer from all customers" do
+      expect(subject.fetch.size).to eq 0
+    end
+
+    it "removes the customer from the tour" do
+      expect(TourMapper.new.find(tour.id).customers).to eq []
+    end
+  end
 end

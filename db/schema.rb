@@ -30,6 +30,7 @@ Sequel.migration do
       column :email, "text"
       column :created_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.251565000+0000"), :null=>false
       column :updated_at, "timestamp without time zone", :default=>DateTime.parse("2014-02-28T21:28:46.251599000+0000"), :null=>false
+      column :deleted_at, "timestamp without time zone"
     end
 
     create_table(:customers_tours) do
@@ -186,5 +187,6 @@ Sequel.migration do
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140217142119_add_email_to_customers.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140217232059_add_created_at_and_updated_at_to_all_tables.rb')"
     self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140302142333_add_canceled_to_orders.rb')"
+    self << "INSERT INTO \"schema_migrations\" (\"filename\") VALUES ('20140417133609_add_deleted_at_to_customers.rb')"
   end
 end
